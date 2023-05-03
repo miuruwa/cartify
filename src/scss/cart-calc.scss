@@ -7,6 +7,7 @@
         margin: auto;
         margin-bottom: 8px;
         user-select: none;
+        box-sizing: border-box;
     }
     .total-class {
         display: flex;
@@ -21,6 +22,11 @@
         }
         div:last-child {
             font-size: 32px,
+        }
+    }
+    &.screen-device-mobile {
+        .product-edit {
+            margin-top: 8px;
         }
     }
     .product-edit {
