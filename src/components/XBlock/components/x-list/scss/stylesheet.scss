@@ -1,0 +1,50 @@
+@import "../../../../../scss/stylesheet.scss";
+
+.x-list {
+    margin-bottom: $point;
+    &:not(.mobile-horizontal) {
+        @media screen and (max-width: 720px) {
+            @include vertical-list();
+            .x-button .x-button-title {
+                text-align: center;
+            }
+        }
+
+        @media screen and (min-width: 721px) {
+            @include horizontal-list();
+        }
+    }
+    &.mobile-horizontal {
+        @include horizontal-list();
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.webx {
+    &.screen-device-mobile {
+        .x-list {
+            @include vertical-list();
+            .x-button .x-button-title {
+                text-align: center;
+            }
+        }
+    }
+    &.screen-device-tablet {
+        .x-list {
+            @include horizontal-list();
+        }
+        
+    }
+    &.screen-device-desktop {
+        .x-list {
+            @include horizontal-list();
+        }
+    }
+    .x-list {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

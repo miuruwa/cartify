@@ -1,0 +1,26 @@
+@import "../../../../../scss/stylesheet.scss";
+
+.webx {
+    &.screen-device-tablet{
+        .x-raw {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &.screen-device-desktop {
+        .x-raw {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .x-raw {
+        margin-bottom: $point;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
