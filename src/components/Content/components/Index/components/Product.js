@@ -38,14 +38,14 @@ export class Product extends React.Component {
           </div>
         </div>
       </div>
-      <div style={{ paddingBottom: "24px"}}>
-        <div className="product-edit" style={{marginTop: "0px!important"}}>
-        <XButton icon={<EditIcon />} hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true} onClick={() => {
-          this.setState({editing: true});
-        }} />
-        <XButton icon={<CloseIcon />} hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true} onClick={() => {
-          this.props.toolkit.removeProduct(this.props.product.id);
-        }} />
+      <div className="product-options">
+        <div className="product-edit">
+          <XButton icon={<EditIcon />} hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true} onClick={() => {
+            this.setState({editing: true});
+          }} />
+          <XButton icon={<CloseIcon />} hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true} onClick={() => {
+            this.props.toolkit.removeProduct(this.props.product.id);
+          }} />
         </div>
       </div>
     </>
