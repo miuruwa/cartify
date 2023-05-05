@@ -105,41 +105,17 @@ class App extends React.Component {
         }));
         localStorage.setItem("product-list", JSON.stringify(this.state.productList));
       },
-      changeProductName: (productID, name) => {
+      changeProduct: (productID, name=null, quantity=null, price=null) => {
         this.setState(prevState => ({
           productList: prevState.productList.map(
           item => {
             if (item.id !== productID) {
               return item
             }
-
             item.name = name
-            return item
-          })}))
-          localStorage.setItem("product-list", JSON.stringify(this.state.productList));
-      },
-      changeProductQuantity: (productID, quantity) => {
-        this.setState(prevState => ({
-          productList: prevState.productList.map(
-          item => {
-            if (item.id !== productID) {
-              return item
-            }
-
             item.quantity = quantity
-            return item
-          })}))
-          localStorage.setItem("product-list", JSON.stringify(this.state.productList));
-      },
-      changeProductPrice: (productID, price) => {
-        this.setState(prevState => ({
-          productList: prevState.productList.map(
-          item => {
-            if (item.id !== productID) {
-              return item
-            }
-
             item.price = price
+            
             return item
           })}))
           localStorage.setItem("product-list", JSON.stringify(this.state.productList));

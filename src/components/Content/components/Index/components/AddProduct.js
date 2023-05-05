@@ -29,6 +29,7 @@ export class AddProduct extends React.Component {
           <XField icon={<ShoppingCartIcon />} flexlist={true} setField={this.setQuantity}>
             Кол-во
           </XField>
+          шт.
           <div style={{ height: "100%", display: "flex", alignItems: "center" }}>
             <CloseIcon />
           </div>
