@@ -18,9 +18,14 @@ class ColorSchemaChanger extends React.Component {
     this.icons = {
       light: <LightModeIcon />,
       dark: <NightlightIcon />,
-      pink: <TuneIcon />,
       auto: <AutoAwesomeIcon />,
       custom: <TuneIcon />,
+    };
+    this.titles = {
+      light: "Светлая",
+      dark: "Тёмная",
+      auto: "Системная",
+      custom: "Кастомная",
     };
     this.dropdown = [
       {
@@ -46,6 +51,7 @@ class ColorSchemaChanger extends React.Component {
       }
     ];
     this.actualSchemaIcon = this.icons[this.actualSchema];
+    this.actualSchemaTitle = this.titles[this.actualSchema];
   }
 
   getSchemaButton = (item) => {
@@ -80,7 +86,7 @@ class ColorSchemaChanger extends React.Component {
         contentPosition={this.props.contentPosition || "bottom-right"}
         listDirection="row"
       >
-        <XButton icon={this.actualSchemaIcon} isDropdown={true} />
+        <XButton icon={this.actualSchemaIcon} title={this.actualSchemaTitle} isDropdown={true} />
       </XDropdown>
     );
   }

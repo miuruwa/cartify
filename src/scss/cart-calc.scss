@@ -3,7 +3,7 @@
         color: gray;
         width: 100%;
         max-width: 640px;
-        padding: 24px;
+        padding: 0 0 20px 0;
         margin: auto;
         margin-bottom: 8px;
         user-select: none;
@@ -22,11 +22,6 @@
         }
         div:last-child {
             font-size: 32px,
-        }
-    }
-    &.screen-device-mobile {
-        .product-edit {
-            margin-top: 8px;
         }
     }
     .product-edit {
@@ -103,5 +98,15 @@
     }
     &.screen-device-desktop .x-block:not(:hover) .product-options .product-edit {
         display: none;
+    }
+    .block-wrapper {
+        padding: 20px 0;
+    }
+    .addProduct-done {
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-family: 'TT Commons';
+        font-size: 20px;
     }
 }

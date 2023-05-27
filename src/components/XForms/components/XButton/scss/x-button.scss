@@ -2,19 +2,6 @@
 @import "../../../../../scss/box-shadows.scss";
 
 .webx {
-    // &.screen-device-mobile {
-        
-    //     .x-button {
-    //         width: 100%;
-    //         margin-bottom: 8px;
-    //     }
-    // }
-
-    &.screen-device-tablet, &.screen-device-desktop {
-        .x-button {
-            margin-right: 8px;
-        }
-    }
     .x-dropdown {
         .x-button {
             width: 100%;
@@ -40,9 +27,6 @@
 
         &:hover {
             background: var(--x-button-background-hover);
-        }
-        &:last-child {
-            margin-right: 0!important;
         }
 
         .x-button-icon {

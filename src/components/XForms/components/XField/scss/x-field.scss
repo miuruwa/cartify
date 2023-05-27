@@ -12,7 +12,6 @@
 
         box-sizing: border-box;
         padding: calc((var(--x-button-height) - 25px) / 2) $point;
-        margin-bottom: $point;
         border-radius: $point;
 
         display: flex;
@@ -20,9 +19,6 @@
         transition: 0.05s;
         overflow: hidden;
         cursor: text;
-        &.selected {
-            
-        }
         &.max-list {
             flex: 1 1 auto;
         }

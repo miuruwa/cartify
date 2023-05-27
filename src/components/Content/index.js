@@ -10,7 +10,7 @@ export default class AppContent extends React.Component {
     <BrowserRouter>
       <Routes>
         <Route path="/cart-calc/*" element={Index(this.props)} />
-        <Route exact path="/cart-calc/" element={Index(this.props)} />
+        {/* <Route exact path="/cart-calc/" element={Index(this.props)} /> */}
       </Routes>
     </BrowserRouter>
   )

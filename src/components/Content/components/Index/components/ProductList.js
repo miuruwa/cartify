@@ -1,5 +1,6 @@
 import React from "react";
 import { Product } from "./Product";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 export class ProductList extends React.Component {
   render() {
@@ -9,7 +10,10 @@ export class ProductList extends React.Component {
           Чтобы добавить продукт, добавьте информацию о нём в шапке и нажмите "+"
         </p>
         <p>
-          Чтобы очистить список добавленных продуктов, нажмите "х" в шапке
+          Чтобы очистить список добавленных продуктов, зайдите в настройки
+        </p>
+        <p>
+          Разработано kensoi 2023 c <FavoriteBorderIcon fontSize="small" sx={{color: "red", transform: "translateY(3px)"}}/>
         </p>
       </div>;
     }
