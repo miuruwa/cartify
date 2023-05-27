@@ -49,7 +49,8 @@ $header-logo-size: 3px;
         top: 0;
         height: $point * 7;
         z-index: 98;
-        width: 640px;
+        width: 100%;
+        max-width: 640px;
         margin: 0 auto;
         border-radius: 0 0 $point*2 $point*2;
 

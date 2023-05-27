@@ -186,10 +186,10 @@ class App extends React.Component {
 
   showHelloMessage = () => {
     let helloMessage =
-      JSON.parse(localStorage.getItem("HelloMessage")) || false;
+      JSON.parse(localStorage.getItem("HelloCartCalcMessage")) || false;
 
     if (!helloMessage) {
-      localStorage.setItem("HelloMessage", JSON.stringify(true));
+      localStorage.setItem("HelloCartCalcMessage", JSON.stringify(true));
       this.toolkit.showCard("hello");
     }
   };

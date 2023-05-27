@@ -40,12 +40,19 @@ export default class SettingsMessage extends React.Component {
               setContext={this.props.toolkit.setTotalMode}
             />
           </XRaw>
-          <XButton title="Очистить список продуктов" style={{width: "100%"}} onClick={
-              () => {
-                this.props.toolkit.clearList();
-                this.props.toolkit.returnCardResponse(null)
-              }
-            }/>
+          <XRaw>
+            <XButton title="Очистить список" style={{width: "100%"}} onClick={
+                () => {
+                  this.props.toolkit.clearList();
+                  this.props.toolkit.returnCardResponse(null)
+                }
+              }/>
+            <XButton title="Привет, мир" style={{width: "100%"}} onClick={
+                () => {
+                  this.props.toolkit.showCard("hello");
+                }
+              }/>
+          </XRaw>
         </XVertical>
       </>
     );

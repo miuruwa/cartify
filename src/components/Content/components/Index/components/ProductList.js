@@ -13,7 +13,7 @@ export class ProductList extends React.Component {
           Чтобы очистить список добавленных продуктов, зайдите в настройки
         </p>
         <p>
-          Разработано kensoi 2023 c <FavoriteBorderIcon fontSize="small" sx={{color: "red", transform: "translateY(3px)"}}/>
+          Разработано kensoi в 2023 c <FavoriteBorderIcon fontSize="small" sx={{color: "red", transform: "translateY(3px)"}}/>
         </p>
       </div>;
     }
