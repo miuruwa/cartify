@@ -100,8 +100,8 @@ class XDropdown extends React.Component {
 
     return (
       <div className={dropdownClassList.join(" ")}>
-        <this.Children />
-        <this.Content />
+        {this.Children()}
+        {this.Content()}
       </div>
     );
   }

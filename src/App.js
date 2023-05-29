@@ -4,8 +4,10 @@ import { nanoid } from "nanoid";
 import "./css/stylesheet.css";
 import AppContent from "./components/Content";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import FormCard from "./components/FormCard";
 import OverflowBG from "./components/OverflowBG";
+import { XVertical } from "./components/XBlock";
 
 import {getScreenDeviceType} from "./shared/";
 
@@ -18,6 +20,7 @@ class App extends React.Component {
 
       productList: JSON.parse(localStorage.getItem("product-list")) || [],
       inTotalMode: JSON.parse(localStorage.getItem("inTotalMode")) || false,
+      currency: JSON.parse(localStorage.getItem("valuta")) || "",
       availableMoney: JSON.parse(localStorage.getItem("available-money")) || 0,
       selectedProduct: null,
 
@@ -31,6 +34,7 @@ class App extends React.Component {
       },
 
       headerState: JSON.parse(localStorage.getItem("headerState")) || true,
+      footerState: JSON.parse(localStorage.getItem("footerState")) || true,
     };
   }
 
@@ -42,6 +46,14 @@ class App extends React.Component {
       cardTopOffset: this.state.cardTopOffset,
       cardLoaded: this.state.cardLoaded,
       selectedProduct: this.state.selectedProduct,
+      
+      currency: this.state.currency,
+      setCurrency: (currency) => {
+        this.setState({
+          currency: currency
+        })
+        localStorage.setItem("valuta", JSON.stringify(currency));
+      },
 
       setSelectedProduct: (state) => {
         this.setState({selectedProduct: state})
@@ -61,6 +73,9 @@ class App extends React.Component {
 
       setAvailableMoney: (state) => {
         let money = parseFloat(state).toFixed(2)
+        if (isNaN(money)) {
+          money = 0.0
+        }
         this.setState({
           availableMoney: money
         })
@@ -180,16 +195,26 @@ class App extends React.Component {
           JSON.stringify(this.state.headerState)
         );
       },
+      enableFooter: this.state.footerState,
+      setFooterState: (state) => {
+        this.setState({
+          footerState: state,
+        });
+        localStorage.setItem(
+          "footerState",
+          JSON.stringify(this.state.footerState)
+        );
+      },
     }
   };
     
 
   showHelloMessage = () => {
     let helloMessage =
-      JSON.parse(localStorage.getItem("HelloCartCalcMessage")) || false;
+      JSON.parse(localStorage.getItem("HelloCartCalcMessage1_1")) || false;
 
     if (!helloMessage) {
-      localStorage.setItem("HelloCartCalcMessage", JSON.stringify(true));
+      localStorage.setItem("HelloCartCalcMessage1_1", JSON.stringify(true));
       this.toolkit.showCard("hello");
     }
   };
@@ -208,8 +233,11 @@ class App extends React.Component {
     try {
       return (
         <>
-          <Header toolkit={this.toolkit} />
-          <AppContent toolkit={this.toolkit} />
+          <XVertical xstyle={{padding: "8px"}}>
+            <Header toolkit={this.toolkit} />
+            <AppContent toolkit={this.toolkit} />
+            <Footer toolkit={this.toolkit} />
+          </XVertical>
           <OverflowBG toolkit={this.toolkit} />
           <FormCard toolkit={this.toolkit} />
         </>

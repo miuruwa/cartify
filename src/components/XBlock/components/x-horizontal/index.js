@@ -13,11 +13,11 @@ function getSXbyArr(sx, i) {
   }
 }
 
-function XVertical(props) {
-  let classList = ["x-vertical"]
+function XHorizontal(props) {
+  let classList = ["x-horizontal"]
   return <div className={classList.join(" ")} style={props.xstyle}>
     {Children.map(props.children, (child, i) => {
-        return <div className="x-vertical-children" style={getSXbyArr(props.sx, i)}>
+          return <div className="x-horizontal-children" style={getSXbyArr(props.sx, i)}>
             {child}
           </div>
         }
@@ -26,4 +26,4 @@ function XVertical(props) {
   </div>
 }
 
-export {XVertical};
+export {XHorizontal};

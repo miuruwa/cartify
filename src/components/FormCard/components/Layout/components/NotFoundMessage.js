@@ -6,6 +6,6 @@ export default class NotFoundMessage extends React.Component {
       <>
         <h1>Карточка не найдена!</h1>
       </>
-    );
+    )
   }
 }

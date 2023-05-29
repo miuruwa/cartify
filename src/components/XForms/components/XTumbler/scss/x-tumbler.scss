@@ -18,7 +18,7 @@
             background: var(--x-field-background);
             color: var(--x-field-text);
             width: fit-content;
-            height: 38px;
+            min-height: 38px;
             line-height: 38px;
             box-sizing: border-box;
             padding: 0 8px;
@@ -34,8 +34,8 @@
             transform: translateY(2px);
             &:last-child {
                 margin-right: 0;
-        }
-            &.x-tumbler-selected {
+            }
+            &:not(.x-tumbler-selected) {
                 cursor: pointer;
                 transform: translateY(0px);
                 box-shadow: 0 2px 0 var(--x-field-text);
@@ -43,6 +43,9 @@
                 &:hover {
                     background: var(--x-field-background-hover);
                 }
+            }
+            &.x-tumbler-selected {
+                opacity: 0.5;
             }
 
             &.svg {

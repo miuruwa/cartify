@@ -24,6 +24,7 @@
         box-shadow: $box-shadow;
         padding: 0 $point;
         box-sizing: border-box;
+        transition: 0.1s;
 
         &:hover {
             background: var(--x-button-background-hover);

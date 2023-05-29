@@ -1,21 +1,53 @@
 import React from "react";
 import "./scss/x-field.scss";
+import CloseIcon from '@mui/icons-material/Close';
 
 class XField extends React.Component {
   state = {
     field: this.props.field,
+    valueCheckMark: this.props.field,
     focus: false,
   };
 
   icon = () => {
-    return <div className="x-field-icon">
-      <div className="x-field-icon-wrap">
-        {this.props.icon || null}
+    if (this.props.icon) {
+      return <div className="x-field-icon">
+        <div className="x-field-icon-wrap">
+          {this.props.icon}
+        </div>
       </div>
-    </div>;
-  };
+    }
+  }
+
+  value = () => {
+    if (this.props.fieldValue && this.state.valueCheckMark !== "") {
+      return <div className="x-field-value-wrap">
+          {this.props.fieldValue}
+        </div>
+    }
+  }
+
+  clear = () => {
+    if (this.props.cleanable && this.state.valueCheckMark !== "") {
+      return <div className="x-field-clear" onClick={() => {
+          this.textField.innerHTML = ""
+          this.setState({
+            valueCheckMark: ""
+          })}}>
+        <div className="x-field-clear-wrap">
+          <CloseIcon />
+        </div>
+      </div>
+    }
+  }
+  input = (e) => {
+    this.setState({
+      valueCheckMark: e.target.innerHTML
+    })
+  }
 
   field = () => {
+    let text = this.props.fieldValue ? this.props.children + " (" + this.props.fieldValue + ")" : this.props.children
     return (
       <div
         className="x-field-input"
@@ -26,8 +58,8 @@ class XField extends React.Component {
         onBlur={this.onFocusOut}
         contentEditable="true"
         suppressContentEditableWarning={true}
-        onInput={(e) => this.props.setField(e.target.innerHTML)}
-        data-placeholder={this.props.children}
+        onInput={this.input}
+        data-placeholder={text}
       >
         {this.state.field}
       </div>
@@ -43,6 +75,7 @@ class XField extends React.Component {
   }
 
   onFocusOut = () => {
+    this.props.setField(this.textField.innerHTML);
     this.setState({focus: false})
   }
 
@@ -71,8 +104,10 @@ class XField extends React.Component {
     }
     return (
       <div className={this.classList.join(" ")} onClick={this.focusField}>
-        <this.icon />
-        <this.field />
+        {this.icon()}
+        {this.field()}
+        {this.value()}
+        {this.clear()}
       </div>
     );
   }

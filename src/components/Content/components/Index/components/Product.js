@@ -1,17 +1,16 @@
 import React from "react";
+
+import XBlock, {XHorizontal, XVertical, XList} from "../../../../XBlock";
+import { XButton, XField } from "../../../../XForms";
+
 import CloseIcon from '@mui/icons-material/Close';
 import DoNotDisturbAltIcon from '@mui/icons-material/DoNotDisturbAlt';
-import XBlock, {XVertical} from "../../../../XBlock";
-import { XButton, XField } from "../../../../XForms";
-import CurrencyRubleIcon from '@mui/icons-material/CurrencyRuble';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DoneIcon from '@mui/icons-material/Done';
 import EditIcon from '@mui/icons-material/Edit';
 
 export class Product extends React.Component {
   state = {
-    editing: false,
     name: this.props.product.name,
     quantity: this.props.product.quantity,
     price: this.props.product.price,
@@ -20,106 +19,157 @@ export class Product extends React.Component {
     price_editing: this.props.product.price
   }
 
+  setName = (name) => {
+    this.setState({ 
+      name_editing: name
+    })
+  }
+
+  setQuantity = (quantity) => {
+    this.setState({
+      quantity_editing: parseFloat(quantity)
+    })
+  }
+
+  setPrice = (price) => {
+    this.setState({
+      price_editing: parseFloat(price)
+    })
+  }
+
   getTotalProductPrice = () => {
     let price = this.state.quantity * this.state.price;
     return price.toFixed(2)
   }
 
   productInfo = () => {
-    return <>
-      <div className="product-edit product">
-        <div className="xraw">
-          <div className="product-name">
-            {this.state.name}
-          </div>
-          <div className="small">
-            <div className="product-descr">
-              <CurrencyRubleIcon />
-              {this.state.price}
-            </div>
-            ×&nbsp;
-            <div className="product-descr">
-              {this.state.quantity} шт.
-            </div>
-            =
-            <div className="product-descr">
-              <CurrencyRubleIcon />
-              {this.getTotalProductPrice()}
-            </div>
-          </div>
-        </div>
-        <div className="product-options">
-          <div className="product-edit">
-            <XButton icon={<EditIcon />} hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true} onClick={() => {
-              this.props.toolkit.setSelectedProduct(this.props.product.id);
-            }} />
-            <XButton icon={<CloseIcon />} hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true} onClick={() => {
-              this.props.toolkit.removeProduct(this.props.product.id);
-            }} />
-          </div>
-        </div>
+    return <XVertical>
+      <div className="product-item-name">
+        {this.state.name}
       </div>
-    </>
+      <div className="product-item-descr">
+        {this.state.price} {this.props.toolkit.currency} × {this.state.quantity} шт. = {this.getTotalProductPrice()} {this.props.toolkit.currency}
+      </div>
+    </XVertical>
   }
 
-  setName = (name) => { this.setState({ name_editing: name }); };
-  setQuantity = (quantity) => { this.setState({ quantity_editing: parseInt(quantity) }); };
-  setPrice = (price) => { this.setState({ price_editing: parseFloat(price) }); };
+  productEdit = () => {
+    return <XList sx={[{flex: "1 1 auto"}, {}]}>
+      <XField 
+          icon={<DriveFileRenameOutlineIcon />} 
+          cleanable={true}
+          flexlist={true} 
+          field={this.state.name_editing} setField={this.setName}>
+        Название товара
+      </XField>
+      <XHorizontal>
+        <XField
+            fieldValue={this.props.toolkit.currency}
+            cleanable={true}
+            flexlist={true}
+            field={this.state.price_editing} setField={this.setPrice}>
+          Цена
+        </XField>
+        <div style={{ height: "100%", display: "flex", alignItems: "center" }}>
+          <CloseIcon />
+        </div>
+        <XField
+            fieldValue="шт."
+            cleanable={true}
+            flexlist={true}
+            field={this.state.quantity_editing} setField={this.setQuantity}>
+          Кол-во
+        </XField>
+      </XHorizontal>
+    </XList>
+  }
+
+  itemContainer = () => {
+    if (this.props.toolkit.selectedProduct === this.props.product.id) {
+      return  this.productEdit()
+    }
+    else {
+      return this.productInfo()
+    }
+  }
+
+  actionButton = (props) => {
+    return <XButton // Внести новые изменения
+      icon={props.icon}
+      hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true}
+      onClick={props.onClick}
+    />
+  }
+
   setNewData = () => {
+    if (this.state.name_editing === "") {
+      this.props.toolkit.showCard("add-product-error")
+      return
+    }
+    
+    if (this.state.quantity_editing === 0.0 || isNaN(this.state.quantity_editing)) {
+      this.props.toolkit.showCard("add-product-error")
+      return
+    }
+    
+    if (this.state.price_editing === 0.0 || isNaN(this.state.price_editing)) {
+      this.props.toolkit.showCard("add-product-error")
+      return
+    }
+
     this.setState({
       name: this.state.name_editing,
       quantity: this.state.quantity_editing,
       price: this.state.price_editing,
     })
-    this.props.toolkit.setSelectedProduct(null);
-  };
+    
+    this.props.toolkit.changeProduct(this.props.product.id, this.state.name_editing, this.state.quantity_editing, this.state.price_editing)
+    this.props.toolkit.setSelectedProduct(null)
+  }
+
   setOldData = () => {
     this.setState({
       name_editing: this.state.name,
       quantity_editing: this.state.quantity,
       price_editing: this.state.price,
-      editing: false,
     })
-    this.props.toolkit.setSelectedProduct(null);
-  };
 
-  productEdit = () => {
-    return <XVertical>
-    <div className="product-edit">
-      <XField icon={<DriveFileRenameOutlineIcon />} field={this.state.name_editing} flexlist={true} setField={this.setName}>
-        Название товара
-      </XField>
-      <XButton
-        icon={<DoNotDisturbAltIcon />}
-        hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true}
-        onClick={() => {
-          this.setOldData();}} />
-    </div>
-    <div className="product-edit">
-      <XField icon={<CurrencyRubleIcon />} flexlist={true} field={this.state.price_editing} setField={this.setPrice}>
-        Цена
-      </XField>
-      <div style={{ height: "100%", display: "flex", alignItems: "center" }}>
-        <CloseIcon />
-      </div>
-      <XField icon={<ShoppingCartIcon />} flexlist={true} field={this.state.quantity_editing} setField={this.setQuantity}>
-        Кол-во
-      </XField>
-      <XButton
-        icon={<DoneIcon />}
-        hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true}
-        onClick={() => {
-          this.props.toolkit.changeProduct(this.props.product.id, this.state.name_editing, this.state.quantity_editing, this.state.price_editing)
-          this.setNewData();}} />
-    </div>
-  </XVertical>
+    this.props.toolkit.setSelectedProduct(null)
   }
 
-  render() {
-    return <XBlock key={this.props.product.id}>
-        {
-          this.props.toolkit.selectedProduct === this.props.product.id ? <this.productEdit /> : <this.productInfo />
-        }
+  selectCurrentID = () => {
+    this.props.toolkit.setSelectedProduct(this.props.product.id);
+  }
+
+  removeAction = () => {
+    this.props.toolkit.removeProduct(this.props.product.id);
+  }
+
+  productActions = () => {
+    if (this.props.toolkit.selectedProduct === this.props.product.id) {
+      // продукт сейчас редактируется
+
+      return <XHorizontal>
+        {this.actionButton({icon: <DoneIcon />, onClick: this.setNewData})}
+        {this.actionButton({icon: <DoNotDisturbAltIcon />, onClick: this.setOldData})}
+      </XHorizontal>
+    }
+    else {
+      // продукт не редактируется
+
+      return <XHorizontal>
+        {this.actionButton({icon: <EditIcon />, onClick: this.selectCurrentID})}
+        {this.actionButton({icon: <CloseIcon />, onClick: this.removeAction})}
+      </XHorizontal>
+    }
+  }
+
+  render () {
+    return <XBlock>
+      <XHorizontal sx={[{flex: "1 1 auto"}, {}]}>
+        {this.itemContainer()}
+        {this.productActions()}
+      </XHorizontal>
     </XBlock>
   }
 }

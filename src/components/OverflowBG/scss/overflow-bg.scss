@@ -19,6 +19,7 @@
         &.visible {
             /* Карточка на экране */
             background-color: rgba(0, 0, 0, 0.582);
+            backdrop-filter: blur(12px);
         }
     }
 }

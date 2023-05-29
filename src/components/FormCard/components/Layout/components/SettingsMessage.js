@@ -1,60 +1,66 @@
 import React from "react";
 
-import { XRaw, XVertical, FormLabel } from "../../../../XBlock";
+import { XList, XVertical, FormLabel } from "../../../../XBlock";
 import { XButton, XTumbler, XField } from "../../../../XForms";
 
-import CurrencyRubleIcon from '@mui/icons-material/CurrencyRuble';
 import ColorSchemaChanger from "../../../../ColorSchemaChanger";
+import DoneIcon from '@mui/icons-material/Done';
 
 export default class SettingsMessage extends React.Component {
   contexts = [
     {
-      name: "OFF",
+      name: "ВЫКЛ.",
       context: false,
     },
     {
-      name: "ON",
+      name: "ВКЛ.",
       context: true,
     },
-  ];
+  ]
+
   render() {
     return (
       <>
         <h1>Настройки</h1>
         <XVertical>
-          <XRaw>
+          <XList xstyle={{justifyContent:"space-between"}}>
             <FormLabel>Цветовая схема</FormLabel>
             <ColorSchemaChanger align="right" toolkit={this.props.toolkit} />
-          </XRaw>
-          <XRaw>
-            <FormLabel> Наличные </FormLabel>
-            <XField icon={<CurrencyRubleIcon />} setField={this.props.toolkit.setAvailableMoney}>
-              Наличные
-            </XField>
-          </XRaw>
-          <XRaw>
+          </XList>
+          <XList xstyle={{justifyContent:"space-between"}}>
             <FormLabel>Включить подсчёт сдачи</FormLabel>
             <XTumbler
               tumbleConfig={this.contexts}
               context={this.props.toolkit.inTotalMode}
               setContext={this.props.toolkit.setTotalMode}
             />
-          </XRaw>
-          <XRaw>
-            <XButton title="Очистить список" style={{width: "100%"}} onClick={
+          </XList>
+          <XList xstyle={{justifyContent:"space-between"}}>
+            <FormLabel>Валюта</FormLabel>
+            <XField cleanable={true} field={this.props.toolkit.currency} setField={this.props.toolkit.setCurrency}>
+              валюта
+            </XField>
+          </XList>
+          <XList sx={[{flex: "1 1 auto", height: "40px"}, {flex: "1 1 auto", height: "40px"}]}>
+            <XButton title="Открыть лог" style={{width: "100%"}} onClick={
                 () => {
-                  this.props.toolkit.clearList();
-                  this.props.toolkit.returnCardResponse(null)
+                  this.props.toolkit.showCard("log");
                 }
               }/>
             <XButton title="Привет, мир" style={{width: "100%"}} onClick={
                 () => {
-                  this.props.toolkit.showCard("hello");
+                  this.props.toolkit.showCard("hello-world");
                 }
               }/>
-          </XRaw>
+          </XList>
+          <XButton icon={<DoneIcon/>} 
+              onClick={() => {
+              this.props.toolkit.returnCardResponse(null)
+          }}>
+            Окей
+          </XButton>
         </XVertical>
       </>
-    );
+    )
   }
 }

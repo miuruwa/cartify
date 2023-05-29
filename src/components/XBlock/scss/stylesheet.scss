@@ -4,12 +4,12 @@
 .webx {
     .x-block {
         $note-block-shadow: $box-shadow, $box-border;
+        @include box-shadow($note-block-shadow);
         border-radius: $point * 2;
         padding: $point;
         background: var(--card-background);
         color: var(--color);
         margin: 0 auto $point auto;
-        max-width: $point * 80;
         box-sizing: border-box;
     }
 }

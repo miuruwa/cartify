@@ -16,7 +16,7 @@ class XTumbler extends React.Component {
 
   getContextButton = (item) => {
     var classList = ["x-tumbler-item"];
-    if (this.state.context !== item.context) {
+    if (this.state.context === item.context) {
       classList.push("x-tumbler-selected");
     }
     if (item.type) {

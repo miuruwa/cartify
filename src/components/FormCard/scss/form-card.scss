@@ -49,16 +49,20 @@
             padding: $point * 4 $point * 3 0 $point * 3;
             .form-card-close-button {
                 cursor: pointer;
-                @include box-shadow($box-shadow);
+                $note-block-shadow: $box-shadow, $box-border;
+                @include box-shadow($note-block-shadow);
                 width: $point * 4;
                 height: $point * 4;
                 border-radius: $point * 4;
-                background-color: gray;
+                background-color: rgb(49, 49, 49);
                 color: var(--card-background);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 user-select: none;
+                svg {
+                    fill: white;
+                }
             }
         }
         .form-card-layout {

@@ -1,77 +1,10 @@
 .webx {
-    .credits {
-        color: gray;
-        width: 100%;
-        max-width: 640px;
-        padding: 0 0 20px 0;
-        margin: auto;
-        margin-bottom: 8px;
-        user-select: none;
-        box-sizing: border-box;
-    }
+    min-height: 100vh;
     .total-class {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 8px 0 12px;
-        height: 48px;
+        padding: 0 8px;
+        min-height: 24px;
         font-weight: 600;
         user-select: none;
-        div:first-child {
-            font-size: 24px,
-        }
-        div:last-child {
-            font-size: 32px,
-        }
-    }
-    .product-edit {
-        &.product {
-            .xraw {
-                flex: 1 1 auto;
-                padding: 8px 0 8px 8px;
-                margin-bottom: 0!important;
-            }
-        }
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
-        > * {
-            margin-right: 8px;
-        }
-        
-        :last-child {
-            margin-right: 0;
-        }
-    }
-    .small {
-        display: flex;
-        justify-content: left;
-        > * {
-            margin-right: 4px;
-        }
-        
-        :last-child {
-            margin-right: 0;
-        }
-    }
-    .product-name {
-        font-family: 'TT Commons';
-        font-weight: 600;
-        font-size: 24px,
-    }
-    .product-descr {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-family: 'TT Commons';
-        font-size: 18px;
-
-        svg {
-            width: 16px;
-            height: 16px;
-            margin-bottom: 4px;
-        }
     }
     .product-not-found {
         max-width: 640px;
@@ -80,33 +13,43 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 8px 0;
         p {
-            width: 60%;
-            font-size: 20px;
-            color: var(--color);
+            max-width: 512px;
+            width: 100%;
+            padding: 0 32px;
             margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 18px;
+            color: var(--color);
         }
-    }
-    .product-options {
-        padding-bottom: 24px;
-        .product-edit {
-            margin-top: 0px!important;
-        }
-    }
-    .x-block:hover .product-options .product-edit {
-        display: inherit;
-    }
-    &.screen-device-desktop .x-block:not(:hover) .product-options .product-edit {
-        display: none;
     }
     .block-wrapper {
         padding: 20px 0;
     }
-    .addProduct-done {
+    .add-product-status {
         height: 40px;
         line-height: 40px;
         text-align: center;
         font-family: 'TT Commons';
         font-size: 20px;
     }
+    .product-item-name {
+        height: 40px;
+        line-height: 28px;
+        font-family: 'TT Commons';
+        font-weight: 600;
+        font-size: 28px;
+        padding: 12px 8px 0px 8px;
+        box-sizing: border-box;
+    }
+    .product-item-descr {
+        height: 40px;
+        line-height: 20px;
+        font-size: 20px;
+        font-family: 'TT Commons';
+        padding: 0px 8px 20px 8px;
+        box-sizing: border-box;
+    }
+
 }

@@ -29,7 +29,7 @@ export default class FormCard extends React.Component {
       return (
         <div className={ClassList.join(" ")} style={offsetStyle}>
           <div className="form-card">
-            <this.closeButton />
+            {this.closeButton()}
             <div className="form-card-layout">
               <Layout toolkit={this.props.toolkit} />
             </div>
