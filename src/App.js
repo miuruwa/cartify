@@ -18,6 +18,10 @@ class App extends React.Component {
     this.state = {
       colorSchema: localStorage.getItem("colorSchema") || "dark",
 
+      settingsPage: 0,
+      settingsMounted: true,
+      settingsLoaded: true,
+
       productList: JSON.parse(localStorage.getItem("product-list")) || [],
       inTotalMode: JSON.parse(localStorage.getItem("inTotalMode")) || false,
       currency: JSON.parse(localStorage.getItem("valuta")) || "",
@@ -28,7 +32,7 @@ class App extends React.Component {
 
       cardTopOffset: 0,
       cardMounted: false,
-      cardLoaded: true,
+      cardLoaded: false,
       cardLayout: "settings",
       cardResponse: JSON.parse(localStorage.getItem("latestResponse")) || {
         layout: "settings",
@@ -48,6 +52,47 @@ class App extends React.Component {
       cardTopOffset: this.state.cardTopOffset,
       cardLoaded: this.state.cardLoaded,
       selectedProduct: this.state.selectedProduct,
+      settings: {
+        mounted: this.state.settingsMounted,
+        loaded: this.state.settingsLoaded,
+
+        page: this.state.settingsPage,
+
+        setPage: (page) => {
+          var offset = 100;
+          if (page === this.state.settingsPage) {
+            return
+          }
+          if (this.state.settingsMounted) {
+            offset += 100;
+            this.setState({
+              settingsLoaded: false,
+            })
+            console.log("settings.loaded = false")
+            setTimeout(()=>{
+              this.setState({
+                settingsMounted: false,
+              })
+            }, 100)
+            console.log("settings.mounted = false")
+          }
+
+          setTimeout(()=>{
+            this.setState({
+              settingsPage: page,
+              settingsMounted: true,
+            })
+            console.log("settings.mounted = true")
+          }, offset)
+
+          setTimeout(()=>{
+            this.setState({
+              settingsLoaded: true,
+            })
+            console.log("settings.loaded = true")
+          }, 100 + offset)
+        }
+      },
 
       windowSize: {
         width: this.state.windowWidth,
@@ -218,10 +263,10 @@ class App extends React.Component {
 
   showHelloMessage = () => {
     let helloMessage =
-      JSON.parse(localStorage.getItem("HelloCartCalcMessage1_1")) || false;
+      JSON.parse(localStorage.getItem("HelloCartCalcMessage1_2")) || false;
 
     if (!helloMessage) {
-      localStorage.setItem("HelloCartCalcMessage1_1", JSON.stringify(true));
+      localStorage.setItem("HelloCartCalcMessage1_2", JSON.stringify(true));
       this.toolkit.showCard("hello");
     }
   };
@@ -237,12 +282,12 @@ class App extends React.Component {
 
     this.showHelloMessage();
     
-    window.addEventListener('resize', () => {
-      this.setState({
-        windowWidth: document.body.clientWidth,
-        windowHeight: document.body.clientHeight
-      })
-    })
+    // window.addEventListener('resize', () => {
+    //   this.setState({
+    //     windowWidth: document.body.clientWidth,
+    //     windowHeight: document.body.clientHeight
+    //   })
+    // })
 
     let globalXStyle = {padding: "8px", minHeight: "100vh", boxSizing: "border-box"}
     let globalSX = [{}, {flex: "1 1 auto"}]

@@ -17,6 +17,10 @@
         }
         
         .form-label {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 8px;
+            box-sizing: border-box;
             &.disable-at-mobile {
                 display: none;
             }
@@ -29,6 +33,8 @@
         }
         
         .form-label {
+            height: 40px;
+            line-height: 40px;
             display: flex;
             box-sizing: border-box;
             align-items: center;
@@ -41,6 +47,8 @@
             grid-template-columns: 1fr 2fr;
         }
         .form-label {
+            height: 40px;
+            line-height: 40px;
             display: flex;
             box-sizing: border-box;
             align-items: center;

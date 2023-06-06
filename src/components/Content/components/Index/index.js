@@ -51,7 +51,7 @@ function MobileTemplate (props) {
   </XVertical>
 }
 
-export default function Content (props) {
+export default function Index (props) {
     if (props.toolkit.windowSize.width >= 768) {
         return DesktopTemplate (props)
     }

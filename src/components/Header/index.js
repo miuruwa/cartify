@@ -15,9 +15,10 @@ function DevButton(props) {
 function Settings(props) {
   return <XButton
   icon={<SettingsIcon />}
+  accent="transparent"
   hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true}
   onClick={() => {
-    props.toolkit.showCard("settings");
+    window.location.href=process.env.PUBLIC_URL + "/settings"
   }} />
 }
 

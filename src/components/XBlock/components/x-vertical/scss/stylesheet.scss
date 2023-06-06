@@ -15,8 +15,6 @@
         @include vertical-list();
         .x-vertical-children {
             margin-bottom: 8px;
-            height: fit-content;
-            padding: 0;
             &:last-child {
                 margin-bottom: 0!important;
             }

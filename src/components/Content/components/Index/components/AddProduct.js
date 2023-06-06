@@ -76,8 +76,8 @@ export class AddProduct extends React.Component {
           field={this.state.name} setField={this.setName}>
         Название товара
       </XField>
-      <XHorizontal xstyle={{justifyContent: "space-between"}}>
-        <XHorizontal>
+      <XHorizontal xstyle={{justifyContent: "space-between"}} sx={[{flex: "1 1 auto"}, {}]}>
+        <XHorizontal sx={[{flex: "1 1 auto"}, {}, {flex: "1 1 auto"}]}>
           <XField
               fieldValue={this.props.toolkit.currency}
               flexlist={true}

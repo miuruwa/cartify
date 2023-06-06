@@ -1,13 +1,10 @@
 import React from "react";
 
-import { XList, XVertical, FormLabel } from "../../../../XBlock";
-import { XButton, XTumbler, XField } from "../../../../XForms";
+import { XButton } from "../../../../XForms";
 
-import ColorSchemaChanger from "../../../../ColorSchemaChanger";
-
+import SettingsIcon from '@mui/icons-material/Settings';
 import DoneIcon from '@mui/icons-material/Done';
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
-import PersonIcon from '@mui/icons-material/Person';
+import { XVertical } from "../../../../XBlock";
 
 export default class GreetingsMessage extends React.Component {
   contexts = [
@@ -24,47 +21,28 @@ export default class GreetingsMessage extends React.Component {
   render() {
     return <>
         <h1>
-          Перед началом предлагаем настроить приложение:
+          Обновление 1.2.0
         </h1>
+        <p>
+          У калькулятора покупок вышло новое обновление,
+        </p>
+        <p>
+          поэтому перед началом советуем проверить свои настройки, чтобы вы могли убедиться, что все настройки остались на своём месте:
+        </p>
         <XVertical>
-          <XList xstyle={{justifyContent:"space-between"}}>
-            <FormLabel>Цветовая схема</FormLabel>
-            <ColorSchemaChanger align="right" toolkit={this.props.toolkit} />
-          </XList>
-          <XList xstyle={{justifyContent:"space-between"}}>
-            <FormLabel>Включить подсчёт сдачи</FormLabel>
-            <XTumbler
-              tumbleConfig={this.contexts}
-              context={this.props.toolkit.inTotalMode}
-              setContext={this.props.toolkit.setTotalMode}
-            />
-          </XList>
-          <XList xstyle={{justifyContent:"space-between"}}>
-            <FormLabel>Валюта</FormLabel>
-            <XField cleanable={true} field={this.props.toolkit.currency} setField={this.props.toolkit.setCurrency}>
-              валюта
-            </XField>
-          </XList>
-          <XButton icon={<DoneIcon/>} 
-              onClick={() => {
-            this.props.toolkit.returnCardResponse(null)
-          }}>
-            Окей
-          </XButton>
-          <XButton icon={<PersonIcon/>}
+          <XButton icon={<SettingsIcon/>} style={{width: "100%"}}
                 onClick={() => {
-                this.props.toolkit.showCard("hello-world")
+                window.location.href=process.env.PUBLIC_URL + "/settings/"
               }}>
-            Открыть "Привет мир"
+            Открыть настройки
           </XButton>
-          <XButton icon={<QuestionMarkIcon/>} 
-              onClick={() => {
-            this.props.toolkit.returnCardResponse("log")
-          }}>
-            Лог обновления 1.1.2
+          <XButton icon={<DoneIcon/>} style={{width: "100%"}}
+                onClick={() => {
+                this.props.toolkit.returnCardResponse(null)
+              }}>
+            Закрыть оповещение
           </XButton>
         </XVertical>
-        
       </>
   }
 }

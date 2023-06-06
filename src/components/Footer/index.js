@@ -10,7 +10,7 @@ function Footer(props) {
       <div className="footer">
         <div className="footer-content">
           <p>
-            Калькулятор покупок, версия 1.1.3 <br />
+            Калькулятор покупок, версия 1.2.0 <br />
             Copyright kensoi 2023 <FavoriteBorderIcon fontSize="small" sx={{color: "red", transform: "translateY(4px)"}}/>
           </p>
           <XList sx={[{minWidth:"128px"}, {minWidth:"128px"}]}>
