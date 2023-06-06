@@ -23,6 +23,8 @@ class App extends React.Component {
       currency: JSON.parse(localStorage.getItem("valuta")) || "",
       availableMoney: JSON.parse(localStorage.getItem("available-money")) || 0,
       selectedProduct: null,
+      windowWidth: document.body.clientWidth,
+      windowHeight: document.body.windowHeight,
 
       cardTopOffset: 0,
       cardMounted: false,
@@ -46,6 +48,11 @@ class App extends React.Component {
       cardTopOffset: this.state.cardTopOffset,
       cardLoaded: this.state.cardLoaded,
       selectedProduct: this.state.selectedProduct,
+
+      windowSize: {
+        width: this.state.windowWidth,
+        height: this.state.windowHeight
+      },
       
       currency: this.state.currency,
       setCurrency: (currency) => {
@@ -229,11 +236,21 @@ class App extends React.Component {
     document.body.className = this.layoutClassList.join(" ");
 
     this.showHelloMessage();
+    
+    window.addEventListener('resize', () => {
+      this.setState({
+        windowWidth: document.body.clientWidth,
+        windowHeight: document.body.clientHeight
+      })
+    })
+
+    let globalXStyle = {padding: "8px", minHeight: "100vh", boxSizing: "border-box"}
+    let globalSX = [{}, {flex: "1 1 auto"}]
 
     try {
       return (
         <>
-          <XVertical xstyle={{padding: "8px"}}>
+          <XVertical xstyle={globalXStyle} sx={globalSX}>
             <Header toolkit={this.toolkit} />
             <AppContent toolkit={this.toolkit} />
             <Footer toolkit={this.toolkit} />

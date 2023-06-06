@@ -33,20 +33,25 @@ export class InTotalBlock extends React.Component {
 
   render () {
     if (this.props.toolkit.inTotalMode) {
-      return <XBlock>
-        <XVertical xstyle={{padding: "8px 0"}}>
-          {this.getTotal()}
+      return <>
+        <XBlock>
           <XHorizontal key={nanoid()} xstyle={{justifyContent:"space-between"}}  sx={[{fontSize:"18px", lineHeight:"40px"}]}>
-            <div className="total-class">
-              Ваши наличные:
-            </div>
-            <XField fieldValue = {this.props.toolkit.currency} cleanable={true} field={this.props.toolkit.getAvailableMoney()} setField={this.props.toolkit.setAvailableMoney}>
-              Наличные
-            </XField>
-          </XHorizontal>
-          {this.getChange()}
-        </XVertical>
-      </XBlock>
+              <div className="total-class">
+                Ваши наличные:
+              </div>
+              <XField fieldValue = {this.props.toolkit.currency} cleanable={true} field={this.props.toolkit.getAvailableMoney()} setField={this.props.toolkit.setAvailableMoney}>
+                Наличные
+              </XField>
+            </XHorizontal>
+        </XBlock>
+        <XBlock>
+          <XVertical xstyle={{padding: "8px 0"}}>
+            {this.getTotal()}
+            
+            {this.getChange()}
+          </XVertical>
+        </XBlock>
+      </>
     }
     return <XBlock>
       <XVertical xstyle={{padding: "8px 0"}}>

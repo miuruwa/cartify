@@ -8,6 +8,7 @@ import DoNotDisturbAltIcon from '@mui/icons-material/DoNotDisturbAlt';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import DoneIcon from '@mui/icons-material/Done';
 import EditIcon from '@mui/icons-material/Edit';
+import DynamicDiv from "../../../../DynamicDiv";
 
 export class Product extends React.Component {
   state = {
@@ -16,7 +17,8 @@ export class Product extends React.Component {
     price: this.props.product.price,
     name_editing: this.props.product.name,
     quantity_editing: this.props.product.quantity,
-    price_editing: this.props.product.price
+    price_editing: this.props.product.price,
+    removed_state: 0,
   }
 
   setName = (name) => {
@@ -44,11 +46,25 @@ export class Product extends React.Component {
 
   productInfo = () => {
     return <XVertical>
-      <div className="product-item-name">
-        {this.state.name}
-      </div>
-      <div className="product-item-descr">
-        {this.state.price} {this.props.toolkit.currency} × {this.state.quantity} шт. = {this.getTotalProductPrice()} {this.props.toolkit.currency}
+      <XHorizontal sx={[{flex: "1 1 auto"}, {}]}>
+        <div className="product-name">
+          {this.state.name}
+        </div>
+        {this.actionButton({icon: <EditIcon />, onClick: this.selectCurrentID})}
+        {this.actionButton({icon: <CloseIcon />, onClick: this.removeAction})}
+      </XHorizontal>
+      <div className="product-total-price">
+        <nobr>
+          {this.state.price}&nbsp;{this.props.toolkit.currency}
+        </nobr>
+        &nbsp;×&nbsp;
+        <nobr>
+          {this.state.quantity}&nbsp;шт.
+        </nobr>
+        &nbsp;=&nbsp;
+        <nobr>
+          {this.getTotalProductPrice()}&nbsp;{this.props.toolkit.currency}
+        </nobr>
       </div>
     </XVertical>
   }
@@ -62,7 +78,7 @@ export class Product extends React.Component {
           field={this.state.name_editing} setField={this.setName}>
         Название товара
       </XField>
-      <XHorizontal>
+      <XHorizontal sx={[{flex: "1 1 auto"}, {}, {flex: "1 1 auto"}]}>
         <XField
             fieldValue={this.props.toolkit.currency}
             cleanable={true}
@@ -81,14 +97,27 @@ export class Product extends React.Component {
           Кол-во
         </XField>
       </XHorizontal>
+      <XHorizontal xstyle={{justifyContent: "right"}}>
+        {this.actionButton({icon: <DoneIcon />, onClick: this.setNewData})}
+        {this.actionButton({icon: <DoNotDisturbAltIcon />, onClick: this.setOldData})}
+      </XHorizontal>
     </XList>
   }
 
   itemContainer = () => {
+    switch (this.state.removed_state) {
+      case 1: return <div className="add-product-status">
+        Продукт был удалён
+      </div>
+      case 2: return <></>
+      default: break;
+    }
     if (this.props.toolkit.selectedProduct === this.props.product.id) {
-      return  this.productEdit()
+      // Данный продукт сейчас редактируется
+      return this.productEdit()
     }
     else {
+      // item данного продукта лишь информирует
       return this.productInfo()
     }
   }
@@ -142,34 +171,45 @@ export class Product extends React.Component {
   }
 
   removeAction = () => {
-    this.props.toolkit.removeProduct(this.props.product.id);
-  }
-
-  productActions = () => {
-    if (this.props.toolkit.selectedProduct === this.props.product.id) {
-      // продукт сейчас редактируется
-
-      return <XHorizontal>
-        {this.actionButton({icon: <DoneIcon />, onClick: this.setNewData})}
-        {this.actionButton({icon: <DoNotDisturbAltIcon />, onClick: this.setOldData})}
-      </XHorizontal>
-    }
-    else {
-      // продукт не редактируется
-
-      return <XHorizontal>
-        {this.actionButton({icon: <EditIcon />, onClick: this.selectCurrentID})}
-        {this.actionButton({icon: <CloseIcon />, onClick: this.removeAction})}
-      </XHorizontal>
-    }
+    this.setState({
+      removed_state: 1
+    })
+    setTimeout(() => {
+      this.setState({
+        removed_state: 2
+      })
+    }, 1000)
+    setTimeout(() => {
+      this.setState({
+        removed_state: 3
+      })
+      this.props.toolkit.removeProduct(this.props.product.id);
+    }, 1100)
   }
 
   render () {
-    return <XBlock>
-      <XHorizontal sx={[{flex: "1 1 auto"}, {}]}>
+    let classList = ["product-item"]
+    switch (this.props.toolkit.selectedProduct) {
+      case null: 
+        if (this.state.removed_state === 1) {
+          classList.push("hidden")
+        }
+        if (this.state.removed_state === 2) {
+          classList.push("hidden removed")
+        }
+        break;
+      case this.props.product.id: 
+        classList.push("editing")
+        break;
+      default:
+        classList.push("hidden")
+        break;
+    }
+
+    return <XBlock className={classList.join(" ")}>
+      <DynamicDiv>
         {this.itemContainer()}
-        {this.productActions()}
-      </XHorizontal>
+      </DynamicDiv>
     </XBlock>
   }
 }

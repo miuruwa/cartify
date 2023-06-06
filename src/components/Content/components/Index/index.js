@@ -5,44 +5,58 @@ import React from "react";
 import { AddProduct } from "./components/AddProduct";
 import { ProductList } from "./components/ProductList";
 import { InTotalBlock } from "./components/InTotalBlock";
-import { XVertical, XList } from "../../../XBlock";
+import { XVertical, XHorizontal } from "../../../XBlock";
 import { XButton } from "../../../XForms";
 
-class Content extends React.Component {
-    PCTemplate = () => {
-      return <XList 
-          xstyle={{maxWidth: "1024px", margin: "auto"}}
-          sx={[{flex: "1 1 auto", maxWidth: "640px"}, {flex: "1 1 auto", maxWidth: "376px"}]}>
-        <XVertical>
-          <AddProduct toolkit={this.props.toolkit}/>
-          <ProductList toolkit={this.props.toolkit}/>
-        </XVertical>
-        <XVertical>
-          <InTotalBlock toolkit={this.props.toolkit}/>
-          <XButton title="Очистить список" style={{width: "100%"}} onClick={
-            () => {
-              this.props.toolkit.clearList();
-              this.props.toolkit.returnCardResponse(null)
-            }
-          }/>
-        </XVertical>
-      </XList>
-    }
+import ClearAllIcon from '@mui/icons-material/ClearAll';
+// import QrCodeIcon from '@mui/icons-material/QrCode';
 
-    UsualTemplate = () => {
-      return <XVertical>
-          <AddProduct toolkit={this.props.toolkit}/>
-          <ProductList toolkit={this.props.toolkit}/>
-          <InTotalBlock toolkit={this.props.toolkit}/>
-        </XVertical>
-    }
-
-    render () {
-      if (document.body.clientWidth >= 1024) {
-        return this.PCTemplate()
-      }
-      return this.UsualTemplate()
-    }
+function DesktopTemplate (props) {
+    let desktopSX = [
+        {   
+            flex: "1 1 auto",
+            maxWidth: "640px"
+        },
+        {
+            flex: "1 1 auto",
+            maxWidth: "376px",
+        }
+    ]
+    return <XHorizontal 
+        className="index"
+        xstyle={{maxWidth: "1024px", margin: "auto"}}
+        sx={desktopSX}>
+      <XVertical>
+        <AddProduct toolkit={props.toolkit}/>
+        <ProductList toolkit={props.toolkit}/>
+      </XVertical>
+      <XVertical>
+        <InTotalBlock toolkit={props.toolkit}/>
+        <XButton icon={<ClearAllIcon/>} title="Очистить список" style={{width: "100%"}} onClick={
+          () => {
+            props.toolkit.clearList();
+            props.toolkit.returnCardResponse(null)
+          }
+        }/>
+        {/* <XButton icon={<QrCodeIcon/>} title="Скопировать как QR" style={{width: "100%"}}/> */}
+      </XVertical>
+    </XHorizontal>
 }
 
-export default Content;
+function MobileTemplate (props) {
+  return <XVertical>
+    <AddProduct toolkit={props.toolkit}/>
+    <ProductList toolkit={props.toolkit}/>
+    <InTotalBlock toolkit={props.toolkit}/>
+  </XVertical>
+}
+
+export default function Content (props) {
+    if (props.toolkit.windowSize.width >= 768) {
+        return DesktopTemplate (props)
+    }
+
+    else {
+        return MobileTemplate (props)
+    }
+}
