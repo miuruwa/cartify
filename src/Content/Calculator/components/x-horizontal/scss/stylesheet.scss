@@ -1,0 +1,15 @@
+@import "@web-cross-ui/forms/scss/optional.scss";
+
+.webx {
+    .x-horizontal {
+        @include horizontal-list();
+        &:not(.x-sorter-disable-paddings) .x-horizontal-children {
+            width: fit-content;
+            margin-right: 8px;
+            
+            &:last-child {
+                margin-right: 0!important;
+            }
+        }
+    }
+}

@@ -1,0 +1,282 @@
+@import "@web-cross-ui/forms/scss/optional.scss";
+
+.webx {
+    &.screen-device-mobile {
+        .dragging-button { 
+            padding-right: 20px;
+        }
+        .add-product-form { 
+            grid-template-columns: 1fr var(--x-button-height) 1fr var(--x-button-height);
+           
+            .x-field {
+                &:first-child {
+                    grid-column: 1 / span 4;
+                    margin-right: 0;
+                    margin-bottom: $point*2;
+                }
+                &:nth-child(2) {
+                    margin-right: $point*1.5;
+                }
+                &:nth-child(4) {
+                    margin-right: $point*2;
+                }
+            }
+            .add-product-separator {
+                grid-column: 2 / span 1;
+            }
+        }
+    }
+    .index {
+        display: flex;
+        flex-direction: column;
+        max-width: 1024px;
+        width: 100%;
+        min-height: 100vh;
+        padding: $point * 2;
+        box-sizing: border-box;
+        margin: 0 auto;
+        .sorted-list {
+            flex: 1 1 auto;
+        }
+        
+        .add-product-form {
+            display: grid;
+            padding: $point;
+
+            .add-product-separator {
+                display: flex;
+                padding: 0 $point;
+                height: var(--x-button-height);
+                justify-content: center;
+                align-items: center;
+                margin-right: $point;
+            }
+
+        }
+
+        .desktop {
+            display: flex;
+            flex: 1 1 auto;
+            
+            .add-product-form {
+                grid-template-columns: 2fr 1fr var(--x-button-height) 1fr var(--x-button-height);
+            
+                .x-field {
+                    margin-right: $point;
+                    &:first-child {
+                        margin-right: $point*2;
+                    }
+                    &:nth-child(4) {
+                        margin-right: $point*1.5;
+                    }
+                }
+            }
+            .settings-menu {
+                width: 320px;
+                margin-right: $point * 2;
+            }
+
+            .product-list {
+                width: 100%;
+                max-width: 640px;
+                margin-right: $point * 2;
+            }
+
+            .total-data {
+                flex: 1 1 auto;
+                max-width: 320px;
+            }
+            .mount-block {
+                max-width: 696px;
+            }
+        }
+        
+        .product-info-wrapper {
+            margin-bottom: $point*2;
+        }
+
+    }
+    .total-class {
+        min-height: var(--x-button-height);
+        line-height: calc(var(--x-button-height) - 2px);
+        padding: 2px $point 0 $point;
+        box-sizing: border-box;
+        font-weight: 600;
+        font-size: 20px;
+        user-select: none;
+
+        &:nth-child(2n) {
+            text-align: right;
+        }
+
+        &.change-alert {
+            color: red;
+        }
+    }
+    .button-list {
+        box-sizing: border-box;
+        padding: $point*2 0;
+
+        .x-button {
+            border-radius: 0;
+            width: 100%;
+            padding: 0 $point*4;
+            .x-button-icon {
+                padding-right: $point*2;
+            }
+            .x-button-title {
+                text-align: left!important;
+            }
+        }
+    }
+
+    .in-total-block-wrap {
+        margin-bottom: $point * 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product-not-found {
+        margin: 0 auto 8px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 0;
+        user-select: none;
+
+        p {
+            max-width: 512px;
+            width: 100%;
+            padding: 0 32px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 18px;
+            color: var(--color);
+        }
+    }
+
+    .block-wrapper {
+        padding: 20px 0;
+    }
+
+    .add-product-status {
+        width: 100%;
+        padding: 11px 0 10px 0;
+        text-align: center;
+        font-family: 'TT Commons';
+        font-size: 20px;
+    }
+    .product-wrap {
+        padding-bottom: $point*2;
+    }
+    .product-item {
+        transition: 0.1s;
+        display: flex;
+        
+        .dragging-button {
+            cursor: grab;
+            box-shadow: 0 0 0 1px var(--x-block-border);
+            padding-bottom: 80px;
+            background: none!important;
+            pointer-events: none;
+        }
+
+        &.hidden {
+            opacity: 0.5;
+
+            &.removed {
+                opacity: 0;
+                padding-top: 0px;
+                padding-bottom: 0px;
+                height: 0;
+            }
+        }
+
+        .product-item-info {
+            user-select: none;
+            display: grid;
+            flex: 1 1 auto;
+            grid-template-columns: 1fr var(--x-button-height) var(--x-button-height);
+            padding-left: $point*2;
+            .product-item-info-name {
+                height: var(--x-button-height);
+                display: flex;
+                align-items: flex-end;
+                font-weight: 600;
+                font-size: 24px;
+            }
+            .product-item-info-calculation {
+                margin-top: $point;
+                margin-bottom: $point;
+                height: var(--x-button-height);
+                display: flex;
+                align-items: flex-start;
+                font-size: 20px;
+            }
+        }
+        .product-item-edit {
+            display: grid;
+            flex: 1 1 auto;
+            grid-template-columns: 1fr calc(var(--x-button-height) + $point*2) 1fr;
+            .product-item-edit-first {
+                display: grid;
+                grid-template-columns: 1fr calc(var(--x-button-height) * 2);
+                grid-column: 1 / span 3;
+                margin-bottom: $point*2;
+                .action-list {
+                    display: flex;
+                    .x-button {
+                        width: var(--x-button-height);
+                    }
+                }
+                .x-field {
+                    margin-right: $point*1.5;
+                }
+            }
+            .x-separator {
+                display: flex;
+                padding: 0 $point;
+                align-items: center;
+                justify-content: center;
+
+            }
+        }
+
+        .product-name {
+            min-height: 40px;
+            line-height: 28px;
+            font-family: 'TT Commons';
+            font-weight: 600;
+            font-size: 28px;
+            padding: 12px 8px 0px 8px;
+            box-sizing: border-box;
+        }
+
+        .product-total-price {
+            min-height: 40px;
+            line-height: 20px;
+            font-size: 20px;
+            font-family: 'TT Commons';
+            padding: 0px 8px 20px 8px;
+            box-sizing: border-box;
+        }
+    }
+
+    .cart-calc-headline {
+        display: flex;
+        align-items: flex-end;
+        padding: $point $point*3;
+        line-height: 32px;
+        color: var(--color);
+        font-weight: 600;
+        font-size: 28px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: $point*1 auto $point*2 auto;
+    }
+
+    .ttt {
+        display: flex;
+    }
+}

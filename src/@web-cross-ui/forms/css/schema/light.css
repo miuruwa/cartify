@@ -1,0 +1,47 @@
+.webx.color-schema-light {
+    --background: var(--athens-gray);
+
+    --x-block-background: var(--white);
+    --x-block-background-hover: var(--zircon);
+    --x-block-border: #296fc518;
+
+    --color: var(--black);
+
+    --search-background: var(--athens-gray);
+    --search-color: var(--gray);
+
+    --x-button-background-usual-hover: #2177e0;
+    --x-button-icon-usual-hover: white;
+    --x-button-text-usual-hover: white;
+
+    --x-button-background-usual: #296fc5;
+    --x-button-icon-usual: white;
+    --x-button-text-usual: white;
+
+    --x-button-background-transparent-hover: #37557a15;
+    --x-button-icon-transparent-hover: #2177e0;
+    --x-button-text-transparent-hover: var(--color);
+
+    --x-button-background-transparent: none;
+    --x-button-icon-transparent: #296fc5;
+    --x-button-text-transparent: var(--color);
+
+    --x-button-background-white-hover: #EEF2F7; 
+    --x-button-icon-white-hover: #2177e0;
+    --x-button-text-white-hover: var(--color);
+
+    --x-button-background-white: white;
+    --x-button-icon-white: #296fc5;
+    --x-button-text-white: var(--color);
+
+    --x-field-background-hover: var(--white);
+    --x-field-background: var(--mystic);
+    --x-field-icon: var(--san-marino);
+    --x-field-text: var(--san-marino);
+    --x-tumbler-text: var(--san-marino);
+
+    --x-menu-accent-color: var(--zircon);
+    --x-menu-background: var(--white);
+    --x-menu-icon: var(--san-marino);
+    --x-menu-text: var(--color);
+}
