@@ -19,7 +19,7 @@ function Card () {
     const toolkit = useContext(ToolKitContext)
 
     const offsetStyle = {
-      top: toolkit.card.offset + "px"
+        top: toolkit.card.offset
     }
 
     const CardWrapperClassList = ["card-wrapper"]

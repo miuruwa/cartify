@@ -19,6 +19,10 @@ export {
 } from "./components/XSlider"
 
 export {
+    XTumbler
+} from "./components/XTumbler"
+
+export {
     XMenu
 } from "./components/XMenu"
 

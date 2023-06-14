@@ -4,7 +4,7 @@ import {
 
 import {
     XBlock,
-    XMenu,
+    XTumbler,
     XButton
 } from "@web-cross-ui/forms"
 
@@ -42,17 +42,6 @@ export default function Technical () {
     }
 
     const CacheApp = () => {
-        const contexts = [
-            {
-                name: "ВЫКЛ.",
-                context: false,
-            },
-            {
-                name: "ВКЛ.",
-                context: true,
-            },
-        ]
-
         const setState = (state) => {
             if (!state) {
                 serviceWorkerRegistration.unregister()
@@ -64,34 +53,21 @@ export default function Technical () {
             toolkit.settings.cacheApp = state
         }
 
-        return <XMenu
-                tumbleConfig={contexts}
-                context={toolkit.settings.cacheApp}
-                setContext={setState}
+        return <XTumbler
+                state={toolkit.settings.cacheApp}
+                setState={setState}
         />
     }
 
     const HeaderState = () => {
-        const contexts = [
-            {
-                name: "ВЫКЛ.",
-                context: false,
-            },
-            {
-                name: "ВКЛ.",
-                context: true,
-            },
-        ]
+        const setState = (state) => {
+            toolkit.settings.header = state
+        }
 
-      const setState = (state) => {
-          toolkit.settings.header = state
-      }
-
-      return <XMenu
-              tumbleConfig={contexts}
-              context={toolkit.settings.header}
-              setContext={setState}
-      />
+        return <XTumbler
+            state={toolkit.settings.header}
+            setState={setState}
+        />
     }
 
     return <div className="settings-wrapper">

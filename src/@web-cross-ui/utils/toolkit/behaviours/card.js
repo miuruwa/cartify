@@ -41,7 +41,7 @@ export class CardBehaviour {
         }
       },
       offset: {
-        get: () => this.#state.topOffset,
+        get: () => this.#state.topOffset + "px",
         set: (value) => {
           if (typeof value == "number") {
             this.#dispatch({

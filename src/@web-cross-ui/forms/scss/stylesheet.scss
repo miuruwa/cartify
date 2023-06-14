@@ -677,6 +677,42 @@
             }
         }
     }
+
+    .x-tumbler {
+        position: relative;
+        user-select: none;
+        $note-block-shadow: $box-shadow, $box-border;
+        background: var(--background);
+
+        @include box-shadow($box-border);
+        padding: $point;
+        width: $point*12;
+        height: $point*6;
+        border-radius: $point*4;
+        margin: $point * 1;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        div {
+            @include box-shadow($note-block-shadow);
+            background: var(--x-block-background);
+            background: var(--color);
+
+            transition: 0.1s;
+            display: block;
+            width: $point*4;
+            height: $point*4;
+            border-radius: $point*2;
+            margin-left: 0px;
+        }
+
+        &.triggered {
+            background: var(--x-button-background-usual);
+            div {
+                margin-left: $point * 6;
+            }
+        }
+    }
     
     .mount-block {
         transition: 0.1s;
