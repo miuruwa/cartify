@@ -39,6 +39,19 @@
 
     h1, h2, h3, h4, h5, h6, p {
         color: var(--color);
+        padding: 0 $point * 2;
+        font-weight: 600;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        font-size: $point * 12;
+    }
+    
+    p {
+        box-sizing: border-box;
+        font-size: 20px;
+        padding: 0 $point * 2;
     }
 
     .x-block {
@@ -822,18 +835,5 @@
             background-color: rgba(0, 0, 0, 0.582);
             backdrop-filter: blur(12px);
         }
-    }
-
-    h1 {
-        font-weight: 600;
-        box-sizing: border-box;
-        font-size: $point * 12;
-        padding: 0 $point * 2;
-    }
-    
-    p {
-        box-sizing: border-box;
-        font-size: 20px;
-        padding: 0 $point * 2;
     }
 }
