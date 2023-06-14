@@ -53,7 +53,7 @@ export default function InTotalBlock () {
         return <>
             <XBlock className="in-total-block-wrap">
                 <div className="total-class">
-                    Ваши наличные:
+                    Наличные:
                 </div>
                 <XField
                         key = "currency"

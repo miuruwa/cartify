@@ -40,14 +40,14 @@
         --x-field-background: var(--tundora);
         --x-field-icon: var(--jordie-blue);
         --x-field-text: var(--white);
-        --x-tumbler-text: var(--white);
+        --x-menu-text: var(--white);
     
         --x-field-selected: var(--emperor);
     
-        --x-menu-accent-color: var(--tuna);
-        --x-menu-background: var(--less-less-less-dark);
-        --x-menu-icon: var(--jordie-blue);
-        --x-menu-text: var(--white);
+        --x-DEPRECATED-menu-accent-color: var(--tuna);
+        --x-DEPRECATED-menu-background: var(--less-less-less-dark);
+        --x-DEPRECATED-menu-icon: var(--jordie-blue);
+        --x-DEPRECATED-menu-text: var(--white);
     }
 }
 @media screen and (prefers-color-scheme: light) {
@@ -91,11 +91,11 @@
         --x-field-background: var(--mystic);
         --x-field-icon: var(--san-marino);
         --x-field-text: var(--san-marino);
-        --x-tumbler-text: var(--san-marino);
+        --x-menu-text: var(--san-marino);
     
-        --x-menu-accent-color: var(--zircon);
-        --x-menu-background: var(--white);
-        --x-menu-icon: var(--san-marino);
-        --x-menu-text: var(--color);
+        --x-DEPRECATED-menu-accent-color: var(--zircon);
+        --x-DEPRECATED-menu-background: var(--white);
+        --x-DEPRECATED-menu-icon: var(--san-marino);
+        --x-DEPRECATED-menu-text: var(--color);
     }
 }

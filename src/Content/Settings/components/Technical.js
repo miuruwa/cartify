@@ -4,7 +4,7 @@ import {
 
 import {
     XBlock,
-    XTumbler,
+    XMenu,
     XButton
 } from "@web-cross-ui/forms"
 
@@ -64,7 +64,7 @@ export default function Technical () {
             toolkit.settings.cacheApp = state
         }
 
-        return <XTumbler
+        return <XMenu
                 tumbleConfig={contexts}
                 context={toolkit.settings.cacheApp}
                 setContext={setState}
@@ -87,7 +87,7 @@ export default function Technical () {
           toolkit.settings.header = state
       }
 
-      return <XTumbler
+      return <XMenu
               tumbleConfig={contexts}
               context={toolkit.settings.header}
               setContext={setState}

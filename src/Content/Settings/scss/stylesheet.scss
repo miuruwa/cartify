@@ -104,22 +104,6 @@
 
     .settings-menu {
         .settings-block {
-            &.x-block {
-                box-sizing: border-box;
-                padding: $point*2 0;
-        
-                .x-button {
-                    border-radius: 0;
-                    width: 100%;
-                    padding: 0 $point*4;
-                    .x-button-icon {
-                        padding-right: $point*2;
-                    }
-                    .x-button-title {
-                        text-align: left!important;
-                    }
-                }
-            }
             &:not(:last-child) {
                 margin-bottom: $point*2;
             }

@@ -3,7 +3,7 @@ import {
 } from "react"
 
 import {
-    XButton
+    XButton, ButtonBlock
 } from "@web-cross-ui/forms"
 
 import {
@@ -91,12 +91,12 @@ function ButtonList () {
     //     />
     // }
 
-    return <div className="x-block button-list">
+    return <ButtonBlock>
         <ClearList />
         <SettingsButton />
         {/* <ToggleMover /> */}
         {/* <ShareQR /> */}
-    </div>
+    </ButtonBlock>
 }
 
 function DesktopTemplate () {

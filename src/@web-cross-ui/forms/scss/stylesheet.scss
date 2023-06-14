@@ -67,6 +67,22 @@
             border-radius: $point !important;
         }
     }
+    .button-block {
+        box-sizing: border-box;
+        padding: $point*2 0;
+        
+        .x-button {
+            border-radius: 0;
+            width: 100%;
+            padding: 0 $point*4;
+            .x-button-icon {
+                padding-right: $point*2;
+            }
+            .x-button-title {
+                text-align: left!important;
+            }
+        }
+    }
 
     .x-dropdown {
         .x-check-box {
@@ -609,7 +625,7 @@
         }
     }
 
-    .x-tumbler {
+    .x-menu {
         border-radius: 12px;
         height: 36px;
         
@@ -618,18 +634,18 @@
         user-select: none;
         padding-bottom: calc($point / 2);
         
-        .x-tumbler-wrapper {
+        .x-menu-wrapper {
             display: flex;
             width: 100%;
             justify-content: center;
         }
 
-        .x-tumbler-item {
+        .x-menu-item {
             display: flex;
             justify-content: center;
             align-items: center;
             background: var(--x-field-background);
-            color: var(--x-tumbler-text);
+            color: var(--x-menu-text);
 
             flex: 1 1 auto;
 
@@ -638,6 +654,7 @@
             padding: 0 $point*3;
             min-width: 64px;
             box-sizing: border-box;
+            box-shadow: $box-border;
 
             transition: 0.1s;
 
@@ -645,16 +662,8 @@
                 margin-right: 4px;
             }
 
-            &.x-tumbler-selected {
-                transform: translateY(2px);
-                box-shadow: $box-border;
-                opacity: 0.5;
-            }
-
-            &:not(.x-tumbler-selected) {
-                transform: translateY(0px);
+            &:not(.x-menu-selected) {
                 cursor: pointer;
-                box-shadow: 0 2px 0 var(--x-field-icon), $box-border;
                 background: none;
                 
             }

@@ -4,7 +4,7 @@ import {
 
 import {
     XBlock,
-    XTumbler,
+    XMenu,
     XField
 } from "@web-cross-ui/forms"
 
@@ -32,7 +32,7 @@ export default function Global () {
             toolkit.cartCalc.isTotalMode = state
         }
 
-        return <XTumbler
+        return <XMenu
                 tumbleConfig={contexts}
                 context={toolkit.cartCalc.isTotalMode}
                 setContext={setState}

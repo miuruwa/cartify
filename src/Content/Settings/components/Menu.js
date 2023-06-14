@@ -3,7 +3,7 @@ import {
 } from "react"
 
 import {
-    XBlock, 
+    ButtonBlock, 
     XButton
 } from "@web-cross-ui/forms"
 
@@ -64,7 +64,7 @@ function MenuButton (props) {
 export default function Menu() {
     return <div className="settings-menu">
         <Header />
-        <XBlock className="settings-block">
+        <ButtonBlock className="settings-block">
             <MenuButton 
                     icon={<ContrastIcon/>}
                     title="Основные" 
@@ -75,8 +75,8 @@ export default function Menu() {
                     title="Дополнительное"
                     page={4}
             />
-        </XBlock>
-        <XBlock className="settings-block">
+        </ButtonBlock>
+        <ButtonBlock className="settings-block">
             <MenuButton 
                     icon={<InfoIcon/>} 
                     title="О программе" 
@@ -87,6 +87,6 @@ export default function Menu() {
                     title="О разработчике" 
                     page={3}
             />
-        </XBlock>
+        </ButtonBlock>
     </div>
 }

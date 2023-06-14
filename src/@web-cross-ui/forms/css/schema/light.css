@@ -38,10 +38,10 @@
     --x-field-background: var(--mystic);
     --x-field-icon: var(--san-marino);
     --x-field-text: var(--san-marino);
-    --x-tumbler-text: var(--san-marino);
+    --x-menu-text: var(--san-marino);
 
-    --x-menu-accent-color: var(--zircon);
-    --x-menu-background: var(--white);
-    --x-menu-icon: var(--san-marino);
-    --x-menu-text: var(--color);
+    --x-DEPRECATED-menu-accent-color: var(--zircon);
+    --x-DEPRECATED-menu-background: var(--white);
+    --x-DEPRECATED-menu-icon: var(--san-marino);
+    --x-DEPRECATED-menu-text: var(--color);
 }

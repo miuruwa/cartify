@@ -19,11 +19,11 @@ export {
 } from "./components/XSlider"
 
 export {
-    XTumbler
-} from "./components/XTumbler"
+    XMenu
+} from "./components/XMenu"
 
 export {
-    XBlock
+    XBlock, ButtonBlock
 } from "./components/XBlock"
 
 export {

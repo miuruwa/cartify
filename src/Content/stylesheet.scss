@@ -99,10 +99,10 @@
     .total-class {
         min-height: var(--x-button-height);
         line-height: calc(var(--x-button-height) - 2px);
-        padding: 2px $point 0 $point;
+        padding: 2px $point*2 0 $point*2;
         box-sizing: border-box;
-        font-weight: 600;
-        font-size: 20px;
+        font-weight: 500;
+        font-size: 24px;
         user-select: none;
 
         &:nth-child(2n) {
@@ -113,25 +113,10 @@
             color: red;
         }
     }
-    .button-list {
-        box-sizing: border-box;
-        padding: $point*2 0;
-
-        .x-button {
-            border-radius: 0;
-            width: 100%;
-            padding: 0 $point*4;
-            .x-button-icon {
-                padding-right: $point*2;
-            }
-            .x-button-title {
-                text-align: left!important;
-            }
-        }
-    }
 
     .in-total-block-wrap {
         margin-bottom: $point * 2;
+        padding: $point*2 $point;
         display: grid;
         grid-template-columns: 1fr 1fr;
     }

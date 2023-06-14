@@ -6,7 +6,7 @@ import {
     nanoid
 } from "nanoid"
 
-export function XTumbler (props) {
+export function XMenu (props) {
     const [state, setState] = useState({
         context: props.context,
     })
@@ -20,10 +20,10 @@ export function XTumbler (props) {
     }
 
     const ContextButton = (item) => {
-        var classList = ["x-tumbler-item"]
+        var classList = ["x-menu-item"]
 
         if (state.context === item.context) {
-            classList.push("x-tumbler-selected")
+            classList.push("x-menu-selected")
         }
         
         if (item.type) {
@@ -43,8 +43,8 @@ export function XTumbler (props) {
         )
     }
 
-    return <div className="x-tumbler">
-        <div className="x-tumbler-wrapper">
+    return <div className="x-menu">
+        <div className="x-menu-wrapper">
             {props.tumbleConfig.map(ContextButton)}
         </div>
     </div>
