@@ -8,20 +8,20 @@ import {
 
 import {
     MountBlock
-} from "@web-cross-ui/forms/"
+} from "@web-cross-ui/forms/";
 
-import "./stylesheet.scss"
-import Index from "./Calculator"
-import Settings from "./Settings"
+import "./stylesheet.scss";
+import Index from "./Calculator";
+import Settings from "./Settings";
 
 import { 
     PageMountBlockContext
-} from "Content/utils"
+} from "Content/utils";
 
 
 export default function Content () {
-    const [mount, setMount] = useState(false)
-    const [loaded, setLoaded] = useState(false)
+    const [mount, setMount] = useState(false);
+    const [loaded, setLoaded] = useState(false);
 
     const MountBlockData = {
         show: (offset=100) => {
@@ -71,16 +71,16 @@ export default function Content () {
             value={MountBlockData}
     >
         <MountBlock
-                mountState={MountBlockData.mount}
-                visibilityState={MountBlockData.loaded}
-                className="index"
+          mountState={MountBlockData.mount}
+          visibilityState={MountBlockData.loaded}
+          className="index"
         >
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/cart-calc/*" element={<Index />} />
-                    <Route exact path="/cart-calc/settings" element={<Settings />} />
-                </Routes>
-            </BrowserRouter>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/cart-calc/*" element={<Index />} />
+              <Route exact path="/cart-calc/settings" element={<Settings />} />
+            </Routes>
+          </BrowserRouter>
         </MountBlock>
-    </PageMountBlockContext.Provider>
+      </PageMountBlockContext.Provider>
 }

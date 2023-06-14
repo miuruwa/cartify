@@ -1,5 +1,5 @@
 export function MountBlock({
-    mountState, visibilityState, children, className
+    visibilityState, children, className
 }) {
     const classList = ["mount-block", className]
 
@@ -7,11 +7,7 @@ export function MountBlock({
         classList.push("visible")
     }
 
-    if (mountState) {
-        return <div className={classList.join(" ")}>
-            {children}
-        </div>
-    }
-
-    return <></>
+    return <div className={classList.join(" ")}>
+        {children}
+    </div>
 }

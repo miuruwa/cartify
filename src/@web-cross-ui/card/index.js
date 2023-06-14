@@ -32,25 +32,19 @@ function Card () {
     const type = getCardType(toolkit.card.layout)
     CardClassList.push(type)
 
-    if (toolkit.card.mounted) {
-        return <div
-                className={CardWrapperClassList.join(" ")}
-                style={offsetStyle}
+    return <div
+            className={CardWrapperClassList.join(" ")}
+            style={offsetStyle}
+    >
+        <div
+                className={CardClassList.join(" ")}
         >
-            <div
-                    className={CardClassList.join(" ")}
-            >
-                <CloseButton/>
-                <div className="card-layout">
-                    <Layout />
-                </div>
+            <CloseButton/>
+            <div className="card-layout">
+                <Layout />
             </div>
         </div>
-    }
-  
-    return <div
-        style={offsetStyle}
-    />
+    </div>
 }
 
 function CardWrapperBG () {
@@ -75,14 +69,8 @@ function CardWrapperBG () {
 }
 
 export default function CardWrapper () {
-    const toolkit = useContext(ToolKitContext)
-    
-    if (toolkit.card.mounted) {
-        return <>
-            <CardWrapperBG />
-            <Card />
-        </>
-    }
-
-    return <></>
+    return <>
+        <CardWrapperBG />
+        <Card />
+    </>
 }

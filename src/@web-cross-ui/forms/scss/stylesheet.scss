@@ -77,7 +77,6 @@
         }
 
         position: relative;
-        width: 100%;
 
         .x-dropdown-children {
             --x-button-background: var(--x-button-header-bg, var(--x-button-background));
@@ -95,20 +94,23 @@
         }
 
         .x-dropdown-wrapper {
-            --dropdown-offset: 0;
             position: absolute;
             z-index: 95;
-            transition: 0.1s ease-in-out;
             width: fit-content;
 
-            &.visible {
-                opacity: 1;
-                --dropdown-offset: 8px;
-            }
+            -webkit-transition: 0.1s ease-in;
+            -moz-transition: 0.1s ease-in;
+            -o-transition: 0.1s ease-in;
+            transition: 0.1s ease-in;
 
-            &:not(.visible) {
-                opacity: 0;
-                --dropdown-offset: 0;
+            opacity: 0;
+            --dropdown-offset: 16px;
+            pointer-events: none;
+
+            &.visible {
+                opacity: 1!important;
+                --dropdown-offset: 8px!important;
+                pointer-events: inherit!important;
             }
             
             .x-dropdown-content {
@@ -190,9 +192,11 @@
             }
         }
     }
+
     .x-dropdown-wrapper .x-button {
         box-shadow: none!Important;
     }
+
     .x-button {
         display: inline-flex;
         border-radius: $point;
@@ -225,47 +229,54 @@
 
         &.usual {
             @include box-shadow($note-block-shadow);
+
             .x-button-icon {
                 color: var(--x-button-icon-usual);
             }
             .x-button-title {
                 color: var(--x-button-text-usual);
             }
+
             background: var(--x-button-background-usual);
             
             &:hover {
                 .x-button-icon {
                     color: var(--x-button-icon-usual-hover);
                 }
+
                 .x-button-title {
                     color: var(--x-button-text-usual-hover);
                 }
+
                 background: var(--x-button-background-usual-hover);
             }
         }
 
         &.white {
             @include box-shadow($note-block-shadow);
+
             .x-button-icon {
                 color: var(--x-button-icon-white);
             }
+
             .x-button-title {
                 color: var(--x-button-text-white);
             }
+
             background: var(--x-button-background-white);
             
             &:hover {
                 .x-button-icon {
                     color: var(--x-button-icon-white-hover);
                 }
+
                 .x-button-title {
                     color: var(--x-button-text-white-hover);
                 }
+
                 background: var(--x-button-background-white-hover);
             }
         }
-
-        
 
         .x-button-icon {
             display: flex;
@@ -274,8 +285,8 @@
             width: calc(var(--x-button-height) - $point * 4);
             height: var(--x-button-height);
             color: var(--x-button-icon);
-
         }
+
         .x-button-title {
             text-align: center;
             flex: 1 1 auto;
@@ -284,9 +295,11 @@
             padding-bottom: $point * 2;
             font-size: 20px;
             color: var(--x-button-text);
+
             &:first-child {
                 padding-left: $point * 2;
             }
+
             &:last-child {
                 padding-right: $point * 2;
             }
@@ -295,9 +308,11 @@
         .x-button-element {
             margin-left: $point;
             margin-right: $point;
+
             &:first-child {
                 margin-left: 0;
             }
+
             &:last-child {
                 margin-right: 0;
             }
@@ -314,9 +329,11 @@
             transition: var(--dropdown-icon-transition, 0s);
 
             --display: none;
+
             &.visible {
                 --display: default;
             }
+
             svg {
                 display: var(--display, none);
             }
@@ -333,8 +350,8 @@
         padding: $point;
         box-sizing: border-box;
         transition: 0.1s;
-            --x-check-box-icon: var(--x-button-background-hover);
-            --x-check-box-text: var(--color);
+        --x-check-box-icon: var(--x-button-background-hover);
+        --x-check-box-text: var(--color);
 
         .x-check-box-icon {
             display: flex;
@@ -349,9 +366,11 @@
             padding: $point;
             border-radius: $point;
         }
+
         &:not(.marked) .x-check-box-icon svg {
             display: none;
         }
+
         .x-check-box-title {
             text-align: center;
             flex: 1 1 auto;
@@ -360,9 +379,11 @@
             padding-bottom: $point * 2;
             font-size: 20px;
             color: var(--color);
+
             &:first-child {
                 padding-left: $point * 2;
             }
+
             &:last-child {
                 padding-right: $point * 2;
             }
@@ -371,9 +392,11 @@
         .x-check-box-element {
             margin-left: $point;
             margin-right: $point;
+
             &:first-child {
                 margin-left: 0;
             }
+
             &:last-child {
                 margin-right: 0;
             }
@@ -396,9 +419,11 @@
         height: var(--x-field-icon-height);
 
         display: grid;
+
         &.with-icon {
             grid-template-columns: var(--x-field-icon-width) calc(100% - var(--x-field-icon-width)*2); //  var(--x-field-icon-width)
         }
+
         &:not(.with-icon) {
             grid-template-columns: 1fr;
         }
@@ -409,6 +434,7 @@
         &.max-list {
             flex: 1 1 auto;
         }
+
         .x-field-wrap {
             display: flex;
             max-width: 100%;
@@ -449,6 +475,7 @@
                 }
             }
         }
+
         &.blocked {
             cursor: grab;
 
@@ -468,6 +495,7 @@
             padding: 1 $point;
             flex: 1 1 auto;
             box-sizing: border-box;
+
             &::placeholder {
                 color: var(--x-field-text)!important;
                 opacity: 0.5;
@@ -477,10 +505,10 @@
             &:first-child {
                 padding-left: $point*2;
             }
-            &:laft-child {
+
+            &:last-child {
                 padding-right: $point*2;
             }
-
         }
 
         &.no-wrap .x-field-input {
@@ -492,6 +520,7 @@
         $note-block-shadow: $box-shadow, $box-border;
 
         @include box-shadow($note-block-shadow);
+
         display: flex;
         height: var(--x-button-height);
         $thumb-size: calc(var(--x-button-height) - 2 * $point);
@@ -509,37 +538,41 @@
 
             input {
                 box-sizing: border-box;
-                -webkit-appearance: none;  /* Переопределение стилей CSS по умолчанию */
+                -webkit-appearance: none;
                 appearance: none;
-                width: 100%; /* Полная ширина */
+                width: 100%;
                 height: $point * 0.8;
                 border-radius: $point;
                 background: var(--x-field-text);
-                outline: none; /* Удалить контур */
-                opacity: 0.7; /* Установите прозрачность (для эффектов наведения мыши при наведении курсора) */
-                -webkit-transition: .2s; /* 0.2 секундный переход при наведении курсора */
+                outline: none;
+                opacity: 0.7;
+                -webkit-transition: .2s;
                 transition: opacity .2s;
+
                 &:hover {
-                    opacity: 1; /* Полностью отображается при наведении курсора мыши */
+                    opacity: 1;
                 }
+
                 &::-webkit-slider-thumb {
-                    -webkit-appearance: none; /* Переопределить внешний вид по умолчанию */
+                    -webkit-appearance: none;
                     appearance: none;
                     width: $point * 2;
                     height: $point * 2;
                     border-radius: $point * 3;
                     background: var(--x-field-icon);
-                    cursor: pointer; /* Курсор при наведении */
+                    cursor: pointer;
                 }
+
                 &::-moz-range-thumb {
                     width: $point * 3;
                     height: $point * 3;
                     border-radius: $point * 3;
                     background: var(--x-field-icon);
-                    cursor: pointer; /* Курсор при наведении */
+                    cursor: pointer;
                 }
             }
         }
+
         .x-slider-output {
             @include centering();
             padding: $point;
@@ -552,6 +585,7 @@
             padding-top: calc(var(--padding) / 2 + 2px);
             padding-bottom: calc(var(--padding) / 2);
         }
+
         .x-slider-currency {
             width: var(--x-button-height);
             height: $thumb-size;
@@ -563,13 +597,13 @@
     }
 
     .x-tumbler {
-        width: 100%;
         border-radius: 12px;
         height: 36px;
         
         font-size: 20px;
         font-weight: 500;
         user-select: none;
+        padding-bottom: calc($point / 2);
         
         .x-tumbler-wrapper {
             display: flex;
@@ -586,9 +620,10 @@
 
             flex: 1 1 auto;
 
-            min-height: 34px;
+            min-height: 32px;
             border-radius: 4px;
-            padding: 0 4px;
+            padding: 0 $point*3;
+            min-width: 64px;
             box-sizing: border-box;
 
             transition: 0.1s;
@@ -624,13 +659,14 @@
     .mount-block {
         transition: 0.1s;
         flex: 1 1 auto;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateX(-24px);
+
         &.visible {
             opacity: 1;
             transform: translateX(0px);
-        }
-        &:not(.visible) {
-            opacity: 0;
-            transform: translateX(-24px);
+            pointer-events: inherit!important;
         }
     }
 
@@ -650,7 +686,6 @@
             box-sizing: border-box;
             margin-top: 10vh;
             margin-bottom: 10vh;
-            transition: 0.1s ease-in-out;
             
             h1 {
                 padding: 0;
@@ -668,6 +703,7 @@
                 @include box-shadow($box-shadow);
                 margin-top: 20vh;
                 margin-bottom: 20vh;
+
                 .card-close-wrapper {
                     position: sticky;
                     display: flex;
@@ -675,6 +711,7 @@
                     top: 0;
                     bottom: 0;
                     padding: $point * 8 $point * 6 0 $point * 6;
+
                     .card-close-button {
                         cursor: pointer;
                         $note-block-shadow: $box-shadow, $box-border;
@@ -688,6 +725,7 @@
                         justify-content: center;
                         align-items: center;
                         user-select: none;
+
                         svg {
                             fill: white;
                         }
@@ -697,9 +735,11 @@
                     @media screen and (max-width: 425px) {
                         padding: 0 $point * 3 $point * 10;
                     }
+
                     @media screen and (min-width: 425px) and (max-width: 720px) {
                         padding: 0 $point * 3 $point * 10;
                     }
+
                     @media screen and (min-width: 720px) {
                         padding: 0 $point * 20 $point * 10;
                     }
@@ -725,9 +765,11 @@
                     @media screen and (max-width: 425px) {
                         padding: 0 $point * 3 $point * 3;
                     }
+
                     @media screen and (min-width: 425px) and (max-width: 720px) {
                         padding: 0 $point * 3 $point * 3;
                     }
+
                     @media screen and (min-width: 720px) {
                         padding: 0 $point * 11 $point * 3;
                     }
@@ -736,16 +778,23 @@
         }
 
         transition: 0.1s ease-in-out;
+
         &:not(.visible) {
             opacity: 0;
+            pointer-events: none;
+
             .card {
                 transform: translate(0, 5vh);
+                transition: 0.5s;
             }
         }
+
         &.visible {
             opacity: 1;
+
             .card {
                 transform: translate(0, var(--bottom-offset));
+                transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
             }
         }
     }
@@ -765,6 +814,7 @@
         &:not(.visible) {
             /* Карточка с формой смонтирована на макет, но ещё не показана */
             background-color: rgba(0, 0, 0, 0);
+            pointer-events: none;
         }
 
         &.visible {

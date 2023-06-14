@@ -1,48 +1,31 @@
-import React from "react"
+import {
+    useState
+} from 'react'
 
 import {
-  CheckValue
+    CheckValue
 } from "@web-cross-ui/utils"
 
-export class XDropdown extends React.Component {
-    state = {
-        isVisible: false,
-        isMounted: false,
+export function XDropdown (props) {
+    const [isVisible, setVisible] = useState (false)
+
+    const closeAction = () => {
+        setVisible(false)
     }
 
-    close = () => {
-        this.setState({
-            isVisible: false,
-        })
-
-        setTimeout(() => {
-            this.setState({ isMounted: false })
-        }, 100)
+    const openAction = () => {
+        setVisible(true)
     }
 
-    open = () => {
-        this.setState({
-            isMounted: true,
-        })
-
-        setTimeout(() => {
-            this.setState({
-                isVisible: true
-            })
-        }, 100)
+    const toggleClick = () => {
+        isVisible ? closeAction() : openAction()
     }
 
-    toggleClick = () => {
-        this.state.isMounted ? this.close() : this.open()
-    }
-
-    Content = () => {
+    const DropdownContent = () => {
         const wrapperClassList = ["x-dropdown-wrapper"]
         const contentClassList = ["x-dropdown-content"]
 
-        wrapperClassList.push(this.state.isVisible ? "visible" : "invisible")
-
-        switch (this.props.contentPosition) {
+        switch (props.contentPosition) {
             case "left-top":
                 wrapperClassList.push("x-dropdown-pose-at-left-top")
                 break
@@ -76,39 +59,37 @@ export class XDropdown extends React.Component {
         }
 
         contentClassList.push(
-          `direction-${CheckValue(this.props.listDirection, "row", "column")}`
+          `direction-${CheckValue(props.listDirection, "row", "column")}`
         )
-
-        if (this.state.isMounted) {
-          return <div className={wrapperClassList.join(" ")}>
-            <div className={contentClassList.join(" ")}>
-              {this.props.dropdown}
-            </div>
-          </div>
+        
+        if (isVisible) {
+            wrapperClassList.push("visible")
         }
+
+        return <div className={wrapperClassList.join(" ")}>
+            <div className={contentClassList.join(" ")}>
+                {props.dropdown}
+            </div>
+        </div>
     }
 
-    Children = () => {
+    const DropdownChildren = () => {
         const buttonClassList = ["x-dropdown-children"]
-
-        buttonClassList.push(this.state.isVisible ? "visible" : "invisible")
 
         return <div
                 className={buttonClassList.join(" ")}
-                onClick={this.toggleClick}
+                onClick={toggleClick}
         >
-            {this.props.children}
+            {props.children}
         </div>
     }
 
-    render() {
-        const dropdownClassList = ["x-dropdown"]
+    const dropdownClassList = ["x-dropdown"]
 
-        return <div className={dropdownClassList.join(" ")} 
-                onMouseLeave={this.close}
-        >
-            {this.Children()}
-            {this.Content()}
-        </div>
-    }
+    return <div className={dropdownClassList.join(" ")} 
+            onMouseLeave={closeAction}
+    >
+        <DropdownChildren />
+        {DropdownContent()}
+    </div>
 }

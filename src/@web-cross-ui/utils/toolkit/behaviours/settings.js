@@ -31,6 +31,7 @@ export class SettingsBehaviour {
           select.addRange(value)
         }
       },
+      
       targetInput: {
         get: () => this.#state.targetInput,
         set: (value) => {
@@ -40,6 +41,7 @@ export class SettingsBehaviour {
           })
         }
       },
+
       mounted: {
         get: () => this.#state.mounted,
         set: (value) => {
@@ -51,6 +53,7 @@ export class SettingsBehaviour {
           }
         }
       },
+      
       loaded: {
         get: () => this.#state.loaded,
         set: (value) => {
@@ -62,6 +65,7 @@ export class SettingsBehaviour {
           }
         }
       },
+
       page: {
         get: () => this.#state.page,
         set: (value) => {
@@ -104,6 +108,7 @@ export class SettingsBehaviour {
           }
         }
       },
+
       askBeforeRemoving: {
         get: () => this.#state.askBeforeRemoving,
         set: (value) => {
@@ -127,6 +132,7 @@ export class SettingsBehaviour {
           }
         }
       },
+
       footer: {
         get: () => this.#state.footer,
         set: (value) => {
@@ -162,6 +168,7 @@ export class SettingsBehaviour {
           }
         }
       },
+
       windowHeight: {
         get: () => this.#state.windowHeight,
         set: (value) => {

@@ -1,48 +1,46 @@
-import React from "react"
+import {
+    useState
+} from "react"
 
 import {
     handleChange
 } from "@web-cross-ui/utils"
 
-class XSlider extends React.Component {
-    state = {
-        value: this.props.min,
-    }
+export function XSlider (props) {
+    const [state, setState] = useState({
+        value: props.min,
+    })
 
-    setValue = (value) => {
-        if (this.props.min <= value && value <= this.props.max) {
-            this.props.setValue(value)
-            this.setState({
+    const setValue = (value) => {
+        if (props.min <= value && value <= props.max) {
+            props.setValue(value)
+            
+            setState({
                 value: value,
             })
         }
     }
-    input = () => {
+
+    const Input = () => {
         return <div className="x-slider-input">
             <input
                 type="range"
-                min={this.props.min}
-                max={this.props.max}
-                value={this.state.value}
-                onChange={handleChange(this.setValue)}
+                min={props.min}
+                max={props.max}
+                value={state.value}
+                onChange={handleChange(setValue)}
             />
         </div>
     }
 
-    output = () => {
+    const Output = () => {
         return <div className="x-slider-output">
-            {this.state.value}
+            {state.value}
         </div>
     }
 
-    render() {
-        return (
-            <div className="x-slider">
-                {this.input()}
-                {this.output()}
-            </div>
-        )
-    }
+    return <div className="x-slider">
+        <Input />
+        <Output />
+    </div>
 }
-
-export {XSlider}

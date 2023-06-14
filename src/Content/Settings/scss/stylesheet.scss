@@ -91,9 +91,6 @@
             display: flex;
             font-size: 20px;
             margin: calc($point / 2) 0;
-            .x-field {
-                width: 100%;
-            }
             &:nth-child(2n-1) {
                 align-items: center;
                 padding-right: $point;
