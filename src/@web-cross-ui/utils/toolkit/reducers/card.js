@@ -12,39 +12,39 @@ export const card = {
 }
 
 export function CardReducer(state, action) {
-    var newState = { ...state };
+    var newState = { ...state }
 
     switch (action.type) {
         case "set-mount":
-            newState.mounted = action.state;
-            break;
+            newState.mounted = action.state
+            break
 
         case "set-visiblity":
-            newState.loaded = action.state;
-            break;
+            newState.loaded = action.state
+            break
 
         case "set-layout":
-            newState.layout = action.state;
-            break;
+            newState.layout = action.state
+            break
 
         case "set-top-offset":
-            newState.topOffset = action.state;
-            break;
+            newState.topOffset = action.state
+            break
 
         case "set-response":
-            newState.response = action.state;
+            newState.response = action.state
             localStorage.setItem(
                 "latestResponse",
                 JSON.stringify({
                   layout: state.layout,
                   response: action.state,
                 })
-              );
-            break;
+              )
+            break
 
         case "set-props":
-            newState.props = action.state;
-            break;
+            newState.props = action.state
+            break
 
         default:
             throw Error('Unknown action.')

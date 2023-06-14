@@ -1,14 +1,18 @@
 import {
     useContext
-} from "react";
+} from "react"
 
 import {
     nanoid
-} from "nanoid";
+} from "nanoid"
 
 import {
     XBlock
-} from "@web-cross-ui/forms";
+} from "@web-cross-ui/forms"
+
+import {
+    ToolKitContext
+} from "@web-cross-ui/utils/toolkit"
 
 import {
     AddIcon, 
@@ -16,8 +20,7 @@ import {
     CloseIcon
 } from "Content/icons"
 
-import { ToolKitContext } from "@web-cross-ui/utils/toolkit"
-import Product from "./Product";
+import Product from "./Product"
 
 export default function ProductList () {
     const toolkit = useContext(ToolKitContext)

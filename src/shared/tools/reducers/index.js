@@ -1,3 +1,3 @@
 export {
     cartCalc, CartCalcReducer
-} from "./cartCalc.js";
+} from "./cartCalc.js"

@@ -3,8 +3,8 @@ export class CardBehaviour {
   #dispatch
   
   constructor(state, dispatch) {
-    this.#state = state;
-    this.#dispatch = dispatch;
+    this.#state = state
+    this.#dispatch = dispatch
 
     Object.defineProperties(this, {
       mounted: {
@@ -83,15 +83,15 @@ export class CardBehaviour {
 
     setTimeout(() => {
       this.mounted = false
-    }, 100);
+    }, 100)
   }
 
   show (layout, props) {
-    let offset = 100;
+    let offset = 100
 
     if (this.mounted) {
-      this.return(null);
-      offset += 200;
+      this.return(null)
+      offset += 200
     }
 
     setTimeout(() => {
@@ -99,10 +99,10 @@ export class CardBehaviour {
       this.layout = layout
       this.offset = window.scrollY
       this.mounted = true
-    }, offset);
+    }, offset)
 
     setTimeout(() => {
       this.loaded = true
-    }, 100 + offset);
+    }, 100 + offset)
   }
 }

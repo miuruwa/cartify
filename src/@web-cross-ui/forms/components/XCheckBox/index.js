@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import DoneIcon from '@mui/icons-material/Done';
+import DoneIcon from '@mui/icons-material/Done'
 
 export class XCheckBox extends React.Component {
   state = {
@@ -20,7 +20,7 @@ export class XCheckBox extends React.Component {
           <DoneIcon />
         </div>
     }
-  };
+  }
 
   title = () => {
     let title = this.props.title || this.props.children

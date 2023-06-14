@@ -1,11 +1,11 @@
 import {
     useContext
-} from "react";
+} from "react"
 
 import {
     XBlock, 
     XButton
-} from "@web-cross-ui/forms";
+} from "@web-cross-ui/forms"
 
 import {
     ToolKitContext
@@ -21,7 +21,7 @@ import {
 
 import {
     PageMountBlockContext
-} from "Content/utils";
+} from "Content/utils"
 
 function Header () {
   const MainMountBlock = useContext(PageMountBlockContext)

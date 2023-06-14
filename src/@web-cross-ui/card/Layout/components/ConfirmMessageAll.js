@@ -1,13 +1,13 @@
 import {
     useContext
-} from "react";
+} from "react"
 
-import DoneIcon from '@mui/icons-material/Done';
-import ClearIcon from '@mui/icons-material/Clear';
+import DoneIcon from '@mui/icons-material/Done'
+import ClearIcon from '@mui/icons-material/Clear'
 
 import {
     XButton
-} from "@web-cross-ui/forms";
+} from "@web-cross-ui/forms"
 
 import {
     ToolKitContext

@@ -1,6 +1,6 @@
 import {
     createContext
-} from "react";
+} from "react"
 
 import {
     CardBehaviour,

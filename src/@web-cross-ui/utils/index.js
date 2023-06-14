@@ -1,6 +1,6 @@
 export {
     getScreenDeviceType
-} from './screen-device-type';
+} from './screen-device-type'
 
 export function handleChange(
     setState
@@ -13,9 +13,9 @@ export function CheckValue(
 ) {
     switch (value) {
         case defaultOption:
-            return defaultOption;
+            return defaultOption
     
         default:
-            return notDefaultOption;
+            return notDefaultOption
     }
   }

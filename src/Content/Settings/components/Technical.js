@@ -1,12 +1,12 @@
 import {
     useContext
-} from "react";
+} from "react"
 
 import {
     XBlock,
     XTumbler,
     XButton
-} from "@web-cross-ui/forms";
+} from "@web-cross-ui/forms"
 
 import {
     ToolKitContext
@@ -16,8 +16,8 @@ import {
     BrowserUpdatedIcon
 } from "Content/icons"
 
-import Headline from "./Headline";
-import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
+import Headline from "./Headline"
+import * as serviceWorkerRegistration from 'serviceWorkerRegistration'
 
 export default function Technical () {
     const toolkit = useContext(ToolKitContext)

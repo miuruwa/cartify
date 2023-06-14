@@ -1,142 +1,147 @@
 import {
     useContext, useState
-} from "react";
+} from "react"
 
 import { 
     XBlock,
     XField,
     XButton
-} from "@web-cross-ui/forms";
+} from "@web-cross-ui/forms"
 
 import {
-  ToolKitContext
+    ToolKitContext
 } from "@web-cross-ui/utils/toolkit"
 
 import {
-    AddIcon, CloseIcon, DriveFileRenameOutlineIcon
+    AddIcon, 
+    CloseIcon, 
+    DriveFileRenameOutlineIcon
 } from "Content/icons"
 
-
-
 export default function AddProduct () {
-  const toolkit = useContext(ToolKitContext)
-  const [inputValue, setInputValue] = useState({
-    added: false,
-    name: "",
-    price: "",
-    quantity: ""
-  });
-  const { added, name, price, quantity } = inputValue;
-  
+    const toolkit = useContext(ToolKitContext)
 
-  const AddNewProduct = () => {
-    document.activeElement.blur()
-    // eslint-disable-next-line
-    if (inputValue.name == 0) {
-      toolkit.card.show("add-product-error")
-      return
-    }
-    
-      // eslint-disable-next-line
-    if (inputValue.quantity == 0) {
-      toolkit.card.show("add-product-error")
-      return
-    }
-    
-      // eslint-disable-next-line
-    if (inputValue.price == 0 ) {
-      toolkit.card.show("add-product-error")
-      return
-    }
-
-    toolkit.cartCalc.addProduct(inputValue)
-    
-    setInputValue({ 
-      added: true,
-      name: "",
-      price: "",
-      quantity: ""
+    const [inputValue, setInputValue] = useState({
+        added: false,
+        name: "",
+        price: "",
+        quantity: ""
     })
 
-    setTimeout(() => {
-      setInputValue(prev => ({
-        ...prev, added: false
-      }))
-    }, 500)
+    const {
+        added, name, price, quantity
+    } = inputValue
+    
 
-  }
+    const AddNewProduct = () => {
+        document.activeElement.blur()
 
-  const AddComplete = () => {
-    return <div className="add-product-status">
-      Товар добавлен в список
-    </div>
-  }
+        if (
+                // eslint-disable-next-line
+                inputValue.name == 0 || 
+                // eslint-disable-next-line
+                inputValue.quantity == 0 || 
+                // eslint-disable-next-line
+                inputValue.price == 0
+        ) {
+            toolkit.card.show("add-product-error")
+            return
+        }
 
-  const AddImpossible = () => {
-    return <div className="add-product-status">
-      Чтобы добавить новый продукт, выйдите из режима редактирования.
-    </div>
-  }
+        toolkit.cartCalc.addProduct(inputValue)
+        
+        setInputValue({ 
+            added: true,
+            name: "",
+            price: "",
+            quantity: ""
+        })
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setInputValue((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const AddForm = () => {
-    return <div className="add-product-form">
-      <XField 
-          icon={<DriveFileRenameOutlineIcon />} 
-          key="name"
-          name="name"
-          fieldValue={toolkit.cartCalc.currency}
-          value={name}
-          onChange={handleChange}
-          placeholder="Название товара"
-      />
-      <XField
-          key="price"
-          name="price"
-          fieldValue={toolkit.cartCalc.currency}
-          value={price}
-          onChange={handleChange}
-          placeholder="Цена"
-      />
-      <div
-        className="add-product-separator"
-      >
-        <CloseIcon />
-      </div>
-      <XField
-          key="quantity"
-          name="quantity"
-          value={quantity}
-          onChange={handleChange}
-          placeholder="Кол-во"
-      />
-      <XButton
-          icon={<AddIcon />}
-          accent="white"
-          hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true}
-          onClick={AddNewProduct}
-      />
-    </div>
-  }
-
-  const AddContainer = () => {
-    if (toolkit.cartCalc.targetProduct !== null) {
-      return <AddImpossible />
+        setTimeout(() => {
+            setInputValue(prev => ({
+                ...prev, added: false
+            }))
+        }, 500)
     }
-    if (added) {
-      return <AddComplete />
-    }
-    return <AddForm />
-  }
 
-  return <XBlock className="product-info-wrapper">
-      <AddContainer />
-  </XBlock>
+    const AddComplete = () => {
+        return <div className="add-product-status">
+            Товар добавлен в список
+        </div>
+    }
+
+    const AddImpossible = () => {
+        return <div className="add-product-status">
+            Чтобы добавить новый продукт, выйдите из режима редактирования.
+        </div>
+    }
+
+    const handleChange = (e) => {
+        const {
+            name, value
+        } = e.target
+        
+        setInputValue(
+          (prev) => ({
+              ...prev,
+              [name]: value,
+          })
+        )
+    }
+
+    const AddForm = () => {
+        return <div className="add-product-form">
+            <XField 
+                    icon={<DriveFileRenameOutlineIcon />} 
+                    key="name"
+                    name="name"
+                    fieldValue={toolkit.cartCalc.currency}
+                    value={name}
+                    onChange={handleChange}
+                    placeholder="Название товара"
+            />
+            <XField
+                    key="price"
+                    name="price"
+                    fieldValue={toolkit.cartCalc.currency}
+                    value={price}
+                    onChange={handleChange}
+                    placeholder="Цена"
+            />
+            <div
+                    className="add-product-separator"
+            >
+                <CloseIcon />
+            </div>
+            <XField
+                    key="quantity"
+                    name="quantity"
+                    value={quantity}
+                    onChange={handleChange}
+                    placeholder="Кол-во"
+            />
+            <XButton
+                    icon={<AddIcon />}
+                    accent="white"
+                    hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true}
+                    onClick={AddNewProduct}
+            />
+        </div>
+    }
+
+    const AddContainer = () => {
+        if (toolkit.cartCalc.targetProduct !== null) {
+            return <AddImpossible />
+        }
+
+        if (added) {
+            return <AddComplete />
+        }
+        
+        return <AddForm />
+    }
+
+    return <XBlock className="product-info-wrapper">
+        <AddContainer />
+    </XBlock>
 }

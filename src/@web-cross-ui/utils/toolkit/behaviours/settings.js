@@ -3,7 +3,7 @@ export class SettingsBehaviour {
   #dispatch
   
   constructor(state, dispatch) {
-    this.#state = state;
+    this.#state = state
     this.#dispatch = dispatch
 
     Object.defineProperties(this, {
@@ -22,7 +22,7 @@ export class SettingsBehaviour {
         set: (value) => { // range
           // set new selection
           let select = document.getSelection()
-          let range = new Range();
+          let range = new Range()
 
           range.setStart(value.focus, value.start)
           range.setEnd(value.focus, value.end)
@@ -66,10 +66,10 @@ export class SettingsBehaviour {
         get: () => this.#state.page,
         set: (value) => {
           if (typeof value == "number") {
-              var offset = 100;
+              var offset = 100
 
               if (this.mounted) {
-                offset += 100;
+                offset += 100
                 this.loaded = false
                 setTimeout(()=>{
                   this.mounted = false

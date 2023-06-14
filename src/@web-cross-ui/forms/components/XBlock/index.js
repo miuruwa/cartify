@@ -3,5 +3,5 @@ export function XBlock(props) {
   
   return <div className={classList.join(" ")} style={props.xstyle} ref={props.xref} onClick={props.onClick}>
     {props.children}
-  </div>;
+  </div>
 }

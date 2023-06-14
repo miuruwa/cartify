@@ -1,13 +1,18 @@
-import React, { useContext, useRef } from "react";
+import {
+    useContext,
+    useRef
+} from "react"
 
-import { ToolKitContext } from "@web-cross-ui/utils/toolkit"
+import {
+    ToolKitContext
+} from "@web-cross-ui/utils/toolkit"
 
 export function XField ({
         icon=null, className="", cleanable=false, flexlist=false, autoComplete="off",
         name="", value="", onChange=()=>{}, fieldValue=null, placeholder=null, type="text"
     }) {
-    const inputRef = useRef(null);
-    const toolkit = useContext(ToolKitContext);
+    const inputRef = useRef(null)
+    const toolkit = useContext(ToolKitContext)
 
     const classList = ["x-field"]
     

@@ -1,20 +1,20 @@
 import {
     useContext
-} from "react";
+} from "react"
 
 import {
     nanoid
-} from "nanoid";
+} from "nanoid"
 
 import { 
     ToolKitContext
 } from "@web-cross-ui/utils/toolkit"
 
-import GreetingsMessage from "./components/GreetingsMessage";
-import NotFoundMessage from "./components/NotFoundMessage";
-import ConfirmMessage from "./components/ConfirmMessage";
-import ConfirmMessageAll from "./components/ConfirmMessageAll";
-import OnlyOnline from "./components/OnlyOnline";
+import GreetingsMessage from "./components/GreetingsMessage"
+import NotFoundMessage from "./components/NotFoundMessage"
+import ConfirmMessage from "./components/ConfirmMessage"
+import ConfirmMessageAll from "./components/ConfirmMessageAll"
+import OnlyOnline from "./components/OnlyOnline"
 
 const layoutArray = [
     {
@@ -44,7 +44,7 @@ const layoutArray = [
 
 
 export function Layout () {
-    const toolkit = useContext(ToolKitContext);
+    const toolkit = useContext(ToolKitContext)
 
     for (let index = 0; index < layoutArray.length; index++) {
         let element = layoutArray[index]

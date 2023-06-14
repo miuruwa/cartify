@@ -1,6 +1,6 @@
 import {
     useContext
-} from "react";
+} from "react"
 
 import {
     ToolKitContext
@@ -9,11 +9,11 @@ import {
 import {
     Layout, 
     getCardType
-} from "./Layout";
+} from "./Layout"
 
 import {
     CloseButton
-} from "./CloseButton";
+} from "./CloseButton"
 
 function Card () {
     const toolkit = useContext(ToolKitContext)
@@ -54,12 +54,12 @@ function Card () {
 }
 
 function CardWrapperBG () {
-    const toolkit = useContext(ToolKitContext);
+    const toolkit = useContext(ToolKitContext)
 
-    const classList = ["card-wrapper-bg"];
+    const classList = ["card-wrapper-bg"]
     
     if (toolkit.card.loaded) {
-        classList.push("visible");
+        classList.push("visible")
     }
 
     const clickAction = () => {
@@ -75,7 +75,7 @@ function CardWrapperBG () {
 }
 
 export default function CardWrapper () {
-    const toolkit = useContext(ToolKitContext);
+    const toolkit = useContext(ToolKitContext)
     
     if (toolkit.card.mounted) {
         return <>

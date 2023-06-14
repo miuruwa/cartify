@@ -1,16 +1,15 @@
-/* Color Schema Menu Selector */
 import {
     useContext
-} from "react";
+} from "react"
 
 import {
     nanoid
-} from "nanoid";
+} from "nanoid"
 
 import {
     XButton,
     XDropdown
-} from "@web-cross-ui/forms";
+} from "@web-cross-ui/forms"
 
 import {
     ToolKitContext
@@ -24,7 +23,7 @@ import {
 } from "Content/icons"
 
 export default function ColorSchemaChanger (props) {
-    const toolkit = useContext(ToolKitContext);
+    const toolkit = useContext(ToolKitContext)
 
     const schemas = [
         {
@@ -55,7 +54,7 @@ export default function ColorSchemaChanger (props) {
         const ID = nanoid()
 
         if (item["x-dropdown"] !== undefined) {
-            const dropdownContent = getDropdownContent(item["x-dropdown"]);
+            const dropdownContent = getDropdownContent(item["x-dropdown"])
             const contentPosition = props.contentPosition || "bottom-left"
 
             return <XDropdown

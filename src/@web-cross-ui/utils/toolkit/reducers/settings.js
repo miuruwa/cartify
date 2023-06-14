@@ -15,62 +15,62 @@ export const settings = {
 }
 
 export function SettingsReducer(state, action) {
-    var newState = { ...state };
+    var newState = { ...state }
 
     switch (action.type) {
         case "target-input":
-            newState.targetInput = action.state;
-            break;
+            newState.targetInput = action.state
+            break
 
         case "set-mount":
-            newState.mounted = action.state;
-            break;
+            newState.mounted = action.state
+            break
 
         case "set-visiblity":
-            newState.loaded = action.state;
-            break;
+            newState.loaded = action.state
+            break
 
         case "set-cache":
-            newState.serviceWorker = action.state;
+            newState.serviceWorker = action.state
             localStorage.setItem("service-worker", action.state)
-            break;
+            break
             
         case "set-ask-before-remove":
-            newState.askBeforeRemoving = action.state;
+            newState.askBeforeRemoving = action.state
             localStorage.setItem("ask-before-removing", action.state)
-            break;
+            break
             
         case "set-page":
-            newState.page = action.state;
+            newState.page = action.state
             localStorage.setItem("settings-page", action.state)
-            break;
+            break
 
         case "set-header-state":
-            newState.header = action.state;
+            newState.header = action.state
             localStorage.setItem("header", action.state)
-            break;
+            break
         
         case "set-footer-state":
-            newState.footer = action.state;
+            newState.footer = action.state
             localStorage.setItem("footer", action.state)
-            break;
+            break
 
         case "set-color-schema":
-            newState.schema = action.state;
+            newState.schema = action.state
             localStorage.setItem("color-schema", action.state)
-            break;
+            break
 
         case "set-client-width":
-            newState.windowWidth = action.state;
-            break;
+            newState.windowWidth = action.state
+            break
 
         case "set-client-height":
-            newState.windowHeight = action.state;
-            break;
+            newState.windowHeight = action.state
+            break
 
         default:
-            throw Error('Unknown action.');
+            throw Error('Unknown action.')
     }
 
-    return newState;
+    return newState
 }
