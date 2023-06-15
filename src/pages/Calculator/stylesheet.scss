@@ -1,0 +1,251 @@
+@import "@web-cross-ui/utils/optional.scss";
+
+.webx {
+    &.screen-device-mobile {
+        .in-total-block-wrap {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &.screen-device-tablet {
+        .desktop.calc {
+            grid-template-columns: 2fr 1fr;
+        }
+        .in-total-block-wrap {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    
+    &.screen-device-desktop {
+        .desktop.calc {
+            grid-template-columns: 640px 320px;
+        }
+
+        .in-total-block-wrap {
+            grid-template-columns: 3fr 2fr;
+        }
+    }
+
+    .cart-calc-headline {
+        display: flex;
+        align-items: flex-end;
+        padding: $point $point*3;
+        line-height: 32px;
+        color: var(--color);
+        font-weight: 600;
+        font-size: 28px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: $point*1 auto $point*2 auto;
+    }
+    
+    .in-total-block-wrap {
+        margin-bottom: $point * 2;
+        padding: $point*2 $point;
+        display: grid;
+
+        &.field {
+            grid-template-columns: 1fr 1fr!important;
+        }
+            
+        .total-class {
+            display: flex;
+            min-height: var(--x-button-height);
+            box-sizing: border-box;
+            user-select: none;
+
+            p {
+                font-size: 20px;
+                padding: $point*2;
+                padding-bottom: 5px;
+                margin: 0;
+            }
+
+            &:nth-child(2n) {
+                justify-content: right;
+                align-items: flex-end;
+
+                p {
+                    padding-right: $point*4;
+                }
+            }
+
+            &:nth-child(2n-1) {
+                p {
+                    padding-left: $point*4;
+                }
+            }
+
+            &.change-alert {
+                p {
+                    color: red!important;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    .desktop.calc {
+        .add-product-form {
+            grid-template-columns: 2fr 1fr 24px 1fr var(--x-button-height);
+            gap: $point*2;
+        }
+    }
+    
+    .add-product-form {
+        display: grid;
+        padding: $point;
+
+        .add-product-separator {
+            display: flex;
+            height: var(--x-button-height);
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .add-product-status {
+        width: 100%;
+        padding: 11px 0 10px 0;
+        text-align: center;
+        font-family: 'TT Commons';
+        font-size: 20px;
+    }
+
+    .product-not-found {
+        margin: 0 auto 8px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 0;
+        user-select: none;
+
+        p {
+            max-width: 512px;
+            width: 100%;
+            padding: 0 32px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 18px;
+            color: var(--color);
+        }
+    }
+
+    .product-wrap {
+        padding-bottom: $point*2;
+
+        .product-item {
+            transition: 0.1s;
+            display: flex;
+            padding: $point*2;
+            
+            .dragging-button {
+                cursor: grab;
+                box-shadow: 0 0 0 1px var(--x-block-border);
+                padding-bottom: 80px;
+                background: none!important;
+                pointer-events: none;
+            }
+    
+            &.hidden {
+                opacity: 0.5;
+    
+                &.removed {
+                    opacity: 0;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                    height: 0;
+                }
+            }
+    
+            .product-item-info {
+                user-select: none;
+                display: grid;
+                flex: 1 1 auto;
+                grid-template-columns: 1fr var(--x-button-height) var(--x-button-height);
+                gap: $point*2;
+                padding-left: $point*2;
+    
+                .product-item-info-name {
+                    height: var(--x-button-height);
+                    display: flex;
+                    align-items: flex-end;
+                    font-weight: 600;
+                    font-size: 24px;
+                }
+    
+                .product-item-info-calculation {
+                    grid-column: 1 / span 3;
+                    height: var(--x-button-height);
+                    display: flex;
+                    align-items: flex-start;
+                    font-size: 20px;
+                }
+            }
+    
+            .product-item-edit {
+                display: grid;
+                flex: 1 1 auto;
+                grid-template-columns: var(--x-button-height) var(--x-button-height) 1fr 24px 1fr var(--x-button-height) var(--x-button-height);
+                gap: $point*2;
+
+                .x-field:nth-child(1) {
+                    grid-column: 1 / span 5;
+                }
+                
+                .x-field:nth-child(4) {
+                    grid-column: 1 / span 3;
+                }
+
+                .x-field:nth-child(6) {
+                    grid-column: 5 / span 3;
+                }
+    
+                .product-item-edit-first {
+                    display: grid;
+                    grid-template-columns: 1fr calc(var(--x-button-height) * 2);
+                    grid-column: 1 / span 3;
+                    margin-bottom: $point*2;
+    
+                    .action-list {
+                        display: flex;
+    
+                        .x-button {
+                            width: var(--x-button-height);
+                        }
+                    }
+    
+                    .x-field {
+                        margin-right: $point*1.5;
+                    }
+                }
+    
+                .x-separator {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+    
+            .product-name {
+                min-height: 40px;
+                line-height: 28px;
+                font-family: 'TT Commons';
+                font-weight: 600;
+                font-size: 28px;
+                padding: 12px 8px 0px 8px;
+                box-sizing: border-box;
+            }
+    
+            .product-total-price {
+                min-height: 40px;
+                line-height: 20px;
+                font-size: 20px;
+                font-family: 'TT Commons';
+                padding: 0px 8px 20px 8px;
+                box-sizing: border-box;
+            }
+        }
+    }
+}

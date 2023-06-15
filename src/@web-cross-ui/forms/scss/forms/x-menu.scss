@@ -1,0 +1,55 @@
+.webx {
+    .x-menu {
+        border-radius: 12px;
+        height: 36px;
+        
+        font-size: 20px;
+        font-weight: 500;
+        user-select: none;
+        padding-bottom: calc($point / 2);
+        
+        .x-menu-wrapper {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .x-menu-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--x-field-background);
+            color: var(--x-menu-text);
+
+            flex: 1 1 auto;
+
+            min-height: 32px;
+            border-radius: 4px;
+            padding: 0 $point*3;
+            min-width: 64px;
+            box-sizing: border-box;
+            box-shadow: $box-border;
+
+            transition: 0.1s;
+
+            &:not(:last-child) {
+                margin-right: 4px;
+            }
+
+            &:not(.x-menu-selected) {
+                cursor: pointer;
+                background: none;
+                
+            }
+
+            &.svg {
+                color: var(--x-field-icon);
+
+                svg {
+                    display: inline;
+                    transform: translateY(-1px);
+                }
+            }
+        }
+    }
+}

@@ -1,13 +1,9 @@
 import {
-    useContext
-} from "react"
-
-import {
     nanoid
 } from "nanoid"
 
 import { 
-    ToolKitContext
+    useToolKit
 } from "@web-cross-ui/utils/toolkit"
 
 import GreetingsMessage from "./components/GreetingsMessage"
@@ -44,7 +40,7 @@ const layoutArray = [
 
 
 export function Layout () {
-    const toolkit = useContext(ToolKitContext)
+    const toolkit = useToolKit()
 
     for (let index = 0; index < layoutArray.length; index++) {
         let element = layoutArray[index]

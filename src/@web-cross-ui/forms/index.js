@@ -1,35 +1,32 @@
 export {
-    XButton
-} from "./components/XButton"
+    Button
+} from "./components/Button"
 
 export {
-    XCheckBox
-} from "./components/XCheckBox"
+    CheckBox
+} from "./components/CheckBox"
 
 export {
-    XDropdown
-} from "./components/XDropdown"
+    Dropdown
+} from "./components/Dropdown"
 
 export {
-    XField
-} from "./components/XField"
+    TextField
+} from "./components/Field"
 
 export {
-    XSlider
-} from "./components/XSlider"
+    Slider
+} from "./components/Slider"
 
 export {
-    XTumbler
-} from "./components/XTumbler"
+    Tumbler
+} from "./components/Tumbler"
 
 export {
-    XMenu
-} from "./components/XMenu"
+    Menu
+} from "./components/Menu"
 
 export {
-    XBlock, ButtonBlock
-} from "./components/XBlock"
-
-export {
-    MountBlock
-} from "./components/MountBlock"
+    CardBlock, 
+    ButtonBlock
+} from "./components/Block"

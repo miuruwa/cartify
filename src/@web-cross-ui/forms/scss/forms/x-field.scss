@@ -1,0 +1,98 @@
+.webx {
+    .x-field {
+        font-size: 20px;
+
+        background: var(--x-field-background);
+        color: var(--x-field-text);
+
+        box-sizing: border-box;
+        box-shadow: $box-border;
+        border-radius: $point*2;
+        
+        --x-field-icon-height: var(--x-button-height);
+        --x-field-icon-width: 24px;
+        padding: 0 $point;
+        height: var(--x-field-icon-height);
+        width: 100%;
+
+        overflow: hidden;
+
+        display: grid;
+        gap: $point;
+
+        &.with-icon {
+            grid-template-columns: var(--x-field-icon-width) 1fr; //  var(--x-field-icon-width)
+        }
+
+        &:not(.with-icon) {
+            grid-template-columns: 1fr;
+        }
+
+        &.max-list {
+            flex: 1 1 auto;
+        }
+
+        .x-field-wrap {
+            display: flex;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .x-field-icon {
+            width: var(--x-field-icon-width)!important;
+            height: var(--x-field-icon-height)!important;
+            color: var(--x-field-icon);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .x-field-clear {
+            width: var(--x-field-icon-width)!important;
+            height: var(--x-field-icon-height)!important;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .x-field-value-wrap {
+            padding-top: 7px;
+            padding-left: 4px;
+        }
+
+        .x-field-input {
+            outline: none;
+            border: none;
+            font-family: inherit!important;
+            font-size: inherit!important;
+            background: none!important;
+            color: var(--x-field-text)!important;
+            min-width: 32px;
+            height: calc(var(--x-field-icon-height) - 2)!important;
+            padding: 1 $point;
+            flex: 1 1 auto;
+            box-sizing: border-box;
+
+            &::placeholder {
+                color: var(--x-field-text)!important;
+                opacity: 0.5;
+                user-select: none;
+            }
+            
+            &:first-child {
+                padding-left: $point*2;
+            }
+
+            &:last-child {
+                padding-right: $point*2;
+            }
+        }
+
+        &.no-wrap .x-field-input {
+            white-space: nowrap;
+        }
+    }
+}

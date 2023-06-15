@@ -6,7 +6,7 @@ import DoneIcon from '@mui/icons-material/Done'
 import ClearIcon from '@mui/icons-material/Clear'
 
 import {
-    XButton
+    Button
 } from "@web-cross-ui/forms"
 
 import {
@@ -14,7 +14,7 @@ import {
 } from "@web-cross-ui/utils/toolkit"
 
 export default function ConfirmMessageAll () {
-    const toolkit = useContext(ToolKitContext)
+    const toolkit = useToolKit()
 
     const UserResponse = () => {
         const returnYes = () => {
@@ -28,11 +28,11 @@ export default function ConfirmMessageAll () {
         }
         
         return <>
-            <XButton 
-                    icon={<DoneIcon />} accent="transparent" title="Да"
+            <Button 
+                    icon={<DoneIcon />} theme="transparent" title="Да"
                     onClick={returnYes} 
             />
-            <XButton 
+            <Button 
                     icon={<ClearIcon />}  title="Нет"
                     onClick={returnNo}
             />

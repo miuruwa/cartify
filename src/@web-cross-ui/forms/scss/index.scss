@@ -1,0 +1,15 @@
+@import "@web-cross-ui/utils/optional.scss";
+
+@import "forms/index.scss";
+@import "../css/schema-colors.css"; // colors and schemas
+
+#root {
+    min-height: 100%;
+}
+
+.webx {
+    background: var(--background);
+    min-height: 100%;
+    box-sizing: border-box;
+    font-family: 'TT Commons', Arial;
+}

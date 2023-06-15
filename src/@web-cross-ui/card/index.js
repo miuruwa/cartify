@@ -1,9 +1,7 @@
-import {
-    useContext
-} from "react"
+import "./stylesheet.scss"
 
 import {
-    ToolKitContext
+    useToolKit
 } from "@web-cross-ui/utils/toolkit"
 
 import {
@@ -16,7 +14,7 @@ import {
 } from "./CloseButton"
 
 function Card () {
-    const toolkit = useContext(ToolKitContext)
+    const toolkit = useToolKit()
 
     const offsetStyle = {
         top: toolkit.card.offset
@@ -48,7 +46,7 @@ function Card () {
 }
 
 function CardWrapperBG () {
-    const toolkit = useContext(ToolKitContext)
+    const toolkit = useToolKit()
 
     const classList = ["card-wrapper-bg"]
     

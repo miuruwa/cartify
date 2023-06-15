@@ -1,0 +1,34 @@
+@import "@web-cross-ui/utils/box-shadows.scss";
+
+.webx {
+    .x-block {
+        $note-block-shadow: $box-shadow, $box-border;
+        @include box-shadow($note-block-shadow);
+        
+        border-radius: $point * 2;
+        padding: $point;
+        background: var(--x-block-background);
+        color: var(--color);
+        box-sizing: border-box;
+
+        &.button-block {
+            box-sizing: border-box;
+            padding: $point*2 0;
+            
+            .x-button {
+                border-radius: 0;
+                width: 100%;
+                padding: 0 $point*4;
+                gap: $point * 4!important;
+
+                .x-button-title {
+                    text-align: left!important;
+                }
+            }
+        }
+
+        .x-field {
+            border-radius: $point !important;
+        }
+    }
+}

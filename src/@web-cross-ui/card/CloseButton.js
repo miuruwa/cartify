@@ -1,16 +1,12 @@
-import {
-    useContext
-} from "react"
-
 import CloseIcon from "@mui/icons-material/Close"
 
 import {
-    ToolKitContext
+    useToolKit
 } from "@web-cross-ui/utils/toolkit"
 
 
 export function CloseButton() {
-    const toolkit = useContext(ToolKitContext)
+    const toolkit = useToolKit()
 
     const closeAction = () => {
         toolkit.card.return({

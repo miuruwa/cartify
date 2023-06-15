@@ -1,0 +1,74 @@
+.webx {
+    .x-check-box {
+        display: flex;
+        align-items: center;
+        border-radius: $point;
+        user-select: none;
+        cursor: pointer;
+        height: var(--x-button-height);
+        padding: $point;
+        box-sizing: border-box;
+        transition: 0.1s;
+        --x-check-box-icon: var(--x-button-background-usual-hover);
+
+        .x-check-box-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+            width: $point*3;
+            height: $point*3;
+            border: 2px solid var(--x-check-box-icon);
+            color: var(--x-check-box-icon);
+            padding: $point;
+            border-radius: $point;
+            
+            svg {
+                opacity: 0;
+            }
+        }
+
+        &.marked {
+            .x-check-box-icon {
+                background-color: var(--x-check-box-icon);
+                svg {
+                    color: var(--white);
+                    opacity: 1;
+                }
+            }
+        }
+        
+
+        .x-check-box-title {
+            text-align: center;
+            flex: 1 1 auto;
+            width: max-content;
+            padding-top: $point * 2;
+            padding-bottom: $point * 2;
+            font-size: 20px;
+            color: var(--color);
+
+            &:first-child {
+                padding-left: $point * 2;
+            }
+
+            &:last-child {
+                padding-right: $point * 2;
+            }
+        }
+
+        .x-check-box-element {
+            margin-left: $point;
+            margin-right: $point;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
