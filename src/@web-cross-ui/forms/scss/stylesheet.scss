@@ -451,11 +451,12 @@
         --x-field-icon-width: var(--x-field-icon-height);
         --x-field-clear-width: var(--x-field-icon-height);
         height: var(--x-field-icon-height);
+        width: 100%;
 
         display: grid;
 
         &.with-icon {
-            grid-template-columns: var(--x-field-icon-width) calc(100% - var(--x-field-icon-width)*2); //  var(--x-field-icon-width)
+            grid-template-columns: var(--x-field-icon-width) 1fr; //  var(--x-field-icon-width)
         }
 
         &:not(.with-icon) {
@@ -499,24 +500,6 @@
             padding-top: 7px;
             padding-left: 4px;
         }
-        
-        &:not(.blocked) {
-            cursor: text;
-
-            .x-field-input {
-                &[contenteditable=true]:empty:before{
-                    pointer-events: none;
-                }
-            }
-        }
-
-        &.blocked {
-            cursor: grab;
-
-            .x-field-input {
-                opacity: 0.5;
-            }
-        }
 
         .x-field-input {
             outline: none;
@@ -525,6 +508,7 @@
             font-size: inherit!important;
             background: none!important;
             color: var(--x-field-text)!important;
+            min-width: 32px;
             height: calc(var(--x-field-icon-height) - 2)!important;
             padding: 1 $point;
             flex: 1 1 auto;
