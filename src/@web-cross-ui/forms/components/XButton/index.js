@@ -3,11 +3,12 @@ import React from "react"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
 export function XButton ({
-    hideEmptyPaddings, icon, title, isDropdown, style, children, accent, className, hideEmptyPaddingsAtMobile,
+    icon, title, isDropdown, style, children, accent, className,
+    hideEmptyPaddingsAtMobile, hideEmptyPaddings,
     ...props
 }) {
     const ButtonIcon = () => {
-        if (!ButtonhideEmptyPaddings || icon) {
+        if (icon) {
             return <div className="x-button-element x-button-icon">
                 {icon || " "}
             </div>
@@ -15,38 +16,39 @@ export function XButton ({
     }
 
     const ButtonTitle = () => {
-        if (!ButtonhideEmptyPaddings || title) {
-            return <div className="x-button-element x-button-title">
+        if (title) {
+            return <div className="x-button-title">
                 {title || children || " "}
             </div>
         }
     }
 
     const ButtonDropdown = () => {
-        const classList = ["x-button-element x-button-dropdown-icon"]
-
         if (isDropdown) {
-            classList.push("visible")
-        }
-        
-        if (!ButtonhideEmptyPaddings || isDropdown) {
-          return <div className={classList.join(" ")}>
+          return <div className="x-button-dropdown-icon">
               <KeyboardArrowDownIcon />
           </div>
         }
-    } 
-
-    var ButtonhideEmptyPaddings
-
-    if (document.body.classList.contains("screen-device-mobile")) {
-        ButtonhideEmptyPaddings = hideEmptyPaddingsAtMobile
     }
 
-    else {
-        ButtonhideEmptyPaddings = hideEmptyPaddings || false
+    const ClassList = ["x-button"]
+
+    if (className) {
+        ClassList.push(className)
+    }
+    
+    if (icon) {
+        ClassList.push("with-icon")
+    }
+    
+    if (title) {
+        ClassList.push("with-title")
     }
 
-    const ClassList = ["x-button", className]
+    if (isDropdown) {
+        ClassList.push("at-dropdown")
+    }
+    
     ClassList.push(accent || "usual")
 
     return <div 

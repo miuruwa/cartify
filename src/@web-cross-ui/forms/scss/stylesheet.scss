@@ -63,24 +63,24 @@
         color: var(--color);
         box-sizing: border-box;
 
+        &.button-block {
+            box-sizing: border-box;
+            padding: $point*2 0;
+            
+            .x-button {
+                border-radius: 0;
+                width: 100%;
+                padding: 0 $point*4;
+                gap: $point * 4!important;
+
+                .x-button-title {
+                    text-align: left!important;
+                }
+            }
+        }
+
         .x-field {
             border-radius: $point !important;
-        }
-    }
-    .button-block {
-        box-sizing: border-box;
-        padding: $point*2 0;
-        
-        .x-button {
-            border-radius: 0;
-            width: 100%;
-            padding: 0 $point*4;
-            .x-button-icon {
-                padding-right: $point*2;
-            }
-            .x-button-title {
-                text-align: left!important;
-            }
         }
     }
 
@@ -213,13 +213,50 @@
     }
 
     .x-button {
-        display: inline-flex;
+        display: grid;
+        padding: 0 $point*2;
+
         border-radius: $point;
         user-select: none;
         cursor: pointer;
         height: var(--x-button-height);
-        padding: 0 $point*2;
+        gap: $point*2;
         box-sizing: border-box;
+
+        &:not(.with-icon):not(.at-dropdown):not(.with-title) {
+            grid-template-columns: 1fr;
+            // wtf
+        }
+
+        &:not(.with-icon):not(.at-dropdown).with-title {
+            grid-template-columns: 1fr;
+        }
+
+        &:not(.with-icon):not(.with-title).at-dropdown {
+            padding: 0 $point*1.5!important;
+            grid-template-columns: 24px;
+        }
+
+        &:not(.with-icon).with-title.at-dropdown {
+            grid-template-columns: 1fr 24px;
+        }
+
+        &.with-icon:not(.with-title):not(.at-dropdown) {
+            padding: 0 $point*1.5!important;
+            grid-template-columns: 24px;
+        }
+
+        &.with-icon.with-title:not(.at-dropdown) {
+            grid-template-columns: 24px 1fr;
+        }
+
+        &.with-icon:not(.with-title).at-dropdown {
+            grid-template-columns: 24px 24px;
+        }
+
+        &.with-icon.with-title.at-dropdown {
+            grid-template-columns: 24px 1fr 24px;
+        }
 
         &.transparent {
             .x-button-icon {
@@ -296,61 +333,35 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: calc(var(--x-button-height) - $point * 4);
+
+            width: fit-content;
             height: var(--x-button-height);
+
             color: var(--x-button-icon);
         }
 
         .x-button-title {
-            text-align: center;
-            flex: 1 1 auto;
             width: max-content;
+
             padding-top: $point * 2;
             padding-bottom: $point * 2;
+
             font-size: 20px;
             color: var(--x-button-text);
-
-            &:first-child {
-                padding-left: $point * 2;
-            }
-
-            &:last-child {
-                padding-right: $point * 2;
-            }
-        }
-
-        .x-button-element {
-            margin-left: $point;
-            margin-right: $point;
-
-            &:first-child {
-                margin-left: 0;
-            }
-
-            &:last-child {
-                margin-right: 0;
-            }
+            text-align: left;
         }
         
         .x-button-dropdown-icon {
-            color: var(--x-button-text);
             display: flex;
             justify-content: center;
             align-items: center;
+            
             width: calc(var(--x-button-height) - 2 * $point);
             height: var(--x-button-height);
+
+            color: var(--x-button-text);
             transform: rotate(var(--dropdown-content-angle, 0deg));
             transition: var(--dropdown-icon-transition, 0s);
-
-            --display: none;
-
-            &.visible {
-                --display: default;
-            }
-
-            svg {
-                display: var(--display, none);
-            }
         }
     }
 
