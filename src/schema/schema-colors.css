@@ -1,6 +1,6 @@
-@import "./schema/auto.css";
-@import "./schema/light.css";
-@import "./schema/dark.css";
+@import "./auto.css";
+@import "./light.css";
+@import "./dark.css";
 
 :root {
     --athens-gray: #edeef0;

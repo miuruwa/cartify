@@ -1,7 +1,5 @@
 @import "@web-cross-ui/utils/optional.scss";
-
-@import "forms/index.scss";
-@import "../css/schema-colors.css"; // colors and schemas
+@import "./forms/index.scss";
 
 #root {
     min-height: 100%;
