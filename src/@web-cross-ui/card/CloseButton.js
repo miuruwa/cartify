@@ -2,7 +2,7 @@ import CloseIcon from "@mui/icons-material/Close"
 
 import {
     useToolKit
-} from "@web-cross-ui/utils/toolkit"
+} from "@web-cross-ui/toolkit"
 
 
 export function CloseButton() {

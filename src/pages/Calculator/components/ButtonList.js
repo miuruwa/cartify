@@ -1,6 +1,6 @@
 import {
     useToolKit
-} from "@web-cross-ui/utils/toolkit"
+} from "@web-cross-ui/toolkit"
 
 import {
     Button,
@@ -13,8 +13,10 @@ import {
 } from "icons/calculator"
 
 function SettingsButton() {
+    const toolkit = useToolKit()
+
     const buttonAction = () => {
-        window.location.href = process.env.PUBLIC_URL + "/settings/"
+        toolkit.app.goTo(toolkit.app.path + "/settings/")
     }
 
     return <Button

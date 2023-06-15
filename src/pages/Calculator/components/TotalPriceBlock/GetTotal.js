@@ -1,6 +1,6 @@
 import {
     useToolKit
-} from "@web-cross-ui/utils/toolkit"
+} from "@web-cross-ui/toolkit"
 
 export default function GetTotal() {
     const toolkit = useToolKit()

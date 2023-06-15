@@ -2,7 +2,6 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
 export function Button ({
     icon, title, isDropdown, xstyle, children, theme="usual", className,
-    hideEmptyPaddingsAtMobile, hideEmptyPaddings,
     ...props
 }) {
     const ClassList = ["x-button"]

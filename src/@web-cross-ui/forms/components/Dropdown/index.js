@@ -2,9 +2,17 @@ import {
     useState
 } from 'react'
 
-import {
-    CheckValue
-} from "@web-cross-ui/utils"
+export function CheckValue(
+    value, defaultOption, notDefaultOption
+) {
+    switch (value) {
+        case defaultOption:
+            return defaultOption
+    
+        default:
+            return notDefaultOption
+    }
+}
 
 export function Dropdown ({
     children, dropdown, 

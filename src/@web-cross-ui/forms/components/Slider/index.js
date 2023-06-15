@@ -2,9 +2,11 @@ import {
     useState
 } from "react"
 
-import {
-    handleChange
-} from "@web-cross-ui/utils"
+export function handleChange(
+    setState
+) {
+    return event => setState(event.target.value)
+}
 
 export function Slider (props) {
     const [state, setState] = useState({

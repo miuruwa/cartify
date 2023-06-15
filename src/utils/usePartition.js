@@ -4,7 +4,7 @@ import {
 
 import {
     useToolKit
-} from "@web-cross-ui/utils/toolkit"
+} from "@web-cross-ui/toolkit"
 
 import {
     cartCalc,
@@ -12,9 +12,9 @@ import {
     CartCalcReducer
 } from "./toolkit"
 
-export default function useCartCalcPartition () {
+export default function usePartition () {
     const toolkit = useToolKit()
-        
+    
     const [
         cartCalcState, cartCalcDispatch
     ] = useReducer(CartCalcReducer, cartCalc)

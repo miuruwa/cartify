@@ -1,6 +1,6 @@
 import "./stylesheet.scss"
 
-import useCartCalcPartition from "utils/useCartCalcPartition"
+import usePartition from "utils/usePartition"
 
 import Calculator from "./Calculator"
 import Settings from "./Settings"
@@ -12,8 +12,8 @@ import {
 } from "react-router-dom"
 
 export default function Router () {
-    useCartCalcPartition()
-
+    usePartition()
+    
     return <BrowserRouter>
         <Routes>
             <Route path="/cart-calc/*" element={<Calculator />} />

@@ -4,7 +4,7 @@ import {
 
 import { 
     useToolKit
-} from "@web-cross-ui/utils/toolkit"
+} from "@web-cross-ui/toolkit"
 
 import GreetingsMessage from "./components/GreetingsMessage"
 import NotFoundMessage from "./components/NotFoundMessage"
@@ -21,19 +21,16 @@ const layoutArray = [
     {
         name: "confirm-deletion",
         id: nanoid(),
-        // type: "notification",
         layout: ConfirmMessage
     },
     {
         name: "confirm-deletion-all",
         id: nanoid(),
-        // type: "notification",
         layout: ConfirmMessageAll
     },
     {
         name: "only-online",
         id: nanoid(),
-        // type: "notification",
         layout: OnlyOnline
     },
 ]

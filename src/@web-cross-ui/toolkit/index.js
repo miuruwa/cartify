@@ -19,14 +19,14 @@ import {
 
 import {
     getScreenDeviceType
-} from "../screen-device-type"
+} from "./screen-device-type"
 
 import {
     MountTransition
 } from "@web-cross-ui/transitions"
 import CardWrapper from "@web-cross-ui/card"
 
-const getToolKitContext = createContext(null)
+const getToolKitContext = createContext()
 
 const createPartition = (state, dispatch, Behaviour) => {
     return new Behaviour(state, dispatch)
@@ -73,7 +73,45 @@ class ToolKit {
     }
 }
 
-function Wrapper ({children}) {
+function Wrapper ({children, mount, loaded}) {
+    return <MountTransition
+        mountState={mount}
+        visibilityState={loaded}
+        className="index"
+    >
+        {
+            children
+        }
+    </MountTransition>
+}
+
+function ToolKitContext ({children}) {
+    const [
+        cardState, cardDispatch
+    ] = useReducer(CardReducer, card)
+
+    const [
+        settingsState, settingsDispatch
+    ] = useReducer(SettingsReducer, settings)
+    
+    const cardPartition = createPartition(
+        cardState, cardDispatch, CardBehaviour
+    )
+    const settingsPartition = createPartition(
+        settingsState, settingsDispatch, SettingsBehaviour
+    )
+
+    const toolkit = new ToolKit(
+        cardPartition, settingsPartition
+    )
+
+    const layoutClassList = ["webx"]
+    layoutClassList.push("color-schema-" + toolkit.settings.colorSchema)
+    layoutClassList.push(getScreenDeviceType())
+
+    document.body.className = layoutClassList.join(" ")
+
+    
     const [
         mount, setMount
     ] = useState(false)
@@ -83,6 +121,8 @@ function Wrapper ({children}) {
     ] = useState(false)
 
     const MountTransitionData = {
+        path: process.env.PUBLIC_URL,
+
         show: (offset=100) => {
             setTimeout(
                 () => {
@@ -109,6 +149,17 @@ function Wrapper ({children}) {
                     MountTransitionData.mount = false
                 }, offset + 100
             )
+        },
+
+        goTo: (href) => {
+            toolkit.card.return()
+            toolkit.app.hide()
+            setTimeout(
+                () => {
+                    window.location.href = href
+                },
+                200
+            )
         }
     }
 
@@ -127,45 +178,17 @@ function Wrapper ({children}) {
     window.addEventListener('load', function () {
         MountTransitionData.show()
     })
+
     window.onbeforeunload = () => {
         MountTransitionData.hide()
     }
 
-    return <MountTransition
-        mountState={MountTransitionData.mount}
-        visibilityState={MountTransitionData.loaded}
-        className="index"
-    >
-        {
-            children
-        }
-    </MountTransition>
-}
-
-function ToolKitContext ({children}) {
-    const [
-        cardState, cardDispatch
-    ] = useReducer(CardReducer, card)
-
-    const [
-        settingsState, settingsDispatch
-    ] = useReducer(SettingsReducer, settings)
-    
-    const cardPartition = createPartition(cardState, cardDispatch, CardBehaviour)
-    const settingsPartition = createPartition(settingsState, settingsDispatch, SettingsBehaviour)
-
-    const toolkit = new ToolKit(
-        cardPartition, settingsPartition
-    )
-
-    const layoutClassList = ["webx"]
-    layoutClassList.push("color-schema-" + toolkit.settings.colorSchema)
-    layoutClassList.push(getScreenDeviceType())
-
-    document.body.className = layoutClassList.join(" ")
+    Object.defineProperty(toolkit, "app", {
+        get: () => MountTransitionData
+    })
     
     return <getToolKitContext.Provider value={toolkit}>
-        <Wrapper>
+        <Wrapper mount={toolkit.app.mount} loaded={toolkit.app.loaded}>
             {
                 children
             }

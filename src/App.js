@@ -1,6 +1,6 @@
 import {
     ToolKitContext
-} from "@web-cross-ui/utils/toolkit"
+} from "@web-cross-ui/toolkit"
 
 import Router from "pages"
 

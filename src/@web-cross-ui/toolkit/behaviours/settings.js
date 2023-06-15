@@ -7,31 +7,6 @@ export class SettingsBehaviour {
     this.#dispatch = dispatch
 
     Object.defineProperties(this, {
-      selection: {
-        get: () => {
-          // get current selection
-          let select = document.getSelection()
-          console.log(select)
-
-          return {
-            focus: select.focusNode,
-            start: select.anchorOffset,
-            end: select.focusOffset
-          }
-        },
-        set: (value) => { // range
-          // set new selection
-          let select = document.getSelection()
-          let range = new Range()
-
-          range.setStart(value.focus, value.start)
-          range.setEnd(value.focus, value.end)
-
-          select.removeAllRanges()
-          select.addRange(value)
-        }
-      },
-      
       targetInput: {
         get: () => this.#state.targetInput,
         set: (value) => {

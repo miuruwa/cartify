@@ -171,8 +171,7 @@ export function TextField ({
     if (cleanable) {
         classList.push("clearable")
     }
-    // flexlist, noWrap, cleanable
-
+    
     classList.push(className)
 
     return <div className={classList.join(" ")} onClick={focusField}>

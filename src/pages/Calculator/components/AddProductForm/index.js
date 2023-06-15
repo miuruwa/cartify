@@ -10,7 +10,7 @@ import {
 
 import {
     useToolKit
-} from "@web-cross-ui/utils/toolkit"
+} from "@web-cross-ui/toolkit"
 
 import {
     AddIcon, 
@@ -57,18 +57,15 @@ export default function AddProductForm () {
                 document.activeElement.blur()
         
                 if (
-                        // eslint-disable-next-line
-                        inputValue.name == 0 || 
-                        // eslint-disable-next-line
-                        inputValue.quantity == 0 || 
-                        // eslint-disable-next-line
-                        inputValue.price == 0
+                        name === "" || 
+                        quantity === "" || 
+                        price === ""
                 ) {
                     // toolkit.card.show(<AddError />)
 
                     return
                 }
-        
+                
                 toolkit.cartCalc.addProduct({
                     name: name,
                     price: parseFloat(price).toFixed(2),
@@ -110,7 +107,6 @@ export default function AddProductForm () {
                 <Button
                         icon={<AddIcon />}
                         theme="white"
-                        hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true}
                         onClick={addNewProduct}
                 />
             </div>

@@ -1,13 +1,19 @@
 .mount-transition {
     transition: 0.1s;
     flex: 1 1 auto;
-    pointer-events: none;
+
+    -webkit-transition: transform 0.1s, opacity 0.1s;
+    -moz-transition: transform 0.1s, opacity 0.1s;
+    -o-transition: transform 0.1s, opacity 0.1s;
+    transition: transform 0.1s, opacity 0.1s;
+
+    cursor: wait;
     opacity: 0;
     transform: translateX(-24px);
 
-    &.visible {
-        opacity: 1;
+    &.visible {    
+        cursor: inherit!important;
+        opacity: 10;
         transform: translateX(0px);
-        pointer-events: inherit!important;
     }
 }

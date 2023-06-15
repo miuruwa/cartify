@@ -1,8 +1,9 @@
 .x-tumbler {
     position: relative;
-    user-select: none;
     $note-block-shadow: $box-shadow, $box-border;
     background: var(--background);
+    cursor: pointer;
+    user-select: none;
 
     @include box-shadow($note-block-shadow);
     padding: $point;

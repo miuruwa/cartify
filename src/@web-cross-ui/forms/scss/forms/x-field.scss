@@ -1,5 +1,7 @@
 .webx {
     .x-field {
+        // ПЕРЕДЕЛАТЬ!
+        
         font-size: 20px;
 
         background: var(--x-field-background);
@@ -21,7 +23,7 @@
         gap: $point;
 
         &.with-icon {
-            grid-template-columns: var(--x-field-icon-width) 1fr; //  var(--x-field-icon-width)
+            grid-template-columns: var(--x-field-icon-width) 1fr;
         }
 
         &:not(.with-icon) {

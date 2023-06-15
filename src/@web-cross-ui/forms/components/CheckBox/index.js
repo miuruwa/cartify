@@ -7,8 +7,8 @@ import DoneIcon from '@mui/icons-material/Done'
 
 export function CheckBox ({
     state, setState, 
-    icon, children, title, 
-    hideEmptyPaddings, xstyle
+    children, title, 
+    xstyle
 }) {
     const [
         triggered,
@@ -29,14 +29,12 @@ export function CheckBox ({
     }
 
     const Icon = () => {
-        if (!hideEmptyPaddings || icon) {
-            return <div 
-                    className="x-check-box-element x-check-box-icon"
-                    onClick={onToggle}
-            >
-                <DoneIcon />
-            </div>
-        }
+        return <div 
+                className="x-check-box-element x-check-box-icon"
+                onClick={onToggle}
+        >
+            <DoneIcon />
+        </div>
     }
 
     const Title = () => {

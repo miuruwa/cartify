@@ -2,7 +2,7 @@ import "./stylesheet.scss"
 
 import {
     useToolKit
-} from "@web-cross-ui/utils/toolkit"
+} from "@web-cross-ui/toolkit"
 
 import {
     DesktopTemplate, MobileTemplate

@@ -8,7 +8,7 @@ import {
 
 import {
     useToolKit
-} from "@web-cross-ui/utils/toolkit"
+} from "@web-cross-ui/toolkit"
 
 function BackButtonMobile() {
     const toolkit = useToolKit()
@@ -20,8 +20,6 @@ function BackButtonMobile() {
     return <Button 
             icon={<ArrowBackIcon/>}
             theme="transparent"
-            hideEmptyPaddings={true}
-            hideEmptyPaddingsAtMobile={true}
             onClick={returnToMenu}
     />
 }

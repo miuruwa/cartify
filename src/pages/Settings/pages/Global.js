@@ -6,7 +6,7 @@ import {
 
 import {
     useToolKit
-} from "@web-cross-ui/utils/toolkit"
+} from "@web-cross-ui/toolkit"
 
 import ColorSchemaChanger from "pages/Settings/components/ColorSchemaChanger"
 import Headline from "pages/Settings/components/Headline"

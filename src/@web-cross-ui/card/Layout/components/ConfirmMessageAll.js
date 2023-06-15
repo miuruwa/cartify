@@ -1,7 +1,3 @@
-import {
-    useContext
-} from "react"
-
 import DoneIcon from '@mui/icons-material/Done'
 import ClearIcon from '@mui/icons-material/Clear'
 
@@ -10,8 +6,8 @@ import {
 } from "@web-cross-ui/forms"
 
 import {
-    ToolKitContext
-} from "@web-cross-ui/utils/toolkit"
+    useToolKit
+} from "@web-cross-ui/toolkit"
 
 export default function ConfirmMessageAll () {
     const toolkit = useToolKit()
