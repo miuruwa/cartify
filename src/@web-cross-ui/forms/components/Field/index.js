@@ -1,183 +1,186 @@
-import React, { createRef, useState } from "react"
+import React, { createRef } from "react";
 
-import CloseIcon from '@mui/icons-material/Close'
+import CloseIcon from '@mui/icons-material/Close';
 
-export function TextField ({
-    icon, field, setField, fieldValue,
-    children, onEnter, onBlur, onFocus,
-    flexlist, noWrap, cleanable, className
-}) {
-    // ПЕРЕДЕЛАТЬ!
-    
-    const textField = createRef(null)
+export class TextField extends React.Component {
+  state = {
+    field: this.props.field,
+    valueCheckMark: this.props.field,
+    focus: false,
+    mouseOver: false
+  };
 
-    const [
-        inputField, setInputField
-    ] = useState(field)
+  icon = () => {
+    if (this.props.icon) {
+      return <div className="x-field-icon">
+        {this.props.icon}
+      </div>
+    }
+  }
 
-    const [
-        valueCheckMark, setValueCheckMark
-    ] = useState(field)
+  value = () => {
+    if (this.props.fieldValue && this.state.valueCheckMark !== "") {
+      return <div className="x-field-value-wrap">
+          {this.props.fieldValue}
+        </div>
+    }
+  }
 
-    const [
-        mouseOver, setMouseOver
-    ] = useState(false)
+  clear = () => {
+    if (this.props.cleanable && this.state.valueCheckMark !== "") {
+      return <div className="x-field-clear" onClick={() => {
+          this.textField.current.innerHTML = ""
+          this.setState({
+            valueCheckMark: ""
+          })}}>
+          <CloseIcon />
+      </div>
+    }
+  }
 
-    const [
-        focus, setFocus
-    ] = useState(false)
+  input = (e) => {
+    this.setState({
+      valueCheckMark: e.target.innerHTML
+    })
+  }
 
-    const Icon = () => {
-        if (icon) {
-            return <div className="x-field-icon">
-                {icon}
-            </div>
+  field = () => {
+    let text = this.props.fieldValue ? this.props.children + " (" + this.props.fieldValue + ")" : this.props.children
+    const classList = ["x-field-input"]
+    return (
+      <div
+        className={classList.join(" ")}
+        ref={this.textField}
+        onFocus={this.onFocusIn}
+        onBlur={this.onFocusOut}
+        onMouseEnter={
+          () => {
+            this.setState(
+              {
+                mouseOver: true
+              }
+            )
+          }
         }
+        onMouseLeave={
+          () => {
+            this.setState(
+              {
+                mouseOver: false
+              }
+            )
+          }
+        }
+        contentEditable="true"
+        suppressContentEditableWarning={true}
+        onInput={this.input}
+        data-placeholder={text}
+      >
+        {this.state.field}
+      </div>
+    )
+  }
+
+  focusField = () => {
+    this.textField.current?.focus();
+  };
+
+
+  enterEvent = () => {
+    let focusOut = () => {
+      this.textField.current?.blur()
+      if (this.props.onEnter) {
+        this.props.onEnter()
+      }
     }
 
-    const Value = () => {
-        if (fieldValue && valueCheckMark !== "") {
-            return <div className="x-field-value-wrap">
-                    {fieldValue}
-                </div>
-        }
+    return function(event) {
+      if (event.key === "Enter") {
+        focusOut()
+      }
+
     }
+  }
 
-    const ClearButton = () => {
-        if (valueCheckMark !== "") {
-            return <div 
-                    className="x-field-clear" 
-                    onClick={
-                        () => {
-                            textField.current.innerHTML = ""
-                            setValueCheckMark("")
-                        }
-                    }
-            >
-                    <CloseIcon />
-            </div>
-        }
+  clickEvent = () => {
+    let focusOut = () => {
+      this.textField.current?.blur() 
+      if (this.props.onEnter) {
+        this.props.onEnter()
+      }
     }
-
-    const updateInput = (e) => {
-        setValueCheckMark(e.target.innerHTML)
+    return (e) => {
+      if (e.button === 0 && this.state.mouseOver === false) {
+        focusOut()
+      }
     }
+  }
 
-    const Field = () => {
-        const text = fieldValue ? children + " (" + fieldValue + ")" : children
-        const classList = ["x-field-input"]
-
-        const onEnter = () => {
-            setMouseOver(true)
-        }
-        
-        const onLeave = () => {
-            setMouseOver(false)
-        }
-
-        return (
-            <div
-                className={classList.join(" ")}
-                ref={textField}
-                onFocus={onFocusIn}
-                onBlur={onFocusOut}
-                onMouseEnter={onEnter}
-                onMouseLeave={onLeave}
-                contentEditable="true"
-                suppressContentEditableWarning={true}
-                onInput={updateInput}
-                data-placeholder={text}
-            >
-                {inputField}
-            </div>
-        )
-    }
-
-    const focusField = () => {
-        textField.current?.focus()
-    }
-
-    const enterEvent = () => {
-        let focusOut = () => {
-            textField.current?.blur()
-            if (onEnter) {
-                onEnter()
-            }
-        }
-
-        return function(event) {
-            if (event.key === "Enter") {
-                focusOut()
-            }
-
-        }
-    }
-
-    const clickEvent = () => {
-        let focusOut = () => {
-            textField.current?.blur() 
-            if (onEnter) {
-                onEnter()
-            }
-        }
-
-        return (e) => {
-            if (e.button === 0 && mouseOver === false) {
-                focusOut()
-            }
-        }
-    }
-
-    const onFocusOut = () => {
-        if (typeof onBlur === 'function') {
-            onBlur()
-        }
-        
-        if (field !== textField.current?.innerHTML) {
-            setField(textField.current?.innerHTML)
-        }
-        setFocus(false)
-        setInputField(textField.current?.innerHTML)
-
-        window.removeEventListener("keypress", enterEvent())
-        window.removeEventListener("click", clickEvent())
-    }
-
-    const onFocusIn = () => {
-        if (typeof onFocus === 'function') {
-            onFocus()
-        }
-
-        setFocus(true)
-
-        window.addEventListener("keypress", enterEvent())
-        window.addEventListener("click", clickEvent())
+  onFocusOut = () => {
+    if (typeof this.props.onBlur === 'function') {
+      this.props.onBlur()
     }
     
-    const classList = ["x-field"]
+    if (this.props.field !== this.textField.current?.innerHTML) {
+      this.props.setField(this.textField.current?.innerHTML)
+    }
+    this.setState({
+      focus: false,
+      field: this.textField.current?.innerHTML
+    })
 
-    if (focus) {
-        classList.push("selected")
+    window.removeEventListener("keypress", this.enterEvent())
+    window.removeEventListener("click", this.clickEvent())
+  }
+
+  onFocusIn = () => {
+    if (typeof this.props.onFocus === 'function') {
+      this.props.onFocus()
     }
 
-    if (flexlist) {
-        classList.push("max-list")
-    }
+    this.setState({focus: true})
 
-    if (noWrap) {
-        classList.push("no-wrap")
-    }
+    window.addEventListener("keypress", this.enterEvent())
+    window.addEventListener("click", this.clickEvent())
+  }
 
-    if (cleanable) {
-        classList.push("clearable")
-    }
-    
-    classList.push(className)
+  componentDidMount() {
+    this.setState({
+      field: this.props.field,
+    })
+  }
 
-    return <div className={classList.join(" ")} onClick={focusField}>
-        <Icon />
-        <Field />
-        <Value />
-        <ClearButton />
-    </div>
+  componentWillUnmount() {
+    this.setState({
+      field: "",
+    })
+  }
+
+  render() {
+    this.textField = createRef(null)
+
+    this.classList = ["x-field"]
+    if (this.state.focus) {
+      this.classList.push("selected")
+    }
+    if (this.props.flexlist) {
+      this.classList.push("max-list")
+    }
+    if (this.props.noWrap) {
+      this.classList.push("no-wrap")
+    }
+    if (this.props.cleanable) {
+      this.classList.push("clearable")
+      
+    }
+    this.classList.push(this.props.className)
+    return (
+      <div className={this.classList.join(" ")} onClick={this.focusField}>
+        {this.icon()}
+        {this.field()}
+        {this.value()}
+        {this.clear()}
+      </div>
+    );
+  }
 }
