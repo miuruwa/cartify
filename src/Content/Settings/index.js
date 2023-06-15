@@ -10,7 +10,8 @@ import {
     MountBlock
 } from "@web-cross-ui/forms"
 
-import "./scss/stylesheet.scss"
+import "./stylesheet.scss"
+
 import About from "./components/About"
 import Author from "./components/Author"
 import Global from "./components/Global"
@@ -39,7 +40,7 @@ function Page () {
 function DesktopTemplate () {
     const toolkit = useContext(ToolKitContext)
 
-    return <div className="desktop">
+    return <div className="desktop settings">
         <Menu />
         <MountBlock
                 mountState={toolkit.settings.mounted}

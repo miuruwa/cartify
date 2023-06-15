@@ -84,7 +84,7 @@ export default function Menu() {
             />
             <MenuButton 
                     icon={<PersonIcon/>} 
-                    title="О разработчике" 
+                    title="Разработчик" 
                     page={3}
             />
         </ButtonBlock>

@@ -364,8 +364,7 @@
         padding: $point;
         box-sizing: border-box;
         transition: 0.1s;
-        --x-check-box-icon: var(--x-button-background-hover);
-        --x-check-box-text: var(--color);
+        --x-check-box-icon: var(--x-button-background-usual-hover);
 
         .x-check-box-icon {
             display: flex;
@@ -373,17 +372,27 @@
             align-items: center;
 
             cursor: pointer;
-            width: calc(var(--x-button-height) - $point * 4);
-            height: calc(var(--x-button-height) - $point * 4);
-            border: 2px solid var(--x-field-icon);
-            color: var(--x-field-icon);
+            width: $point*3;
+            height: $point*3;
+            border: 2px solid var(--x-check-box-icon);
+            color: var(--x-check-box-icon);
             padding: $point;
             border-radius: $point;
+            svg {
+                opacity: 0;
+            }
         }
 
-        &:not(.marked) .x-check-box-icon svg {
-            display: none;
+        &.marked {
+            .x-check-box-icon {
+                background-color: var(--x-check-box-icon);
+                svg {
+                    color: var(--white);
+                    opacity: 1;
+                }
+            }
         }
+        
 
         .x-check-box-title {
             text-align: center;

@@ -5,47 +5,47 @@ import {
 import DoneIcon from '@mui/icons-material/Done'
 
 
-export function XCheckBox (props) {
-    const [state, setState] = useState ({
-        boxState: props.state,
-    })
+export function XCheckBox ({
+    state, setState, 
+    icon, children, title, 
+    hideEmptyPaddings, xstyle
+}) {
+    const [triggered, setTriggered] = useState(state);
+    const outerClassList = ["x-check-box"]
 
-    const setBoxState = () => {
-        setState({
-            boxState: !state.boxState,
-        })
+    if (triggered) {
+        outerClassList.push("marked")
+    }
 
-        props.setState(state.boxState)
+    const onToggle = () => {
+        setTriggered(!triggered)
+        setTimeout(() => {
+            setState(!state)
+        }, 100)
     }
 
     const Icon = () => {
-        if (!props.hideEmptyPaddings || props.icon) {
-            return <div className="x-check-box-element x-check-box-icon" onClick={setBoxState}>
+        if (!hideEmptyPaddings || icon) {
+            return <div 
+                    className="x-check-box-element x-check-box-icon"
+                    onClick={onToggle}
+            >
                 <DoneIcon />
             </div>
         }
     }
 
     const Title = () => {
-        const title = props.title || props.children
-
-        if (title) {
+        if (title || children) {
             return <div className="x-check-box-element x-check-box-title">
-                {title}
+                {title || children}
             </div>
         }
     }
 
-    const ClassList = ["x-check-box"]
-
-    if (state.boxState) {
-        ClassList.push("marked")
-    }
-
     return <div 
-            className={ClassList.join(" ")} 
-            onClick={props.onClick} 
-            style={props.style}
+            className={outerClassList.join(" ")} 
+            style={xstyle}
     >
         <Icon />
         <Title />

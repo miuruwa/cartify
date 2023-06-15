@@ -4,8 +4,8 @@ import {
 
 import {
     XBlock,
-    XTumbler,
-    XButton
+    XButton,
+    XTumbler
 } from "@web-cross-ui/forms"
 
 import {
@@ -86,8 +86,10 @@ export default function Technical () {
                 <div className="options-grid-item">
                     <HeaderState />
                 </div>
+                <div className="options-grid-item button">
+                    <CheckForUpdatesButton />
+                </div>
             </div>
-            <CheckForUpdatesButton />
         </XBlock>
     </div>
 }

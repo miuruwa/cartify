@@ -1,33 +1,41 @@
 import {
-    XBlock
+    XBlock, XButton
 } from "@web-cross-ui/forms"
 
 import Headline from "./Headline"
 
 export default function Author () {
+    const LinkButton = ({title, children, link}) => {
+        const action = () => {
+            window.open(link)
+        }
+
+        return <XButton
+            accent="white"
+            title={title || children}
+            onClick={action}
+        />
+    }
     return <div className="settings-wrapper">
         <Headline title="О разработчике" />
         <XBlock className="settings-page">
             <div className="options-grid-list settings-block">
                 <div className="options-grid-item">
-                    <b>ВКонтакте:</b>
+                    ВКонтакте:
                 </div>
                 <div className="options-grid-item">
-                    <a href="https://vk.com/kensoi">
+                    <LinkButton link="https://vk.com/kensoi">
                         @kensoi  
-                    </a>
+                    </LinkButton>
                 </div>
                 <div className="options-grid-item">
-                    <b>Github:</b>
+                    Github:
                 </div>
                 <div className="options-grid-item">
-                    <a href="https://githob.com/kensoi">
+                    <LinkButton href="https://githob.com/kensoi">
                         @kensoi  
-                    </a>
+                    </LinkButton>
                 </div>
-            </div>
-            <div className="settings-text settings-block">
-                Поддержать автора можно закинув денюшки на его карту: <br /> <b>2200 7007 9962 2518</b>
             </div>
         </XBlock>
     </div>

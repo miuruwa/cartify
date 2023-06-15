@@ -14,6 +14,8 @@ import {
     PageMountBlockContext
 } from "Content/utils"
 
+import "./stylesheet.scss"
+
 import AddProduct from "./components/AddProduct"
 import ProductList from "./components/ProductList"
 import InTotalBlock from "./components/InTotalBlock"
@@ -102,7 +104,7 @@ function ButtonList () {
 function DesktopTemplate () {
     return <>
         <Headline />
-        <div className="desktop">
+        <div className="desktop calc">
             <div className="product-list">
                 <AddProduct />
                 <ProductList />

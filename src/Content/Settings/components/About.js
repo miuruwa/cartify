@@ -1,5 +1,5 @@
 import {
-  XBlock
+  XBlock, XButton
 } from "@web-cross-ui/forms"
 
 import Headline from "./Headline"

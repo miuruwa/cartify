@@ -10,10 +10,12 @@
     &.screen-device-mobile {
         .settings-wrapper {
             margin: $point*1 0;
+
             .settings-headline {
                 margin-bottom: $point * 3;
             }
         }
+
         .settings-page {
             padding: $point*3 $point*4;
         }
@@ -24,6 +26,10 @@
     }
 
     &.screen-device-tablet {
+        .desktop.settings {
+            grid-template-columns: 240px 1fr;
+        }
+
         .settings-wrapper {
             margin: $point*1 0;
             .settings-headline {
@@ -41,18 +47,23 @@
     }
 
     &.screen-device-desktop {
+        .desktop.settings {
+            grid-template-columns: 320px 640px;
+        }
+
         .settings-wrapper {
             margin: $point*1 0;
             .settings-headline {
                 margin-bottom: $point * 2;
             }
         }
+
         .settings-page {
-            padding: $point*8 $point*16;
+            padding: $point*12 $point*12;
         }
 
         .options-grid-list {
-            grid-template-columns: 3fr 192px;
+            grid-template-columns: 3fr 2fr;
         }
     }
 
@@ -85,19 +96,35 @@
 
     .options-grid-list {
         display: grid;
+        gap: $point*2;
         margin-bottom: $point;
 
         .options-grid-item {
             display: flex;
             font-size: 20px;
             margin: calc($point / 2) 0;
-            &:nth-child(2n-1) {
-                align-items: center;
-                padding-right: $point;
+            align-items: center;
+            .x-button {
+                width: 100%;
+                
+                .x-button-title {
+                    text-align: left;
+                }
             }
-            &:nth-child(2n) {
-                justify-content: right;
-                align-items: flex-end;
+
+            &.button {
+                grid-column: 1 / span 2;
+                .x-button-title {
+                    text-align: center;
+                }
+            }
+        }
+    }
+    
+    .settings-wrapper {
+        .x-block {
+            &:not(:last-child) {
+                margin-bottom: $point*2;
             }
         }
     }
@@ -106,17 +133,6 @@
         .settings-block {
             &:not(:last-child) {
                 margin-bottom: $point*2;
-            }
-            &.x-button {
-                width: 100%;
-            }
-        }
-    }
-
-    .settings-page {
-        .settings-block {
-            &:not(:last-child) {
-                margin-bottom: $point;
             }
             &.x-button {
                 width: 100%;
