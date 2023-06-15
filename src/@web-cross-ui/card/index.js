@@ -4,15 +4,6 @@ import {
     useToolKit
 } from "@web-cross-ui/toolkit"
 
-import {
-    Layout, 
-    getCardType
-} from "./Layout"
-
-import {
-    CloseButton
-} from "./CloseButton"
-
 function Card () {
     const toolkit = useToolKit()
 
@@ -21,26 +12,19 @@ function Card () {
     }
 
     const CardWrapperClassList = ["card-wrapper"]
-    const CardClassList = ["card"]
 
     if (toolkit.card.loaded) {
         CardWrapperClassList.push("visible")
     }
 
-    const type = getCardType(toolkit.card.layout)
-    CardClassList.push(type)
-
     return <div
             className={CardWrapperClassList.join(" ")}
             style={offsetStyle}
     >
-        <div
-                className={CardClassList.join(" ")}
-        >
-            <CloseButton/>
-            <div className="card-layout">
-                <Layout />
-            </div>
+        <div className="card-layout">
+            {
+                toolkit.card.layout
+            }
         </div>
     </div>
 }

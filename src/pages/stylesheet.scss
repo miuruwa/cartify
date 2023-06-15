@@ -51,4 +51,14 @@
         }
 
     }
+
+    .cart-calc-message {
+        min-height: 50vh;
+        box-sizing: border-box;
+        padding: $point*9 $point*10;
+        .x-button {
+            width: 60%;
+            margin: auto;
+        }
+    }
 }

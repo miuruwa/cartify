@@ -32,12 +32,10 @@ export class CardBehaviour {
       layout: {
         get: () => this.#state.layout,
         set: (value) => {
-          if (typeof value == "string") {
-            this.#dispatch({
-              type: "set-layout",
-              state: value
-            })
-          }
+          this.#dispatch({
+            type: "set-layout",
+            state: value
+          })
         }
       },
       offset: {
@@ -51,33 +49,11 @@ export class CardBehaviour {
           }
         }
       },
-      response: {
-        get: () => this.#state.response,
-        set: (value) => {
-          this.#dispatch({
-            type: "set-top-offset",
-            state: value
-          })
-        }
-      },
-      props: {
-        get: () => this.#state.props,
-        set: (value) => {
-          this.#dispatch({
-            type: "set-props",
-            state: value
-          })
-        }
-      },
     })
   }
 
-  return(props) {
+  return() {
     this.loaded = false
-    this.response = {
-      layout: this.layout.repeat(1),
-      response: props,
-    }
 
     window.scrollTo(window.scrollX, this.offset)
 
@@ -86,16 +62,15 @@ export class CardBehaviour {
     }, 100)
   }
 
-  show (layout, props) {
+  show (layout) {
     let offset = 100
 
     if (this.mounted) {
-      this.return(null)
+      this.return()
       offset += 200
     }
 
     setTimeout(() => {
-      this.props = props
       this.layout = layout
       this.offset = window.scrollY
       this.mounted = true

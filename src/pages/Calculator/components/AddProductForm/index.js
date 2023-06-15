@@ -17,7 +17,7 @@ import {
     CloseIcon, 
 } from "icons/calculator/add-product-form"
 
-// import ErrorCard from "./ErrorCard"
+import ErrorCard from "./ErrorCard"
 
 import {
     StatusComplete,
@@ -61,7 +61,7 @@ export default function AddProductForm () {
                         quantity === "" || 
                         price === ""
                 ) {
-                    // toolkit.card.show(<AddError />)
+                    toolkit.card.show(<ErrorCard />)
 
                     return
                 }

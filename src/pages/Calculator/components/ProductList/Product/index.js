@@ -21,10 +21,13 @@ import {
 } from "icons/calculator/product-list/product"
 
 import ActionButton from "./ActionButton"
+
 import {
     StatusRemoveWarn,
     StatusProductRemoved
 } from "./Status"
+
+import ErrorCard from "./ErrorCard"
 
 export default function Product ({
         product
@@ -135,17 +138,17 @@ export default function Product ({
         const ProductEdit = () => {
             const setNewData = () => {
                 if (name_editing === "") {
-                    toolkit.card.show("add-product-error")
+                    toolkit.card.show(<ErrorCard code="название продукта" />)
                     return
                 }
                 
-                if (quantity_editing === 0.0 || isNaN(quantity_editing)) {
-                    toolkit.card.show("add-product-error")
+                if (quantity_editing === "") {
+                    toolkit.card.show(<ErrorCard code="количество" />)
                     return
                 }
                 
-                if (price_editing === 0.0 || isNaN(price_editing)) {
-                    toolkit.card.show("add-product-error")
+                if (price_editing === "") {
+                    toolkit.card.show(<ErrorCard code="цена" />)
                     return
                 }
         
