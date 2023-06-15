@@ -53,19 +53,8 @@
 
     .desktop.calc {
         .add-product-form {
-            grid-template-columns: 2fr 1fr var(--x-button-height) 1fr var(--x-button-height);
-        
-            .x-field {
-                margin-right: $point;
-
-                &:first-child {
-                    margin-right: $point*2;
-                }
-
-                &:nth-child(4) {
-                    margin-right: $point*1.5;
-                }
-            }
+            grid-template-columns: 2fr 1fr 24px 1fr var(--x-button-height);
+            gap: $point*2;
         }
     }
     
@@ -75,11 +64,9 @@
 
         .add-product-separator {
             display: flex;
-            padding: 0 $point;
             height: var(--x-button-height);
             justify-content: center;
             align-items: center;
-            margin-right: $point;
         }
     }
 
@@ -117,6 +104,7 @@
         .product-item {
             transition: 0.1s;
             display: flex;
+            padding: $point*2;
             
             .dragging-button {
                 cursor: grab;
@@ -142,6 +130,7 @@
                 display: grid;
                 flex: 1 1 auto;
                 grid-template-columns: 1fr var(--x-button-height) var(--x-button-height);
+                gap: $point*2;
                 padding-left: $point*2;
     
                 .product-item-info-name {
@@ -153,8 +142,6 @@
                 }
     
                 .product-item-info-calculation {
-                    margin-top: $point;
-                    margin-bottom: $point;
                     height: var(--x-button-height);
                     display: flex;
                     align-items: flex-start;
@@ -165,7 +152,18 @@
             .product-item-edit {
                 display: grid;
                 flex: 1 1 auto;
-                grid-template-columns: 1fr calc(var(--x-button-height) + $point*2) 1fr;
+                grid-template-columns: var(--x-button-height) var(--x-button-height) 1fr 24px 1fr var(--x-button-height) var(--x-button-height);
+                gap: $point*2;
+
+                .x-field:nth-child(1) {
+                    grid-column: 1 / span 5;
+                }
+                .x-field:nth-child(4) {
+                    grid-column: 1 / span 3;
+                }
+                .x-field:nth-child(6) {
+                    grid-column: 5 / span 3;
+                }
     
                 .product-item-edit-first {
                     display: grid;
@@ -188,10 +186,8 @@
     
                 .x-separator {
                     display: flex;
-                    padding: 0 $point;
                     align-items: center;
                     justify-content: center;
-    
                 }
             }
     
@@ -215,6 +211,4 @@
             }
         }
     }
-    
-
 }

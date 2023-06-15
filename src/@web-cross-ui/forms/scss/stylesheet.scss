@@ -448,12 +448,13 @@
         border-radius: $point*2;
         
         --x-field-icon-height: var(--x-button-height);
-        --x-field-icon-width: var(--x-field-icon-height);
-        --x-field-clear-width: var(--x-field-icon-height);
+        --x-field-icon-width: 24px;
+        padding: 0 $point;
         height: var(--x-field-icon-height);
         width: 100%;
 
         display: grid;
+        gap: $point;
 
         &.with-icon {
             grid-template-columns: var(--x-field-icon-width) 1fr; //  var(--x-field-icon-width)

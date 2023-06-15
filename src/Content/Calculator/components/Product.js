@@ -86,26 +86,25 @@ export default function Product ({
 
     const ProductEdit = () => {
         return <div className="product-item-edit">
-            <div className="product-item-edit-first">
-                <XField 
-                        icon={<DriveFileRenameOutlineIcon />} 
-                        name="name_editing"
-                        value={data.name_editing}
-                        onChange={handleChange}
-                >
-                    Название товара
-                </XField>
-                <div className="action-list">
-                    <ActionButton
-                            icon={<DoneIcon />}
-                            onClick={setNewData}
-                    />
-                    <ActionButton
-                            icon={<DoNotDisturbAltIcon />}
-                            onClick={setOldData}
-                    />
-                </div>
-            </div>
+            <XField 
+                    icon={<DriveFileRenameOutlineIcon />} 
+                    name="name_editing"
+                    value={data.name_editing}
+                    onChange={handleChange}
+            >
+                Название товара
+            </XField>
+
+            <ActionButton
+                    icon={<DoneIcon />}
+                    onClick={setNewData}
+            />
+
+            <ActionButton
+                    icon={<DoNotDisturbAltIcon />}
+                    onClick={setOldData}
+            />
+
             <XField
                     fieldValue={toolkit.currency}
                     name="price_editing"
@@ -114,9 +113,11 @@ export default function Product ({
             >
                 Цена
             </XField>
+
             <div className="x-separator">
                 <CloseIcon />
             </div>
+            
             <XField
                     fieldValue="шт."
                     name="quantity_editing"
