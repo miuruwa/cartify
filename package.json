@@ -25,7 +25,9 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "node ./utils/NotFoundPatch.js",
+    "postbuild": "node ./utils/postbuild.js",
+    "not-found-patch": "node ./utils/NotFoundPatch.js",
+    "prerender": "react-spa-prerender",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -48,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "react-spa-prerender": "^1.0.14"
   }
 }

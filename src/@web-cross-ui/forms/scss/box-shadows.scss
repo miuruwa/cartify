@@ -3,7 +3,7 @@
 
 $border-thin: math.div($point, 4);
 $separator-common: var(--x-block-border);
-$box-shadow: 0px 4px 8px rgba(12, 21, 49, 0.08);
+$box-shadow: 0px 4px 8px rgba(12, 21, 49, 0.027);
 
 $box-border: 0 0 0 $border-thin $separator-common;
 
@@ -13,4 +13,3 @@ $box-border: 0 0 0 $border-thin $separator-common;
   -ms-box-shadow: $property;
   box-shadow: $property;
 }
-// .box { @include box-shadow(rotate(30deg)); }

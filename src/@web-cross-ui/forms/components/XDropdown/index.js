@@ -6,7 +6,12 @@ import {
     CheckValue
 } from "@web-cross-ui/utils"
 
-export function XDropdown (props) {
+export function XDropdown ({
+    children, dropdown, 
+    openOnClick=true, closeOnClick=true,
+    openOnEnter=false, closeOnHover=true,
+    contentPosition="bottom-right", listDirection="column"
+}) {
     const [isVisible, setVisible] = useState (false)
 
     const closeAction = () => {
@@ -18,14 +23,35 @@ export function XDropdown (props) {
     }
 
     const toggleClick = () => {
-        isVisible ? closeAction() : openAction()
+        if (isVisible) {
+            if (openOnClick) {
+                closeAction()
+            }
+        }
+        else {
+            if (closeOnClick) {
+                openAction()
+            }
+        }
+    }
+
+    const onEnter = () => {
+        if (openOnEnter) {
+            openAction()
+        }
+    }
+
+    const onLeave = () => {
+        if (closeOnHover) {
+            closeAction()
+        }
     }
 
     const DropdownContent = () => {
         const wrapperClassList = ["x-dropdown-wrapper"]
         const contentClassList = ["x-dropdown-content"]
 
-        switch (props.contentPosition) {
+        switch (contentPosition) {
             case "left-top":
                 wrapperClassList.push("x-dropdown-pose-at-left-top")
                 break
@@ -58,8 +84,10 @@ export function XDropdown (props) {
                 wrapperClassList.push("x-dropdown-pose-at-bottom-right")
         }
 
+        const direction = CheckValue(listDirection, "row", "column")
+        
         contentClassList.push(
-          `direction-${CheckValue(props.listDirection, "row", "column")}`
+          `direction-${direction}`
         )
         
         if (isVisible) {
@@ -68,7 +96,7 @@ export function XDropdown (props) {
 
         return <div className={wrapperClassList.join(" ")}>
             <div className={contentClassList.join(" ")}>
-                {props.dropdown}
+                {dropdown}
             </div>
         </div>
     }
@@ -80,14 +108,15 @@ export function XDropdown (props) {
                 className={buttonClassList.join(" ")}
                 onClick={toggleClick}
         >
-            {props.children}
+            {children}
         </div>
     }
 
     const dropdownClassList = ["x-dropdown"]
 
     return <div className={dropdownClassList.join(" ")} 
-            onMouseLeave={closeAction}
+            onMouseEnter={onEnter}
+            onMouseLeave={onLeave}
     >
         <DropdownChildren />
         {DropdownContent()}

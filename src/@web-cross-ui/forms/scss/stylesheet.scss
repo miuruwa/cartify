@@ -40,8 +40,10 @@
     h1, h2, h3, h4, h5, h6, p {
         color: var(--color);
         padding: 0 $point * 2;
-        font-weight: 600;
         box-sizing: border-box;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
     }
 
     h1 {
@@ -49,9 +51,7 @@
     }
     
     p {
-        box-sizing: border-box;
         font-size: 20px;
-        padding: 0 $point * 2;
     }
 
     .x-block {
@@ -126,6 +126,7 @@
             position: absolute;
             z-index: 95;
             width: fit-content;
+            max-width: 256px;
 
             -webkit-transition: 0.1s ease-in;
             -moz-transition: 0.1s ease-in;
@@ -143,24 +144,9 @@
             }
             
             .x-dropdown-content {
-                $note-block-shadow: $box-shadow, $box-border;
-                border-radius: $point * 2;
-                padding: $point*2 0;
-                background: var(--x-block-background);
-                color: var(--color);
                 width: fit-content;
-                @include box-shadow($note-block-shadow);
-                
-                .x-button {
-                    border-radius: 0;
-                    width: 100%;
-                    padding: 0 $point*4;
-                    .x-button-icon {
-                        padding-right: $point*2;
-                    }
-                    .x-button-title {
-                        text-align: left!important;
-                    }
+                .tumbler-hint {
+                    width: 256px;
                 }
             }
 
@@ -234,7 +220,6 @@
         height: var(--x-button-height);
         padding: 0 $point*2;
         box-sizing: border-box;
-        transition: 0.1s;
 
         &.transparent {
             .x-button-icon {
@@ -684,7 +669,7 @@
         $note-block-shadow: $box-shadow, $box-border;
         background: var(--background);
 
-        @include box-shadow($box-border);
+        @include box-shadow($note-block-shadow);
         padding: $point;
         width: $point*12;
         height: $point*6;
@@ -695,8 +680,7 @@
 
         div {
             @include box-shadow($note-block-shadow);
-            background: var(--x-block-background);
-            background: var(--color);
+            background: var(--white);
 
             transition: 0.1s;
             display: block;

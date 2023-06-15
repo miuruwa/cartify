@@ -26,7 +26,7 @@
     --x-button-icon-transparent: #296fc5;
     --x-button-text-transparent: var(--color);
 
-    --x-button-background-white-hover: #EEF2F7; 
+    --x-button-background-white-hover: #EFF1F4; 
     --x-button-icon-white-hover: #2177e0;
     --x-button-text-white-hover: var(--color);
 
@@ -35,7 +35,7 @@
     --x-button-text-white: var(--color);
 
     --x-field-background-hover: var(--white);
-    --x-field-background: var(--mystic);
+    --x-field-background: var(--white);
     --x-field-icon: var(--san-marino);
     --x-field-text: var(--san-marino);
     --x-menu-text: var(--san-marino);

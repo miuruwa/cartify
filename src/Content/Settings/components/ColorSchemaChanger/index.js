@@ -7,6 +7,7 @@ import {
 } from "nanoid"
 
 import {
+    ButtonBlock,
     XButton,
     XDropdown
 } from "@web-cross-ui/forms"
@@ -85,7 +86,11 @@ export default function ColorSchemaChanger (props) {
     }
 
     const getDropdownContent = (dropdown) => {
-        return dropdown.map(getSchemaButton)
+        return <ButtonBlock>
+            {
+                dropdown.map(getSchemaButton)
+            }
+        </ButtonBlock>
     }
 
     const actualSchema = schemas.filter(item => item.schemaName === toolkit.settings.colorSchema)[0] || "auto"

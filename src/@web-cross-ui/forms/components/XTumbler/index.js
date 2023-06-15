@@ -1,4 +1,14 @@
-import { useState } from "react"
+import {
+    useState
+} from "react"
+
+import {
+    XBlock
+} from "../XBlock"
+
+import {
+    XDropdown
+} from "../XDropdown"
 
 export function XTumbler ({state, setState}) {
     const [triggered, setTriggered] = useState(state);
@@ -15,12 +25,30 @@ export function XTumbler ({state, setState}) {
         }, 100)
     }
 
-    return <div
-        className={outerClassList.join(" ")}
-        onClick={onToggle}
-    >
-        <div>
-            &nbsp;
+    const HoverContent = () => {
+        return <XBlock className="tumbler-hint">
+            <p>
+                Нажмите на этот новый тумблер, чтобы переключить состояние
+            </p>
+        </XBlock>    
+    }
+
+    const Tumbler = () => {
+        return <div
+                className={outerClassList.join(" ")}
+                onClick={onToggle}
+        >
+            <div>
+                &nbsp;
+            </div>
         </div>
-    </div>
+    }
+
+    return <XDropdown
+        dropdown={<HoverContent/>}
+        openOnClick={false} closeOnClick={false}
+        openOnEnter={true} closeOnHover={true}
+    >
+        <Tumbler />
+    </XDropdown>
 }
