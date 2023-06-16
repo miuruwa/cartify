@@ -1,12 +1,7 @@
-.webx {
+@mixin x-dropdown {
     .x-dropdown {
         position: relative;
-
-        .x-dropdown-children {
-            &.visible .x-button {
-                --dropdown-content-angle: 180deg!important;
-            }
-        }
+        width: 100%;
 
         .x-dropdown-wrapper {
             position: absolute;

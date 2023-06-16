@@ -15,17 +15,42 @@ import {
 import Headline from "pages/Settings/components/Headline"
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration'
 
+function ErrorCard () {
+    const toolkit = useToolKit()
+
+    const OK = () => {
+        const action = () => {
+            toolkit.card.return()
+        }
+
+        return <Button 
+            title="OK"
+            onClick={action}
+        />
+    }
+
+    return <CardBlock className="cart-calc-message">
+        <h1>
+            Ошибка выполнения задачи
+        </h1>
+        <p>
+            Данная функция работает только при включённом офлайн-режиме (т.е. есть кеш приложения)
+        </p>
+        <OK />
+    </CardBlock>
+}
+
 export default function Technical () {
     const toolkit = useToolKit()
 
     const CheckForUpdatesButton = () => {
         const CheckForUpdates = () => {
-            if (toolkit.settings.CacheApp) {
+            if (toolkit.settings.cacheApp) {
                 serviceWorkerRegistration.unregister()
                 window.location.href = process.env.PUBLIC_URL
             }
             else {
-                toolkit.cards.show("only-online")
+                toolkit.card.show(<ErrorCard />)
             }
         }
 
@@ -55,20 +80,9 @@ export default function Technical () {
         />
     }
 
-    const HeaderState = () => {
-        const setState = (state) => {
-            toolkit.settings.header = state
-        }
-
-        return <Tumbler
-            state={toolkit.settings.header}
-            setState={setState}
-        />
-    }
-
     return <div className="settings-wrapper">
         <Headline title="Дополнительное" />
-        <CardBlock className="settings-page">
+        <CardBlock className="settings-page options">
             <div className="options-grid-list settings-block">
                 <div className="options-grid-item">
                     Offline режим
@@ -77,12 +91,6 @@ export default function Technical () {
                     <CacheApp />
                 </div>
                 <div className="options-grid-item">
-                    Заголовок "Калькулятор покупок"
-                </div>
-                <div className="options-grid-item">
-                    <HeaderState />
-                </div>
-                <div className="options-grid-item button">
                     <CheckForUpdatesButton />
                 </div>
             </div>

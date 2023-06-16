@@ -40,9 +40,9 @@
     }
     
     .in-total-block-wrap {
-        margin-bottom: $point * 2;
-        padding: $point*2 $point;
         display: grid;
+        margin-bottom: $point*2;
+        padding: $point*2 $point*4 $point*2 $point*4!important;
 
         &.field {
             grid-template-columns: 1fr 1fr!important;
@@ -50,30 +50,19 @@
             
         .total-class {
             display: flex;
-            min-height: var(--x-button-height);
+            min-height: $point*8;
             box-sizing: border-box;
             user-select: none;
+            font-size: 20px;
 
-            p {
-                font-size: 20px;
-                padding: $point*2;
-                padding-bottom: 5px;
+            p { 
+                padding: $point*1.5 0 $point 0!important;
                 margin: 0;
             }
 
             &:nth-child(2n) {
                 justify-content: right;
                 align-items: flex-end;
-
-                p {
-                    padding-right: $point*4;
-                }
-            }
-
-            &:nth-child(2n-1) {
-                p {
-                    padding-left: $point*4;
-                }
             }
 
             &.change-alert {
@@ -87,18 +76,33 @@
 
     .desktop.calc {
         .add-product-form {
-            grid-template-columns: 2fr 1fr 24px 1fr var(--x-button-height);
-            gap: $point*2;
+            grid-template-columns: 2fr 1fr 24px 1fr $point*8;
+        }
+        .product-item-edit {
+            grid-template-columns: 1fr 24px 1fr $point*16;
+            
+            .x-text-field:nth-child(1) {
+                grid-column: 1 / span 3;
+            }
+            
+            .x-text-field:nth-child(3) {
+                grid-column: 1 / span 1;
+            }
+
+            .x-text-field:nth-child(5) {
+                grid-column: 3 / span 1;
+            }
         }
     }
     
     .add-product-form {
         display: grid;
+        gap: $point*2;
         padding: $point;
 
         .add-product-separator {
             display: flex;
-            height: var(--x-button-height);
+            height: $point*8;
             justify-content: center;
             align-items: center;
         }
@@ -106,7 +110,7 @@
 
     .add-product-status {
         width: 100%;
-        padding: 11px 0 10px 0;
+        padding: 9px 0 8px 0;
         text-align: center;
         font-family: 'TT Commons';
         font-size: 20px;
@@ -158,17 +162,29 @@
                     height: 0;
                 }
             }
+
+            .product-item-action-menu {
+                display: flex;
+                .x-button:first-child {
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+                .x-button:last-child {
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
+            }
     
             .product-item-info {
                 user-select: none;
                 display: grid;
                 flex: 1 1 auto;
-                grid-template-columns: 1fr var(--x-button-height) var(--x-button-height);
+                grid-template-columns: 1fr $point*16;
                 gap: $point*2;
                 padding-left: $point*2;
     
                 .product-item-info-name {
-                    height: var(--x-button-height);
+                    height: $point*8;
                     display: flex;
                     align-items: flex-end;
                     font-weight: 600;
@@ -176,8 +192,8 @@
                 }
     
                 .product-item-info-calculation {
-                    grid-column: 1 / span 3;
-                    height: var(--x-button-height);
+                    grid-column: 1 / span 2;
+                    height: $point*8;
                     display: flex;
                     align-items: flex-start;
                     font-size: 20px;
@@ -187,24 +203,24 @@
             .product-item-edit {
                 display: grid;
                 flex: 1 1 auto;
-                grid-template-columns: var(--x-button-height) var(--x-button-height) 1fr 24px 1fr var(--x-button-height) var(--x-button-height);
+                grid-template-columns: $point*16 1fr 24px 1fr $point*16;
                 gap: $point*2;
 
-                .x-field:nth-child(1) {
-                    grid-column: 1 / span 5;
+                .x-text-field:nth-child(1) {
+                    grid-column: 1 / span 4;
                 }
                 
-                .x-field:nth-child(4) {
-                    grid-column: 1 / span 3;
+                .x-text-field:nth-child(3) {
+                    grid-column: 1 / span 2;
                 }
 
-                .x-field:nth-child(6) {
-                    grid-column: 5 / span 3;
+                .x-text-field:nth-child(5) {
+                    grid-column: 4 / span 2;
                 }
     
                 .product-item-edit-first {
                     display: grid;
-                    grid-template-columns: 1fr calc(var(--x-button-height) * 2);
+                    grid-template-columns: 1fr calc($point*8 * 2);
                     grid-column: 1 / span 3;
                     margin-bottom: $point*2;
     
@@ -212,11 +228,11 @@
                         display: flex;
     
                         .x-button {
-                            width: var(--x-button-height);
+                            width: $point*8;
                         }
                     }
     
-                    .x-field {
+                    .x-text-field {
                         margin-right: $point*1.5;
                     }
                 }

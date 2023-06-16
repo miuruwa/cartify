@@ -42,7 +42,7 @@ export function Button ({
 
     const ButtonDropdown = () => {
         if (isDropdown) {
-            return <div className="x-button-dropdown-icon">
+            return <div className="x-button-icon x-button-dropdown">
                 <KeyboardArrowDownIcon />
             </div>
         }

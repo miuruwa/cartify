@@ -1,4 +1,4 @@
-.webx {
+@mixin html {
     a {
         color: var(--x-button-icon);
         transition: 0.1s;
@@ -23,7 +23,6 @@
     }
     
     h1, h2, h3, h4, h5, h6, p {
-        color: var(--color);
         padding: 0 $point * 2;
         box-sizing: border-box;
     }

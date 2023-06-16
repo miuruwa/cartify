@@ -15,6 +15,8 @@ export default function UserChange() {
         status = "Вам не хватает:"
     }
 
+    const text = `${Math.abs(toolkit.cartCalc.change)} ${toolkit.cartCalc.currency}`
+
     return <>
         <div className={classList.join(" ")}>
             <p>
@@ -23,7 +25,7 @@ export default function UserChange() {
         </div>
         <div className={classList.join(" ")}>
             <p>
-                {Math.abs(toolkit.cartCalc.change)} {toolkit.cartCalc.currency}
+                {text}
             </p>
         </div>
     </>

@@ -1,4 +1,4 @@
-import "@web-cross-ui/forms/scss/index.scss"
+import "schema/index.scss"
 
 import {
     createContext,

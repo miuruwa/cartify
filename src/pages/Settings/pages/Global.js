@@ -41,27 +41,27 @@ export default function Global () {
 
     return <div className="settings-wrapper">
         <Headline title="Основные" />
-        <CardBlock className="settings-page">
-        <div className="options-grid-list settings-block">
-            <div className="options-grid-item">
-                Цветовая схема
+        <CardBlock className="settings-page options">
+            <div className="options-grid-list settings-block">
+                <div className="options-grid-item">
+                    Цветовая схема
+                </div>
+                <div className="options-grid-item">
+                    <ColorSchemaChanger align="right" />
+                </div>
+                <div className="options-grid-item">
+                    Включить подсчёт сдачи
+                </div>
+                <div className="options-grid-item">
+                    <TotalMode />
+                </div>
+                <div className="options-grid-item">
+                    Валюта покупки
+                </div>
+                <div className="options-grid-item">
+                    <CurrencyField />
+                </div>
             </div>
-            <div className="options-grid-item">
-                <ColorSchemaChanger align="right" />
-            </div>
-            <div className="options-grid-item">
-                Включить подсчёт сдачи
-            </div>
-            <div className="options-grid-item">
-                <TotalMode />
-            </div>
-            <div className="options-grid-item">
-                Валюта покупки
-            </div>
-            <div className="options-grid-item">
-                <CurrencyField />
-            </div>
-        </div>
       </CardBlock>
     </div>
 }

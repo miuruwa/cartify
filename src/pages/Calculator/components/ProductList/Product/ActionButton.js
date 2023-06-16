@@ -4,7 +4,7 @@ import {
 
 export default function ActionButton({ icon, onClick }) {
     return <Button
-        theme="transparent"
+        theme="white"
         icon={icon}
         onClick={onClick}
     />

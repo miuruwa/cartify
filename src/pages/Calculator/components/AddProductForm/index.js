@@ -84,22 +84,19 @@ export default function AddProductForm () {
 
             return <div className="add-product-form">
                 <TextField
-                        fieldValue={toolkit.cartCalc.currency}
                         field={name}
                         setField={setName}
                         placeholder="Название товара"
                 />
                 <TextField
-                        fieldValue={toolkit.cartCalc.currency}
                         field={price}
                         setField={setPrice}
-                        placeholder="Цена"
+                        placeholder={`Цена (${toolkit.cartCalc.currency})`}
                 />
                 <div className="add-product-separator">
                     <CloseIcon />
                 </div>
                 <TextField
-                        fieldValue={toolkit.cartCalc.currency}
                         field={quantity}
                         setField={setQuantity}
                         placeholder="Кол-во"

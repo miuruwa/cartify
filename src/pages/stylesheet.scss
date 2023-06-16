@@ -1,5 +1,5 @@
 @import "@web-cross-ui/utils/optional.scss";
-@import "../schema/schema-colors.css";
+@import "../schema/index.scss";
 
 .webx {
     &.screen-device-mobile {
@@ -7,21 +7,14 @@
             padding-right: 20px;
         }
         .add-product-form { 
-            grid-template-columns: 1fr var(--x-button-height) 1fr var(--x-button-height);
+            grid-template-columns: 1fr $point*6 1fr $point*8;
            
-            .x-field {
+            .x-text-field {
                 &:first-child {
                     grid-column: 1 / span 4;
-                    margin-right: 0;
-                    margin-bottom: $point*2;
-                }
-                &:nth-child(2) {
-                    margin-right: $point*1.5;
-                }
-                &:nth-child(4) {
-                    margin-right: $point*2;
                 }
             }
+
             .add-product-separator {
                 grid-column: 2 / span 1;
             }
@@ -55,7 +48,8 @@
     .cart-calc-message {
         min-height: 50vh;
         box-sizing: border-box;
-        padding: $point*9 $point*10;
+        padding: $point*2 $point*10!important;
+
         .x-button {
             width: 60%;
             margin: auto;

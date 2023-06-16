@@ -24,7 +24,7 @@ export default function UserCash() {
                 fieldValue={toolkit.cartCalc.currency}
                 field={toolkit.cartCalc.availableMoney}
                 setField={setAvailableMoney}
-                placeholder="Название товара"
+                placeholder="наличные"
             />
         </div>
     </>

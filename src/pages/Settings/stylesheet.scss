@@ -52,7 +52,6 @@
         }
 
         .settings-wrapper {
-            margin: $point*1 0;
             .settings-headline {
                 margin-bottom: $point * 2;
             }
@@ -63,13 +62,23 @@
         }
 
         .options-grid-list {
-            grid-template-columns: 3fr 2fr;
+            grid-template-columns: 1fr 190px;
         }
     }
 
     .settings-menu {
         .x-block:not(:last-child) {
             margin-bottom: 8px;
+        }
+    }
+
+    .settings-page {
+        &.options {
+            .options-grid-item {
+                &:nth-child(2n) {
+                    justify-content: right;
+                }
+            }
         }
     }
 

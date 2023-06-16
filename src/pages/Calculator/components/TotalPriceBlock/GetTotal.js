@@ -5,6 +5,7 @@ import {
 export default function GetTotal() {
     const toolkit = useToolKit()
 
+    const text = `${toolkit.cartCalc.totalCost} ${toolkit.cartCalc.currency}`
     return <>
         <div className="total-class">
             <p>
@@ -13,7 +14,7 @@ export default function GetTotal() {
         </div>
         <div className="total-class">
             <p>
-                {toolkit.cartCalc.totalCost} {toolkit.cartCalc.currency}
+                {text}
             </p>
         </div>
     </>

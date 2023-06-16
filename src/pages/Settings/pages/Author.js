@@ -33,7 +33,7 @@ export default function Author () {
                     Github:
                 </div>
                 <div className="options-grid-item">
-                    <LinkButton href="https://githob.com/kensoi">
+                    <LinkButton href="https://github.com/kensoi">
                         @kensoi  
                     </LinkButton>
                 </div>

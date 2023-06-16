@@ -113,14 +113,16 @@ export default function Product ({
                 <div className="product-item-info-name">
                     {name}
                 </div>
-                <ActionButton
-                        icon={<EditIcon />}
-                        onClick={selectCurrentID}
-                />
-                <ActionButton
-                        icon={<CloseIcon />}
-                        onClick={removeAction}
-                />
+                <div className="product-item-action-menu">
+                    <ActionButton
+                            icon={<EditIcon />}
+                            onClick={selectCurrentID}
+                    />
+                    <ActionButton
+                            icon={<CloseIcon />}
+                            onClick={removeAction}
+                    />
+                </div>
                 <div className="product-item-info-calculation">
                     <nobr>
                         {price}&nbsp;{toolkit.cartCalc.currency}
@@ -182,22 +184,21 @@ export default function Product ({
                         setField={setNameRaw}
                         placeholder="Название товара"       
                 />
+                <div className="product-item-action-menu">
+                    <ActionButton
+                            icon={<DoneIcon />}
+                            onClick={setNewData}
+                    />
 
-                <ActionButton
-                        icon={<DoneIcon />}
-                        onClick={setNewData}
-                />
-
-                <ActionButton
-                        icon={<DoNotDisturbAltIcon />}
-                        onClick={setOldData}
-                />
-
+                    <ActionButton
+                            icon={<DoNotDisturbAltIcon />}
+                            onClick={setOldData}
+                    />
+                </div>
                 <TextField
-                        fieldValue={toolkit.currency}
                         field={price_editing}
                         setField={setPriceRaw}
-                        placeholder="Цена"
+                        placeholder={`Цена (${toolkit.cartCalc.currency})`}
                 />
 
                 <div className="x-separator">
@@ -205,7 +206,6 @@ export default function Product ({
                 </div>
                 
                 <TextField
-                        fieldValue="шт."
                         field={quantity_editing}
                         setField={setQuantityRaw}
                         placeholder="Кол-во"

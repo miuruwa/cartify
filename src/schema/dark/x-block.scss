@@ -1,14 +1,13 @@
-@import "@web-cross-ui/utils/box-shadows.scss";
+@mixin x-block {
+    .x-block {        
+        background: #222222;
+        // --x-block-background-hover: var(--zircon);
+        --x-block-border: 0 0 0 1px #424242;
+        --x-block-shadow: 0px 4px 8px rgba(12, 21, 49, 0.027);
+        box-shadow: var(--x-block-shadow), var(--x-block-border);
 
-.webx {
-    .x-block {
-        $note-block-shadow: $box-shadow, $box-border;
-        @include box-shadow($note-block-shadow);
-        
         border-radius: $point * 2;
         padding: $point;
-        background: var(--x-block-background);
-        color: var(--color);
         box-sizing: border-box;
 
         &.button-block {
@@ -25,10 +24,6 @@
                     text-align: left!important;
                 }
             }
-        }
-
-        .x-field {
-            border-radius: $point !important;
         }
     }
 }
