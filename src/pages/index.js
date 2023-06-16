@@ -1,6 +1,6 @@
 import "./stylesheet.scss"
 
-import usePartition from "utils/usePartition"
+import useAppPartitions from "utils/useAppPartitions"
 
 import Calculator from "./Calculator"
 import Settings from "./Settings"
@@ -12,7 +12,7 @@ import {
 } from "react-router-dom"
 
 export default function Router () {
-    usePartition()
+    useAppPartitions()
     
     return <BrowserRouter>
         <Routes>

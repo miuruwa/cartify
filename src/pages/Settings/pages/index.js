@@ -11,7 +11,7 @@ import Menu from "./Menu"
 function Resolver() {
     const toolkit = useToolKit()
 
-    switch (toolkit.settings.page) {
+    switch (toolkit.pages.settings.number) {
         case 2:
             return <About />
 

@@ -1,10 +1,10 @@
 export {
-    CartCalcPartition
+    CartCalcPartition, PagesPartition
 } from "./partitions/"
 
 export {
-    cartCalc, 
-    CartCalcReducer
+    cartCalc, CartCalcReducer,
+    pages, PagesReducer
 } from "./reducers/"
 
 

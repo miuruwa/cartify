@@ -12,7 +12,7 @@ export default function MenuButton({
     const toolkit = useToolKit()
 
     const menuAction = () => {
-        toolkit.settings.page = page
+        toolkit.pages.settings.number = page
     }
 
     return <Button

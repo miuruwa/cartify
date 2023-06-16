@@ -53,9 +53,8 @@ class ToolKit {
         })
     }
 
-    setProperty (name, behaviour, state, dispatch) {
-        this.#toolDict[name] = createPartition(state, dispatch, behaviour)
-        
+    setPartition (name, partition) {
+        this.#toolDict[name] = partition
         Object.defineProperty(
             this, name, {
                 get: () => this.#toolDict[name],
@@ -201,6 +200,12 @@ function useToolKit() {
     return useContext(getToolKitContext)
 }
 
+function usePartition (name, partition) {
+    const toolkit = useToolKit()
+
+    toolkit.setPartition(name, partition)
+}
+
 export {
-    ToolKitContext, useToolKit,
+    ToolKitContext, useToolKit, usePartition
 }

@@ -7,16 +7,6 @@ export class SettingsBehaviour {
     this.#dispatch = dispatch
 
     Object.defineProperties(this, {
-      targetInput: {
-        get: () => this.#state.targetInput,
-        set: (value) => {
-          this.#dispatch({
-            type: "target-input",
-            state: value
-          })
-        }
-      },
-
       mounted: {
         get: () => this.#state.mounted,
         set: (value) => {
@@ -80,18 +70,6 @@ export class SettingsBehaviour {
                 state: value
               })
             
-          }
-        }
-      },
-
-      askBeforeRemoving: {
-        get: () => this.#state.askBeforeRemoving,
-        set: (value) => {
-          if (typeof value == "boolean") {
-            this.#dispatch({
-              type: "set-ask-before-remove",
-              state: value
-            })
           }
         }
       },

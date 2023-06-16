@@ -5,14 +5,18 @@ import {
 export class Partition {
     #state
     #dispatch
-    #card
-    #settings
+    #toolkit
     
-    constructor(state, dispatch, card, settings) {
+    constructor(state, dispatch, toolkit) {
         this.#state = state
         this.#dispatch = dispatch
-        this.#card = card
-        this.#settings = settings
+        this.#toolkit = toolkit
+
+        this.pages = {
+            settings: {
+
+            }
+        }
 
         Object.defineProperties(this, {
             list: {

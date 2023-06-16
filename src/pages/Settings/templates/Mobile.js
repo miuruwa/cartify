@@ -14,7 +14,7 @@ import {
 function Content() {
     const toolkit = useToolKit()
 
-    switch (toolkit.settings.page) {
+    switch (toolkit.pages.settings.number) {
         case 0:
             return <Menu />
 
@@ -27,8 +27,8 @@ export function Template() {
     const toolkit = useToolKit()
 
     return <MountTransition
-        mountState={toolkit.settings.mounted}
-        visibilityState={toolkit.settings.loaded}
+        mountState={toolkit.cartCalc.pages.settings.mounted}
+        visibilityState={toolkit.cartCalc.pages.settings.loaded}
     >
         <Content />
     </MountTransition>

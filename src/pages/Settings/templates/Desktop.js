@@ -17,8 +17,8 @@ export function Template() {
     return <div className="desktop settings">
         <Menu />
         <MountTransition
-            mountState={toolkit.settings.mounted}
-            visibilityState={toolkit.settings.loaded}
+            mountState={toolkit.pages.settings.mounted}
+            visibilityState={toolkit.pages.settings.loaded}
         >
             <Resolver />
         </MountTransition>
