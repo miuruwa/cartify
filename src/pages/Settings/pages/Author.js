@@ -2,13 +2,16 @@ import {
     CardBlock, 
     Button
 } from "@web-cross-ui/forms"
+import { useToolKit } from "@web-cross-ui/toolkit"
 
 import Headline from "pages/Settings/components/Headline"
 
 export default function Author () {
     const LinkButton = ({title, children, link}) => {
+        const toolkit = useToolKit()
+
         const action = () => {
-            window.open(link)
+            toolkit.app.goTo(link)
         }
 
         return <Button
