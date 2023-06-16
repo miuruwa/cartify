@@ -12,7 +12,7 @@ export {
 
 export {
     TextField
-} from "./components/Field"
+} from "./components/TextField"
 
 export {
     Slider
