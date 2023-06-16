@@ -1,7 +1,3 @@
-import {
-    nanoid
-} from "nanoid"
-
 export class Partition {
     #state
     #dispatch
