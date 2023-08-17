@@ -1,5 +1,5 @@
 import AddProductForm from "../components/Form"
-import ProductList from "../components/ProductList"
+import Sheet from "../components/Sheet"
 import TotalPriceBlock from "../components/TotalPriceBlock"
 
 export function Template() {
@@ -10,7 +10,7 @@ export function Template() {
             </h1>
             <AddProductForm />
         </div>
-        <ProductList />
+        <Sheet />
         <TotalPriceBlock />
     </>
 }
