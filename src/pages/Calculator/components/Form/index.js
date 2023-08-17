@@ -27,7 +27,7 @@ function Finish () {
     </div>
 }
 
-function Form ({updateForm}) {
+function Input ({updateForm}) {
     const toolkit = useToolKit();
 
     const [name, setName] = useState("");
@@ -55,18 +55,18 @@ function Form ({updateForm}) {
                 price === ""
         ) {
             toolkit.card.show(<ErrorCard />)
-
-            return
         }
-        toolkit.cartCalc.addProduct({
-            name: name,
-            price: parseFloat(price).toFixed(2),
-            quantity: parseFloat(quantity).toFixed(2)
-        })
-        updateForm()
-        setPrice("")
-        setName("")
-        setQuantity("")
+        else {
+            toolkit.cartCalc.addProduct({
+                name: name,
+                price: parseFloat(price).toFixed(2),
+                quantity: parseFloat(quantity).toFixed(2)
+            })
+            updateForm()
+            setPrice("")
+            setName("")
+            setQuantity("")
+        }
 
         event.preventDefault();
     }
@@ -95,7 +95,7 @@ function Form ({updateForm}) {
     </form>
 }
 
-function AddProductForm () {
+function Form () {
     const toolkit = useToolKit();
 
     const [added, setAdded] = useState(false);
@@ -114,8 +114,8 @@ function AddProductForm () {
     if (added) {
         return <Finish />
     }
-    return <Form updateForm={updateForm}/>
+    return <Input updateForm={updateForm}/>
 }
 
 
-export default AddProductForm;
+export default Form;
