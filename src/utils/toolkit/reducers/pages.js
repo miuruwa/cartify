@@ -59,7 +59,7 @@ export function Reducer(state, action) {
             break
 
         default:
-            throw Error('Unknown action.')
+            throw Error(`Unknown action (${action.type})`)
     }
 
     return newState

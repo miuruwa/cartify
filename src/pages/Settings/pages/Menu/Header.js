@@ -1,5 +1,5 @@
 export default function Header() {
-    return <div className="settings-headline settings-block">
+    return <h1>
         Настройки
-    </div>
+    </h1>
 }

@@ -14,7 +14,7 @@ function BackButtonMobile() {
     const toolkit = useToolKit()
 
     const returnToMenu = () => {
-        toolkit.settings.page = 0
+        toolkit.pages.settings.number = 0
     }
 
     return <Button 
@@ -33,6 +33,8 @@ export default function Headline({
         {
             toolkit.settings.windowWidth < 768 ? <BackButtonMobile /> : <></>
         }
-        { title }
+        <h1>
+            { title }
+        </h1>
     </div>
 }

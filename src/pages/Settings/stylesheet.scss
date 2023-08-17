@@ -8,12 +8,6 @@
     }
 
     &.screen-device-mobile {
-        .settings-wrapper {
-            .settings-headline {
-                margin-bottom: $point * 3;
-            }
-        }
-
         .settings-page {
             padding: $point*3 $point*4;
         }
@@ -26,12 +20,6 @@
     &.screen-device-tablet {
         .desktop.settings {
             grid-template-columns: 240px 1fr;
-        }
-
-        .settings-wrapper {
-            .settings-headline {
-                margin-bottom: $point * 2;
-            }
         }
 
         .settings-page {
@@ -48,12 +36,6 @@
             grid-template-columns: 320px 1fr;
         }
 
-        .settings-wrapper {
-            .settings-headline {
-                margin-bottom: $point * 2;
-            }
-        }
-
         .settings-page {
             padding: $point*12 $point*12;
         }
@@ -67,7 +49,7 @@
 
         .settings-wrapper {
             height: 100%;
-            overflow-y: scroll;
+            overflow-y: auto;
             padding-right: $point*2;
         }
     }
@@ -90,17 +72,10 @@
 
     .settings-headline {
         display: flex;
-        align-items: bottom ;
+        align-items: bottom;
 
-        padding: $point $point*4;
-        line-height: 32px;
-        text-transform: uppercase;
-        color: #888;
-        font-size: 16px;
-        box-sizing: border-box;
-
-        .x-button {
-            margin-right: $point * 2;
+            .x-button {
+                margin: 0 0 0 $point * 3;
         }
     }
 

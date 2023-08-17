@@ -3,9 +3,11 @@
         display: flex;
         justify-content: space-between;
         user-select: none;
+        height: 44px;
 
         .header-button {
             width: 56px;
+            height: 56px;
 
             opacity: 0.5;
             cursor: pointer;
@@ -17,7 +19,9 @@
                 width: 32px!important;
             }
             .x-dropdown-children {
-                height: 32px;
+                height: 20px;
+                display: flex;
+                align-items: center;
             }
 
             &:not(.second) {
