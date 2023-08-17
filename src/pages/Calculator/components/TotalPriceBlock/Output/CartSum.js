@@ -2,7 +2,7 @@ import {
     useToolKit
 } from "@web-cross-ui/toolkit"
 
-export default function GetTotal() {
+export default function CartSum() {
     const toolkit = useToolKit()
 
     const text = `${toolkit.cartCalc.totalCost} ${toolkit.cartCalc.currency}`

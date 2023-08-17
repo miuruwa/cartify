@@ -2,21 +2,22 @@ import {
     useToolKit
 } from "@web-cross-ui/toolkit"
 
-import {
-    TextField
-} from "@web-cross-ui/forms"
 
 export default function UserCash() {
     const toolkit = useToolKit()
 
-    const setAvailableMoney = (state) => {
-        toolkit.cartCalc.availableMoney = parseInt(state)
+    function handleChange (event) {
+        toolkit.cartCalc.availableMoney = parseFloat(event.target.value)
     }
 
-    return <TextField
-        fieldValue={toolkit.cartCalc.currency}
-        field={toolkit.cartCalc.availableMoney}
-        setField={setAvailableMoney}
-        placeholder="наличные"
-    />
+    return <form>
+        <h1>
+            Ваши наличные ({toolkit.cartCalc.currency})
+        </h1>
+        <input type="text" inputMode="numeric"
+            name="userCache" onChange={handleChange}
+            value={toolkit.cartCalc.availableMoney}
+            placeholder="наличные"
+        />
+    </form>
 }
