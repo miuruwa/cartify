@@ -1,12 +1,5 @@
 // @import "./auto.css";
 
-html {
-    overflow: hidden;
-}
-body {
-    overflow: hidden;
-}
-
 .webx {
     @import "./dark/index.scss";
     @include theme-dark;

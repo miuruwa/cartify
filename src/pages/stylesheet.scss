@@ -7,11 +7,11 @@
             padding-right: 20px;
         }
         .add-product-form { 
-            grid-template-columns: 1fr $point*6 1fr $point*8;
+            grid-template-columns: 1fr $point*6 1fr $point*8 0px;
            
             .x-text-field {
                 &:first-child {
-                    grid-column: 1 / span 4;
+                    grid-column: 1 / span 5;
                 }
             }
 

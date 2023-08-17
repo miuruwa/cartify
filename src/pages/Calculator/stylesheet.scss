@@ -2,6 +2,9 @@
 
 .webx {
     &.screen-device-mobile {
+        .index {
+            position: relative;
+        }
         .in-total-block-wrap {
             grid-template-columns: 1fr 1fr;
         }
@@ -79,6 +82,19 @@
         }
     }
 
+    .pin-block {
+        top: 0px;
+        position: sticky;
+        padding-top: 16px;
+        background: linear-gradient(0deg, transparent, #000);
+        h1 {
+            margin-top: 0;
+        }
+        .x-text-field {
+            box-shadow: 0 4px 12px #00000055!important;
+        }
+    }
+
     .desktop.calc {
         height: calc(100vh - 56px);
         .product-list {
@@ -86,22 +102,12 @@
             overflow-y: auto;
             padding-right: $point*2;
 
-            .pin-block {
-                top: 0px;
-                position: sticky;
-                padding-top: 16px;
-                background: linear-gradient(0deg, transparent, #000);
-                h1 {
-                    margin-top: 0;
-                }
-                .x-text-field {
-                    box-shadow: 0 4px 12px #00000055!important;
-                }
-            }
+            
         }
 
         .add-product-form {
-            grid-template-columns: 2fr 1fr 24px 1fr $point*8;
+            grid-template-columns: 2fr 1fr 24px 1fr $point*6;
+            padding-right: 0!important;
         }
         .product-item-edit {
             grid-template-columns: 1fr 24px 1fr $point*16;
@@ -123,15 +129,14 @@
     .add-product-form {
         display: grid;
         gap: $point*2;
-        padding-right: $point;
         margin-bottom: $point * 2;
-        
             
         .x-button {
             background: none!important;
             box-shadow: none!important;
             opacity: 0.5;
             transition: 0.1s;
+            
             &:hover{
                 opacity: 1;
             }

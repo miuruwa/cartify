@@ -1,6 +1,6 @@
 import {
     CardBlock,
-    Tumbler,
+    // Tumbler,
     TextField
 } from "@web-cross-ui/forms"
 
@@ -13,15 +13,15 @@ import Headline from "pages/Settings/components/Headline"
 export default function Global () {
     const toolkit = useToolKit()
 
-    const TotalMode = () => {
-        const setState = (state) => {
-            toolkit.cartCalc.isTotalMode = state
-        }
+    // const TotalMode = () => {
+    //     const setState = (state) => {
+    //         toolkit.cartCalc.isTotalMode = state
+    //     }
 
-        return <Tumbler state={toolkit.cartCalc.isTotalMode}
-            setState={setState}
-        />
-    }
+    //     return <Tumbler state={toolkit.cartCalc.isTotalMode}
+    //         setState={setState}
+    //     />
+    // }
 
     const CurrencyField = () => {
         const handleChange = (event) => {
@@ -42,12 +42,12 @@ export default function Global () {
         <Headline title="Основные" />
         <CardBlock className="settings-page options">
             <div className="options-grid-list settings-block">
-                <div className="options-grid-item">
+                {/* <div className="options-grid-item">
                     Включить подсчёт сдачи
                 </div>
                 <div className="options-grid-item">
                     <TotalMode />
-                </div>
+                </div> */}
                 <div className="options-grid-item">
                     Валюта покупки
                 </div>
