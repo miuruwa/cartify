@@ -90,7 +90,7 @@
         h1 {
             margin-top: 0;
         }
-        .x-text-field {
+        input {
             box-shadow: 0 4px 12px #00000055!important;
         }
     }
@@ -130,6 +130,28 @@
         display: grid;
         gap: $point*2;
         margin-bottom: $point * 2;
+        label {
+            input {
+                display: none;
+            }
+            svg {
+                height: 100%;
+            }
+        }
+
+        input {
+            height: $point*8;
+            padding: 4px $point*2 4px $point*3;
+            box-sizing: border-box;
+            border: none;
+            border-radius: $point*8;
+            width: 100%;
+            cursor: text;
+            background: #222;
+            font-size: 20px;
+            font-family: inherit;
+            outline: none;
+        }
             
         .x-button {
             background: none!important;
@@ -144,10 +166,30 @@
 
         .add-product-separator {
             display: flex;
-            height: $point*10;
+            height: $point*8;
             justify-content: center;
             align-items: center;
         }
+    }
+    .add-product-target {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 28px;
+        border: 2px dashed #222;
+        color: #888;
+        border-radius: $point*2;
+        margin-bottom: $point*2;
+    }
+
+    .add-product-finish {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 32px;
+        background: #333;
+        border-radius: $point*2;
+        margin-bottom: $point*2;
     }
 
     .add-product-status {
