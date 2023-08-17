@@ -1,11 +1,11 @@
 import Form from "../components/Form"
 import Sheet from "../components/Sheet"
-import TotalPriceBlock from "../components/TotalPriceBlock"
+import Results from "../components/Results"
 
 export function Template() {
     return <>
         <Form />
         <Sheet />
-        <TotalPriceBlock />
+        <Results />
     </>
 }

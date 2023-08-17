@@ -1,17 +1,15 @@
 import Form from "../components/Form"
 import Sheet from "../components/Sheet"
-import TotalPriceBlock from "../components/TotalPriceBlock"
+import Results from "../components/Results"
 
 export function Template() {
-    return <>
-        <div className="desktop calc">
+    return <div className="desktop calc">
             <div className="cart">
                 <Form />
                 <Sheet />
             </div>
             <div className="total-data">
-                <TotalPriceBlock />
+                <Results />
             </div>
         </div>
-    </>
 }
