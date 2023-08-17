@@ -1,4 +1,4 @@
-import AddProductForm from "../components/NewAddProductForm"
+import AddProductForm from "../components/Form"
 import ProductList from "../components/ProductList"
 import TotalPriceBlock from "../components/TotalPriceBlock"
 
