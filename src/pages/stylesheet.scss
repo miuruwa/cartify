@@ -27,10 +27,9 @@
         flex-direction: column;
 
         max-width: 1024px;
-        width: 100%;
+        padding: 0 8px 8px 8px;
         min-height: 100vh;
 
-        padding: $point * 2;
         box-sizing: border-box;
         margin: 0 auto;
 
@@ -38,11 +37,6 @@
             display: grid!important;
             gap: $point*2;
         }
-        
-        .product-info-wrapper {
-            margin-bottom: $point*2;
-        }
-
     }
 
     .cart-calc-message {

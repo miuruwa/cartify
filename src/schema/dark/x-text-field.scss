@@ -3,15 +3,12 @@
         display: grid;
         gap: $point*2;
         min-height: $point*8;
-        padding: 0 $point*2;
+        padding: 4px $point*2 4px $point*3;
         box-sizing: border-box;
-        --x-block-shadow: 0px 4px 8px rgba(12, 21, 49, 0.027);
-        --x-block-border: 0 0 0 1px #626262;
-        box-shadow: var(--x-block-border);
-        border-radius: $point;
+        border-radius: $point*8;
         width: 100%;
         cursor: text;
-        background: #424242;
+        background: #333;
         font-size: 20px;
 
         &:hover {
@@ -40,7 +37,6 @@
                 pointer-events: none;
                 display: block; /* For Firefox */
                 color: #B2B2B2;
-                text-transform: lowercase;
             }
         }
         .x-text-field-currency {

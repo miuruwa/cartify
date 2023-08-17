@@ -1,13 +1,14 @@
 import AddProductForm from "../components/AddProductForm"
 import ProductList from "../components/ProductList"
 import TotalPriceBlock from "../components/TotalPriceBlock"
-import ButtonList from "../components/ButtonList"
 
 export function Template() {
-    return <>
+    return <div class="calc">
         <AddProductForm />
+        <h1>
+            Корзина
+        </h1>
         <ProductList />
         <TotalPriceBlock />
-        <ButtonList />
-    </>
+    </div>
 }

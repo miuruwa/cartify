@@ -1,5 +1,6 @@
 @import "@web-cross-ui/utils/optional.scss";
 
+@import "./header.scss";
 @import "./x-block.scss";
 @import "./x-button.scss";
 @import "./x-check-box.scss";
@@ -12,11 +13,13 @@
 
 
 @mixin theme-dark {
-    background: #141414;
+    background: #000000;
+    color-scheme: dark;
     color: #ffffff;
     font-family: 'TT Commons';
     
     @include html;
+    @include header;
     @include x-block;
     @include x-button;
     @include x-check-box;

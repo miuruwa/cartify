@@ -13,19 +13,10 @@ export default function UserCash() {
         toolkit.cartCalc.availableMoney = parseInt(state)
     }
 
-    return <>
-        <div className="total-class">
-            <p>
-                Наличные:
-            </p>
-        </div>
-        <div className="total-class">
-            <TextField
-                fieldValue={toolkit.cartCalc.currency}
-                field={toolkit.cartCalc.availableMoney}
-                setField={setAvailableMoney}
-                placeholder="наличные"
-            />
-        </div>
-    </>
+    return <TextField
+        fieldValue={toolkit.cartCalc.currency}
+        field={toolkit.cartCalc.availableMoney}
+        setField={setAvailableMoney}
+        placeholder="наличные"
+    />
 }

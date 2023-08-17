@@ -40,7 +40,7 @@ function ClearList() {
 
 export default function ButtonList() {
     return <ButtonBlock>
-        <ClearList />
         <SettingsButton />
+        <ClearList />
     </ButtonBlock>
 }

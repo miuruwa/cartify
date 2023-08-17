@@ -45,7 +45,7 @@
 
     &.screen-device-desktop {
         .desktop.settings {
-            grid-template-columns: 320px 640px;
+            grid-template-columns: 320px 1fr;
         }
 
         .settings-wrapper {
@@ -60,6 +60,15 @@
 
         .options-grid-list {
             grid-template-columns: 1fr 190px;
+        }
+    }
+    .desktop.settings {
+        height: calc(100vh - 56px);
+
+        .settings-wrapper {
+            height: 100%;
+            overflow-y: scroll;
+            padding-right: $point*2;
         }
     }
 
@@ -81,13 +90,13 @@
 
     .settings-headline {
         display: flex;
-        align-items: flex-end;
+        align-items: bottom ;
 
-        padding: $point;
+        padding: $point $point*4;
         line-height: 32px;
-        color: var(--color);
-        font-weight: 600;
-        font-size: 28px;
+        text-transform: uppercase;
+        color: #888;
+        font-size: 16px;
         box-sizing: border-box;
 
         .x-button {

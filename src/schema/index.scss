@@ -1,29 +1,13 @@
 // @import "./auto.css";
 
-#root {
-    min-height: 100%;
+html {
+    overflow: hidden;
+}
+body {
+    overflow: hidden;
 }
 
 .webx {
-    &.color-schema-light {
-        @import "./light/index.scss";
-        @include theme-light;
-    }
-
-    &.color-schema-dark {
-        @import "./dark/index.scss";
-        @include theme-dark;
-    }
-    
-    &.color-schema-auto {
-        @media screen and (prefers-color-scheme: dark) {
-            @import "./dark/index.scss";
-            @include theme-dark;
-        }
-    
-        @media screen and (prefers-color-scheme: light) {
-            @import "./light/index.scss";
-            @include theme-light;
-        }
-    }
+    @import "./dark/index.scss";
+    @include theme-dark;
 }

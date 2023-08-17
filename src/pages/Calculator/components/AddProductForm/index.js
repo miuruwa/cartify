@@ -2,8 +2,7 @@ import {
     useState
 } from "react"
 
-import { 
-    CardBlock,
+import {
     TextField,
     Button
 } from "@web-cross-ui/forms"
@@ -91,7 +90,7 @@ export default function AddProductForm () {
                 <TextField
                         field={price}
                         setField={setPrice}
-                        placeholder={`Цена (${toolkit.cartCalc.currency})`}
+                        placeholder="Цена"
                 />
                 <div className="add-product-separator">
                     <CloseIcon />
@@ -112,7 +111,5 @@ export default function AddProductForm () {
         return <AddForm />
     }
 
-    return <CardBlock className="product-info-wrapper">
-        <AddContainer />
-    </CardBlock>
+    return <AddContainer />
 }

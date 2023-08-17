@@ -14,9 +14,13 @@ export default function TotalPriceBlock () {
 
     if (toolkit.cartCalc.isTotalMode) {
         return <>
-            <CardBlock className="in-total-block-wrap field">
-                <UserCash/>
-            </CardBlock>
+            <h1>
+                Наличные
+            </h1>
+            <UserCash/>
+            <h1>
+                Подсчёт
+            </h1>
             <CardBlock className="in-total-block-wrap">
                 <GetTotal />
                 <UserChange />

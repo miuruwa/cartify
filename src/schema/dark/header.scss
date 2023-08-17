@@ -1,0 +1,56 @@
+@mixin header {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        user-select: none;
+
+        .header-button {
+            width: 56px;
+
+            opacity: 0.5;
+            cursor: pointer;
+            transition: 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .x-dropdown {
+                width: 32px!important;
+            }
+            .x-dropdown-children {
+                height: 32px;
+            }
+
+            &:not(.second) {
+                opacity: 1;
+                svg {
+                    transform: translateX(-2px);
+                }
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .button-block {
+            width: 228px;
+            .app-button {
+                border-radius: 4px;
+                background: #282828;
+                margin: 0 8px 8px 8px;
+                box-sizing: border-box;
+                padding: 2px 16px 0 12px;
+                display: flex;
+                align-items: center;
+
+                &:hover{
+                    background: #333;
+                }
+
+                svg {
+                    transform: translateY(-4px);
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+}
