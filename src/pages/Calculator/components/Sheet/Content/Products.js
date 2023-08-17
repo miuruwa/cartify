@@ -1,5 +1,11 @@
-import { nanoid } from "nanoid";
-import { useToolKit } from "@web-cross-ui/toolkit";
+import { 
+    nanoid
+} from "nanoid";
+
+import { 
+    useToolKit
+} from "@web-cross-ui/toolkit";
+
 import Item from "./Item";
 
 export function Products() {
@@ -13,5 +19,5 @@ export function Products() {
 
     return <>
         {toolkit.cartCalc.list.map(handleItem)}
-    </>;
+    </>
 }

@@ -368,8 +368,10 @@
             color: #888;
             border-radius: $point*2;
             margin-bottom: $point*2;
+            user-select: none;
             p {
                 width: 70%;
+                height: 50%;
                 font-size: 32px;
             }
         }

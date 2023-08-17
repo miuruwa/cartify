@@ -3,7 +3,9 @@ import {
     CardBlock
 } from "@web-cross-ui/forms"
 
-import { useToolKit } from "@web-cross-ui/toolkit"
+import {
+    useToolKit
+} from "@web-cross-ui/toolkit"
 
 export default function ErrorCard () {
     const toolkit = useToolKit()
@@ -21,7 +23,7 @@ export default function ErrorCard () {
 
     return <CardBlock className="cart-calc-message">
         <h1>
-            Ошибка добавления продукта
+            Ошибка изменения продукта
         </h1>
         <p>
             Проверьте все поля ввода: в приложение нельзя добавлять продукты с пустыми значениями.

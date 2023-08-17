@@ -6,12 +6,7 @@ export function Template() {
     return <>
         <div className="desktop calc">
             <div className="cart">
-                <div className="pin-block">
-                    <h1>
-                        Корзина
-                    </h1>
-                    <Form />
-                </div>
+                <Form />
                 <Sheet />
             </div>
             <div className="total-data">

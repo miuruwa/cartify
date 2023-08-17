@@ -114,7 +114,12 @@ function Form () {
     if (added) {
         return <Finish />
     }
-    return <Input updateForm={updateForm}/>
+    return <div className="pin-block">
+        <h1>
+            Корзина
+        </h1>
+        <Input updateForm={updateForm}/>
+    </div>
 }
 
 
