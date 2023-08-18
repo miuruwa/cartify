@@ -2,22 +2,6 @@
 @import "../schema/index.scss";
 
 .webx {
-    &.screen-device-mobile {
-        .add-product-form { 
-            grid-template-columns: 1fr $point*6 1fr $point*8;
-           
-            input {
-                &:first-child {
-                    grid-column: 1 / span 4;
-                }
-            }
-
-            .add-product-separator {
-                grid-column: 2 / span 1;
-            }
-        }
-    }
-
     .index {
         display: flex;
 
@@ -82,6 +66,14 @@
         font-size: 16px;
         box-sizing: border-box;
         user-select: none;
+    }
+
+    ul {
+        padding-inline-start: 0;
+    }
+    
+    li {
+        list-style: none;
     }
 
     input {
