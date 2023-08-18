@@ -47,9 +47,9 @@ export function FormActions() {
     return <div className="sheet-item-actions">
         <ActionButton
             icon={<DoneIcon />}
-            onClick={ApplyChanges} />
+            onClick={ApplyChanges} title="Сохранить изменения"/>
         <ActionButton
             icon={<CloseIcon />}
-            onClick={CancelChanges} />
+            onClick={CancelChanges} title="Отменить изменения"/>
     </div>;
 }

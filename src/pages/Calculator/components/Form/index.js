@@ -88,7 +88,7 @@ function Input ({updateForm}) {
         value={quantity === 0 ? "" : quantity} onChange={handleChange}
             placeholder="кол-во"
         />
-        <label>
+        <label title="Добавить">
             <input type="submit" value="submit" />
             <AddIcon />
         </label>

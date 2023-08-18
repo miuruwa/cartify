@@ -1,7 +1,7 @@
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
 export function Button ({
-    icon, title, isDropdown, xstyle, children, theme="usual", className,
+    icon, title, isDropdown, xstyle, children, theme="usual", className, alt,
     ...props
 }) {
     const ClassList = ["x-button"]
@@ -50,7 +50,7 @@ export function Button ({
 
     return <div 
             className={ClassList.join(" ")} 
-            style={xstyle} {...props}
+            style={xstyle} {...props} title={alt}
     >
         <ButtonIcon />
         <ButtonTitle />

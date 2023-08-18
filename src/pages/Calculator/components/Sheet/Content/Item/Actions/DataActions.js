@@ -31,9 +31,9 @@ export function DataActions() {
     return <div className="sheet-item-actions">
         <ActionButton
             icon={<DriveFileRenameOutlineIcon />}
-            onClick={ChangeData} />
+            onClick={ChangeData} title="Редактировать ячейку"/>
         <ActionButton
             icon={<CloseIcon />}
-            onClick={RemoveData} />
+            onClick={RemoveData} title="Удалить ячейку"/>
     </div>;
 }

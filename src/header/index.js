@@ -12,14 +12,14 @@ function HomePageButton () {
         window.location.href = "https://kensoi.github.io/"
     }
     return <div className="header-button second"
-        onClick={onClick}
+        onClick={onClick} title = "На главную"
     >
         <HomePageIcon />
     </div>
 }
 
 function CartLogoButton () {
-    return <div className="header-button">
+    return <div className="header-button" title = "Торговая тележка">
         <CartIcon />
     </div>
 }
@@ -29,7 +29,7 @@ function MenuButton () {
         return <MenuIcon />
     }
 
-    return <div className="header-button second">
+    return <div className="header-button second" title = "Опции">
         <Dropdown dropdown={<ButtonList/>} contentPosition="bottom-right">
             <Children />
         </Dropdown>
