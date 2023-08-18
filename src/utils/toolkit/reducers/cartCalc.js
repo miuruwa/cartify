@@ -13,6 +13,10 @@ export const state = {
             localStorage.getItem("product-list")
         ) || [],
 
+    saveList: JSON.parse(
+            localStorage.getItem("save-list")
+        ) || [],
+
     inTotalMode: JSON.parse(
             localStorage.getItem("inTotalMode")
         ) || false,
@@ -59,6 +63,18 @@ export function Reducer(state, action) {
 
             localStorage.setItem(
                 "product-list", 
+                JSON.stringify(
+                    action.state
+                )
+            )
+            
+            break
+
+        case "save-list":
+            newState.saveList = action.state
+
+            localStorage.setItem(
+                "save-list", 
                 JSON.stringify(
                     action.state
                 )
