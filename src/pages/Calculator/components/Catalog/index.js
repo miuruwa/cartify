@@ -1,30 +1,11 @@
-import {
-    Button,
-    CardBlock
-} from "@web-cross-ui/forms";
+import SaveList from "./SaveList";
+import Search from "./Search";
+import SearchCardButton from "./SearchCardButton";
 
-function Content () {
-    return <CardBlock>
-        <form>
-            <input type="text" placeholder="Найти список"/>
-        </form>
-    </CardBlock>
+function SearchBlock ({hide}) {
+    return hide ? <SearchCardButton /> : <Search />
 }
 
-function ShowContent () {
-
-    return <Button title="Показать сохранённые" />
-}
-
-function Catalog ({hide}) {
-    return <div className="catalogue">
-        <h6>
-            Каталог
-        </h6>
-        {
-            hide ? <ShowContent /> : <Content />    
-        }
-    </div>
-}
-
-export default Catalog;
+export {
+    SearchBlock, SaveList
+};

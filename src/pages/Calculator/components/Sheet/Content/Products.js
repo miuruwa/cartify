@@ -1,6 +1,7 @@
 import React, {
     useMemo,
     useState, 
+    useEffect
 } from "react";
 
 import { 
@@ -27,6 +28,7 @@ export function Products({renderItem}) {
     const toolkit = useToolKit();
     
     const [active, setActive] = useState(null);
+    const [list, setList] = useState(toolkit.cartCalc.list);
     const activeItem = useMemo(
         () => toolkit.cartCalc.list.find((item) => item.id === active?.id),
         [active, toolkit.cartCalc.list]
@@ -69,6 +71,11 @@ export function Products({renderItem}) {
         setActive(null);
     }
 
+    useEffect(
+        () => {
+            setList(toolkit.cartCalc.list)
+        }, [toolkit.cartCalc.list]
+    )
 
     return <DndContext
         sensors={sensors}
@@ -76,10 +83,10 @@ export function Products({renderItem}) {
         onDragEnd={onDragEnd}
         onDragCancel={onDragCancel}
     >
-        <SortableContext items={toolkit.cartCalc.list}>
+        <SortableContext items={list}>
             <ul>
                 {
-                    toolkit.cartCalc.list.map(
+                    list.map(
                         item => <React.Fragment key={item.id}>{renderItem(item)}</React.Fragment>
                     )
                 }    

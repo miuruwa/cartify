@@ -1,4 +1,4 @@
-import Catalog from "../components/Catalog"
+import {SearchBlock, SaveList} from "../components/Catalog"
 import Form from "../components/Form"
 import Sheet from "../components/Sheet"
 import Results from "../components/Results"
@@ -11,7 +11,10 @@ export function Template() {
             </div>
             <div>
                 <Results />
-                <Catalog />
+                <div className="catalogue">
+                    <SearchBlock hide/>
+                    <SaveList />
+                </div>
             </div>
         </div>
 }

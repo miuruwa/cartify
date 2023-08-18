@@ -32,6 +32,19 @@ export class Partition {
                 }
             },
 
+            catalogue: {
+                get: () => this.#state.catalogue,
+
+                set: (value) => {
+                    if (typeof value == "object" && Array.isArray(value)) {
+                        this.#dispatch({
+                            type: "save-list",
+                            state: value
+                        })
+                    }
+                }
+            },
+
             isTotalMode: {
                 get: () => this.#state.inTotalMode,
 
@@ -146,5 +159,63 @@ export class Partition {
         }
 
         this.list = this.list.toSpliced(productIndex, 1, newProductItem)
+    }
+
+    saveList (listName) {
+        const newCatalogue = [...this.catalogue]
+        const index = newCatalogue.findIndex(
+            list => list.name === listName
+        )
+        const newList = {
+            name: listName,
+            list: [...this.list]
+        }
+
+        if (index === -1) {
+            newCatalogue.push(newList)
+        }
+
+        else {
+            newCatalogue.splice(index, 1, newList)
+        }
+
+        this.catalogue=newCatalogue
+    }
+
+    removeList (listName) {
+        const newCatalogue = [...this.catalogue]
+        const index = newCatalogue.findIndex(
+            list => list.name === listName
+        )
+
+        if (index === -1) {
+            return
+        }
+
+        else {
+            newCatalogue.splice(index, 1)
+        }
+
+        this.catalogue=newCatalogue
+    }
+
+    searchLists (query) {
+        const names = this.getNames()
+        return names.filter(name => name.includes(query))
+    }
+
+    openList (listName) {
+        for (let index = 0; index < this.catalogue.length; index++) {
+            const element = this.catalogue[index];
+
+            if (element.name === listName) {
+                this.list = element.list;
+                break;
+            }
+        }
+    }
+
+    getNames () {
+        return this.catalogue.map(item => item.name)
     }
 }

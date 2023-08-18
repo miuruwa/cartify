@@ -35,8 +35,8 @@
     
     &.screen-device-desktop {
         .calc {
-            grid-template-columns: 1fr 240px 4fr 292px 1fr;
-            .catalogue {
+            grid-template-columns: 1fr 320px 6fr 320px 1fr;
+            .catalogue-wrap {
                 grid-column: 2 / span 1;
             }
         }
@@ -253,8 +253,53 @@
             margin: 16px 0 4px;
             padding: 0 12px;
         }
-        input {
-            background: #333;
+        .x-block {
+            input {
+                background: #333;
+            }
+        }
+
+        &.save {
+            input {
+                margin-bottom: 8px;
+            }
+            label {
+                .x-button {
+                    display: flex;
+                    justify-content: center;
+                    box-shadow: none;
+                    height: 32px;
+                    border-radius: 32px;
+                }
+                input {
+                    display: none;
+                }
+            }
+        }
+
+        &.search {
+            .catalogue-search-item {
+                display: flex;
+                margin-top: 8px;
+                user-select: none;
+
+                .catalogue-search-item-name {
+                    flex: 1 1 auto;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 8px;
+                    font-size: 20px;
+                    cursor: pointer;
+                    border-radius: 4px;
+
+                    &:hover {
+                        background: #333;
+                    }
+                }
+                .x-button {
+                    width: 32px;
+                }
+            }
         }
     }
 
@@ -294,5 +339,8 @@
                 }
             }
         }
+    }
+    .catalogue-wrap {
+        overflow-y: scroll;
     }
 }

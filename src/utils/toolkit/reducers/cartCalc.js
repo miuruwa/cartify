@@ -13,8 +13,8 @@ export const state = {
             localStorage.getItem("product-list")
         ) || [],
 
-    saveList: JSON.parse(
-            localStorage.getItem("save-list")
+    catalogue: JSON.parse(
+            localStorage.getItem("catalogue")
         ) || [],
 
     inTotalMode: JSON.parse(
@@ -71,10 +71,10 @@ export function Reducer(state, action) {
             break
 
         case "save-list":
-            newState.saveList = action.state
+            newState.catalogue = action.state
 
             localStorage.setItem(
-                "save-list", 
+                "catalogue", 
                 JSON.stringify(
                     action.state
                 )
