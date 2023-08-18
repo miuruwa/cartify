@@ -2,6 +2,8 @@ import { useToolKit } from "@web-cross-ui/toolkit";
 import { Void } from "./Void";
 import { Products } from "./Products";
 
+import RenderItem from "./render";
+
 export function Content() {
     const toolkit = useToolKit();
 
@@ -9,5 +11,7 @@ export function Content() {
         return <Void />;
     }
 
-    return <Products />;
+    return <Products renderItem={(item) => (
+        <RenderItem id={item.id} item={item} />
+    )}/>;
 }

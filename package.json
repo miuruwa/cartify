@@ -1,6 +1,6 @@
 {
   "name": "cart-calc",
-  "version": "2.0.6",
+  "version": "2.1.0",
   "homepage": "https://kensoi.github.io/cart-calc",
   "private": true,
   "dependencies": {
@@ -11,6 +11,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@dnd-kit/core": "^6.0.8",
+    "@dnd-kit/sortable": "^7.0.2",
+    "@dnd-kit/utilities": "^3.2.1",
     "node-sass": "^7.0.3",
     "patch-package": "^6.5.1",
     "react": "^18.2.0",
