@@ -38,14 +38,25 @@
 
     .cart-calc-message {
         min-height: 30vh;
+        font-size: 20px;
 
         h6 {
             margin: $point 0 $point*2;
             padding: 0 $point * 12;
         }
+        label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            input {
+                width: 50%;
+                background: #333;
+            }
+        }
         
         .x-block {
-            margin: auto;
+            margin: 0 auto 16px;
             box-sizing: border-box;
             padding: $point*5 $point*10!important;
         }
@@ -54,7 +65,11 @@
             display: flex;
             width: 256px;
             justify-content: center;
-            margin: 16px auto 0;
+            margin: 0 auto 16px;
+        }
+        .options-grid-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
         }
     }
     

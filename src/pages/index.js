@@ -3,7 +3,6 @@ import "./stylesheet.scss"
 import useAppPartitions from "utils/useAppPartitions"
 
 import Calculator from "./Calculator"
-import Settings from "./Settings"
 
 import {
     BrowserRouter, 
@@ -17,7 +16,7 @@ export default function Router () {
     return <BrowserRouter>
         <Routes>
             <Route path="/cart-calc/*" element={<Calculator />} />
-            <Route exact path="/cart-calc/settings" element={<Settings />} />
+            {/* <Route exact path="/cart-calc/settings" element={<Settings />} /> */}
         </Routes>
     </BrowserRouter>
 }

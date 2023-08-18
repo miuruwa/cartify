@@ -1,7 +1,7 @@
+import { useState } from "react"
 import {
-    CardBlock,
     Button,
-    Tumbler
+    CardBlock, Tumbler
 } from "@web-cross-ui/forms"
 
 import {
@@ -12,7 +12,6 @@ import {
     BrowserUpdatedIcon
 } from "icons/settings/technical"
 
-import Headline from "pages/Settings/components/Headline"
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration'
 
 function ErrorCard () {
@@ -20,7 +19,7 @@ function ErrorCard () {
 
     const OK = () => {
         const action = () => {
-            toolkit.card.return()
+            toolkit.card.show(<Settings/>)
         }
 
         return <Button 
@@ -42,9 +41,28 @@ function ErrorCard () {
     </div>
 }
 
-export default function Technical () {
+export default function Settings () {
     const toolkit = useToolKit()
+    const [currency, setCurrency] = useState(toolkit.cartCalc.currency)
 
+    const handleChange = (event) => {
+        switch (event.target.name) {
+            default:
+                setCurrency(event.target.value)
+        }
+    }
+
+    const OK = () => {
+        const action = () => {
+            toolkit.cartCalc.currency = currency
+            toolkit.card.return()
+        }
+
+        return <Button 
+            title="OK"
+            onClick={action}
+        />
+    }
     const CheckForUpdatesButton = () => {
         const CheckForUpdates = () => {
             if (toolkit.settings.cacheApp) {
@@ -59,7 +77,7 @@ export default function Technical () {
         return <Button 
                 className="settings-block"
                 icon={<BrowserUpdatedIcon/>}
-                title="Обновить offline версию" 
+                title="Сбросить offline-версию" 
                 onClick={CheckForUpdates}
         />
     }
@@ -81,21 +99,45 @@ export default function Technical () {
                 setState={setState}
         />
     }
-
-    return <div className="settings-wrapper">
-        <Headline title="Дополнительное" />
-        <CardBlock className="settings-page options">
-            <div className="options-grid-list settings-block">
-                <div className="options-grid-item">
-                    Offline режим
+    return <form className="cart-calc-message">
+        <h6>
+            О приложении
+        </h6>
+        <CardBlock>
+            <div className="options-grid-list">
+                <div>
+                    Название:
                 </div>
-                <div className="options-grid-item">
-                    <CacheApp />
+                <div>
+                    {process.env.REACT_APP_FULL_NAME}
                 </div>
-                <div className="options-grid-item">
-                    <CheckForUpdatesButton />
+                <div>
+                    Версия:
+                </div>
+                <div>
+                    {process.env.REACT_APP_VERSION}
                 </div>
             </div>
         </CardBlock>
-    </div>
+        <h6>
+            Настройки
+        </h6>
+        <CardBlock>
+            <label>
+                Валюта
+                <input 
+                    type="text"
+                    name="currency"
+                    value={currency}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                Запускать offline
+                <CacheApp />
+            </label>
+        </CardBlock>
+        <CheckForUpdatesButton />
+        <OK />
+    </form>
 }

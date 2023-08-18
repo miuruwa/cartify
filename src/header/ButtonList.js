@@ -14,6 +14,7 @@ import {
 
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import Guide from "./Guide"
+import Settings from "./Settings"
 
 function GuideButton() {
     const toolkit = useToolKit()
@@ -32,7 +33,7 @@ function SettingsButton() {
     const toolkit = useToolKit()
 
     const buttonAction = () => {
-        toolkit.app.goTo(toolkit.app.path + "/settings/")
+        toolkit.card.show(<Settings />)
     }
 
     return <Button
