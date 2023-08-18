@@ -77,11 +77,13 @@ export function Products({renderItem}) {
         onDragCancel={onDragCancel}
     >
         <SortableContext items={toolkit.cartCalc.list}>
-            {
-                toolkit.cartCalc.list.map(
-                    item => <React.Fragment key={item.id}>{renderItem(item)}</React.Fragment>
-                )
-            }
+            <ul>
+                {
+                    toolkit.cartCalc.list.map(
+                        item => <React.Fragment key={item.id}>{renderItem(item)}</React.Fragment>
+                    )
+                }    
+            </ul>
         </SortableContext>
         <SortableOverlay>
             {activeItem ? renderItem(activeItem) : null}

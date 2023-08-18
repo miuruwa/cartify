@@ -15,6 +15,7 @@ import {
 } from "./Data";
 
 import ItemContext from "./Context";
+import { DragHandler } from "./DragHandle";
 
 function Item({item}) {
     const [name, setName] = useState(item.name);
@@ -51,6 +52,7 @@ function Item({item}) {
     }
     return <ItemContext.Provider value={properties}>
         <CardBlock className="sheet-item">
+            <DragHandler />
             <Data />
             <Actions />
         </CardBlock>

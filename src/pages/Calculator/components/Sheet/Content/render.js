@@ -1,5 +1,5 @@
 import React, {
-    createContext, useMemo
+    useMemo
 } from "react";
 
 import { 
@@ -15,12 +15,7 @@ import {
 } from "@dnd-kit/utilities";
 
 import Item from "./Item";
-
-const SortableItemContext = createContext({
-    attributes: {},
-    listeners: undefined,
-    ref() {}
-});
+import SortableItemContext from "./SortableItemContext";
   
 
 export default function RenderItem({id, item}) {
@@ -49,10 +44,13 @@ export default function RenderItem({id, item}) {
         transition
     };
 
+
     return <SortableItemContext.Provider value={context}>
-        <Item
-            ref={setNodeRef} style={style}
-            key={nanoid()}
-            item={item} />
+        <li ref={setNodeRef} style={style}>
+            <Item
+                key={nanoid()}
+                item={item} 
+            />
+        </li>
     </SortableItemContext.Provider>
 }
