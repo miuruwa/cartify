@@ -279,24 +279,22 @@ li {
   
   .DragHandle {
     display: flex;
-    padding: 8px;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
+    flex-direction: column;
     touch-action: none;
     cursor: move;
+    margin: 0;
+    padding: 0;
+    width: 32px;
     border-radius: 4px;
     border: none;
     outline: none;
     appearance: none;
     background-color: transparent;
     -webkit-tap-highlight-color: transparent;
+    margin-right: 8px;
   }
   
   .DragHandle svg {
-    flex: 0 0 auto;
-    margin: auto;
-    height: 100%;
     overflow: visible;
     fill: #919eab;
   }
