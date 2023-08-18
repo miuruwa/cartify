@@ -31,12 +31,15 @@ function Search() {
     }
     return <div className="catalogue search">
         <h6>
-            Каталог
+            Найти список
         </h6>
         <form>
-            <input type="text" placeholder="Найти список"
+            <input type="text" placeholder="Название списка"
                 value={query} onChange={handleChange} />
         </form>
+        <h6>
+            Сохранённые списки
+        </h6>
         <Items list={list} />
     </div>;
 }
