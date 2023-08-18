@@ -6,7 +6,7 @@ import SortableItemContext from "../SortableItemContext";
 export function DragHandler() {
     const { attributes, listeners, ref } = useContext(SortableItemContext);
     return (
-      <button className="DragHandle" {...attributes} {...listeners} ref={ref}>
+      <button className="drag-handle" {...attributes} {...listeners} ref={ref}>
         <DragIndicatorIcon />
       </button>
     );
