@@ -10,10 +10,6 @@ import {
     CloseIcon
 } from "icons/calculator/product-list/not-found"
 
-import {
-    AddIcon,
-} from "icons/calculator/add-product-form"
-import MenuIcon from "icons/header/menuIcon"
 
 export default function Guide () {
     const toolkit = useToolKit()
