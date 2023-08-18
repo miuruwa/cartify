@@ -10,11 +10,11 @@
             height: 56px;
 
             opacity: 0.5;
-            cursor: pointer;
             transition: 0.1s;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
             .x-dropdown {
                 width: 32px!important;
             }
@@ -25,6 +25,7 @@
             }
 
             &:not(.second) {
+                cursor: inherit;
                 opacity: 1;
                 svg {
                     transform: translateX(-2px);

@@ -7,10 +7,6 @@ import {
     Dropdown
 } from "@web-cross-ui/forms"
 
-import { 
-    useToolKit
-} from "@web-cross-ui/toolkit"
-
 function HomePageButton () {
     function onClick () {
         window.location.href = "https://kensoi.github.io/"
@@ -23,13 +19,7 @@ function HomePageButton () {
 }
 
 function CartLogoButton () {
-    const toolkit = useToolKit()
-
-    function onClick () {
-        toolkit.app.goTo(toolkit.app.path)
-    }
-
-    return <div className="header-button" onClick={onClick}>
+    return <div className="header-button">
         <CartIcon />
     </div>
 }
