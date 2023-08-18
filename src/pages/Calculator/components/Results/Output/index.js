@@ -7,10 +7,10 @@ import UserChange from "./UserChange";
 
 function Output() {
     return <>
-        <h1>
+        <h6>
             Подсчёт
-        </h1>
-        <CardBlock className="in-total-block-wrap">
+        </h6>
+        <CardBlock className="output">
             <CartSum />
             <UserChange />
         </CardBlock>

@@ -12,6 +12,22 @@ import {
     SettingsIcon
 } from "icons/calculator"
 
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import Guide from "./Guide"
+
+function GuideButton() {
+    const toolkit = useToolKit()
+
+    const buttonAction = () => {
+        toolkit.card.show(<Guide />)
+    }
+
+    return <Button
+        theme="transparent"
+        icon={<QuestionMarkIcon />} title="Инструкции"
+        onClick={buttonAction} />
+}
+
 function SettingsButton() {
     const toolkit = useToolKit()
 
@@ -40,6 +56,7 @@ function ClearList() {
 
 export default function ButtonList() {
     return <ButtonBlock>
+        <GuideButton />
         <SettingsButton />
         <ClearList />
     </ButtonBlock>

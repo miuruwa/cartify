@@ -36,13 +36,13 @@ export function Form() {
             <input type="text" name="name"
                 value={properties.name} onChange={properties.handleChange}
                 placeholder="название" />
-            <input type="text" inputMode="numeric" name="price"
+            <input type="text" inputMode="decimal" name="price"
                 value={properties.price === 0 ? "" : properties.price} onChange={properties.handleChange}
                 placeholder="цена" />
             <div className="sheet-item-separator">
                 <CloseIcon />
             </div>
-            <input type="text" inputMode="numeric" name="quantity"
+            <input type="text" inputMode="decimal" name="quantity"
                 value={properties.quantity === 0 ? "" : properties.quantity} onChange={properties.handleChange}
                 placeholder="кол-во" />
             <div className="sheet-item-form-cost">

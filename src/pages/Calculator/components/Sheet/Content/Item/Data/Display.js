@@ -34,15 +34,15 @@ export function Display() {
     }
 
     function Multiple() {
-        return <>
+        return <nobr>
             &nbsp;×&nbsp;
-        </>;
+        </nobr>;
     }
 
     function Equal() {
-        return <>
+        return <nobr>
             &nbsp;=&nbsp;
-        </>;
+        </nobr>;
     }
 
     return <div className="sheet-item-data">

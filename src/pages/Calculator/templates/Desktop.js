@@ -8,8 +8,6 @@ export function Template() {
                 <Form />
                 <Sheet />
             </div>
-            <div className="total-data">
-                <Results />
-            </div>
+            <Results />
         </div>
 }

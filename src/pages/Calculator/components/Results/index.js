@@ -2,8 +2,8 @@ import UserCash from "./UserCash"
 import Output from "./Output"
 
 export default function Results () {
-    return <>
+    return <div className="results">
         <UserCash/>
         <Output />
-    </>
+    </div>
 }

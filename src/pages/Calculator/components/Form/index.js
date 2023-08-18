@@ -14,14 +14,14 @@ import ErrorCard from "./ErrorCard"
 
 function Target () {
     return <div
-        className="add-product-target"
+        className="add-product-status target"
     >
         Чтобы добавить новый продукт, выйдите из режима редактирования.
     </div>
 }
 function Finish () {
     return <div
-        className="add-product-finish"
+        className="add-product-status finish"
     >
         Товар добавлен в список
     </div>
@@ -48,6 +48,7 @@ function Input ({updateForm}) {
                 setName(event.target.value)
         }
     }
+
     function handleSubmit (event) {
         if (
                 name === "" || 
@@ -70,32 +71,31 @@ function Input ({updateForm}) {
 
         event.preventDefault();
     }
-    return <form onSubmit={handleSubmit}>
-        <div className="add-product-form">
-            <input type="text" name="name"
-                value={name} onChange={handleChange}
-                placeholder="название"
-            />
-            <input type="text" inputMode="numeric" name="price"
-                value={price === 0 ? "" : price} onChange={handleChange}
-                placeholder="цена"
-            />
-            <div className="add-product-separator">
-                <CloseIcon />
-            </div>
-            <input type="text" inputMode="numeric" name="quantity"
-            value={quantity === 0 ? "" : quantity} onChange={handleChange}
-                placeholder="кол-во"
-            />
-            <label>
-                <input type="submit" value="submit" />
-                <AddIcon />
-            </label>
+
+    return <form onSubmit={handleSubmit} className="add-product-form">
+        <input type="text" name="name"
+            value={name} onChange={handleChange}
+            placeholder="название"
+        />
+        <input type="text" inputMode="decimal" name="price"
+            value={price === 0 ? "" : price} onChange={handleChange}
+            placeholder="цена"
+        />
+        <div className="add-product-separator">
+            <CloseIcon />
         </div>
+        <input type="text" inputMode="decimal" name="quantity"
+        value={quantity === 0 ? "" : quantity} onChange={handleChange}
+            placeholder="кол-во"
+        />
+        <label>
+            <input type="submit" value="submit" />
+            <AddIcon />
+        </label>
     </form>
 }
 
-function Form () {
+function Content () {
     const toolkit = useToolKit();
 
     const [added, setAdded] = useState(false);
@@ -114,11 +114,15 @@ function Form () {
     if (added) {
         return <Finish />
     }
+    return <Input updateForm={updateForm}/>
+}
+
+function Form () {
     return <div className="pin-block">
-        <h1>
-            Корзина
-        </h1>
-        <Input updateForm={updateForm}/>
+        <h6>
+            Добавить продукт
+        </h6>
+        <Content />
     </div>
 }
 

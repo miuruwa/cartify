@@ -22,9 +22,9 @@ export default function ErrorCard () {
     }
 
     return <CardBlock className="cart-calc-message">
-        <h1>
+        <h6>
             Ошибка изменения продукта
-        </h1>
+        </h6>
         <p>
             Проверьте все поля ввода: в приложение нельзя добавлять продукты с пустыми значениями.
         </p>

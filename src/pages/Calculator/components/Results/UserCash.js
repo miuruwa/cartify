@@ -11,9 +11,9 @@ export default function UserCash() {
     }
 
     return <form>
-        <h1>
+        <h6>
             Ваши наличные ({toolkit.cartCalc.currency})
-        </h1>
+        </h6>
         <input type="text" inputMode="numeric"
             name="userCache" onChange={handleChange}
             value={toolkit.cartCalc.availableMoney}

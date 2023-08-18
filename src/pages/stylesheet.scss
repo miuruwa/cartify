@@ -3,9 +3,6 @@
 
 .webx {
     &.screen-device-mobile {
-        .dragging-button { 
-            padding-right: 20px;
-        }
         .add-product-form { 
             grid-template-columns: 1fr $point*6 1fr $point*8;
            
@@ -40,26 +37,50 @@
     }
 
     .cart-calc-message {
-        min-height: 50vh;
-        box-sizing: border-box;
-        padding: $point*2 $point*10!important;
+        min-height: 30vh;
+
+        h6 {
+            margin: $point 0 $point*2;
+            padding: 0 $point * 12;
+        }
+        
+        .x-block {
+            margin: 0 auto 16px;
+            box-sizing: border-box;
+            padding: $point*5 $point*10!important;
+        }
 
         .x-button {
+            display: flex;
             width: 60%;
-            margin: auto;
+            justify-content: center;
+            margin: 0 auto 16px;
         }
     }
     
-    h1 {
+    h6 {
         margin-top: 16px;
-        padding: $point;
-        line-height: 20px;
         padding: 0 $point * 4 1px $point * 4;
+        line-height: 20px;
         text-transform: uppercase;
-        font-weight: 500;
+        font-weight: 500!important;
         color: #888;
         font-size: 16px;
         box-sizing: border-box;
         user-select: none;
+    }
+
+    input {
+        height: $point*8;
+        padding: 4px $point*2 4px $point*3;
+        box-sizing: border-box;
+        border: none;
+        border-radius: $point*8;
+        width: 100%;
+        cursor: text;
+        background: #222;
+        font-size: 20px;
+        font-family: inherit;
+        outline: none;
     }
 }

@@ -5,7 +5,7 @@
         .index {
             position: relative;
         }
-        .in-total-block-wrap {
+        .output {
             grid-template-columns: 1fr 1fr;
         }
     }
@@ -14,7 +14,7 @@
         .desktop.calc {
             grid-template-columns: 2fr 1fr;
         }
-        .in-total-block-wrap {
+        .output {
             grid-template-columns: 1fr 1fr;
         }
     }
@@ -24,339 +24,94 @@
             grid-template-columns: 1fr 320px;
         }
 
-        .in-total-block-wrap {
+        .output {
             grid-template-columns: 3fr 2fr;
-        }
-    }
-
-    .cart-calc-headline {
-        display: flex;
-        align-items: flex-end;
-        padding: $point $point*3;
-        line-height: 32px;
-        color: var(--color);
-        font-weight: 600;
-        font-size: 28px;
-        box-sizing: border-box;
-        width: 100%;
-        margin: $point*1 auto $point*2 auto;
-    }
-    
-    .in-total-block-wrap {
-        display: grid;
-        margin-bottom: $point*2;
-        padding: $point*2 $point*4 $point*2 $point*4!important;
-
-        &.field {
-            grid-template-columns: 1fr 1fr!important;
-            padding: $point*2 $point*2 $point*2 $point*4!important;
-            p {
-                display: flex;
-                align-items: center;
-            }
-        }
-            
-        .total-class {
-            display: flex;
-            min-height: $point*8;
-            box-sizing: border-box;
-            user-select: none;
-            font-size: 20px;
-
-            p { 
-                padding: $point*1.5 0 $point 0!important;
-                margin: 0;
-            }
-
-            &:nth-child(2n) {
-                justify-content: right;
-                align-items: flex-end;
-            }
-
-            &.change-alert {
-                p {
-                    color: rgb(221, 19, 46)!important;
-                    font-weight: 500;
-                }
-            }
-        }
-    }
-
-    .pin-block {
-        top: 0px;
-        position: sticky;
-        padding-top: 16px;
-        background: linear-gradient(0deg, transparent, #000);
-        h1 {
-            margin-top: 0;
-        }
-        input {
-            box-shadow: 0 4px 12px #00000055!important;
         }
     }
 
     .desktop.calc {
         height: calc(100vh - 56px);
+
         .cart {
             display: flex;
             flex-direction: column;
             height: 100%;
             overflow-y: auto;
-            padding-right: $point*2;
-
-            
+            padding-right: $point*2
         }
 
         .add-product-form {
             grid-template-columns: 2fr 1fr 24px 1fr $point*6;
             padding-right: 0!important;
         }
-        .product-item-edit {
-            grid-template-columns: 1fr 24px 1fr $point*16;
-            
-            .x-text-field:nth-child(1) {
-                grid-column: 1 / span 3;
-            }
-            
-            .x-text-field:nth-child(3) {
-                grid-column: 1 / span 1;
-            }
-
-            .x-text-field:nth-child(5) {
-                grid-column: 3 / span 1;
-            }
-        }
     }
 
-    input {
-        height: $point*8;
-        padding: 4px $point*2 4px $point*3;
-        box-sizing: border-box;
-        border: none;
-        border-radius: $point*8;
-        width: 100%;
-        cursor: text;
-        background: #222;
-        font-size: 20px;
-        font-family: inherit;
-        outline: none;
-    }
+    .pin-block {
+        top: 0px;
+        position: sticky;
+        padding: 16px $point * 3 0;
+        background: linear-gradient(0deg, transparent, #000);
+        margin-bottom: 12px;
 
-    .add-product-form {
-        display: grid;
-        gap: $point*2;
-        margin-bottom: $point * 2;
-        label {
-            cursor: pointer;
-            input {
-                display: none;
-            }
-            svg {
-                height: 100%;
-            }
-        }
-            
-        .x-button {
-            background: none!important;
-            box-shadow: none!important;
-            opacity: 0.5;
-            transition: 0.1s;
-            
-            &:hover{
-                opacity: 1;
-            }
+        h6 {
+            margin: 0 0 $point;
+            padding: 0 $point * 3;
         }
 
-        .add-product-separator {
+        input {
+            box-shadow: 0 4px 12px #00000055!important;
+        }
+
+        .add-product-form {
+            display: grid;
+            gap: $point * 2;
+    
+            label {
+                cursor: pointer;
+                input {
+                    display: none;
+                }
+                svg {
+                    height: 100%;
+                }
+            }
+    
+            .add-product-separator {
+                display: flex;
+                height: $point*8;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    
+        .add-product-status {
             display: flex;
-            height: $point*8;
             justify-content: center;
             align-items: center;
-        }
-    }
-    .add-product-target {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 28px;
-        border: 2px dashed #222;
-        color: #888;
-        border-radius: $point*2;
-        margin-bottom: $point*2;
-    }
-
-    .add-product-finish {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 32px;
-        background: #333;
-        border-radius: $point*2;
-        margin-bottom: $point*2;
-    }
-
-    .add-product-status {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #333;
-        border-radius: $point*2;
-        padding: $point * 2 $point * 4;
-        min-height: 40px;
-        margin-bottom: $point * 2;
-        font-family: 'TT Commons';
-        font-size: 20px;
-    }
-
-    .product-not-found {
-        margin: 0 auto 8px auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 0;
-        user-select: none;
-
-        p {
-            max-width: 512px;
-            width: 100%;
-            padding: 0 32px;
-            margin: 8px 0;
             box-sizing: border-box;
-            font-size: 18px;
-            color: var(--color);
-        }
-    }
-    .product-wrap {
-        padding-bottom: $point*2;
-
-        .product-item {
-            transition: 0.1s;
-            display: flex;
-            padding: $point*2;
             
-            .dragging-button {
-                cursor: grab;
-                box-shadow: 0 0 0 1px var(--x-block-border);
-                padding-bottom: 80px;
-                background: none!important;
-                pointer-events: none;
-            }
-    
-            &.hidden {
-                opacity: 0.5;
-    
-                &.removed {
-                    opacity: 0;
-                    padding-top: 0px;
-                    padding-bottom: 0px;
-                    height: 0;
-                }
-            }
+            min-height: 32px;
+            border-radius: 32px;
+            user-select: none;
 
-            .product-item-action-menu {
-                display: flex;
-                .x-button:first-child {
-                    border-top-right-radius: 0;
-                    border-bottom-right-radius: 0;
-                }
-                .x-button:last-child {
-                    border-top-left-radius: 0;
-                    border-bottom-left-radius: 0;
-                }
+            &.target {
+                border: 2px dashed #222;
+                color: #888;
             }
-    
-            .product-item-info {
-                user-select: none;
-                display: grid;
-                flex: 1 1 auto;
-                grid-template-columns: 1fr $point*16;
-                gap: $point*2;
-                padding-left: $point*2;
-    
-                .product-item-info-name {
-                    height: $point*8;
-                    display: flex;
-                    align-items: flex-end;
-                    font-weight: 600;
-                    font-size: 24px;
-                }
-    
-                .product-item-info-calculation {
-                    grid-column: 1 / span 2;
-                    height: $point*8;
-                    display: flex;
-                    align-items: flex-start;
-                    font-size: 20px;
-                }
-            }
-    
-            .product-item-edit {
-                display: grid;
-                flex: 1 1 auto;
-                grid-template-columns: $point*16 1fr 24px 1fr $point*16;
-                gap: $point*2;
-
-                .x-text-field:nth-child(1) {
-                    grid-column: 1 / span 4;
-                }
-                
-                .x-text-field:nth-child(3) {
-                    grid-column: 1 / span 2;
-                }
-
-                .x-text-field:nth-child(5) {
-                    grid-column: 4 / span 2;
-                }
-    
-                .product-item-edit-first {
-                    display: grid;
-                    grid-template-columns: 1fr calc($point*8 * 2);
-                    grid-column: 1 / span 3;
-                    margin-bottom: $point*2;
-    
-                    .action-list {
-                        display: flex;
-    
-                        .x-button {
-                            width: $point*8;
-                        }
-                    }
-    
-                    .x-text-field {
-                        margin-right: $point*1.5;
-                    }
-                }
-    
-                .x-separator {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-            }
-    
-            .product-name {
-                min-height: 40px;
-                line-height: 28px;
-                font-family: 'TT Commons';
-                font-weight: 600;
-                font-size: 28px;
-                padding: 12px 8px 0px 8px;
-                box-sizing: border-box;
-            }
-    
-            .product-total-price {
-                min-height: 40px;
-                line-height: 20px;
-                font-size: 20px;
-                font-family: 'TT Commons';
-                padding: 0px 8px 20px 8px;
-                box-sizing: border-box;
+        
+            &.finish {
+                background: #333;
             }
         }
     }
+
     .sheet {
         flex: 1 1 auto;
+
+        h6 {
+            margin: $point 0;
+            padding: 0 $point * 6;
+        }
         
         .sheet-void {
             display: flex;
@@ -377,7 +132,7 @@
         }
 
         .sheet-item {
-            padding: $point*2 $point*4;
+            padding: $point*5 $point*6;
             margin-bottom: $point*2;
             display: flex;
 
@@ -402,18 +157,26 @@
                 flex: 1 1 auto;
 
                 .sheet-item-name {
+                    max-width: 100%;
+                    word-break: break-all;
                     user-select: none;
                     font-size: 32px;
                     font-weight: 600;
                 }
                 .sheet-item-calculation {
+                    max-width: 100%;
                     user-select: none;
                     font-size: 20px;
+                    nobr {
+                        display: inline-block;
+                    }
                 }
             }
+
             form {
                 flex: 1 1 auto;
             }
+            
             .sheet-item-form {
                 display: grid;
                 grid-template-columns: 1fr 24px 1fr 1fr;
@@ -441,6 +204,44 @@
 
                     &:nth-child(4) {
                         grid-column: 3 / span 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .results {
+        h6 {
+            margin: $point * 4 0 $point;
+            padding: 0 $point * 3;
+        }
+            
+        .output {
+            display: grid;
+            margin-bottom: $point*2;
+            padding: $point*2 $point*4 $point*2 $point*4!important;
+
+            .total-class {
+                display: flex;
+                min-height: $point*8;
+                box-sizing: border-box;
+                user-select: none;
+                font-size: 20px;
+    
+                p { 
+                    padding: $point*1.5 0 $point 0!important;
+                    margin: 0;
+                }
+    
+                &:nth-child(2n) {
+                    justify-content: right;
+                    align-items: flex-end;
+                }
+    
+                &.change-alert {
+                    p {
+                        color: rgb(221, 19, 46)!important;
+                        font-weight: 500;
                     }
                 }
             }

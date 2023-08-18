@@ -19,13 +19,15 @@ export default function ErrorCard () {
         />
     }
 
-    return <CardBlock className="cart-calc-message">
-        <h1>
+    return <div className="cart-calc-message">
+        <h6>
             Ошибка добавления продукта
-        </h1>
-        <p>
-            Проверьте все поля ввода: в приложение нельзя добавлять продукты с пустыми значениями.
-        </p>
+        </h6>
+        <CardBlock>
+            <p>
+                Проверьте все поля ввода: в приложение нельзя добавлять продукты с пустыми значениями.
+            </p>
+        </CardBlock>
         <OK />
-    </CardBlock>
+    </div>
 }

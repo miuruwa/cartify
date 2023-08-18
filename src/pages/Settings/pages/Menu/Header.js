@@ -1,5 +1,5 @@
 export default function Header() {
-    return <h1>
+    return <h6>
         Настройки
-    </h1>
+    </h6>
 }

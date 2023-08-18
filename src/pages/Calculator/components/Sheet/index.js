@@ -4,6 +4,9 @@ import {
 
 function Sheet() {
     return <div className="sheet">
+        <h6>
+            Корзина
+        </h6>
         <Content />
     </div>
 }

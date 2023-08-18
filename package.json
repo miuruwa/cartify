@@ -1,6 +1,6 @@
 {
   "name": "cart-calc",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "homepage": "https://kensoi.github.io/cart-calc",
   "private": true,
   "dependencies": {

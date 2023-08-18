@@ -16,16 +16,18 @@
     background: #000000;
     color-scheme: dark;
     color: #ffffff;
-    font-family: 'TT Commons';
-    
-    @include html;
-    @include header;
-    @include x-block;
-    @include x-button;
-    @include x-check-box;
-    @include x-dropdown;
-    @include x-text-field;
-    @include x-menu;
-    @include x-slider;
-    @include x-tumbler;
+
+    .webx {
+        font-family: 'TT Commons';
+        @include html;
+        @include header;
+        @include x-block;
+        @include x-button;
+        @include x-check-box;
+        @include x-dropdown;
+        @include x-text-field;
+        @include x-menu;
+        @include x-slider;
+        @include x-tumbler;
+    }
 }

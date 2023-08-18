@@ -33,8 +33,8 @@ export default function Headline({
         {
             toolkit.settings.windowWidth < 768 ? <BackButtonMobile /> : <></>
         }
-        <h1>
+        <h6>
             { title }
-        </h1>
+        </h6>
     </div>
 }
