@@ -1,4 +1,8 @@
 import {
+    useToolKit
+} from "@web-cross-ui/toolkit";
+
+import {
     CardBlock
 } from "@web-cross-ui/forms";
 
@@ -6,6 +10,19 @@ import CartSum from "./CartSum";
 import UserChange from "./UserChange";
 
 function Output() {
+    const toolkit = useToolKit()
+    if (toolkit.cartCalc.list.length === 0) {
+        return <>
+            <h6>
+                Подсчёт
+            </h6>
+            <div className="output-void">
+                <p>
+                    С вас 0{toolkit.cartCalc.currency}!
+                </p>
+            </div>
+        </>
+    }
     return <>
         <h6>
             Подсчёт

@@ -15,7 +15,7 @@ export function Display() {
 
     function Price() {
         return <nobr>
-            {properties.price}&nbsp;{toolkit.cartCalc.currency}
+            {properties.price}{toolkit.cartCalc.currency}
         </nobr>;
     }
 

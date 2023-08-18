@@ -19,6 +19,11 @@ function SaveList() {
         event.preventDefault();
     }
 
+    if (toolkit.cartCalc.list.length === 0) {
+        return <>
+        </>
+    }
+    
     return <div className="catalogue save">
         <form onSubmit={handleSubmit}>
             <h6>

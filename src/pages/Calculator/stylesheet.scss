@@ -146,7 +146,7 @@
             border-radius: $point*2;
             margin-bottom: $point*2;
             user-select: none;
-            height: 384px;
+            height: 40vh;
             p {
                 width: 70%;
                 height: 50%;
@@ -292,7 +292,7 @@
                 border-radius: $point*2;
                 font-size: 20px;
                 user-select: none;
-                height: 384px;
+                height: 40vh;
 
                 p {
                     width: 70%;
@@ -330,12 +330,29 @@
             margin: $point * 4 0 $point;
             padding: 0 $point * 3;
         }
-            
+        .output-void {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            border: 2px dashed #222;
+            color: #888;
+            border-radius: $point*2;
+            font-size: 20px;
+            user-select: none;
+            height: 40vh;
+
+            p {
+                width: 70%;
+                height: 50%;
+                font-size: 24px;
+            }
+        }
         .output {
             display: grid;
             margin-bottom: $point*2;
             padding: $point*2 $point*4 $point*2 $point*4!important;
-
+            
             .total-class {
                 display: flex;
                 min-height: $point*8;
