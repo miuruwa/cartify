@@ -2,6 +2,17 @@
 @import "@web-cross-ui/utils/box-shadows.scss";
 
 .webx {
+    &.screen-device-mobile {
+        .card-wrapper {
+            margin-top: 70vh;
+            padding: 0 4px;
+        }
+    }
+    &:not(.screen-device-mobile) {
+        .card-wrapper {
+            margin-top: 30vh;
+        }
+    }
     .card-wrapper {
         position: absolute;
         left: 50%;
@@ -20,7 +31,6 @@
         -moz-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s;
-        margin-top: 30vh;
 
         &.visible {
             opacity: 1!important;
@@ -36,7 +46,6 @@
         .card-layout {
             width: 100%;
             box-sizing: border-box;
-            min-height: 50vh;
         }
     }
     
