@@ -29,15 +29,17 @@ function ErrorCard () {
         />
     }
 
-    return <CardBlock className="cart-calc-message">
+    return <div className="cart-calc-message">
         <h6>
             Ошибка выполнения задачи
         </h6>
-        <p>
-            Данная функция работает только при включённом офлайн-режиме (т.е. есть кеш приложения)
-        </p>
+        <CardBlock>
+            <p>
+                Данная функция работает только при включённом офлайн-режиме (т.е. есть кеш приложения)
+            </p>
+        </CardBlock>
         <OK />
-    </CardBlock>
+    </div>
 }
 
 export default function Technical () {
