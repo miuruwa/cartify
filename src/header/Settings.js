@@ -9,8 +9,8 @@ import {
 } from "@web-cross-ui/toolkit"
 
 import {
-    BrowserUpdatedIcon
-} from "icons/settings/technical"
+    UpdateCacheIcon
+} from "icons/UpdateCacheIcon"
 
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration'
 
@@ -76,7 +76,7 @@ export default function Settings () {
 
         return <Button 
                 className="settings-block"
-                icon={<BrowserUpdatedIcon/>}
+                icon={<UpdateCacheIcon/>}
                 title="Сбросить offline-версию" 
                 onClick={CheckForUpdates}
         />
