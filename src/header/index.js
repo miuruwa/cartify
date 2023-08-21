@@ -1,6 +1,6 @@
-import HomePageIcon from "icons/header/mainPageIcon"
-import CartIcon from "icons/header/cartIcon"
-import MenuIcon from "icons/header/menuIcon"
+import HomePageIcon from "icons/HomePageIcon"
+import CartIcon from "icons/CartIcon"
+import MenuIcon from "icons/MenuIcon"
 import ButtonList from "./ButtonList"
 
 import {

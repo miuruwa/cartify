@@ -1,6 +1,6 @@
 import React from "react";
 
-function menuIcon() {
+function MenuIcon() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M6 16C6 17.1046 5.10457 18 4 18C2.89543 18 2 17.1046 2 16C2 14.8954 2.89543 14 4 14C5.10457 14 6 14.8954 6 16Z" fill="#fff" />
@@ -10,4 +10,4 @@ function menuIcon() {
   );
 }
 
-export default menuIcon;
+export default MenuIcon;
