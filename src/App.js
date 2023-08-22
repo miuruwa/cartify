@@ -3,11 +3,15 @@ import {
 } from "@webx/toolkit"
 
 import Header from "header"
-import Router from "pages"
+import Calculator from "Calculator"
+import useAppPartitions from "utils/useAppPartitions"
 
 export default function App () {
+    
+    useAppPartitions()
+
     return <ToolKitContext>
         <Header/>
-        <Router/>
+        <Calculator/>
     </ToolKitContext>
 }
