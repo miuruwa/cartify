@@ -1,5 +1,3 @@
-import "schema/index.scss"
-
 import {
     createContext,
     useContext,
