@@ -8,7 +8,7 @@ import {
 
 import SettingsIcon from "@webx/icons/SettingsIcon";
 
-import SettingsСard from "header/Settings/";
+import SettingsСard from "../Settings/";
 
 function SettingsButton() {
     const toolkit = useToolKit();
