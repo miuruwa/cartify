@@ -1,14 +1,14 @@
 import {
     Button,
     CardBlock
-} from "@web-cross-ui/forms"
+} from "@webx/forms"
 
 import {
     useToolKit
-} from "@web-cross-ui/toolkit"
+} from "@webx/toolkit"
 
-import CloseIcon from "icons/CloseIcon"
-import EditIcon from "icons/EditIcon"
+import CloseIcon from "@webx/icons/CloseIcon"
+import EditIcon from "@webx/icons/EditIcon"
 
 export default function Guide () {
     const toolkit = useToolKit()

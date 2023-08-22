@@ -4,9 +4,9 @@ import {
 
 import {
     useToolKit
-} from "@web-cross-ui/toolkit";
+} from "@webx/toolkit";
 
-import CloseIcon  from "icons/CloseIcon";
+import CloseIcon  from "@webx/icons/CloseIcon";
 
 import ItemContext from "../Context";
 

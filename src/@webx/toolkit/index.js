@@ -23,8 +23,8 @@ import {
 
 import {
     MountTransition
-} from "@web-cross-ui/transitions"
-import CardWrapper from "@web-cross-ui/card"
+} from "@webx/transitions"
+import CardWrapper from "@webx/card"
 
 const getToolKitContext = createContext()
 

@@ -4,7 +4,7 @@ import {
 
 import {
     CardBlock
-} from "@web-cross-ui/forms";
+} from "@webx/forms";
 
 import {
     Actions

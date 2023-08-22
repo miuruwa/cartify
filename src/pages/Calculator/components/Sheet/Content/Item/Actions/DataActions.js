@@ -4,10 +4,10 @@ import {
 
 import {
     useToolKit
-} from "@web-cross-ui/toolkit";
+} from "@webx/toolkit";
 
-import EditIcon from "icons/EditIcon";
-import CloseIcon from "icons/CloseIcon";
+import EditIcon from "@webx/icons/EditIcon";
+import CloseIcon from "@webx/icons/CloseIcon";
 
 import ActionButton from "./ActionButton";
 import ItemContext from "../Context";

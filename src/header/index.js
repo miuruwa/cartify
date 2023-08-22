@@ -1,11 +1,11 @@
-import HomePageIcon from "icons/HomePageIcon"
-import CartLogo from "icons/CartLogo"
-import MenuIcon from "icons/MenuIcon"
+import HomePageIcon from "@webx/icons/HomePageIcon"
+import CartLogo from "@webx/icons/CartLogo"
+import MenuIcon from "@webx/icons/MenuIcon"
 import ButtonList from "./ButtonList"
 
 import {
     Dropdown
-} from "@web-cross-ui/forms"
+} from "@webx/forms"
 
 function HomePageButton () {
     function onClick () {

@@ -1,11 +1,11 @@
 import {
     Button,
     CardBlock
-} from "@web-cross-ui/forms"
+} from "@webx/forms"
 
 import {
     useToolKit
-} from "@web-cross-ui/toolkit"
+} from "@webx/toolkit"
 
 export default function ErrorCard () {
     const toolkit = useToolKit()

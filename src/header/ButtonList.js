@@ -1,15 +1,15 @@
 import {
     useToolKit
-} from "@web-cross-ui/toolkit"
+} from "@webx/toolkit"
 
 import {
     Button,
     ButtonBlock
-} from "@web-cross-ui/forms"
+} from "@webx/forms"
 
-import SettingsIcon from "icons/SettingsIcon"
-import ClearListIcon from "icons/ClearListIcon";
-import GuideIcon from 'icons/GuideIcon';
+import SettingsIcon from "@webx/icons/SettingsIcon"
+import ClearListIcon from "@webx/icons/ClearListIcon";
+import GuideIcon from "@webx/icons/GuideIcon";
 
 import Guide from "./Guide"
 import Settings from "./Settings"

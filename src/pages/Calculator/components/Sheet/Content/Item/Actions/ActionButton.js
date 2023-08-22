@@ -1,6 +1,6 @@
 import {
     Button
-} from "@web-cross-ui/forms"
+} from "@webx/forms"
 
 export default function ActionButton({ icon, onClick, title }) {
     return <Button

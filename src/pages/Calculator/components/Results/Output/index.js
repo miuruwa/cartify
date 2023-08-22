@@ -1,10 +1,10 @@
 import {
     useToolKit
-} from "@web-cross-ui/toolkit";
+} from "@webx/toolkit";
 
 import {
     CardBlock
-} from "@web-cross-ui/forms";
+} from "@webx/forms";
 
 import CartSum from "./CartSum";
 import UserChange from "./UserChange";

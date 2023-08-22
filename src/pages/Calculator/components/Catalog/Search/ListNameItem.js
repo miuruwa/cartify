@@ -4,13 +4,13 @@ import {
 
 import {
     useToolKit
-} from "@web-cross-ui/toolkit";
+} from "@webx/toolkit";
 
 import {
     CardBlock, Button
-} from "@web-cross-ui/forms";
+} from "@webx/forms";
 
-import CloseIcon from "icons/CloseIcon";
+import CloseIcon from "@webx/icons/CloseIcon";
 
 function ListNameItem(item) {
     const toolkit = useToolKit();

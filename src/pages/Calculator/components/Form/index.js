@@ -3,10 +3,10 @@ import {
 } from "react"
 import {
     useToolKit
-} from "@web-cross-ui/toolkit"
+} from "@webx/toolkit"
 
-import MultiplyIcon from "icons/MultiplyIcon"
-import AddProductIcon from "icons/AddProductIcon"
+import MultiplyIcon from "@webx/icons/MultiplyIcon"
+import AddProductIcon from "@webx/icons/AddProductIcon"
 
 import ErrorCard from "./ErrorCard"
 

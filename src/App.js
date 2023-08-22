@@ -1,6 +1,6 @@
 import {
     ToolKitContext
-} from "@web-cross-ui/toolkit"
+} from "@webx/toolkit"
 
 import Header from "header"
 import Router from "pages"

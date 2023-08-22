@@ -4,12 +4,12 @@ import {
 
 import { 
     useToolKit
-} from "@web-cross-ui/toolkit";
+} from "@webx/toolkit";
 
 import ActionButton from "./ActionButton";
 
-import DoneIcon from "icons/DoneIcon";
-import CloseIcon from "icons/CloseIcon";
+import DoneIcon from "@webx/icons/DoneIcon";
+import CloseIcon from "@webx/icons/CloseIcon";
 
 import ItemContext from "../Context";
 import ErrorCard from "./ErrorCard";

@@ -4,7 +4,7 @@ import {
 
 import {
     usePartition, useToolKit
-} from "@web-cross-ui/toolkit"
+} from "@webx/toolkit"
 
 import {
     cartCalc,

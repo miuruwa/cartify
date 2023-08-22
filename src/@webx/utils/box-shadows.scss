@@ -1,5 +1,5 @@
 @use "sass:math";
-@import "@web-cross-ui/utils/optional.scss";
+@import "@webx/utils/optional.scss";
 
 $border-thin: math.div($point, 4);
 $separator-common: var(--x-block-border);

@@ -2,13 +2,13 @@ import { useState } from "react"
 import {
     Button,
     CardBlock, Tumbler
-} from "@web-cross-ui/forms"
+} from "@webx/forms"
 
 import {
     useToolKit
-} from "@web-cross-ui/toolkit"
+} from "@webx/toolkit"
 
-import UpdateCacheIcon from "icons/UpdateCacheIcon"
+import UpdateCacheIcon from "@webx/icons/UpdateCacheIcon"
 
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration'
 
