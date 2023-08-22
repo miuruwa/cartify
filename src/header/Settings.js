@@ -8,9 +8,7 @@ import {
     useToolKit
 } from "@web-cross-ui/toolkit"
 
-import {
-    UpdateCacheIcon
-} from "icons/UpdateCacheIcon"
+import UpdateCacheIcon from "icons/UpdateCacheIcon"
 
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration'
 

@@ -3,13 +3,12 @@ import {
     CardBlock
 } from "@web-cross-ui/forms"
 
-import { useToolKit } from "@web-cross-ui/toolkit"
-
 import {
-    EditIcon,
-    CloseIcon
-} from "icons/calculator/product-list/not-found"
+    useToolKit
+} from "@web-cross-ui/toolkit"
 
+import CloseIcon from "icons/CloseIcon"
+import EditIcon from "icons/EditIcon"
 
 export default function Guide () {
     const toolkit = useToolKit()

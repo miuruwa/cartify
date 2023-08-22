@@ -6,12 +6,8 @@ import {
     useToolKit
 } from "@web-cross-ui/toolkit";
 
-import {
-    CloseIcon,
-    // DoNotDisturbAltIcon, 
-    // DragIndicatorIcon,
-    DriveFileRenameOutlineIcon
-} from "icons/calculator/product-list/product";
+import EditIcon from "icons/EditIcon";
+import CloseIcon from "icons/CloseIcon";
 
 import ActionButton from "./ActionButton";
 import ItemContext from "../Context";
@@ -30,7 +26,7 @@ export function DataActions() {
 
     return <div className="sheet-item-actions">
         <ActionButton
-            icon={<DriveFileRenameOutlineIcon />}
+            icon={<EditIcon />}
             onClick={ChangeData} title="Редактировать ячейку"/>
         <ActionButton
             icon={<CloseIcon />}

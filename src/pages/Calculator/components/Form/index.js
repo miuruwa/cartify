@@ -5,10 +5,8 @@ import {
     useToolKit
 } from "@web-cross-ui/toolkit"
 
-import {
-    AddIcon,
-    CloseIcon, 
-} from "icons/calculator/add-product-form"
+import MultiplyIcon from "icons/MultiplyIcon"
+import AddProductIcon from "icons/AddProductIcon"
 
 import ErrorCard from "./ErrorCard"
 
@@ -82,7 +80,7 @@ function Input ({updateForm}) {
             placeholder="цена"
         />
         <div className="add-product-separator">
-            <CloseIcon />
+            <MultiplyIcon />
         </div>
         <input type="text" inputMode="decimal" name="quantity"
         value={quantity === 0 ? "" : quantity} onChange={handleChange}
@@ -90,7 +88,7 @@ function Input ({updateForm}) {
         />
         <label title="Добавить">
             <input type="submit" value="submit" />
-            <AddIcon />
+            <AddProductIcon />
         </label>
     </form>
 }

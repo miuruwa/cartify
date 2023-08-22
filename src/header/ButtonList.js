@@ -7,12 +7,10 @@ import {
     ButtonBlock
 } from "@web-cross-ui/forms"
 
-import {
-    ClearAllIcon,
-    SettingsIcon
-} from "icons/calculator"
+import SettingsIcon from "icons/SettingsIcon"
+import ClearListIcon from "icons/ClearListIcon";
+import GuideIcon from 'icons/GuideIcon';
 
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import Guide from "./Guide"
 import Settings from "./Settings"
 
@@ -25,7 +23,7 @@ function GuideButton() {
 
     return <Button
         theme="transparent"
-        icon={<QuestionMarkIcon />} title="Инструкции"
+        icon={<GuideIcon />} title="Инструкции"
         onClick={buttonAction} />
 }
 
@@ -51,7 +49,7 @@ function ClearList() {
 
     return <Button
         theme="transparent"
-        icon={<ClearAllIcon />} title="Очистить список"
+        icon={<ClearListIcon />} title="Очистить список"
         onClick={buttonAction} />
 }
 

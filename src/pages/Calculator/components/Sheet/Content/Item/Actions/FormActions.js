@@ -8,12 +8,10 @@ import {
 
 import ActionButton from "./ActionButton";
 
-import { 
-    CloseIcon, DoneIcon
-} from "icons/calculator/product-list/product";
+import DoneIcon from "icons/DoneIcon";
+import CloseIcon from "icons/CloseIcon";
 
 import ItemContext from "../Context";
-
 import ErrorCard from "./ErrorCard";
 
 

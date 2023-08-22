@@ -1,5 +1,5 @@
 import HomePageIcon from "icons/HomePageIcon"
-import CartIcon from "icons/CartIcon"
+import CartLogo from "icons/CartLogo"
 import MenuIcon from "icons/MenuIcon"
 import ButtonList from "./ButtonList"
 
@@ -20,7 +20,7 @@ function HomePageButton () {
 
 function CartLogoButton () {
     return <div className="header-button" title = "Торговая тележка">
-        <CartIcon />
+        <CartLogo />
     </div>
 }
 

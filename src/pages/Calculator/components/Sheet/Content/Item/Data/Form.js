@@ -6,9 +6,7 @@ import {
     useToolKit
 } from "@web-cross-ui/toolkit";
 
-import {
-    CloseIcon
-} from "icons/calculator/product-list/product";
+import CloseIcon  from "icons/CloseIcon";
 
 import ItemContext from "../Context";
 

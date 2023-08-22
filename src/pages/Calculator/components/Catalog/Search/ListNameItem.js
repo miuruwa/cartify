@@ -10,9 +10,7 @@ import {
     CardBlock, Button
 } from "@web-cross-ui/forms";
 
-import {
-    CloseIcon,
-} from "icons/calculator/product-list/product";
+import CloseIcon from "icons/CloseIcon";
 
 function ListNameItem(item) {
     const toolkit = useToolKit();
