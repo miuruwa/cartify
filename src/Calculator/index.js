@@ -4,7 +4,7 @@ import {
     useToolKit
 } from "@webx/toolkit"
 
-import useAppPartitions from "utils/useAppPartitions"
+import usePartitions from "partitions"
 
 import {
     DesktopTemplate, MobileTemplate, TabletTemplate
@@ -12,7 +12,7 @@ import {
 
 export default function Calculator () {
     const toolkit = useToolKit()
-    useAppPartitions()
+    usePartitions()
 
     if (toolkit.settings.windowWidth >= 1280) {
         return <DesktopTemplate />

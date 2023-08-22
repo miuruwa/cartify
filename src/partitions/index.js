@@ -46,7 +46,9 @@ function usePagesAPI () {
     
 }
 
-export default function useAppPartitions () {
+function usePartitions () {
     useCalculatorAPI()
     usePagesAPI()
 }
+
+export default usePartitions
