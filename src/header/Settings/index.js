@@ -60,6 +60,7 @@ function UpdateCacheButton() {
     return <Button
         className="settings-block"
         icon={<UpdateCacheIcon />}
+        theme="white"
         title="Сбросить offline-версию"
         onClick={onClick} />;
 }

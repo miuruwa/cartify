@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useToolKit } from "@webx/toolkit";
 import { Button } from "@webx/forms";
+import AddIcon from "@webx/icons/AddIcon";
 
 function SaveList() {
     const toolkit = useToolKit();
@@ -25,15 +26,15 @@ function SaveList() {
     }
     
     return <div className="catalogue save">
+        <h6>
+            Сохранить список
+        </h6>
         <form onSubmit={handleSubmit}>
-            <h6>
-                Сохранить список
-            </h6>
             <input
                 type="text" name="save-catalogue" value={name}
                 placeholder="Название списка" onChange={handleChange} />
             <label>
-                <Button theme="white" title="Сохранить"/>
+                <Button theme="transparent" icon={<AddIcon />} />
                 <input type="submit" name="save-submit" value="Сохранить" />
             </label>
         </form>

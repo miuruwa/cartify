@@ -22,6 +22,10 @@
         .output {
             grid-template-columns: 1fr 1fr;
         }
+
+        .drag-handle {
+            width: 48px;
+        }
     }
 
     &.screen-device-tablet {
@@ -30,6 +34,10 @@
         }
         .output {
             grid-template-columns: 1fr 1fr;
+        }
+
+        .drag-handle {
+            width: 36px;
         }
     }
     
@@ -43,6 +51,10 @@
 
         .output {
             grid-template-columns: 3fr 2fr;
+        }
+
+        .drag-handle {
+            width: 28px;
         }
     }
 
@@ -58,7 +70,7 @@
         }
 
         .add-product-form {
-            grid-template-columns: 2fr 1fr 24px 1fr $point*6;
+            grid-template-columns: 2fr 1fr 24px 1fr $point*8;
             padding-right: 0!important;
         }
     }
@@ -88,8 +100,8 @@
                 input {
                     display: none;
                 }
-                svg {
-                    height: 100%;
+                .x-button {
+                    border-radius: 100%;
                 }
             }
     
@@ -163,7 +175,6 @@
                 cursor: move;
                 margin: 0;
                 padding: 0;
-                width: 48px;
                 border-radius: 4px;
                 border: none;
                 outline: none;
@@ -264,19 +275,20 @@
         }
 
         &.save {
-            input {
-                margin-bottom: 8px;
-            }
-            label {
-                .x-button {
-                    display: flex;
-                    justify-content: center;
-                    box-shadow: none;
-                    height: 32px;
-                    border-radius: 32px;
-                }
-                input {
-                    display: none;
+            form {
+                display: grid;
+                gap: $point * 2;
+                grid-template-columns: 1fr 32px;
+                label {
+                    .x-button {
+                        display: flex;
+                        justify-content: center;
+                        height: 32px;
+                        border-radius: 32px;
+                    }
+                    input {
+                        display: none;
+                    }
                 }
             }
         }

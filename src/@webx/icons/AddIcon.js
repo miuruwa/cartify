@@ -1,4 +1,4 @@
-function AddProductIcon() {
+function AddIcon() {
     return <svg width="20" height="20" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4184 18 18 14.4184 18 10C18 5.58157 14.4184 2 10 2C5.58157 2 2 5.58157 2 10C2 14.4184 5.58157 18 10 18ZM10 20C15.523 20 20 15.523 20 10C20 4.477 15.523 0 10 0C4.477 0 0 4.477 0 10C0 15.523 4.477 20 10 20Z" />
         <path d="M6 9H14V11H6V9Z" />
@@ -9,4 +9,4 @@ function AddProductIcon() {
     
 }
 
-export default AddProductIcon;
+export default AddIcon;

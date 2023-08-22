@@ -19,6 +19,7 @@ function OKButton () {
     
     return <Button 
         title="OK"
+        theme="transparent"
         onClick={onClick}
     />
 }

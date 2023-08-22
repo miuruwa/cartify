@@ -6,9 +6,10 @@ import {
 } from "@webx/toolkit"
 
 import MultiplyIcon from "@webx/icons/MultiplyIcon"
-import AddProductIcon from "@webx/icons/AddProductIcon"
+import AddIcon from "@webx/icons/AddIcon"
 
 import ErrorCard from "./ErrorCard"
+import { Button } from "@webx/forms"
 
 function Target () {
     return <div
@@ -88,7 +89,11 @@ function Input ({updateForm}) {
         />
         <label title="Добавить">
             <input type="submit" value="submit" />
-            <AddProductIcon />
+            <Button theme="transparent" 
+                icon={
+                    <AddIcon />
+                }
+            />
         </label>
     </form>
 }

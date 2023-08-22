@@ -3,7 +3,7 @@ import {
 } from "@webx/forms";
 
 function AppInfo() {
-    return <>
+    return <div className="cart-calc-message">
         <h6>
             О приложении
         </h6>
@@ -23,7 +23,7 @@ function AppInfo() {
                 </div>
             </div>
         </CardBlock>
-    </>;
+    </div>;
 }
 
 export default AppInfo

@@ -16,6 +16,7 @@ function SaveCurrencyButton({ currency }) {
 
     return <Button
         title="Сохранить"
+        theme="white"
         onClick={onClick} />;
 }
 
