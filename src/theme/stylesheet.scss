@@ -21,6 +21,15 @@ html {
                 gap: $point*2;
             }
         }
+        svg {
+            fill: #0077ff
+        }
+        .header svg{
+            fill: #ffffff!important;
+        }
+        .add-product-form svg{
+            fill: #ffffff!important;
+        }
 
         .cart-calc-message {
             min-height: 30vh;
