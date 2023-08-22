@@ -3,13 +3,15 @@ import {
 } from "@webx/forms"
 
 import GuideButton from "./GuideButton";
-import SettingsButton from "./SettingsButton";
 import ClearList from "./ClearList";
+import SettingsButton from "./SettingsButton";
+import AppInfoButton from "./AppInfoButton";
 
 export default function Menu() {
     return <ButtonBlock>
         <GuideButton />
-        <SettingsButton />
         <ClearList />
+        <SettingsButton />
+        <AppInfoButton />
     </ButtonBlock>
 }

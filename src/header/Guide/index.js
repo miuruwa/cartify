@@ -23,26 +23,25 @@ function OKButton () {
     />
 }
 
-export default function Guide () {
-
+function Guide () {
     return <div className="cart-calc-message">
         <h6>
             Инструкция
         </h6>
         <CardBlock>
-            <p>
-                ✦ Чтобы добавить продукт, добавьте информацию о нём в шапке и нажмите на кнопку "+"
-            </p>
-            <p>
-                ✦ Чтобы очистить список продуктов, нажмите на кнопку "· · ·" и в выпадающем меню нажмите "Очистить список"
-            </p>
-            <p>
-                ✦ Чтобы отредактировать продукт, нажмите на кнопку "<EditIcon fontSize="small" sx={{ transform: "translateY(4px)"}}/>"
-            </p>
-            <p>
-                ✦ Чтобы убрать один продукт в списке, нажмите на кнопку "<CloseIcon fontSize="small" sx={{ transform: "translateY(4px)"}}/>"
-            </p>
+            ✦ Чтобы добавить продукт, добавьте информацию о нём в шапке и нажмите на кнопку "+"
+        </CardBlock>
+        <CardBlock>
+            ✦ Чтобы очистить список продуктов, нажмите на кнопку "· · ·" и в выпадающем меню нажмите "Очистить список"
+        </CardBlock>
+        <CardBlock>
+            ✦ Чтобы отредактировать продукт, нажмите на кнопку "<EditIcon fontSize="small" sx={{ transform: "translateY(4px)"}} />"
+        </CardBlock>
+        <CardBlock>
+            ✦ Чтобы убрать один продукт в списке, нажмите на кнопку "<CloseIcon fontSize="small" sx={{ transform: "translateY(4px)"}} />"
         </CardBlock>
         <OKButton />
     </div>
 }
+
+export default Guide;

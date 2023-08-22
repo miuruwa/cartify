@@ -15,7 +15,6 @@ import UpdateCacheIcon from "@webx/icons/UpdateCacheIcon";
 
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
 
-import AppInfo from "./AppInfo";
 import CacheApp from "./CacheApp";
 import SaveCurrencyButton from "./SaveCurrencyButton";
 
@@ -94,7 +93,6 @@ export default function SettingsСard() {
                 <CacheApp />
             </label>
         </CardBlock>
-        <AppInfo />
         <UpdateCacheButton />
         <SaveCurrencyButton currency={currency}/>
     </form>;
