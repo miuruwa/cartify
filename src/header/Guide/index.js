@@ -10,19 +10,20 @@ import {
 import CloseIcon from "@webx/icons/CloseIcon"
 import EditIcon from "@webx/icons/EditIcon"
 
-export default function Guide () {
+function OKButton () {
     const toolkit = useToolKit()
 
-    const OK = () => {
-        const action = () => {
-            toolkit.card.return()
-        }
-
-        return <Button 
-            title="OK"
-            onClick={action}
-        />
+    function onClick () {
+        toolkit.card.return()
     }
+    
+    return <Button 
+        title="OK"
+        onClick={onClick}
+    />
+}
+
+export default function Guide () {
 
     return <div className="cart-calc-message">
         <h6>
@@ -42,8 +43,6 @@ export default function Guide () {
                 ✦ Чтобы убрать один продукт в списке, нажмите на кнопку "<CloseIcon fontSize="small" sx={{ transform: "translateY(4px)"}}/>"
             </p>
         </CardBlock>
-        <br />
-        <OK />
-        <br />
+        <OKButton />
     </div>
 }
