@@ -4,7 +4,7 @@ import Results from "../components/Results"
 
 export function Template() {
     return <div className="calc">
-            <div className="content-wrap">
+            <div className="content-wrap catalogue-wrap">
                 <SearchBlock />
             </div>
             <Cart />

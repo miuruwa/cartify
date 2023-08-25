@@ -264,23 +264,6 @@
         }
 
         &.search {
-            .catalogue-search-void {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                box-sizing: border-box;
-                border: 2px dashed #222;
-                color: #888;
-                border-radius: $point*2;
-                font-size: 20px;
-                user-select: none;
-
-                p {
-                    width: 70%;
-                    height: 50%;
-                    font-size: 24px;
-                }
-            }
             .catalogue-search-item {
                 display: flex;
                 margin-bottom: 8px;

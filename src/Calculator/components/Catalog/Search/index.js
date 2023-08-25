@@ -40,7 +40,7 @@ function Search({card}) {
     }
     
     return <div className="catalogue search">
-        <div>
+        <div className="pin-block">
             <h6>
                 Найти список
             </h6>
