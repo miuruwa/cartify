@@ -1,6 +1,5 @@
 import {SearchBlock, SaveList} from "../components/Catalog"
-import Form from "../components/Form"
-import Sheet from "../components/Sheet"
+import Cart from "../components/Cart"
 import Results from "../components/Results"
 
 export function Template() {
@@ -8,11 +7,8 @@ export function Template() {
             <div className="catalogue-wrap">
                 <SearchBlock />
             </div>
-            <div className="cart">
-                <Form />
-                <Sheet />
-            </div>
-            <div>
+            <Cart />
+            <div className="results-wrap">
                 <Results />
                 <SaveList />
             </div>

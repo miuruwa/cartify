@@ -6,7 +6,7 @@ function SearchCardButton() {
     const toolkit = useToolKit();
 
     function onClick () {
-        toolkit.card.show(<Search />)
+        toolkit.card.show(<Search card/>)
     }
     return <div className="catalogue search">
         <h6>

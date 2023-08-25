@@ -10,14 +10,16 @@ export default function UserCash() {
         toolkit.cartCalc.availableMoney = parseFloat(event.target.value)
     }
 
-    return <form>
+    return <div className="user-cache">
         <h6>
             Ваши наличные ({toolkit.cartCalc.currency})
         </h6>
+        <form>
         <input type="text" inputMode="numeric"
             name="userCache" onChange={handleChange}
             value={toolkit.cartCalc.availableMoney}
             placeholder="наличные"
         />
-    </form>
+        </form>
+    </div>
 }

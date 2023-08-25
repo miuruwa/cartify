@@ -1,12 +1,10 @@
 import {SearchBlock, SaveList} from "../components/Catalog"
-import Form from "../components/Form"
-import Sheet from "../components/Sheet"
+import Cart from "../components/Cart"
 import Results from "../components/Results"
 
 export function Template() {
     return <>
-        <Form />
-        <Sheet />
+        <Cart />
         <Results />
         <div className="catalogue">
             <SearchBlock hide/>

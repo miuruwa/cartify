@@ -12,7 +12,7 @@ import UserChange from "./UserChange";
 function Output() {
     const toolkit = useToolKit()
     if (toolkit.cartCalc.list.length === 0) {
-        return <>
+        return <div className="output">
             <h6>
                 Подсчёт
             </h6>
@@ -21,17 +21,17 @@ function Output() {
                     С вас 0{toolkit.cartCalc.currency}!
                 </p>
             </div>
-        </>
+        </div>
     }
-    return <>
+    return <div className="output">
         <h6>
             Подсчёт
         </h6>
-        <CardBlock className="output">
+        <CardBlock>
             <CartSum />
             <UserChange />
         </CardBlock>
-    </>;
+    </div>;
 }
 
 export default Output;

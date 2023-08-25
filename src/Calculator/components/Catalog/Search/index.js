@@ -9,7 +9,7 @@ import {
 import Items from "./Items";
 
 
-function Search() {
+function Search({card}) {
     const toolkit = useToolKit();
     const [query, setQuery] = useState("");
     const [list, setList] = useState(toolkit.cartCalc.getNames());
@@ -29,18 +29,27 @@ function Search() {
                 setList(queryList);
         }
     }
+
+    function ItemsWrap () {
+        return <div className="items-wrap">
+            <h6>
+                Сохранённые списки
+            </h6>
+            <Items list={list} card={card}/>
+        </div>
+    }
+    
     return <div className="catalogue search">
-        <h6>
-            Найти список
-        </h6>
-        <form>
-            <input type="text" placeholder="Название списка"
-                value={query} onChange={handleChange} />
-        </form>
-        <h6>
-            Сохранённые списки
-        </h6>
-        <Items list={list} />
+        <div>
+            <h6>
+                Найти список
+            </h6>
+            <form>
+                <input type="text" placeholder="Название списка"
+                    value={query} onChange={handleChange} />
+            </form>
+        </div>
+        <ItemsWrap />
     </div>;
 }
 
