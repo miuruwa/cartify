@@ -42,6 +42,7 @@ export function Products({renderItem}) {
     );
 
     function onChange (newItems) {
+        setList(newItems)
         toolkit.cartCalc.list = newItems
     }
     

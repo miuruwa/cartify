@@ -43,10 +43,11 @@
     
     &.screen-device-desktop {
         .calc {
-            grid-template-columns: 1fr 280px 6fr 280px 1fr;
-            .catalogue-wrap {
+            grid-template-columns: 1fr 292px 8fr 292px 1fr;
+            .content-wrap:first-child {
                 grid-column: 2 / span 1;
             }
+
         }
 
         .output .x-block{
@@ -64,6 +65,11 @@
         .cart {
             display: flex;
             flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-wrap {
             height: 100%;
             overflow-y: auto;
         }
@@ -268,7 +274,6 @@
                 border-radius: $point*2;
                 font-size: 20px;
                 user-select: none;
-                height: 40vh;
 
                 p {
                     width: 70%;
@@ -323,7 +328,6 @@
                 border-radius: $point*2;
                 font-size: 20px;
                 user-select: none;
-                height: 40vh;
 
                 p {
                     width: 70%;
@@ -363,12 +367,5 @@
                 }
             }
         }
-    }
-    .results-wrap {
-        display: flex;
-        flex-direction: column;
-    }
-    .catalogue-wrap {
-        overflow-y: scroll;
     }
 }

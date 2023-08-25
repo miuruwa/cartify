@@ -6,13 +6,15 @@ function SearchCardButton() {
     const toolkit = useToolKit();
 
     function onClick () {
-        toolkit.card.show(<Search card/>)
+        toolkit.card.show(<div className="content-wrap">
+            <Search card/>
+        </div>)
     }
     return <div className="catalogue search">
         <h6>
             Каталог
         </h6>
-        <Button title="Показать сохранённые" onClick={onClick} />
+        <Button title="Показать сохранённые" theme="white" onClick={onClick} />
     </div>
 }
 

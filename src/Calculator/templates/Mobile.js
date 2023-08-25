@@ -5,10 +5,12 @@ import Results from "../components/Results"
 export function Template() {
     return <>
         <Cart />
-        <Results />
-        <div className="catalogue">
-            <SearchBlock hide/>
-            <SaveList />
+        <div className="content-wrap">
+            <Results />
+            <div className="catalogue">
+                <SearchBlock hide/>
+                <SaveList />
+            </div>
         </div>
     </>
 }

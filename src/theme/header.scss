@@ -4,17 +4,23 @@
         justify-content: space-between;
         user-select: none;
         height: 56px;
+        position: relative;
+        z-index: 100;
 
         .header-button {
             width: 56px;
             height: 56px;
 
-            opacity: 1;
-            transition: 0.1s;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: inherit;
+             svg {
+                transition: 0.1s;
+            }
+            .x-dropdown-content svg {
+                opacity: 1!important;
+            }
             .x-dropdown {
                 width: 32px!important;
             }
@@ -26,11 +32,15 @@
 
             &.second {
                 cursor: pointer;
-                opacity: 0.5;
+                svg {
+                    opacity: 0.5;
+                }
             }
 
             &:hover {
-                opacity: 1;
+                svg {
+                    opacity: 1;
+                }
             }
         }
         .button-block {

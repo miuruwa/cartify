@@ -4,11 +4,11 @@ import Results from "../components/Results"
 
 export function Template() {
     return <div className="calc">
-            <div className="catalogue-wrap">
+            <div className="content-wrap">
                 <SearchBlock />
             </div>
             <Cart />
-            <div className="results-wrap">
+            <div className="content-wrap">
                 <Results />
                 <SaveList />
             </div>
