@@ -1,9 +1,9 @@
-import CartLogo from "@webx/icons/CartLogo";
+import CartLogo from "@webx/icons/CartLogo"
 
 function CartLogoButton() {
     return <div className="header-button" title="Торговая тележка">
         <CartLogo />
-    </div>;
+    </div>
 }
 
-export default CartLogoButton;
+export default CartLogoButton

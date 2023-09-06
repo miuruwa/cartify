@@ -1,0 +1,9 @@
+.webx {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        user-select: none;
+        position: relative;
+        z-index: 100;
+    }
+}

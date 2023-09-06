@@ -1,13 +1,6 @@
-import CartLogoButton from "./CartLogoButton"
-import HomePageButton from "./HomePageButton"
-import MenuButton from "./MenuButton"
+import Header from "./template"
 
-function Header () {
-    return <div className="header">
-        <HomePageButton />
-        <CartLogoButton />
-        <MenuButton />
-    </div>
-}
+import "./stylesheet.scss"
 
-export default Header;
+
+export default Header

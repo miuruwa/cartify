@@ -1,6 +1,7 @@
 import {
     CardBlock
-} from "@webx/forms";
+} from "@webx/forms"
+
 
 function AppInfo() {
     return <div className="cart-calc-message">
@@ -23,7 +24,7 @@ function AppInfo() {
                 </div>
             </div>
         </CardBlock>
-    </div>;
+    </div>
 }
 
 export default AppInfo
