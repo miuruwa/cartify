@@ -1,19 +1,23 @@
-import { useContext } from "react";
-import { useToolKit } from "@webx/toolkit";
-import { Form } from "./Form";
-import { Display } from "./Display";
+import { 
+    useContext
+} from "react"
 
-import ItemContext from "../Context";
+import { 
+    useToolKit
+} from "@webx/toolkit"
+
+import Form from "./Form"
+import Display from "./Display"
+import ItemContext from "../Context"
+
 
 function Data() {
-    const toolkit = useToolKit();
-    const properties = useContext(ItemContext);
+    const toolkit = useToolKit()
 
-    if (toolkit.cartCalc.targetProduct === properties.id) {
-        return <Form />;
-    }
+    const properties = useContext(ItemContext)
+    const IS_CURRENT_TARGET = toolkit.cartCalc.targetProduct === properties.id
 
-    return <Display />;
+    return IS_CURRENT_TARGET ? <Form /> : <Display />
 }
 
 export {

@@ -1,52 +1,67 @@
 import {
     useContext
-} from "react";
+} from "react"
 
 import {
     useToolKit
-} from "@webx/toolkit";
+} from "@webx/toolkit"
 
-import CloseIcon  from "@webx/icons/CloseIcon";
+import CloseIcon  from "@webx/icons/CloseIcon"
 
-import ItemContext from "../Context";
+import ItemContext from "../Context"
 
 
-export function Form() {
-    const toolkit = useToolKit();
-    const properties = useContext(ItemContext);
+function Form() {
+    const toolkit = useToolKit()
+    const props = useContext(ItemContext)
 
-    function Equal() {
-        return <>
-            =&nbsp;
-        </>;
+    const nameProps = {
+        type: "text", name: "name",
+        value: props.data.name,
+        onChange: props.handleChange,
+        placeholder: "название"
+    }
+
+    const priceProps = {
+        type: "text", name: "price", inputMode: "decimal",
+        value: props.data.price === 0 ? "" : props.data.price,
+        onChange: props.handleChange,
+        placeholder: "цена"
+    }
+
+    const quantityProps = {
+        type: "text", name: "quantity", inputMode: "decimal",
+        value: props.data.quantity === 0 ? "" : props.data.quantity,
+        onChange: props.handleChange,
+        placeholder: "кол-во"
+    }
+
+    function Multiply() {
+        return <div className="sheet-item-separator">
+            <CloseIcon />
+        </div>
     }
 
     function Cost() {
-        const cost = properties.quantity * properties.price;
+        const cost = props.quantity * props.price
 
-        return <nobr>
-            {cost.toFixed(2)} {toolkit.cartCalc.currency}
-        </nobr>;
+        return <div className="sheet-item-form-cost">
+            =&nbsp;
+            <nobr>
+                {cost.toFixed(2)} {toolkit.cartCalc.currency}
+            </nobr>
+        </div>
     }
 
     return <form>
         <div className="sheet-item-form">
-            <input type="text" name="name"
-                value={properties.name} onChange={properties.handleChange}
-                placeholder="название" />
-            <input type="text" inputMode="decimal" name="price"
-                value={properties.price === 0 ? "" : properties.price} onChange={properties.handleChange}
-                placeholder="цена" />
-            <div className="sheet-item-separator">
-                <CloseIcon />
-            </div>
-            <input type="text" inputMode="decimal" name="quantity"
-                value={properties.quantity === 0 ? "" : properties.quantity} onChange={properties.handleChange}
-                placeholder="кол-во" />
-            <div className="sheet-item-form-cost">
-                <Equal />
-                <Cost />
-            </div>
+            <input {...nameProps} />
+            <input {...priceProps} />
+            <Multiply />
+            <input {...quantityProps} />
+            <Cost />
         </div>
     </form>
 }
+
+export default Form

@@ -1,106 +1,125 @@
 import {
     useState
 } from "react"
+
 import {
     useToolKit
 } from "@webx/toolkit"
 
+import {
+    Button
+} from "@webx/forms"
+
 import MultiplyIcon from "@webx/icons/MultiplyIcon"
 import AddIcon from "@webx/icons/AddIcon"
+import AddEmptyCard from "./ErrorCard"
 
-import ErrorCard from "./ErrorCard"
-import { Button } from "@webx/forms"
+
+function Multiply () {
+    return <div className="add-product-separator">
+        <MultiplyIcon />
+    </div>
+}
+
+function AddButton () {
+    return <label title="Добавить">
+        <input type="submit" value="submit" />
+        <Button theme="transparent" icon={<AddIcon />}/>
+    </label>
+}
 
 function Target () {
-    return <div
-        className="add-product-status target"
-    >
+    return <div className="add-product-status target">
         Чтобы добавить новый продукт, выйдите из режима редактирования.
     </div>
 }
+
 function Finish () {
-    return <div
-        className="add-product-status finish"
-    >
+    return <div className="add-product-status finish">
         Товар добавлен в список
     </div>
 }
 
-function Input ({updateForm}) {
-    const toolkit = useToolKit();
+function Input (props) {
+    const toolkit = useToolKit()
 
-    const [name, setName] = useState("");
-    const [price, setPrice] = useState(0.0);
-    const [quantity, setQuantity] = useState(0.0);
+    const [data, setData] = useState({
+        name: "",
+        price: 0.0,
+        quantity: 0.0
+    })
 
     function handleChange (event) {
-        switch (event.target.name) {
-            case "price":
-                setPrice(event.target.value)
-                break;
+        const value = event.target.name === "name" ? (
+            event.target.value
+        ) : (
+            parseFloat(event.target.value).toFixed(2)
+        )
 
-            case "quantity":
-                setQuantity(event.target.value)
-                break;
+        setData(prev => (
+            {
+                ...prev,
+                [event.target.name]: value
+            }
+        ))
+    }
+
+    const formProps = {
+        className: "add-product-form",
+        onSubmit: event => {
+            const CHECK = data.name === "" || data.quantity === "" || data.price === ""
+    
+            if (CHECK) {
+                return toolkit.card.show(<AddEmptyCard />)
+            }
             
-            default:
-                setName(event.target.value)
-        }
-    }
-
-    function handleSubmit (event) {
-        if (
-                name === "" || 
-                quantity === "" || 
-                price === ""
-        ) {
-            toolkit.card.show(<ErrorCard />)
-        }
-        else {
-            toolkit.cartCalc.addProduct({
-                name: name,
-                price: parseFloat(price).toFixed(2),
-                quantity: parseFloat(quantity).toFixed(2)
+            toolkit.cartCalc.addProduct(data)
+    
+            props.updateForm()
+    
+            setData({
+                name: "",
+                price: 0.0,
+                quantity: 0.0
             })
-            updateForm()
-            setPrice("")
-            setName("")
-            setQuantity("")
+                
+            event.preventDefault();
         }
-
-        event.preventDefault();
+    }
+    
+    const nameProps = {
+        type: "text", name: "name",
+        value: data.name, onChange: handleChange,
+        placeholder: "название"
     }
 
-    return <form onSubmit={handleSubmit} className="add-product-form">
-        <input type="text" name="name"
-            value={name} onChange={handleChange}
-            placeholder="название"
-        />
-        <input type="text" inputMode="decimal" name="price"
-            value={price === 0 ? "" : price} onChange={handleChange}
-            placeholder="цена"
-        />
-        <div className="add-product-separator">
-            <MultiplyIcon />
-        </div>
-        <input type="text" inputMode="decimal" name="quantity"
-        value={quantity === 0 ? "" : quantity} onChange={handleChange}
-            placeholder="кол-во"
-        />
-        <label title="Добавить">
-            <input type="submit" value="submit" />
-            <Button theme="transparent" 
-                icon={
-                    <AddIcon />
-                }
-            />
-        </label>
+    const priceProps = {
+        type: "text", name: "price", inputMode: "decimal",
+        value: data.price === "0" ? "" : data.price,
+        onChange: handleChange,
+        placeholder: "цена"
+    }
+
+    const quantityProps = {
+        type: "text", name: "quantity", inputMode: "decimal",
+        value: data.quantity === "0" ? "" : data.quantity,
+        onChange: handleChange,
+        placeholder: "кол-во"
+    }
+
+    return <form {...formProps}>
+        <input {...nameProps} />
+        <input {...priceProps} />
+        <Multiply />
+        <input {...quantityProps} />
+        <AddButton />
     </form>
 }
 
 function Content () {
     const toolkit = useToolKit();
-
+    
+    const IS_CURRENT_TARGET = toolkit.cartCalc.targetProduct !== null
     const [added, setAdded] = useState(false);
 
     function updateForm () {
@@ -111,12 +130,14 @@ function Content () {
         }, 500)
     }
 
-    if (toolkit.cartCalc.targetProduct !== null) {
+    if (IS_CURRENT_TARGET) {
         return <Target />
     }
+
     if (added) {
         return <Finish />
     }
+
     return <Input updateForm={updateForm}/>
 }
 
@@ -129,5 +150,4 @@ function Form () {
     </div>
 }
 
-
-export default Form;
+export default Form

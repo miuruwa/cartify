@@ -1,53 +1,56 @@
 import {
     useContext
-} from "react";
+} from "react"
 
 import { 
     useToolKit
-} from "@webx/toolkit";
+} from "@webx/toolkit"
 
-import ActionButton from "./ActionButton";
+import DoneIcon from "@webx/icons/DoneIcon"
+import CloseIcon from "@webx/icons/CloseIcon"
 
-import DoneIcon from "@webx/icons/DoneIcon";
-import CloseIcon from "@webx/icons/CloseIcon";
-
-import ItemContext from "../Context";
-import ErrorCard from "./ErrorCard";
+import ActionButton from "./ActionButton"
+import ItemContext from "../Context"
+import ChangeItemCard from "./ErrorCard"
 
 
-export function FormActions() {
-    const toolkit = useToolKit();
-    const properties = useContext(ItemContext);
+function FormActions() {
+    const toolkit = useToolKit()
+    const props = useContext(ItemContext)
 
-    function ApplyChanges() {
-        if (properties.name === "" ||
-            properties.quantity === "" ||
-            properties.price === "") {
-            toolkit.card.show(<ErrorCard />);
-        }
-        else {
+    const saveProps = {
+        icon: <DoneIcon />,
+        title: "Сохранить изменения",
+        onClick: () => {
+            const IS_EMPTY = props.name === "" || props.quantity === "" || props.price === ""
+    
+            if (IS_EMPTY) {
+                return toolkit.card.show(<ChangeItemCard />)
+            }
+            
             toolkit.cartCalc.changeProduct(
-                properties.id,
-                properties.name,
-                parseFloat(properties.quantity).toFixed(2),
-                parseFloat(properties.price).toFixed(2)
-            );
-
-            toolkit.cartCalc.targetProduct = null;
+                props.id,
+                props.data.name,
+                parseFloat(props.data.quantity).toFixed(2),
+                parseFloat(props.data.price).toFixed(2)
+            )
+            toolkit.cartCalc.targetProduct = null
         }
     }
 
-    function CancelChanges() {
-        properties.handleCancel();
-        toolkit.cartCalc.targetProduct = null;
+    const cancelProps = {
+        icon: <CloseIcon />,
+        title: "Отменить изменения",
+        onClick: () => {
+            props.handleCancel()
+            toolkit.cartCalc.targetProduct = null
+        }
     }
 
     return <div className="sheet-item-actions">
-        <ActionButton
-            icon={<DoneIcon />}
-            onClick={ApplyChanges} title="Сохранить изменения"/>
-        <ActionButton
-            icon={<CloseIcon />}
-            onClick={CancelChanges} title="Отменить изменения"/>
-    </div>;
+        <ActionButton {...saveProps} />
+        <ActionButton {...cancelProps} />
+    </div>
 }
+
+export default FormActions

@@ -2,11 +2,11 @@ import React, {
     useMemo,
     useState, 
     useEffect
-} from "react";
+} from "react"
 
 import { 
     useToolKit
-} from "@webx/toolkit";
+} from "@webx/toolkit"
 
 import {
     DndContext,
@@ -14,32 +14,34 @@ import {
     PointerSensor,
     useSensor,
     useSensors
-} from "@dnd-kit/core";
+} from "@dnd-kit/core"
   
 import {
     SortableContext,
     arrayMove,
     sortableKeyboardCoordinates
-} from "@dnd-kit/sortable";
+} from "@dnd-kit/sortable"
 
-import { SortableOverlay } from "./SortableOverlay";
+import SortableOverlay from "./SortableOverlay"
 
-export function Products({renderItem}) {
-    const toolkit = useToolKit();
+
+function Products({renderItem}) {
+    const toolkit = useToolKit()
     
-    const [active, setActive] = useState(null);
-    const [list, setList] = useState(toolkit.cartCalc.list);
+    const [active, setActive] = useState(null)
+    const [list, setList] = useState(toolkit.cartCalc.list)
+
     const activeItem = useMemo(
         () => toolkit.cartCalc.list.find((item) => item.id === active?.id),
         [active, toolkit.cartCalc.list]
-    );
+    )
 
     const sensors = useSensors(
         useSensor(PointerSensor),
         useSensor(KeyboardSensor, {
           coordinateGetter: sortableKeyboardCoordinates
         })
-    );
+    )
 
     function onChange (newItems) {
         setList(newItems)
@@ -47,29 +49,27 @@ export function Products({renderItem}) {
     }
     
     function onDragStart ({ active }) {
-        // enable vibration support
         window.navigator.vibrate = window.navigator.vibrate || window.navigator.webkitVibrate || window.navigator.mozVibrate || window.navigator.msVibrate;
     
         if (window.navigator.vibrate) {
-            // vibration API supported
-            window.navigator.vibrate(200);
+            window.navigator.vibrate(200)
         }
         
-        setActive(active);
+        setActive(active)
     }
 
     function onDragEnd ({ active, over }) {
         if (over && active.id !== over?.id) {
-            const activeIndex = toolkit.cartCalc.list.findIndex(({ id }) => id === active.id);
-            const overIndex = toolkit.cartCalc.list.findIndex(({ id }) => id === over.id);
+            const activeIndex = toolkit.cartCalc.list.findIndex(({ id }) => id === active.id)
+            const overIndex = toolkit.cartCalc.list.findIndex(({ id }) => id === over.id)
   
-            onChange(arrayMove(toolkit.cartCalc.list, activeIndex, overIndex));
+            onChange(arrayMove(toolkit.cartCalc.list, activeIndex, overIndex))
         }
-        setActive(null);
+        setActive(null)
     }
     
     function onDragCancel () {
-        setActive(null);
+        setActive(null)
     }
 
     useEffect(
@@ -98,3 +98,5 @@ export function Products({renderItem}) {
         </SortableOverlay>
     </DndContext>
 }
+
+export default Products

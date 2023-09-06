@@ -1,9 +1,14 @@
-import { createContext } from "react";
+import { 
+    createContext
+} from "react"
 
-const SortableItemContext = createContext({
+
+const props = {
     attributes: {},
     listeners: undefined,
     ref() {}
-})
+}
 
-export default SortableItemContext;
+const SortableItemContext = createContext(props)
+
+export default SortableItemContext

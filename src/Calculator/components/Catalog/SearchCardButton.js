@@ -1,21 +1,38 @@
-import { Button } from "@webx/forms";
+import {
+    useToolKit
+} from "@webx/toolkit"
+
+import {
+    Button
+} from "@webx/forms"
+
 import Search from "./Search"
-import { useToolKit } from "@webx/toolkit";
 
-function SearchCardButton() {
-    const toolkit = useToolKit();
 
-    function onClick () {
-        toolkit.card.show(<div className="content-wrap">
-            <Search card/>
-        </div>)
+function ShowSavedButton () {
+    const toolkit = useToolKit()
+
+    const Card = <div className="content-wrap">
+        <Search card/>
+    </div>
+
+    const props = {
+        theme: "white",
+        title: "Показать сохранённые списки",
+        onClick: () => {
+            toolkit.card.show(Card)
+        }
     }
+
+    return <Button {...props} />
+}
+function SearchCardButton() {
     return <div className="catalogue search">
         <h6>
             Каталог
         </h6>
-        <Button title="Показать сохранённые" theme="white" onClick={onClick} />
+        <ShowSavedButton />
     </div>
 }
 
-export default SearchCardButton;
+export default SearchCardButton

@@ -1,16 +1,26 @@
-import { DragOverlay, defaultDropAnimationSideEffects } from "@dnd-kit/core";
+import {
+    DragOverlay, defaultDropAnimationSideEffects
+} from "@dnd-kit/core"
+
+
+const styles = {
+    styles: {
+        active: {
+            opacity: "0.4"
+        }
+    }
+}
 
 const dropAnimationConfig = {
-  sideEffects: defaultDropAnimationSideEffects({
-    styles: {
-      active: {
-        opacity: "0.4"
-      }
-    }
-  })
-};
-
-export function SortableOverlay({ children }) {
-  return <DragOverlay dropAnimation={dropAnimationConfig}>{children}</DragOverlay>
-
+    sideEffects: defaultDropAnimationSideEffects(styles)
 }
+
+function SortableOverlay({ children }) {
+    const props = {
+        dropAnimation: dropAnimationConfig,
+        children: children
+    }
+    return <DragOverlay {...props} />
+}
+
+export default SortableOverlay

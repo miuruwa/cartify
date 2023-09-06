@@ -4,31 +4,42 @@ import {
 
 import {
     useToolKit
-} from "@webx/toolkit";
+} from "@webx/toolkit"
 
 import {
     CardBlock, Button
-} from "@webx/forms";
+} from "@webx/forms"
 
-import CloseIcon from "@webx/icons/CloseIcon";
+import CloseIcon from "@webx/icons/CloseIcon"
+
 
 function ListNameItem(item) {
-    const toolkit = useToolKit();
+    const toolkit = useToolKit()
 
-    function openList() {
-        toolkit.cartCalc.openList(item);
+    function OpenItem () {
+        const props = {
+            className: "catalogue-search-item-name",
+            onClick: () => toolkit.cartCalc.openList(item),
+            children: item
+        }
+
+        return <div {...props} />
     }
 
-    function removeList() {
-        toolkit.cartCalc.removeList(item);
+    function RemoveItem () {
+        const props = {
+            theme: "transparent",
+            icon: <CloseIcon/>,
+            onClick: () => toolkit.cartCalc.removeList(item),
+        }
+
+        return <Button {...props} />
     }
 
     return <CardBlock className="catalogue-search-item" key={nanoid()}>
-        <div className="catalogue-search-item-name" onClick={openList}>
-            {item}
-        </div>
-        <Button theme="transparent" icon={<CloseIcon/>} onClick={removeList} />
-    </CardBlock>;
+        <OpenItem />
+        <RemoveItem />
+    </CardBlock>
 }
 
-export default ListNameItem;
+export default ListNameItem

@@ -1,24 +1,25 @@
 import {
+    useToolKit
+} from "@webx/toolkit"
+
+import {
     Button,
     CardBlock
 } from "@webx/forms"
 
-import { useToolKit } from "@webx/toolkit"
 
-export default function ErrorCard () {
+function OKButton() {
     const toolkit = useToolKit()
 
-    const OK = () => {
-        const action = () => {
-            toolkit.card.return()
-        }
-
-        return <Button 
-            title="OK"
-            onClick={action}
-        />
+    const props = {
+        title: "ОК",
+        onClick: toolkit.card.return
     }
 
+    return <Button {...props} />
+}
+
+function AddEmptyCard () {
     return <div className="cart-calc-message">
         <h6>
             Ошибка добавления продукта
@@ -28,6 +29,8 @@ export default function ErrorCard () {
                 В приложение нельзя добавлять продукты с пустыми значениями, проверьте все поля ввода.
             </p>
         </CardBlock>
-        <OK />
+        <OKButton />
     </div>
 }
+
+export default AddEmptyCard

@@ -1,0 +1,54 @@
+@import "@webx/utils/optional.scss";
+
+@mixin pin-block {
+    .pin-block {
+        top: 0px;
+        position: sticky;
+
+        input {
+            box-shadow: 0 4px 12px #11111155!important;
+        }
+
+        .add-product-form {
+            display: grid;
+            gap: $point * 2;
+    
+            label {
+                cursor: pointer;
+                input {
+                    display: none;
+                }
+                .x-button {
+                    border-radius: 100%;
+                }
+            }
+    
+            .add-product-separator {
+                display: flex;
+                height: $point*8;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    
+        .add-product-status {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            
+            min-height: 32px;
+            border-radius: 32px;
+            user-select: none;
+
+            &.target {
+                border: 2px dashed #222;
+                color: #888;
+            }
+        
+            &.finish {
+                background: #333;
+            }
+        }
+    }
+}

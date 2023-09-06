@@ -1,53 +1,53 @@
 import { 
     useContext
-} from "react";
+} from "react"
 
 import {
     useToolKit
-} from "@webx/toolkit";
+} from "@webx/toolkit"
 
-import ItemContext from "../Context";
+import ItemContext from "../Context"
 
 
-export function Display() {
-    const toolkit = useToolKit();
-    const properties = useContext(ItemContext);
+function Display() {
+    const toolkit = useToolKit()
+    const props = useContext(ItemContext)
 
     function Price() {
         return <nobr>
-            {properties.price}{toolkit.cartCalc.currency}
-        </nobr>;
+            {props.data.price}{toolkit.cartCalc.currency}
+        </nobr>
     }
 
     function Quantity() {
         return <nobr>
-            {properties.quantity}&nbsp;шт.
-        </nobr>;
+            {props.data.quantity}&nbsp;шт.
+        </nobr>
     }
 
     function Cost() {
-        const cost = properties.quantity * properties.price;
+        const cost = props.data.quantity * props.data.price
 
         return <nobr>
             {cost.toFixed(2)} {toolkit.cartCalc.currency}
-        </nobr>;
+        </nobr>
     }
 
     function Multiple() {
         return <nobr>
             &nbsp;×&nbsp;
-        </nobr>;
+        </nobr>
     }
 
     function Equal() {
         return <nobr>
             &nbsp;=&nbsp;
-        </nobr>;
+        </nobr>
     }
 
     return <div className="sheet-item-data">
         <div className="sheet-item-name">
-            {properties.name}
+            {props.data.name}
         </div>
         <div className="sheet-item-calculation">
             <Price />
@@ -56,5 +56,7 @@ export function Display() {
             <Equal />
             <Cost />
         </div>
-    </div>;
+    </div>
 }
+
+export default Display

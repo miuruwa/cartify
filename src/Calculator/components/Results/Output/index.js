@@ -1,28 +1,31 @@
 import {
     useToolKit
-} from "@webx/toolkit";
+} from "@webx/toolkit"
 
 import {
     CardBlock
-} from "@webx/forms";
+} from "@webx/forms"
 
-import CartSum from "./CartSum";
-import UserChange from "./UserChange";
+import CartSum from "./CartSum"
+import UserChange from "./UserChange"
 
-function Output() {
+
+function Void () {
     const toolkit = useToolKit()
-    if (toolkit.cartCalc.list.length === 0) {
-        return <div className="output">
-            <h6>
-                Подсчёт
-            </h6>
-            <div className="output-void">
-                <p>
-                    С вас 0{toolkit.cartCalc.currency}!
-                </p>
-            </div>
+
+    return <div className="output">
+        <h6>
+            Подсчёт
+        </h6>
+        <div className="output-void">
+            <p>
+                С вас 0{toolkit.cartCalc.currency}!
+            </p>
         </div>
-    }
+    </div>
+}
+
+function Calculations () {
     return <div className="output">
         <h6>
             Подсчёт
@@ -31,7 +34,13 @@ function Output() {
             <CartSum />
             <UserChange />
         </CardBlock>
-    </div>;
+    </div>
 }
 
-export default Output;
+function Output() {
+    const toolkit = useToolKit()
+
+    return toolkit.cartCalc.list.length === 0 ? <Void /> : <Calculations />
+}
+
+export default Output

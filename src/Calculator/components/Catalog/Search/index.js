@@ -1,33 +1,28 @@
 import {
     useState
-} from "react";
+} from "react"
 
 import {
     useToolKit
-} from "@webx/toolkit";
+} from "@webx/toolkit"
 
-import Items from "./Items";
+import Items from "./Items"
 
 
 function Search({card}) {
-    const toolkit = useToolKit();
-    const [query, setQuery] = useState("");
-    const [list, setList] = useState(toolkit.cartCalc.getNames());
+    const toolkit = useToolKit()
+
+    const [data, setData] = useState({
+        query: "",
+        list: toolkit.cartCalc.getNames(),
+        originList: toolkit.cartCalc.getNames()
+    })
 
     function handleChange(event) {
-        switch (event.target.name) {
-            default:
-                var queryList;
-                setQuery(event.target.value);
-
-                if (query === "") {
-                    queryList = toolkit.cartCalc.getNames();
-                }
-                else {
-                    queryList = toolkit.cartCalc.searchLists(query);
-                }
-                setList(queryList);
-        }
+        setData(prev => ({
+            query: event.target.value,
+            list: event.target.value === "" ? prev.originList : toolkit.cartCalc.searchLists(event.target.value)
+        }))
     }
 
     function ItemsWrap () {
@@ -35,22 +30,36 @@ function Search({card}) {
             <h6>
                 Сохранённые списки
             </h6>
-            <Items list={list} card={card}/>
+            <Items list={data.list} card={card}/>
+        </div>
+    }
+
+    function Finder () {
+        const inputProps = {
+            type: "text", 
+            placeholder: "Название списка",
+            value: data.query, 
+            onChange: handleChange
+        }
+
+        return <form>
+            <input {...inputProps} />
+        </form>
+    }
+
+    function PinBlock () {
+        return <div className="pin-block">
+            <h6>
+                Найти список
+            </h6>
+            <Finder />
         </div>
     }
     
     return <div className="catalogue search">
-        <div className="pin-block">
-            <h6>
-                Найти список
-            </h6>
-            <form>
-                <input type="text" placeholder="Название списка"
-                    value={query} onChange={handleChange} />
-            </form>
-        </div>
+        <PinBlock />
         <ItemsWrap />
-    </div>;
+    </div>
 }
 
-export default Search;
+export default Search

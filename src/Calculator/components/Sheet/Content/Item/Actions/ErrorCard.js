@@ -1,26 +1,25 @@
 import {
+    useToolKit
+} from "@webx/toolkit"
+
+import {
     Button,
     CardBlock
 } from "@webx/forms"
 
-import {
-    useToolKit
-} from "@webx/toolkit"
 
-export default function ErrorCard () {
+function OKButton() {
     const toolkit = useToolKit()
 
-    const OK = () => {
-        const action = () => {
-            toolkit.card.return()
-        }
-
-        return <Button 
-            title="OK"
-            onClick={action}
-        />
+    const props = {
+        title: "ОК",
+        onClick: toolkit.card.return
     }
 
+    return <Button {...props} />
+}
+
+function ChangeItemCard () {
     return <CardBlock className="cart-calc-message">
         <h6>
             Ошибка изменения продукта
@@ -28,6 +27,8 @@ export default function ErrorCard () {
         <p>
             Проверьте все поля ввода: в приложение нельзя добавлять продукты с пустыми значениями.
         </p>
-        <OK />
+        <OKButton />
     </CardBlock>
 }
+
+export default ChangeItemCard

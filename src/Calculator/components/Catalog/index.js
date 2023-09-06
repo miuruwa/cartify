@@ -1,6 +1,7 @@
-import SaveList from "./SaveList";
-import Search from "./Search";
-import SearchCardButton from "./SearchCardButton";
+import SaveList from "./SaveList"
+import Search from "./Search"
+import SearchCardButton from "./SearchCardButton"
+
 
 function SearchBlock ({hide}) {
     return hide ? <SearchCardButton /> : <Search />
@@ -8,4 +9,4 @@ function SearchBlock ({hide}) {
 
 export {
     SearchBlock, SaveList
-};
+}

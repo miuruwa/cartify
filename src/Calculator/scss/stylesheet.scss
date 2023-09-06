@@ -1,0 +1,14 @@
+@import "./templates.scss";
+@import "./pin-block.scss";
+@import "./sheet.scss";
+@import "./catalogue.scss";
+@import "./results.scss";
+
+.webx {
+    @include templates;
+    @include desktop_and_tablet_templates;
+    @include pin-block;
+    @include sheet;
+    @include catalogue;
+    @include results;
+}

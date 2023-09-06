@@ -1,22 +1,33 @@
-import ListNameItem from "./ListNameItem";
-import { useToolKit } from "@webx/toolkit";
-import { Void } from "./Void";
-import { CardBlock } from "@webx/forms";
+import { 
+    useToolKit
+} from "@webx/toolkit"
+
+import {
+    CardBlock
+} from "@webx/forms"
+
+import ListNameItem from "./ListNameItem"
+import Void from "./Void"
 
 
-function Items({card}) {
-    const toolkit = useToolKit();
-    const list = toolkit.cartCalc.getNames();
-
-    function Content () {
-        return list.length === 0 ? <Void /> : list.map(
-            ListNameItem
-        )
-    }
-
-    return card ? <CardBlock>
-        <Content />
-    </CardBlock> : <Content />
+function Raw () {
+    const toolkit = useToolKit()
+    const list = toolkit.cartCalc.getNames()
+    
+    return list.length === 0 ? <Void /> : list.map(
+        ListNameItem
+    )
 }
 
-export default Items;
+function Wrapped () {
+    return <CardBlock>
+        <Raw />
+    </CardBlock>
+}
+
+function Items({card}) {
+
+    return card ? <Wrapped /> : <Raw />
+}
+
+export default Items

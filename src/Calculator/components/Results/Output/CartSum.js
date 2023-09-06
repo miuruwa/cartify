@@ -2,20 +2,31 @@ import {
     useToolKit
 } from "@webx/toolkit"
 
-export default function CartSum() {
-    const toolkit = useToolKit()
 
-    const text = `${toolkit.cartCalc.totalCost} ${toolkit.cartCalc.currency}`
+function SumStatus () {
+    return <div className="total-class">
+        <p>
+            Итого:
+        </p>
+    </div>
+}
+
+function SumValue () {
+    const toolkit = useToolKit()
+    
+    return <div className="total-class">
+        <p>
+            {toolkit.cartCalc.totalCost}
+            {toolkit.cartCalc.currency}
+        </p>
+    </div>
+}
+
+function CartSum() {
     return <>
-        <div className="total-class">
-            <p>
-                Итого:
-            </p>
-        </div>
-        <div className="total-class">
-            <p>
-                {text}
-            </p>
-        </div>
+        <SumStatus />
+        <SumValue />
     </>
 }
+
+export default CartSum

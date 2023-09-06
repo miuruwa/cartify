@@ -2,31 +2,35 @@ import {
     useToolKit
 } from "@webx/toolkit"
 
-export default function UserChange() {
+
+function UserChange() {
     const toolkit = useToolKit()
 
-    const classList = ["total-class"]
-    const change = toolkit.cartCalc.change
-
-    var status = "Ваша сдача:"
-
-    if (change < 0) {
-        classList.push("change-alert")
-        status = "Вам не хватает:"
+    const props = {
+        className: toolkit.cartCalc.change > 0 ? "total-class" : "total-class change-alert"
     }
 
-    const text = `${Math.abs(toolkit.cartCalc.change)} ${toolkit.cartCalc.currency}`
+    function ChangeStatus () {
+        return <div {...props}>
+            <p>
+                {toolkit.cartCalc.change > 0 ? "Ваша сдача:" : "Вам не хватает:"}
+            </p>
+        </div>
+    }
+
+    function ChangeValue () {
+        return <div {...props}>
+            <p>
+                {Math.abs(toolkit.cartCalc.change)}
+                {toolkit.cartCalc.currency}
+            </p>
+        </div>
+    }
 
     return <>
-        <div className={classList.join(" ")}>
-            <p>
-                {status}
-            </p>
-        </div>
-        <div className={classList.join(" ")}>
-            <p>
-                {text}
-            </p>
-        </div>
+        <ChangeStatus />
+        <ChangeValue />
     </>
 }
+
+export default UserChange

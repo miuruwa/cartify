@@ -1,24 +1,24 @@
 import React, {
     useMemo
-} from "react";
+} from "react"
 
 import { 
     nanoid
-} from "nanoid";
+} from "nanoid"
 
 import {
     useSortable,
-} from "@dnd-kit/sortable";
+} from "@dnd-kit/sortable"
 
 import {
     CSS
-} from "@dnd-kit/utilities";
+} from "@dnd-kit/utilities"
 
-import Item from "./Item";
-import SortableItemContext from "./SortableItemContext";
+import Item from "./Item"
+import SortableItemContext from "./SortableItemContext"
   
 
-export default function RenderItem({id, item}) {
+function RenderItem({id, item}) {
     const {
         attributes,
         isDragging,
@@ -54,3 +54,5 @@ export default function RenderItem({id, item}) {
         </li>
     </SortableItemContext.Provider>
 }
+
+export default RenderItem

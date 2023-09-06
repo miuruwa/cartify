@@ -3,11 +3,17 @@ import {
 } from "@webx/toolkit"
 
 
-export default function UserCash() {
+function UserCash() {
     const toolkit = useToolKit()
 
-    function handleChange (event) {
-        toolkit.cartCalc.availableMoney = parseFloat(event.target.value)
+    const inputProps = {
+        type: "text", inputMode: "numeric",
+        name: "userCache",
+        value: toolkit.cartCalc.availableMoney,
+        placeholder: "наличные",
+        onClick: event => {
+            toolkit.cartCalc.availableMoney = parseFloat(event.target.value)
+        }
     }
 
     return <div className="user-cache">
@@ -15,11 +21,9 @@ export default function UserCash() {
             Ваши наличные ({toolkit.cartCalc.currency})
         </h6>
         <form>
-        <input type="text" inputMode="numeric"
-            name="userCache" onChange={handleChange}
-            value={toolkit.cartCalc.availableMoney}
-            placeholder="наличные"
-        />
+            <input {...inputProps} />
         </form>
     </div>
 }
+
+export default UserCash

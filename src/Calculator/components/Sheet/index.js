@@ -2,6 +2,7 @@ import {
     Content
 } from "./Content";
 
+
 function Sheet() {
     return <div className="sheet">
         <h6>
@@ -11,4 +12,4 @@ function Sheet() {
     </div>
 }
 
-export default Sheet;
+export default Sheet

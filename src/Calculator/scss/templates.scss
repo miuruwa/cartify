@@ -1,0 +1,84 @@
+@import "@webx/utils/optional.scss";
+
+@mixin templates {
+    &.screen-device-mobile {
+        .add-product-form { 
+            grid-template-columns: 1fr $point*6 1fr $point*8;
+           
+            input {
+                &:first-child {
+                    grid-column: 1 / span 4;
+                }
+            }
+    
+            .add-product-separator {
+                grid-column: 2 / span 1;
+            }
+        }
+    
+        .index {
+            position: relative;
+        }
+        .output .x-block{
+            grid-template-columns: 1fr 1fr;
+        }
+    
+        .drag-handle {
+            width: 48px;
+        }
+    }
+    
+    &.screen-device-tablet {
+        .calc {
+            grid-template-columns: 2fr 1fr;
+        }
+        .output .x-block{
+            grid-template-columns: 1fr 1fr;
+        }
+    
+        .drag-handle {
+            width: 36px;
+        }
+    }
+    
+    &.screen-device-desktop {
+        .calc {
+            grid-template-columns: 1fr 292px 8fr 292px 1fr;
+            .content-wrap:first-child {
+                grid-column: 2 / span 1;
+            }
+    
+        }
+    
+        .output .x-block{
+            grid-template-columns: 3fr 2fr;
+        }
+    
+        .drag-handle {
+            width: 28px;
+        }
+    }
+}
+
+@mixin desktop_and_tablet_templates {
+    .calc {
+        height: calc(100vh - 56px - 12px);
+
+        .cart {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-wrap {
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .add-product-form {
+            grid-template-columns: 2fr 1fr 24px 1fr $point*8;
+            padding-right: 0!important;
+        }
+    }
+}

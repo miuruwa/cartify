@@ -1,0 +1,63 @@
+@import "@webx/utils/optional.scss";
+
+@mixin catalogue {
+    .catalogue {
+        h6 {
+            padding-left: $point * 3;
+            padding-right: $point * 3;
+        }
+
+        .x-block {
+            input {
+                background: #333;
+            }
+        }
+
+        &.save {
+            form {
+                display: grid;
+                gap: $point * 2;
+                grid-template-columns: 1fr 32px;
+
+                label {
+                    .x-button {
+                        display: flex;
+                        justify-content: center;
+                        height: 32px;
+                        border-radius: 32px;
+                    }
+
+                    input {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &.search {
+            .catalogue-search-item {
+                display: flex;
+                margin-bottom: 8px;
+                user-select: none;
+
+                .catalogue-search-item-name {
+                    flex: 1 1 auto;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 8px;
+                    font-size: 20px;
+                    cursor: pointer;
+                    border-radius: 4px;
+
+                    &:hover {
+                        background: #333;
+                    }
+                }
+
+                .x-button {
+                    width: 32px;
+                }
+            }
+        }
+    }
+}

@@ -1,18 +1,29 @@
-import { useState } from "react";
-import { useToolKit } from "@webx/toolkit";
-import { Button, } from "@webx/forms";
-import AddIcon from "@webx/icons/AddIcon";
+import {
+    useState, Fragment
+} from "react"
 
-function SaveList() {
-    const toolkit = useToolKit();
-    const [name, setName] = useState("");
+import {
+    useToolKit
+} from "@webx/toolkit"
 
-    function handleChange(event) {
-        switch (event.target.name) {
-            default:
-                setName(event.target.value);
-        }
-    }
+import { 
+    Button
+} from "@webx/forms"
+
+import AddIcon from "@webx/icons/AddIcon"
+
+
+function SaveButton () {
+    return <label>
+        <Button theme="transparent" icon={<AddIcon />} />
+        <input type="submit" name="save-submit" value="Сохранить" />
+    </label>
+}
+
+function Form () {
+    const toolkit = useToolKit()
+    
+    const [name, setName] = useState("")
 
     function handleSubmit(event) {
         toolkit.cartCalc.saveList(name);
@@ -20,25 +31,31 @@ function SaveList() {
         event.preventDefault();
     }
 
-    if (toolkit.cartCalc.list.length === 0) {
-        return <>
-        </>
+    const inputProps = {
+        type: "text", name: "save-catalogue", value: name,
+        placeholder: "Название списка",
+        onChange: event => setName(event.target.value)
     }
-    
-    return <div className="catalogue save">
-        <h6>
-            Сохранить список
-        </h6>
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text" name="save-catalogue" value={name}
-                placeholder="Название списка" onChange={handleChange} />
-            <label>
-                <Button theme="transparent" icon={<AddIcon />} />
-                <input type="submit" name="save-submit" value="Сохранить" />
-            </label>
-        </form>
-    </div>;
+
+    return <form onSubmit={handleSubmit}>
+        <input {...inputProps} />
+        <SaveButton />
+    </form>
 }
 
-export default SaveList;
+function SaveList() {
+    const toolkit = useToolKit()
+
+    return toolkit.cartCalc.list.length === 0 ? (
+        <Fragment />
+    ) : (
+        <div className="catalogue save">
+            <h6>
+                Сохранить список
+            </h6>
+            <Form />
+        </div>
+    )
+}
+
+export default SaveList

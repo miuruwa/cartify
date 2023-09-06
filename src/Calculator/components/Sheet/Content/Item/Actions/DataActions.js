@@ -1,35 +1,42 @@
 import {
     useContext
-} from "react";
+} from "react"
 
 import {
     useToolKit
-} from "@webx/toolkit";
+} from "@webx/toolkit"
 
-import EditIcon from "@webx/icons/EditIcon";
-import CloseIcon from "@webx/icons/CloseIcon";
+import EditIcon from "@webx/icons/EditIcon"
+import CloseIcon from "@webx/icons/CloseIcon"
 
-import ActionButton from "./ActionButton";
-import ItemContext from "../Context";
+import ActionButton from "./ActionButton"
+import ItemContext from "../Context"
 
-export function DataActions() {
-    const toolkit = useToolKit();
-    const properties = useContext(ItemContext);
 
-    function ChangeData() {
-        toolkit.cartCalc.targetProduct = properties.id;
+function DataActions() {
+    const toolkit = useToolKit()
+    const props = useContext(ItemContext)
+
+    const editProps = {
+        icon: <EditIcon />,
+        title: "Редактировать ячейку",
+        onClick: () => {
+            toolkit.cartCalc.targetProduct = props.id;
+        }
     }
 
-    function RemoveData() {
-        toolkit.cartCalc.removeProduct(properties.id);
+    const removeProps = {
+        icon: <CloseIcon />,
+        title: "Удалить ячейку",
+        onClick: () => {
+            toolkit.cartCalc.removeProduct(props.id);
+        }
     }
 
     return <div className="sheet-item-actions">
-        <ActionButton
-            icon={<EditIcon />}
-            onClick={ChangeData} title="Редактировать ячейку"/>
-        <ActionButton
-            icon={<CloseIcon />}
-            onClick={RemoveData} title="Удалить ячейку"/>
-    </div>;
+        <ActionButton {...editProps} />
+        <ActionButton {...removeProps} />
+    </div>
 }
+
+export default DataActions
