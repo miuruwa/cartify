@@ -6,5 +6,3 @@ export {
     cartCalc, CartCalcReducer,
     pages, PagesReducer
 } from "./reducers/"
-
-

@@ -2,6 +2,7 @@ import {
     nanoid
 } from "nanoid"
 
+
 export class Partition {
     #state
     #dispatch
@@ -21,43 +22,46 @@ export class Partition {
         Object.defineProperties(this, {
             list: {
                 get: () => this.#state.productList,
-
                 set: (value) => {
-                    if (typeof value == "object" && Array.isArray(value)) {
-                        this.#dispatch({
-                            type: "update-list",
-                            state: value
-                        })
+                    const response = {
+                        type: "update-list",
+                        state: value
+                    }
+                    const check = typeof value == "object" && Array.isArray(value)
+
+                    if (check) {
+                        this.#dispatch(response)
                     }
                 }
             },
-
             catalogue: {
                 get: () => this.#state.catalogue,
-
                 set: (value) => {
-                    if (typeof value == "object" && Array.isArray(value)) {
-                        this.#dispatch({
-                            type: "save-list",
-                            state: value
-                        })
+                    const response = {
+                        type: "save-list",
+                        state: value
+                    }
+                    const check = typeof value == "object" && Array.isArray(value)
+
+                    if (check) {
+                        this.#dispatch(response)
                     }
                 }
             },
-
             isTotalMode: {
                 get: () => this.#state.inTotalMode,
-
                 set: (value) => {
-                    if (typeof value == "boolean") {
-                        this.#dispatch({
-                            type: "set-total-mode",
-                            state: value
-                        })
+                    const response = {
+                        type: "set-total-mode",
+                        state: value
+                    }
+                    const check = typeof value == "boolean"
+
+                    if (check) {
+                        this.#dispatch(response)
                     }
                 }
             },
-
             totalCost: {
                 get: () => {
                     const priceArray = this.list.map(
@@ -71,20 +75,20 @@ export class Partition {
                     return parseFloat(reducedArray).toFixed(2)
                 }
             },
-
             currency: {
                 get: () => this.#state.currency,
-
                 set: (value) => {
-                    if (typeof value == "string") {
-                        this.#dispatch({
-                            type: "set-currency",
-                            state: value
-                        })
+                    const response = {
+                        type: "set-currency",
+                        state: value
+                    }
+                    const check = typeof value == "string"
+
+                    if (check) {
+                        this.#dispatch(response)
                     }
                 }
             },
-
             availableMoney: {
                 get: () => {
                     if (isNaN(this.#state.availableMoney)) {
@@ -93,12 +97,13 @@ export class Partition {
 
                     return this.#state.availableMoney
                 },
-
                 set: (value) => {
-                    this.#dispatch({
+                    const response = {
                         type: "set-available-money",
                         state: parseInt(value)
-                    })
+                    }
+
+                    this.#dispatch(response)
                 }
             },
 
@@ -111,7 +116,6 @@ export class Partition {
                     })
                 }
             },
-
             change: {
                 get: () => {
                     const changeRaw = this.availableMoney - this.totalCost
@@ -128,12 +132,14 @@ export class Partition {
     }
 
     addProduct (product) {
-        let productList = [{
+        const newProduct = {
             name: product.name,
             id: nanoid(),
             quantity: product.quantity,
             price: product.price
-        }, ...this.list]
+        }
+
+        const productList = [newProduct, ...this.list]
 
         this.list = productList
     }
@@ -163,9 +169,11 @@ export class Partition {
 
     saveList (listName) {
         const newCatalogue = [...this.catalogue]
+
         const index = newCatalogue.findIndex(
             list => list.name === listName
         )
+
         const newList = {
             name: listName,
             list: [...this.list]
@@ -184,6 +192,7 @@ export class Partition {
 
     removeList (listName) {
         const newCatalogue = [...this.catalogue]
+
         const index = newCatalogue.findIndex(
             list => list.name === listName
         )
@@ -192,10 +201,7 @@ export class Partition {
             return
         }
 
-        else {
-            newCatalogue.splice(index, 1)
-        }
-
+        newCatalogue.splice(index, 1)
         this.catalogue=newCatalogue
     }
 

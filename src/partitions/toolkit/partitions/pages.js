@@ -14,48 +14,58 @@ export class Partition {
             mounted: {
                 get: () => this.#state.settings.mounted,
                 set: value => {
-                    if (typeof value == "boolean") {
-                        this.#dispatch({
-                            type: "set-page-mount",
-                            page: "settings",
-                            state: value
-                        })
+                    const response = {
+                        type: "set-page-mount",
+                        page: "settings",
+                        state: value
+                    }
+
+                    const check = typeof value == "boolean"
+
+                    if (check) {
+                        this.#dispatch(response)
                     }
                 }
             },
-
             loaded: {
                 get: () => this.#state.settings.loaded,
                 set: value => {
-                    if (typeof value == "boolean") {
-                        this.#dispatch({
-                            type: "set-page-visiblity",
-                            page: "settings",
-                            state: value
-                        })
+                    const response = {
+                        type: "set-page-visiblity",
+                        page: "settings",
+                        state: value
+                    }
+                    
+                    const check = typeof value == "boolean"
+
+                    if (check) {
+                        this.#dispatch(response)
                     }
                 }
             },
-
             number: {
                 get: () => this.#state.settings.number,
                 set: value => {
-                    if (typeof value == "number" && value !== this.#state.settings.number) {
-                        this.settings.loaded = false
-
-                        setTimeout(
-                            () => {
-                                    this.#dispatch({
-                                        type: "set-page-number",
-                                        page: "settings",
-                                        state: value
-                                    })
-                                
-                                this.settings.loaded = true
-                            }, 100
-                        )
+                    const response = {
+                        type: "set-page-number",
+                        page: "settings",
+                        state: value
                     }
-                    
+
+                    const check = typeof value == "number" && value !== this.#state.settings.number
+
+                    if (!check) {
+                        return
+                    }
+
+                    this.settings.loaded = false
+
+                    setTimeout(
+                        () => {
+                            this.#dispatch(response)
+                            this.settings.loaded = true
+                        }, 100
+                    )
                 }
             }
         })
