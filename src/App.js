@@ -7,9 +7,12 @@ import Calculator from "Calculator"
 
 import "theme/stylesheet.scss"
 
-export default function App () {
+
+function App () {
     return <ToolKitContext>
         <Header/>
         <Calculator/>
     </ToolKitContext>
 }
+
+export default App

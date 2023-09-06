@@ -3,6 +3,7 @@ export const card = {
     loaded: false,
 
     layout: null,
+    previous: null,
     topOffset: 0,
 }
 
@@ -22,6 +23,10 @@ export function CardReducer(state, action) {
             newState.layout = action.state
             break
 
+        case "set-previous":
+            newState.previous = action.state
+            break
+    
         case "set-top-offset":
             newState.topOffset = action.state
             break
