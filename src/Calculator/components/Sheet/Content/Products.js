@@ -32,8 +32,8 @@ function Products({renderItem}) {
     const [list, setList] = useState(toolkit.cartCalc.list)
 
     const activeItem = useMemo(
-        () => toolkit.cartCalc.list.find((item) => item.id === active?.id),
-        [active, toolkit.cartCalc.list]
+        () => list.find((item) => item.id === active?.id),
+        [active, list]
     )
 
     const sensors = useSensors(
@@ -42,11 +42,6 @@ function Products({renderItem}) {
           coordinateGetter: sortableKeyboardCoordinates
         })
     )
-
-    function onChange (newItems) {
-        setList(newItems)
-        toolkit.cartCalc.list = newItems
-    }
     
     function onDragStart ({ active }) {
         window.navigator.vibrate = window.navigator.vibrate || window.navigator.webkitVibrate || window.navigator.mozVibrate || window.navigator.msVibrate;
@@ -63,7 +58,10 @@ function Products({renderItem}) {
             const activeIndex = toolkit.cartCalc.list.findIndex(({ id }) => id === active.id)
             const overIndex = toolkit.cartCalc.list.findIndex(({ id }) => id === over.id)
   
-            onChange(arrayMove(toolkit.cartCalc.list, activeIndex, overIndex))
+            setList(arrayMove(toolkit.cartCalc.list, activeIndex, overIndex))
+        }
+        else {
+            toolkit.cartCalc.list = list
         }
         setActive(null)
     }
