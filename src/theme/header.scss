@@ -1,11 +1,6 @@
 @mixin header {
     .header {
-        display: flex;
-        justify-content: space-between;
-        user-select: none;
         height: 56px;
-        position: relative;
-        z-index: 100;
 
         .header-button {
             width: 56px;
@@ -43,8 +38,10 @@
                 }
             }
         }
+
         .button-block {
             width: 228px;
+            
             .app-button {
                 border-radius: 4px;
                 background: #282828;
