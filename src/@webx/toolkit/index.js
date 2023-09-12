@@ -172,9 +172,12 @@ function ToolKitContext ({children}) {
         },
     })
 
-    window.addEventListener('load', function () {
+    if (document.readyState === "complete") {
         MountTransitionData.show()
-    })
+    }
+    else {
+        window.addEventListener('load', MountTransitionData.show)
+    }
 
     window.onbeforeunload = () => {
         MountTransitionData.hide()
