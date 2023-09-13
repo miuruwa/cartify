@@ -2,10 +2,6 @@ import React, {
     useState, useMemo
 } from "react"
 
-import { 
-    nanoid
-} from "nanoid"
-
 import {
     useSortable,
 } from "@dnd-kit/sortable"
@@ -82,8 +78,7 @@ function Item(item) {
     const props = {
         className: "x-block sheet-item",
         style: style,
-        ref: setNodeRef,
-        key: nanoid()
+        ref: setNodeRef
     }
 
     return <SortableItemContext.Provider value={context}>

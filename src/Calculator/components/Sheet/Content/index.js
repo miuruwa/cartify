@@ -1,4 +1,8 @@
 import {
+    nanoid
+} from "nanoid"
+
+import {
     useToolKit
 } from "@webx/toolkit"
 
@@ -15,7 +19,7 @@ export function Content() {
     }
 
     const props = {
-        renderItem: (item) => item ? <Item {...item} /> : null
+        renderItem: (item) => item ? <Item key={nanoid()} {...item}/> : null
     }
     
     return <Products {...props} />

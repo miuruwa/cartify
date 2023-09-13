@@ -23,8 +23,7 @@ import {
 } from "@dnd-kit/sortable"
 
 import {
-    restrictToVerticalAxis,
-    restrictToWindowEdges
+    restrictToParentElement
 } from "@dnd-kit/modifiers"
 
 import SortableOverlay from "./SortableOverlay"
@@ -65,12 +64,12 @@ function Products({renderItem}) {
 
     function Items () {
         return toolkit.cartCalc.list.map(
-            item => renderItem(item)
+            renderItem
         )
     }
 
     return <DndContext
-        modifiers={[restrictToVerticalAxis]}
+        modifiers={[restrictToParentElement]}
         sensors={sensors}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
@@ -79,8 +78,8 @@ function Products({renderItem}) {
         <SortableContext items={toolkit.cartCalc.list}>
             <Items />
         </SortableContext>
-        <SortableOverlay modifiers={[restrictToWindowEdges]}>
-            {renderItem(activeItem)}
+        <SortableOverlay >
+            {activeItem ? renderItem(activeItem) : null}
         </SortableOverlay>
     </DndContext>
 }

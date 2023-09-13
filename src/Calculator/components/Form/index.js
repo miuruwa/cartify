@@ -50,11 +50,17 @@ function Input (props) {
     })
 
     function handleChange (event) {
-        const value = event.target.name === "name" ? (
-            event.target.value
-        ) : (
-            parseFloat(event.target.value).toFixed(2)
-        )
+        var value
+
+        switch (event.target.name) {
+            case "name":
+                value = event.target.value
+                break;
+
+            default:
+                const value_to_check = event.target.value
+                value = isNaN(value_to_check) ? 0.00 : value_to_check
+        }
 
         setData(prev => (
             {
