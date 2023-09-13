@@ -4,7 +4,7 @@ import {
 
 import Void from "./Void"
 import Products from "./Products"
-import RenderItem from "./render"
+import Item from "./Item"
 
 
 export function Content() {
@@ -14,9 +14,9 @@ export function Content() {
         return <Void />
     }
 
-    const productProps = {
-        renderItem: (item) => <RenderItem id={item.id} item={item} />
+    const props = {
+        renderItem: (item) => item ? <Item {...item} /> : null
     }
     
-    return <Products {...productProps} />
+    return <Products {...props} />
 }

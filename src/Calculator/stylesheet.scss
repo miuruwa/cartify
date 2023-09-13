@@ -137,11 +137,13 @@
         flex: 1 1 auto;
 
         .sheet-item {
+            touch-action: none!important;
             padding: $point*2 $point*2 $point*2 $point*1;
             margin: 0 $point*2 $point*2;
             display: flex;
              
             .drag-handle {
+                touch-action: none!important;
                 cursor: move;
                 margin: 0;
                 padding: 0;
@@ -154,6 +156,7 @@
                 margin-right: 8px;
 
                 svg {
+                    touch-action: none!important;
                     overflow: visible;
                     fill: #919eab;
                 }

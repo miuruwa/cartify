@@ -1,10 +1,18 @@
-import {
-    useState
+import React, {
+    useState, useMemo
 } from "react"
 
+import { 
+    nanoid
+} from "nanoid"
+
 import {
-    CardBlock
-} from "@webx/forms"
+    useSortable,
+} from "@dnd-kit/sortable"
+
+import {
+    CSS
+} from "@dnd-kit/utilities"
 
 import {
     Data
@@ -14,13 +22,21 @@ import Actions from "./Actions"
 import ItemContext from "./Context"
 import DragHandler from "./DragHandle"
 
+import SortableItemContext from "../SortableItemContext"
+  
 
-function Item({item}) {
-    const [data, setData] = useState({
-        name: item.name,
-        price: item.price,
-        quantity: item.quantity
-    })
+function Item(item) {
+    const [data, setData] = useState(item)
+
+    const {
+        attributes,
+        isDragging,
+        listeners,
+        setNodeRef,
+        setActivatorNodeRef,
+        transform,
+        transition
+    } = useSortable(item)
 
     function handleChange (event) {
         setData(prev => (
@@ -49,13 +65,36 @@ function Item({item}) {
         handleCancel
     }
 
-    return <ItemContext.Provider value={properties}>
-        <CardBlock className="sheet-item">
-            <DragHandler />
-            <Data />
-            <Actions />
-        </CardBlock>
-    </ItemContext.Provider>
+    const context = useMemo(
+        () => ({
+        attributes,
+        listeners,
+        ref: setActivatorNodeRef
+        }),
+        [attributes, listeners, setActivatorNodeRef]
+    )
+
+    const style = {
+        opacity: isDragging ? 0.4 : undefined,
+        transform: CSS.Translate.toString(transform),
+        transition
+    }
+    const props = {
+        className: "x-block sheet-item",
+        style: style,
+        ref: setNodeRef,
+        key: nanoid()
+    }
+
+    return <SortableItemContext.Provider value={context}>
+            <ItemContext.Provider value={properties}>
+                <div {...props}>
+                    <DragHandler />
+                    <Data />
+                    <Actions />
+                </div>
+            </ItemContext.Provider>
+        </SortableItemContext.Provider>
 }
 
 export default Item
