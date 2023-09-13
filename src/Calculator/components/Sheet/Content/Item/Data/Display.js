@@ -6,27 +6,27 @@ import {
     useToolKit
 } from "@webx/toolkit"
 
-import ItemContext from "../Context"
+import ItemAPIContext from "../Context"
 
 
 function Display() {
     const toolkit = useToolKit()
-    const props = useContext(ItemContext)
+    const itemAPI = useContext(ItemAPIContext)
 
     function Price() {
         return <nobr>
-            {props.data.price}{toolkit.cartCalc.currency}
+            {itemAPI.item.price}{toolkit.cartCalc.currency}
         </nobr>
     }
 
     function Quantity() {
         return <nobr>
-            {props.data.quantity}&nbsp;шт.
+            {itemAPI.item.quantity}&nbsp;шт.
         </nobr>
     }
 
     function Cost() {
-        const cost = props.data.quantity * props.data.price
+        const cost = itemAPI.item.quantity * itemAPI.item.price
 
         return <nobr>
             {cost.toFixed(2)} {toolkit.cartCalc.currency}
@@ -47,7 +47,7 @@ function Display() {
 
     return <div className="sheet-item-data">
         <div className="sheet-item-name">
-            {props.data.name}
+            {itemAPI.item.name}
         </div>
         <div className="sheet-item-calculation">
             <Price />

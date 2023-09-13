@@ -11,18 +11,26 @@ import {
 } from "@dnd-kit/utilities"
 
 import {
+    useToolKit
+} from "@webx/toolkit"
+
+import {
     Data
 } from "./Data"
 
 import Actions from "./Actions"
-import ItemContext from "./Context"
+import ItemAPIContext from "./Context"
 import DragHandler from "./DragHandle"
 
 import SortableItemContext from "../SortableItemContext"
   
 
-function Item(item) {
-    const [data, setData] = useState(item)
+function Item(itemRAW) {
+    const toolkit = useToolKit()
+    const [item, setItem] = useState({
+        ...itemRAW,
+        removingStatus: false
+    })
 
     const {
         attributes,
@@ -34,17 +42,12 @@ function Item(item) {
         transition
     } = useSortable(item)
 
-    function handleChange (event) {
-        setData(prev => (
-            {
-                ...prev,
-                [event.target.name]: event.target.value,
-            }
-        ))
+    function handleChange (newState) {
+        setItem(newState)
     }
 
     function handleCancel () {
-        setData(prev => (
+        setItem(prev => (
             {
                 ...prev,
                 name: item.name,
@@ -54,11 +57,23 @@ function Item(item) {
         ))
     }
 
-    const properties = {
-        id: item.id,
-        data,
-        handleChange, 
-        handleCancel
+    function handleRemove () {
+        setItem(prev => ({
+            ...prev,
+            removingStatus: true
+        }))
+        setTimeout(
+            () => toolkit.cartCalc.removeProduct(item.id),
+            500
+        )
+    }
+
+    const itemAPI = {
+        item: item,
+        is_target: () => toolkit.cartCalc.targetProduct === item.id,
+        handleChange: handleChange, 
+        handleCancel: handleCancel,
+        handleRemove: handleRemove
     }
 
     const context = useMemo(
@@ -75,20 +90,39 @@ function Item(item) {
         transform: CSS.Translate.toString(transform),
         transition
     }
+
     const props = {
         className: "x-block sheet-item",
         style: style,
         ref: setNodeRef
     }
 
+    function Content () {
+        return <div {...props}>
+            <DragHandler />
+            <Data />
+            <Actions />
+        </div>
+    }
+
+    function RemovingStatus () {
+        return <div className="x-block">
+            Removing...
+        </div>
+    }
+
+    function ToggleContent () {
+        if (item.removingStatus) {
+            return <RemovingStatus />
+        }
+
+        return <Content />
+    }
+
     return <SortableItemContext.Provider value={context}>
-            <ItemContext.Provider value={properties}>
-                <div {...props}>
-                    <DragHandler />
-                    <Data />
-                    <Actions />
-                </div>
-            </ItemContext.Provider>
+            <ItemAPIContext.Provider value={itemAPI}>
+                <ToggleContent />
+            </ItemAPIContext.Provider>
         </SortableItemContext.Provider>
 }
 

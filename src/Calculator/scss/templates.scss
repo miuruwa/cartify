@@ -2,6 +2,14 @@
 
 @mixin templates {
     &.screen-device-mobile {
+        .cart {
+            border-radius: $point*4!important;
+            margin-bottom: $point*2!important;
+            border-collapse: separate;
+            overflow: hidden;
+            perspective: 1px;
+        }
+
         .add-product-form { 
             grid-template-columns: 1fr $point*6 1fr $point*8;
            

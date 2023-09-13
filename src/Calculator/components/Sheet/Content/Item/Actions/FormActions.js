@@ -10,29 +10,29 @@ import DoneIcon from "@webx/icons/DoneIcon"
 import CloseIcon from "@webx/icons/CloseIcon"
 
 import ActionButton from "./ActionButton"
-import ItemContext from "../Context"
+import ItemAPIContext from "../Context"
 import ChangeItemCard from "./ErrorCard"
 
 
 function FormActions() {
     const toolkit = useToolKit()
-    const props = useContext(ItemContext)
+    const itemAPI = useContext(ItemAPIContext)
 
     const saveProps = {
         icon: <DoneIcon />,
         title: "Сохранить изменения",
         onClick: () => {
-            const IS_EMPTY = props.name === "" || props.quantity === "" || props.price === ""
+            const FAILED_CHECK_FOR_COMPLETE = itemAPI.item.name === "" || isNaN(parseFloat(itemAPI.item.quantity)) || isNaN(parseFloat(itemAPI.item.price))
     
-            if (IS_EMPTY) {
+            if (FAILED_CHECK_FOR_COMPLETE) {
                 return toolkit.card.show(<ChangeItemCard />)
             }
             
             toolkit.cartCalc.changeProduct(
-                props.id,
-                props.data.name,
-                parseFloat(props.data.quantity).toFixed(2),
-                parseFloat(props.data.price).toFixed(2)
+                itemAPI.item.id,
+                itemAPI.item.name,
+                parseFloat(itemAPI.item.quantity).toFixed(2),
+                parseFloat(itemAPI.item.price).toFixed(2)
             )
             toolkit.cartCalc.targetProduct = null
         }
@@ -42,7 +42,7 @@ function FormActions() {
         icon: <CloseIcon />,
         title: "Отменить изменения",
         onClick: () => {
-            props.handleCancel()
+            itemAPI.handleCancel()
             toolkit.cartCalc.targetProduct = null
         }
     }

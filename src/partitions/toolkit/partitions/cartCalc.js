@@ -135,8 +135,8 @@ export class Partition {
         const newProduct = {
             name: product.name,
             id: nanoid(),
-            quantity: product.quantity,
-            price: product.price
+            quantity: parseFloat(product.quantity).toFixed(2),
+            price: parseFloat(product.price).toFixed(2)
         }
 
         const productList = [newProduct, ...this.list]

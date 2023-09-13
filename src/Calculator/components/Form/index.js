@@ -50,22 +50,10 @@ function Input (props) {
     })
 
     function handleChange (event) {
-        var value
-
-        switch (event.target.name) {
-            case "name":
-                value = event.target.value
-                break;
-
-            default:
-                const value_to_check = event.target.value
-                value = isNaN(value_to_check) ? 0.00 : value_to_check
-        }
-
         setData(prev => (
             {
                 ...prev,
-                [event.target.name]: value
+                [event.target.name]: event.target.value
             }
         ))
     }
@@ -73,10 +61,14 @@ function Input (props) {
     const formProps = {
         className: "add-product-form",
         onSubmit: event => {
-            const CHECK = data.name === "" || data.quantity === "" || data.price === ""
-    
-            if (CHECK) {
-                return toolkit.card.show(<AddEmptyCard />)
+            const FAILED_CHECK_FOR_COMPLETE = data.name === "" || isNaN(parseFloat(data.quantity)) || isNaN(parseFloat(data.price))
+
+            if (FAILED_CHECK_FOR_COMPLETE) {
+                toolkit.card.show(<AddEmptyCard />)
+                
+                event.preventDefault()
+
+                return
             }
             
             toolkit.cartCalc.addProduct(data)

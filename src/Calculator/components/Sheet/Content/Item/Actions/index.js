@@ -8,14 +8,14 @@ import {
 
 import DataActions from "./DataActions"
 import FormActions from "./FormActions"
-import ItemContext from "../Context"
+import ItemAPIContext from "../Context"
 
 
 function Actions() {
     const toolkit = useToolKit()
-    const props = useContext(ItemContext)
+    const itemAPI = useContext(ItemAPIContext)
 
-    const IS_CURRENT_TARGET = toolkit.cartCalc.targetProduct === props.id
+    const IS_CURRENT_TARGET = toolkit.cartCalc.targetProduct === itemAPI.item.id
     return IS_CURRENT_TARGET ? <FormActions /> : <DataActions />
 }
 

@@ -1,5 +1,5 @@
 import {
-    useContext
+    useContext, useState
 } from "react"
 
 import {
@@ -8,31 +8,45 @@ import {
 
 import CloseIcon  from "@webx/icons/CloseIcon"
 
-import ItemContext from "../Context"
+import ItemAPIContext from "../Context"
 
 
 function Form() {
     const toolkit = useToolKit()
-    const props = useContext(ItemContext)
+    const itemAPI = useContext(ItemAPIContext)
+    const [item, setItem] = useState(itemAPI.item)
+
+    function handleChange(event) {
+        setItem(prev => (
+            {
+                ...prev,
+                [event.target.name]: event.target.value,
+            }
+        ))
+    }
+
+    function handleSubmit() {
+        itemAPI.handleChange(item)
+    }
 
     const nameProps = {
         type: "text", name: "name",
-        value: props.data.name,
-        onChange: props.handleChange,
+        value: item.name,
+        onChange: handleChange,
         placeholder: "название"
     }
 
     const priceProps = {
         type: "text", name: "price", inputMode: "decimal",
-        value: props.data.price === 0 ? "" : props.data.price,
-        onChange: props.handleChange,
+        value: item.price,
+        onChange: handleChange,
         placeholder: "цена"
     }
 
     const quantityProps = {
         type: "text", name: "quantity", inputMode: "decimal",
-        value: props.data.quantity === 0 ? "" : props.data.quantity,
-        onChange: props.handleChange,
+        value: item.quantity,
+        onChange: handleChange,
         placeholder: "кол-во"
     }
 
@@ -43,7 +57,7 @@ function Form() {
     }
 
     function Cost() {
-        const cost = props.quantity * props.price
+        const cost = itemAPI.item.quantity * itemAPI.item.price
 
         return <div className="sheet-item-form-cost">
             =&nbsp;
@@ -53,7 +67,7 @@ function Form() {
         </div>
     }
 
-    return <form>
+    return <form onSubmit={handleSubmit}>
         <div className="sheet-item-form">
             <input {...nameProps} />
             <input {...priceProps} />

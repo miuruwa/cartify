@@ -3,6 +3,6 @@ import {
 } from "react"
 
 
-const ItemContext = createContext("")
+const ItemAPIContext = createContext("")
 
-export default ItemContext
+export default ItemAPIContext

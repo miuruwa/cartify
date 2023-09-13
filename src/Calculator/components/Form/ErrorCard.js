@@ -13,6 +13,7 @@ function OKButton() {
 
     const props = {
         title: "ОК",
+        theme: "white",
         onClick: toolkit.card.return
     }
 

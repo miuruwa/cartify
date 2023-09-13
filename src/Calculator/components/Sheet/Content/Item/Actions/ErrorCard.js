@@ -6,6 +6,7 @@ import {
     Button,
     CardBlock
 } from "@webx/forms"
+import React from "react"
 
 
 function OKButton() {
@@ -13,6 +14,7 @@ function OKButton() {
 
     const props = {
         title: "ОК",
+        theme: "white",
         onClick: toolkit.card.return
     }
 
@@ -20,15 +22,17 @@ function OKButton() {
 }
 
 function ChangeItemCard () {
-    return <CardBlock className="cart-calc-message">
+    return <div className="cart-calc-message">
         <h6>
             Ошибка изменения продукта
         </h6>
-        <p>
-            Проверьте все поля ввода: в приложение нельзя добавлять продукты с пустыми значениями.
-        </p>
+        <CardBlock>
+            <p>
+                Проверьте все поля ввода: в приложение нельзя добавлять продукты с пустыми значениями.
+            </p>
+        </CardBlock>
         <OKButton />
-    </CardBlock>
+    </div>
 }
 
 export default ChangeItemCard

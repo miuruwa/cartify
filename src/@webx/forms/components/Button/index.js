@@ -48,10 +48,14 @@ export function Button ({
         }
     }
 
-    return <div 
-            className={ClassList.join(" ")} 
-            style={xstyle} {...props} title={alt}
-    >
+    const buttonProps = {
+        className: ClassList.join(" "),
+        ...props,
+        style: xstyle,
+        title: alt,
+    }
+
+    return <div {...buttonProps}>
         <ButtonIcon />
         <ButtonTitle />
         <ButtonDropdown />
