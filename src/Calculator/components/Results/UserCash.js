@@ -11,7 +11,7 @@ function UserCash() {
         name: "userCache",
         value: toolkit.cartCalc.availableMoney,
         placeholder: "наличные",
-        onClick: event => {
+        onChange: event => {
             toolkit.cartCalc.availableMoney = parseFloat(event.target.value)
         }
     }
