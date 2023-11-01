@@ -10,12 +10,12 @@ app.use(
     )
 )
 app.get(
-    '/cart-calc', 
-    (_req, res) => res.sendFile(resolve('./build/cart-calc/.html'))
+    '/cartify', 
+    (_req, res) => res.sendFile(resolve('./build/cartify/.html'))
 )
 app.get(
-    '/cart-calc/settings', 
-    (_req, res) => res.sendFile(resolve('./build/cart-calc/settings.html'))
+    '/cartify/settings', 
+    (_req, res) => res.sendFile(resolve('./build/cartify/settings.html'))
 )
 
 app.listen(

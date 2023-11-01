@@ -1,7 +1,7 @@
 # Калькулятор покупок
 
-Разработано при помощи репозитория [WebX UI](https://github.com/kensoi/web-cross-ui)  
-Приложение доступно в виде веб-странице по следующей ссылке: [cart-calc](https://kensoi.github.io/cart-calc)
+Разработано при помощи репозитория [WebX UI](https://github.com/webx/webx-template)  
+Приложение доступно в виде веб-странице по следующей ссылке: [cartify](https://miuruwa.github.io/cartify)
 
 ## Как пользоваться?
 

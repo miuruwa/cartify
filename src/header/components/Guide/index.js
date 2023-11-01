@@ -12,7 +12,7 @@ function Guide () {
     const EditButton = <EditIcon fontSize="small" sx={{ transform: "translateY(4px)"}} />
     const CloseButton = <CloseIcon fontSize="small" sx={{ transform: "translateY(4px)"}} />
     
-    return <div className="cart-calc-message">
+    return <div className="cartify-message">
         <h6>
             Инструкция
         </h6>

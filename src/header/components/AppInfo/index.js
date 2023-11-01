@@ -4,7 +4,7 @@ import {
 
 
 function AppInfo() {
-    return <div className="cart-calc-message">
+    return <div className="cartify-message">
         <h6>
             О приложении
         </h6>

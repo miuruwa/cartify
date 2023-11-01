@@ -6,7 +6,7 @@ import ShowSettingsButton from "./ShowSettingsButton"
 
 
 function EnableOfflineCard() {
-    return <div className="cart-calc-message">
+    return <div className="cartify-message">
         <h6>
             Ошибка выполнения задачи
         </h6>

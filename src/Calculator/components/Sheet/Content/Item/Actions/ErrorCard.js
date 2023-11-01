@@ -24,7 +24,7 @@ function OKButton() {
 }
 
 function ChangeItemCard () {
-    return <div className="cart-calc-message">
+    return <div className="cartify-message">
         <h6>
             Ошибка изменения продукта
         </h6>

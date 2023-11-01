@@ -23,7 +23,7 @@ function OKButton() {
 }
 
 function AddEmptyCard () {
-    return <div className="cart-calc-message">
+    return <div className="cartify-message">
         <h6>
             Ошибка добавления продукта
         </h6>

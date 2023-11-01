@@ -1,5 +1,5 @@
 import {
-    useContext, useState
+    useContext, useEffect, useState
 } from "react"
 
 import {
@@ -9,7 +9,6 @@ import {
 import CloseIcon  from "@webx/icons/CloseIcon"
 
 import ItemAPIContext from "../Context"
-
 
 function Form() {
     const toolkit = useToolKit()
@@ -23,6 +22,7 @@ function Form() {
                 [event.target.name]: event.target.value,
             }
         ))
+        
     }
 
     function handleSubmit() {
@@ -47,7 +47,7 @@ function Form() {
         type: "text", name: "quantity", inputMode: "decimal",
         value: item.quantity,
         onChange: handleChange,
-        placeholder: "кол-во"
+        placeholder: "цена"
     }
 
     function Multiply() {
@@ -66,6 +66,17 @@ function Form() {
             </nobr>
         </div>
     }
+
+
+    useEffect(
+        () => {
+            const timeoutID = setTimeout(() => {
+                itemAPI.handleChange(item)
+            }, 100)
+
+            return () => clearTimeout(timeoutID)
+        }, [item, itemAPI]
+    )
 
     return <form onSubmit={handleSubmit}>
         <div className="sheet-item-form">

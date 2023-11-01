@@ -1,7 +1,7 @@
 import HomePageIcon from "@webx/icons/HomePageIcon"
 
 function onClick() {
-    window.location.href = "https://kensoi.github.io/"
+    window.location.href = "https://miuruwa.ru/"
 }
 
 function HomePageButton() {

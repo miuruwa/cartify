@@ -30,7 +30,7 @@ function SettingsСard() {
         }))
     }
 
-    return <form className="cart-calc-message">
+    return <form className="cartify-message">
         <h6>
             Настройки
         </h6>
