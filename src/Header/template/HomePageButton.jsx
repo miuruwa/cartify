@@ -1,4 +1,4 @@
-import HomePageIcon from "@webx/icons/HomePageIcon"
+import HomePageIcon from "@webx/icons/HeaderLogoIcon"
 
 function onClick() {
     window.location.href = "https://miuruwa.ru/"
@@ -6,7 +6,7 @@ function onClick() {
 
 function HomePageButton() {
     return <div 
-      className="header-button second" title="На главную"
+      className="header-button second" title="На сайт разработчика"
       onClick={onClick}
     >
         <HomePageIcon />
