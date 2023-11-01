@@ -7,7 +7,7 @@ import {
 } from "@webx/forms"
 
 import SettingsIcon from "@webx/icons/SettingsIcon"
-import Card from "~/Cards/Settings"
+import {SettingsСard} from "~/Cards/Settings"
 
 
 function SettingsButton() {
@@ -18,7 +18,7 @@ function SettingsButton() {
         icon: <SettingsIcon />,
         title: "Настройки",
         onClick: () => {
-            toolkit.card.show(<Card />)
+            toolkit.card.show(<SettingsСard />)
         }
     }
 
