@@ -2,7 +2,7 @@ import {
     useToolKit
 } from "@webx/toolkit"
 
-import usePartitions from "partitions"
+import usePartitions from "~/partitions"
 
 import {
     DesktopTemplate, MobileTemplate, TabletTemplate

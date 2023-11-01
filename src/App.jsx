@@ -2,10 +2,10 @@ import {
     ToolKitContext
 } from "@webx/toolkit"
 
-import Header from "Header"
-import Calculator from "Calculator"
+import Header from "~/Header"
+import Calculator from "~/Calculator"
 
-import "theme/stylesheet.scss"
+import "~/theme/stylesheet.scss"
 
 
 function App () {

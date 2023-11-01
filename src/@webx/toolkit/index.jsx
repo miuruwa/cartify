@@ -19,9 +19,6 @@ import {
     getScreenDeviceType
 } from "./screen-device-type"
 
-import {
-    MountTransition
-} from "@webx/transitions"
 import CardWrapper from "@webx/card"
 
 const getToolKitContext = createContext()
@@ -70,18 +67,6 @@ class ToolKit {
     }
 }
 
-function Wrapper ({children, mount, loaded}) {
-    return <MountTransition
-        mountState={mount}
-        visibilityState={loaded}
-        className="index"
-    >
-        {
-            children
-        }
-    </MountTransition>
-}
-
 function ToolKitContext ({children}) {
     const [
         cardState, cardDispatch
@@ -118,7 +103,7 @@ function ToolKitContext ({children}) {
     ] = useState(false)
 
     const MountTransitionData = {
-        path: process.env.PUBLIC_URL,
+        path: import.meta.env.PUBLIC_URL,
 
         show: (offset=100) => {
             setTimeout(
@@ -188,11 +173,9 @@ function ToolKitContext ({children}) {
     })
     
     return <getToolKitContext.Provider value={toolkit}>
-        <Wrapper mount={toolkit.app.mount} loaded={toolkit.app.loaded}>
-            {
-                children
-            }
-        </Wrapper>
+        <div className="index">
+            {children}
+        </div>
         <CardWrapper />
     </getToolKitContext.Provider>
 }

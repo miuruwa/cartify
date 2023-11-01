@@ -14,13 +14,13 @@ function AppInfo() {
                     Название:
                 </div>
                 <div>
-                    {process.env.REACT_APP_FULL_NAME}
+                    Cartify
                 </div>
                 <div>
                     Версия:
                 </div>
                 <div>
-                    {process.env.REACT_APP_VERSION}
+                    2.5.1
                 </div>
             </div>
         </CardBlock>

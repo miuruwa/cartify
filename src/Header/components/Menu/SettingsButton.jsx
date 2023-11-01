@@ -9,7 +9,7 @@ import {
 import SettingsIcon from "@webx/icons/SettingsIcon"
 import {
     SettingsСard
-} from "Header/components/Settings"
+} from "~/Header/components/Settings"
 
 
 function SettingsButton() {

@@ -7,7 +7,7 @@ import {
 } from "@webx/forms"
 
 import UpdateCacheIcon from "@webx/icons/UpdateCacheIcon"
-import * as serviceWorkerRegistration from 'serviceWorkerRegistration'
+import * as serviceWorkerRegistration from '~/serviceWorkerRegistration'
 import EnableOfflineCard from "./EnableOfflineCard"
 
 

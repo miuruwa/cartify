@@ -6,7 +6,7 @@ import {
     Tumbler
 } from "@webx/forms"
 
-import * as serviceWorkerRegistration from 'serviceWorkerRegistration'
+import * as serviceWorkerRegistration from '~/serviceWorkerRegistration'
 
 
 function CacheApp() {
