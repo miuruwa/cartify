@@ -8,7 +8,7 @@ import {
 
 import AppInfoIcon from "@webx/icons/AppInfoIcon"
 
-import AppInfo from "../AppInfo"
+import AppInfo from "~/Cards/AppInfo"
 
 
 function AppInfoButton() {

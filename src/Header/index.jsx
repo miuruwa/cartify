@@ -1,6 +1,16 @@
-import Header from "./template"
+import {
+    useToolKit
+} from "@webx/toolkit"
+
+import Desktop from "./Layout/Desktop"
+import Mobile from "./Layout/Mobile"
 
 import "./stylesheet.scss"
 
+export default function () {
+    const toolkit = useToolKit()
 
-export default Header
+    const IS_DESKTOP = toolkit.settings.windowWidth >= 768
+
+    return IS_DESKTOP ? <Desktop /> : <Mobile />
+}

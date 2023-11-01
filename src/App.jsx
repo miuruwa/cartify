@@ -2,7 +2,7 @@ import {
     ToolKitContext
 } from "@webx/toolkit"
 
-import Header from "~/Header"
+import NewHeader from "~/Header"
 import Footer from "~/Footer"
 import Calculator from "~/Calculator"
 
@@ -11,7 +11,7 @@ import "~/theme/stylesheet.scss"
 
 function App () {
     return <ToolKitContext>
-        <Header/>
+        <NewHeader />
         <Calculator/>
         <Footer />
     </ToolKitContext>

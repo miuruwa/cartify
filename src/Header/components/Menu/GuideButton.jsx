@@ -8,7 +8,7 @@ import {
 
 import GuideIcon from "@webx/icons/GuideIcon"
 
-import Guide from "../Guide"
+import Guide from "~/Cards/Guide"
 
 
 function GuideButton() {
