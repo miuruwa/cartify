@@ -7,7 +7,7 @@ import svgrPlugin from "vite-plugin-svgr";
 
 const path = require("path")
 const config = defineConfig({
-    base: "/",
+    base: "/cartify",
     build: {
         outDir: "build",
     },
