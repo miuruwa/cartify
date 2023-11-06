@@ -1,5 +1,6 @@
 export const settings = {
     schema: localStorage.getItem("color-schema") || "auto",
+    language: localStorage.getItem("language") || "unset",
     serviceWorker: JSON.parse(
         localStorage.getItem("service-worker")
     ) || false,
@@ -26,6 +27,16 @@ export function SettingsReducer(state, action) {
 
             localStorage.setItem(
                 "color-schema", 
+                action.state
+            )
+
+            break
+
+        case "set-language":
+            newState.language = action.state
+
+            localStorage.setItem(
+                "language", 
                 action.state
             )
 

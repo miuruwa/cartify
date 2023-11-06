@@ -110,6 +110,18 @@ export class SettingsBehaviour {
         }
       },
 
+      language: {
+        get: () => this.#state.language,
+        set: (value) => {
+          if (typeof value == "string") {
+            this.#dispatch({
+              type: "set-language",
+              state: value
+            })
+          }
+        }
+      },
+
       windowWidth: {
         get: () => this.#state.windowWidth,
         set: (value) => {
