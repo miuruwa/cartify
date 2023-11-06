@@ -2,11 +2,16 @@ import {
     useToolKit
 } from "@webx/toolkit"
 
+import languages from "./languages"
+
 
 function SumStatus () {
+    const toolkit = useToolKit()
+    const actualLanguage = languages[toolkit.settings.language]
+
     return <div className="total-class">
         <p>
-            Итого:
+            {actualLanguage.sum}
         </p>
     </div>
 }

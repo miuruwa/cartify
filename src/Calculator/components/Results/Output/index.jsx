@@ -9,26 +9,31 @@ import {
 import CartSum from "./CartSum"
 import UserChange from "./UserChange"
 
+import languages from "./languages"
+
 
 function Void () {
     const toolkit = useToolKit()
+    const actualLanguage = languages[toolkit.settings.language]
 
     return <div className="output">
         <h6>
-            Подсчёт
+            {actualLanguage.calc}
         </h6>
         <div className="output-void">
             <p>
-                С вас 0{toolkit.cartCalc.currency}!
+                {actualLanguage.void} 0{toolkit.cartCalc.currency}
             </p>
         </div>
     </div>
 }
 
 function Calculations () {
+    const toolkit = useToolKit()
+    
     return <div className="output">
         <h6>
-            Подсчёт
+            {languages[toolkit.settings.language].calc}
         </h6>
         <CardBlock>
             <CartSum />

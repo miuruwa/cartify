@@ -1,0 +1,20 @@
+{
+    "ru": {
+        "calc": "Подсчёт",
+        "void": "С вас",
+        "sum": "Итого",
+        "change": {
+            "able": "Ваша сдача",
+            "disabled": "Вам не хватает"
+        }
+    },
+    "eng": {
+        "calc": "Calculation",
+        "void": "From you",
+        "sum": "Total",
+        "change": {
+            "able": "Your change",
+            "disabled": "You are lacking"
+        }
+    }
+}

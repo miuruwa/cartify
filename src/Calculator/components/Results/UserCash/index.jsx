@@ -2,6 +2,8 @@ import {
     useToolKit
 } from "@webx/toolkit"
 
+import languages from "./languages"
+
 
 function UserCash() {
     const toolkit = useToolKit()
@@ -10,7 +12,7 @@ function UserCash() {
         type: "text", inputMode: "numeric",
         name: "userCache",
         value: toolkit.cartCalc.availableMoney,
-        placeholder: "наличные",
+        placeholder: languages[toolkit.settings.language],
         onChange: event => {
             toolkit.cartCalc.availableMoney = parseFloat(event.target.value)
         }
@@ -18,7 +20,7 @@ function UserCash() {
 
     return <div className="user-cache">
         <h6>
-            Ваши наличные ({toolkit.cartCalc.currency})
+            {languages[toolkit.settings.language]} ({toolkit.cartCalc.currency})
         </h6>
         <form>
             <input {...inputProps} />
