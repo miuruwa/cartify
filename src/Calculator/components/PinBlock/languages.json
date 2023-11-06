@@ -1,14 +1,18 @@
 {
     "ru": {
         "headline": "Добавить продукт",
+        "add": "Добавить",
         "name": "Название",
         "quantity": "Количество",
-        "price": "Цена"
+        "price": "Цена",
+        "done": "Продукт добавлен в список"
     },
     "eng": {
         "headline": "Add Product",
+        "add": "Add",
         "name": "Name",
         "quantity": "Quantity",
-        "price": "Price"
+        "price": "Price",
+        "done": "Produce has been added to cart"
     }
 }
