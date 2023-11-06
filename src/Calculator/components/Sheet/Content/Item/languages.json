@@ -1,0 +1,22 @@
+{
+    "ru": {
+        "drag": "Можно перетащить",
+        "name": "Название",
+        "quantity": "Количество",
+        "price": "Цена",
+        "edit": "Редактировать",
+        "remove": "Удалить",
+        "done": "Сохранить",
+        "cancel": "Отменить"
+    },
+    "eng": {
+        "drag": "Drag and drop",
+        "name": "Name",
+        "quantity": "Quantity",
+        "price": "Price",
+        "edit": "Edit",
+        "remove": "Remove",
+        "save": "Save",
+        "cancel": "Cancel"
+    }
+}

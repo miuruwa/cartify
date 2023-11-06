@@ -6,13 +6,18 @@ import {
     useToolKit
 } from "@webx/toolkit"
 
-import CloseIcon  from "@webx/icons/CloseIcon"
 
 import ItemAPIContext from "../Context"
+import languages from "../languages"
+import Multiply from "./Multiply"
+import Cost from "./Cost"
+
 
 function Form() {
     const toolkit = useToolKit()
+    const actualLanguage = languages[toolkit.settings.language]
     const itemAPI = useContext(ItemAPIContext)
+
     const [item, setItem] = useState(itemAPI.item)
 
     function handleChange(event) {
@@ -29,44 +34,31 @@ function Form() {
         itemAPI.handleChange(item)
     }
 
+    const inputProps = {
+        type: "text",
+        onChange: handleChange
+    }
+
     const nameProps = {
-        type: "text", name: "name",
+        ...inputProps,
+        name: "name",
         value: item.name,
-        onChange: handleChange,
-        placeholder: "название"
+        placeholder: actualLanguage.name
     }
 
     const priceProps = {
-        type: "text", name: "price", inputMode: "decimal",
+        ...inputProps,
+        name: "price", inputMode: "decimal",
         value: item.price,
-        onChange: handleChange,
-        placeholder: "цена"
+        placeholder: actualLanguage.price
     }
 
     const quantityProps = {
-        type: "text", name: "quantity", inputMode: "decimal",
+        ...inputProps,
+        name: "quantity", inputMode: "decimal",
         value: item.quantity,
-        onChange: handleChange,
-        placeholder: "цена"
+        placeholder: actualLanguage.quantity
     }
-
-    function Multiply() {
-        return <div className="sheet-item-separator">
-            <CloseIcon />
-        </div>
-    }
-
-    function Cost() {
-        const cost = itemAPI.item.quantity * itemAPI.item.price
-
-        return <div className="sheet-item-form-cost">
-            =&nbsp;
-            <nobr>
-                {cost.toFixed(2)} {toolkit.cartCalc.currency}
-            </nobr>
-        </div>
-    }
-
 
     useEffect(
         () => {

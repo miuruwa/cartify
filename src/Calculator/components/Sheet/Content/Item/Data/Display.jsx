@@ -21,7 +21,7 @@ function Display() {
 
     function Quantity() {
         return <nobr>
-            {itemAPI.item.quantity}&nbsp;шт.
+            {itemAPI.item.quantity}
         </nobr>
     }
 
@@ -29,7 +29,7 @@ function Display() {
         const cost = itemAPI.item.quantity * itemAPI.item.price
 
         return <nobr>
-            {cost.toFixed(2)} {toolkit.cartCalc.currency}
+            {cost.toFixed(2)}{toolkit.cartCalc.currency}
         </nobr>
     }
 
