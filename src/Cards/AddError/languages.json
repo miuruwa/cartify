@@ -1,0 +1,12 @@
+{
+    "ru": {
+        "headline": "Ошибка добавления продукта",
+        "message": "Проверьте все поля ввода: в приложение нельзя добавлять продукты с пустыми значениями.",
+        "close": "Закрыть"
+    },
+    "eng": {
+        "headline": "Error of adding the product",
+        "message": "Check the input: you can't add the product with empty fields.",
+        "close": "Close"
+    }
+}

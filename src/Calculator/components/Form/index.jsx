@@ -12,7 +12,7 @@ import {
 
 import MultiplyIcon from "@webx/icons/MultiplyIcon"
 import AddIcon from "@webx/icons/AddIcon"
-import AddEmptyCard from "./ErrorCard"
+import AddError from "~/Cards/AddError"
 
 
 function Multiply () {
@@ -64,7 +64,7 @@ function Input (props) {
             const FAILED_CHECK_FOR_COMPLETE = data.name === "" || isNaN(parseFloat(data.quantity)) || isNaN(parseFloat(data.price))
 
             if (FAILED_CHECK_FOR_COMPLETE) {
-                toolkit.card.show(<AddEmptyCard />)
+                toolkit.card.show(<AddError />)
                 
                 event.preventDefault()
 

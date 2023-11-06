@@ -47,7 +47,7 @@ function AppInfo() {
                         {actualLanguage.labels.version}:
                     </b>
                     <p>
-                        2.5.2
+                        2.6.0
                     </p>
                 </label>
             </div>

@@ -11,7 +11,7 @@ import CloseIcon from "@webx/icons/CloseIcon"
 
 import ActionButton from "./ActionButton"
 import ItemAPIContext from "../Context"
-import ChangeItemCard from "./ErrorCard"
+import ChangeItemCard from "~/Cards/EditError"
 
 
 function FormActions() {
