@@ -1,0 +1,20 @@
+{
+    "ru": {
+        "appName": "Cartify",
+        "labels" : {
+            "headline": "О приложении",
+            "appName": "Название",
+            "version": "Версия",
+            "close": "Закрыть"
+        }
+    },
+    "eng": {
+        "appName": "Cartify",
+        "labels" : {
+            "headline": "About app",
+            "appName": "Name",
+            "version": "Version",
+            "close": "Close"
+        }
+    }
+}

@@ -1,0 +1,59 @@
+.app-info-card {
+    $point: 4px;
+
+    min-height: 30vh;
+    font-size: 20px;
+
+    h6 {
+        margin: $point 0 $point*2;
+        padding-left: 0!important;
+    }
+    label {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        justify-content: space-between;
+        align-items: center;
+        gap: $point*2;
+
+        input {
+            background: #333;
+        }
+        p {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            padding: 0!important;
+        }
+    }
+    input {
+        background: #333!important;
+    }
+    .x-block.card-block {
+        padding: 0;
+        margin: 0;
+    }
+    .app-info-card-content {
+        margin: 0 auto 16px;
+        box-sizing: border-box;
+        padding: $point*5 $point*10 $point*2!important;
+        display: flex;
+        min-height: 10vh;
+    
+        flex-direction: column;
+    
+        gap: $point*2;
+    }
+
+    
+    .options-grid-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card-options {
+        padding: $point*2 $point*10 $point*6!important;
+        .x-button {
+            display: inline-block;
+            padding: $point*1.5 $point*6;
+        }
+    }
+}

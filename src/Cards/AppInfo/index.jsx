@@ -1,28 +1,57 @@
+import { useToolKit } from "@webx/toolkit"
 import {
-    CardBlock
+    CardBlock, Button
 } from "@webx/forms"
 
+import languages from "./languages"
+import "./stylesheet.scss"
+
+
+function OptionsBlock () {
+    const toolkit = useToolKit()
+    const actualLanguage = languages[toolkit.settings.language]
+
+    const props = {
+        theme: "white",
+        title: actualLanguage.labels.close,
+        onClick: () => {
+            toolkit.card.return()
+        }
+    }
+
+    return <div className="card-options">
+        <Button {...props} />
+    </div>
+}
 
 function AppInfo() {
-    return <div className="cartify-message">
-        <h6>
-            О приложении
-        </h6>
+    const toolkit = useToolKit()
+    const actualLanguage = languages[toolkit.settings.language]
+
+    return <div className="app-info-card">
+        <h3>
+            {actualLanguage.labels.headline}
+        </h3>
         <CardBlock>
-            <div className="options-grid-list">
-                <div>
-                    Название:
-                </div>
-                <div>
-                    Cartify
-                </div>
-                <div>
-                    Версия:
-                </div>
-                <div>
-                    2.5.2
-                </div>
+            <div className="app-info-card-content">
+                <label>
+                    <b>
+                        {actualLanguage.labels.appName}:
+                    </b>
+                    <p>
+                        {actualLanguage.appName}
+                    </p>
+                </label>
+                <label>
+                    <b>
+                        {actualLanguage.labels.version}:
+                    </b>
+                    <p>
+                        2.5.2
+                    </p>
+                </label>
             </div>
+            <OptionsBlock />
         </CardBlock>
     </div>
 }
