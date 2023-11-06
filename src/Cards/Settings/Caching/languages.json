@@ -1,0 +1,10 @@
+{
+    "ru": {
+        "tumbler": "Кешировать для офлайн-доступа",
+        "reset": "Обновить"
+    },
+    "eng": {
+        "tumbler": "Cache for offline access",
+        "reset": "Update"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "label": {
+        "ru": "Выбранный язык",
+        "eng": "Selected language"
+    },
+    "data": [
+        {
+            "icon": "🇺🇸",
+            "name": "eng",
+            "title": "English"
+        },
+        {
+            "icon": "🇷🇺",
+            "name": "ru",
+            "title": "Русский"
+        }
+    ]
+}

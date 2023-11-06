@@ -3,7 +3,7 @@ import {
 } from "@webx/toolkit"
 
 import Icon from "@webx/icons/SettingsIcon"
-import {SettingsСard} from "~/Cards/Settings"
+import Card from "~/Cards/Settings"
 
 import "./stylesheet.scss"
 
@@ -15,7 +15,7 @@ export default function ({Mobile}) {
         className: Mobile ? "header-settings mobile" : "header-settings",
         title: "Открыть настройки",
         onClick: () => {
-            toolkit.card.show(<SettingsСard />)
+            toolkit.card.show(<Card />)
         }
     }
 

@@ -1,0 +1,32 @@
+{
+    "ru": {
+        "title": "Настройки",
+        "labels": [
+            "Базовые",
+            "Cartify"
+        ],
+        "offline": {
+            "tumbler": "Кешировать для офлайн-доступа",
+            "reset": "Обновить"
+        },
+        "language": "Выбранный язык",
+        "theme": "Цветовая схема",
+        "close": "Закрыть",
+        "currency": "Валюта"
+    },
+    "eng": {
+        "title": "Settings",
+        "labels": [
+            "Basic",
+            "Cartify"
+        ],
+        "offline": {
+            "tumbler": "Cache for offline access",
+            "reset": "Update"
+        },
+        "language": "Selected language",
+        "theme": "Color scheme",
+        "close": "Close",
+        "currency": "Currency"
+    }
+}

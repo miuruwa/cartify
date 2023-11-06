@@ -6,8 +6,8 @@ import {
     Button
 } from "@webx/forms"
 
-import SettingsIcon from "@webx/icons/SettingsIcon"
-import {SettingsСard} from "~/Cards/Settings"
+import Icon from "@webx/icons/SettingsIcon"
+import Card from "~/Cards/Settings"
 
 
 function SettingsButton() {
@@ -15,10 +15,10 @@ function SettingsButton() {
 
     const buttonProps = {
         theme: "transparent",
-        icon: <SettingsIcon />,
+        icon: <Icon />,
         title: "Настройки",
         onClick: () => {
-            toolkit.card.show(<SettingsСard />)
+            toolkit.card.show(<Card />)
         }
     }
 
