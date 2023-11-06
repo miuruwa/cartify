@@ -1,6 +1,5 @@
 @import "@webx/utils/optional.scss";
 
-@import "./header.scss";
 @import "./x-block.scss";
 @import "./x-button.scss";
 @import "./x-check-box.scss";
@@ -20,7 +19,6 @@
     .webx {
         font-family: 'TT Commons';
         @include html;
-        @include header;
         @include x-block;
         @include x-button;
         @include x-check-box;

@@ -1,13 +1,14 @@
 import Home from "../components/Home"
-import CartLogoButton from "../components/CartLogoButton"
-import MenuButton from "../components/MenuButton"
+import CartifyLogo from "../components/CartifyLogo"
+import Menu from "../components/Menu"
+
 
 export default function () {
     return <div className="header">
         <div className="header-frame">
             <Home />
-            <CartLogoButton />
-            <MenuButton />
+            <CartifyLogo />
+            <Menu />
         </div>
     </div>
 }

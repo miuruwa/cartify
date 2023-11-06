@@ -1,0 +1,9 @@
+.navigation-card {
+    $point: 4px;
+
+    .x-block {
+        .x-button {
+            padding: $point*1.5 $point*6!important;
+        }
+    }
+}
