@@ -1,5 +1,8 @@
+import {nanoid} from "nanoid"
+
 import { useToolKit } from "@webx/toolkit";
 import { Button, ButtonBlock } from "@webx/forms";
+
 import data from "./data"
 
 
@@ -17,7 +20,7 @@ export default function () {
                     onClick: () => item.action(toolkit)
                 }
 
-                return <Button {...props} />
+                return <Button {...props} key={nanoid()} />
             }
         )}
     </ButtonBlock>
