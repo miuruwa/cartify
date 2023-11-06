@@ -1,10 +1,10 @@
-import Form from "../Form"
+import PinBlock from "../PinBlock"
 import Sheet from "../Sheet"
 
 
 function Cart() {
     return <div className="cart">
-        <Form />
+        <PinBlock />
         <Sheet />
     </div>
 }
