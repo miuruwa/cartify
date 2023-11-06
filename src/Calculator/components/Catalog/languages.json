@@ -1,0 +1,32 @@
+{
+    "ru": {
+        "save": {
+            "headline": "Сохранить список",
+            "name": "Название",
+            "action": "Сохранить"
+        },
+        "search": {
+            "headline": "Найти список",
+            "name": "Название"
+        },
+        "saved": {
+            "headline": "Сохранённые списки",
+            "void": ["Воспользуйтесь колонкой", "Сохранить список"]
+        }
+    },
+    "eng": {
+        "save": {
+            "headline": "Save list",
+            "name": "Name",
+            "action": "Save"
+        },
+        "search": {
+            "headline": "Search list",
+            "name": "Name"
+        },
+        "saved": {
+            "headline": "Saved lists",
+            "void": ["Use a field called", "Save list"]
+        }
+    }
+}

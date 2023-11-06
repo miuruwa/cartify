@@ -7,10 +7,12 @@ import {
 } from "@webx/toolkit"
 
 import Items from "./Items"
+import languages from "../languages";
 
 
 function Search({card}) {
     const toolkit = useToolKit()
+    const actualLanguage = languages[toolkit.settings.language];
 
     const [data, setData] = useState({
         query: "",
@@ -28,16 +30,17 @@ function Search({card}) {
     function ItemsWrap () {
         return <div className="items-wrap">
             <h6>
-                Сохранённые списки
+                {actualLanguage.saved.headline}
             </h6>
             <Items list={data.list} card={card}/>
         </div>
     }
 
     function Finder () {
+
         const inputProps = {
             type: "text", 
-            placeholder: "Название списка",
+            placeholder: actualLanguage.search.name,
             value: data.query, 
             onChange: handleChange
         }
@@ -50,7 +53,7 @@ function Search({card}) {
     function PinBlock () {
         return <div className="pin-block">
             <h6>
-                Найти список
+                {actualLanguage.search.headline}
             </h6>
             <Finder />
         </div>
