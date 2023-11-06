@@ -1,34 +1,47 @@
+import { useToolKit } from "@webx/toolkit"
+
 import {
     CardBlock
 } from "@webx/forms"
 
 import CloseIcon from "@webx/icons/CloseIcon"
 import EditIcon from "@webx/icons/EditIcon"
-import OKButton from "./OKButton"
+import Options from "./Options"
+
+import languages from "./languages"
+import "./stylesheet.scss"
 
 
 function Guide () {
+    const toolkit = useToolKit()
+
+    const actualLanguage = languages[toolkit.settings.language]
+
     const MenuButton = "· · ·"
     const EditButton = <EditIcon fontSize="small" sx={{ transform: "translateY(4px)"}} />
     const CloseButton = <CloseIcon fontSize="small" sx={{ transform: "translateY(4px)"}} />
     
-    return <div className="cartify-message">
-        <h6>
-            Инструкция
-        </h6>
+    return <div className="guide-card">
+        <h3>
+            {actualLanguage.headline}
+        </h3>
         <CardBlock>
-            ✦ Чтобы добавить продукт, добавьте информацию о нём в шапке и нажмите на кнопку "+"
+            <div className="guide-card-content">
+                <p>
+                    {actualLanguage.tipLi} {actualLanguage.data[0]} "+"
+                </p>
+                <p>
+                    {actualLanguage.tipLi} {actualLanguage.data[1][0]} "{MenuButton}" {actualLanguage.data[1][1]} "{actualLanguage.data[1][2]}"
+                </p>
+                <p>
+                    {actualLanguage.tipLi} {actualLanguage.data[2]} "{EditButton}"
+                </p>
+                <p>
+                    {actualLanguage.tipLi} {actualLanguage.data[3]} "{CloseButton}"
+                </p>
+            </div>
+            <Options />
         </CardBlock>
-        <CardBlock>
-            ✦ Чтобы очистить список продуктов, нажмите на кнопку "{MenuButton}" и в выпадающем меню нажмите "Очистить список"
-        </CardBlock>
-        <CardBlock>
-            ✦ Чтобы отредактировать продукт, нажмите на кнопку "{EditButton}"
-        </CardBlock>
-        <CardBlock>
-            ✦ Чтобы убрать один продукт в списке, нажмите на кнопку "{CloseButton}"
-        </CardBlock>
-        <OKButton />
     </div>
 }
 

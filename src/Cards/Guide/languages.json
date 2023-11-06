@@ -1,0 +1,24 @@
+{
+    "ru": {
+        "headline": "Инструкция",
+        "tipLi": "✦",
+        "data": [
+            "Чтобы добавить продукт, добавьте информацию о нём в шапке и нажмите на кнопку",
+            ["Чтобы очистить список продуктов, нажмите на кнопку", " и в выпадающем меню нажмите", "Очистить список"],
+            "Чтобы отредактировать продукт, нажмите на кнопку",
+            "Чтобы убрать один продукт в списке, нажмите на кнопку"
+        ],
+        "button": "Закрыть"
+    },
+    "eng": {
+        "headline": "Guide",
+        "tipLi": "✦",
+        "data": [
+            "To add product, fill the form and press",
+            ["To clear product list, press", "and click", "Clear list"],
+            "To edit product, press",
+            "To remove 1 item in list, press"
+        ],
+        "button": "Close"
+    }
+}
