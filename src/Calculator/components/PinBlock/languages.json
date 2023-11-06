@@ -1,0 +1,14 @@
+{
+    "ru": {
+        "headline": "Добавить продукт",
+        "name": "Название",
+        "quantity": "Количество",
+        "price": "Цена"
+    },
+    "eng": {
+        "headline": "Add Product",
+        "name": "Name",
+        "quantity": "Quantity",
+        "price": "Price"
+    }
+}
