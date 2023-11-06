@@ -6,8 +6,8 @@ import {
     CardBlock, Button
 } from "@webx/forms"
 
-import LanguageDropdown from "./LanguageDropdown"
-import CurrencyDropdown from "./CurrencyDropdown"
+import LanguageDropdown from "./Language"
+import Currency from "./Currency"
 import languages from "./languages"
 
 import "./stylesheet.scss"
@@ -54,12 +54,7 @@ export default function () {
                 <h6>
                     {actualLanguage.labels[1]}
                 </h6>
-                <label>
-                    <p>
-                        {actualLanguage.currency}
-                    </p>
-                    <CurrencyDropdown />
-                </label>
+                <Currency />
             </div>
             <OptionsBlock />
         </CardBlock>
