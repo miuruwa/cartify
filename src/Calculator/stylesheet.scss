@@ -43,7 +43,7 @@
     
     &.screen-device-desktop {
         .calc {
-            grid-template-columns: 1fr 292px 8fr 292px 1fr;
+            grid-template-columns: 1fr 292px minmax(min-content, 720px) 292px 1fr;
             .content-wrap:first-child {
                 grid-column: 2 / span 1;
             }
