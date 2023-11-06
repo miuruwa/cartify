@@ -1,6 +1,6 @@
 {
   "name": "cartify",
-  "version": "2.5.2",
+  "version": "2.6.0",
   "homepage": "https://miuruwa.ru/cartify",
   "private": true,
   "dependencies": {
