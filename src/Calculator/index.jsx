@@ -16,6 +16,11 @@ function Calculator () {
     usePartitions()
     const toolkit = useToolKit()
 
+    if (toolkit.settings.language === "unset" & window.location.pathname !== "/language") {
+        window.localStorage.setItem("get-cache", window.location.href)
+        window.location.pathname = "/language"
+    }
+
     const IS_DESKTOP = toolkit.settings.windowWidth >= 1280
     const IS_TABLET = toolkit.settings.windowWidth >= 768
 
