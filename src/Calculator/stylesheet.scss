@@ -2,7 +2,6 @@
 
 .webx {
     &.screen-device-mobile {
-
         .add-product-form { 
             grid-template-columns: 1fr $point*6 1fr $point*8;
            
@@ -61,298 +60,91 @@
     }
 
     .calc {
+        display: grid!important;
+        gap: $point*2;
         height: calc(100vh - 56px - 12px);
-
+        
         .cart {
             display: flex;
             flex-direction: column;
             height: 100%;
             overflow-y: auto;
+            box-sizing: border-box;
+            border-radius: $point*4;
+            background: #111;
         }
 
         .content-wrap {
+            display: flex;
+            flex-direction: column;
+            border-radius: $point*4;
+            background: #111;
+            box-sizing: border-box;
             height: 100%;
             overflow-y: auto;
+
+
+            &:not(.catalogue-wrap) {
+                padding: 0 $point*2 $point*2;
+            }
+            
+            .pin-block {
+                padding: 0 $point*2;
+                background: #111;
+                padding-bottom: 12px;
+                border-radius: 0 0 $point*3 $point*3;
+                h6 {
+                    padding-left: $point * 3;
+                    padding-right: $point * 3;
+                }
+            }
+
+            .items-wrap {
+                background: #181818;
+                border-radius: $point*4 $point*4 0 0;
+                padding: 0 $point*2;
+            }
+
+            .x-block {
+                box-shadow: none;
+            }
+
+            .catalogue.search {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .items-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1 1 auto;
+
+                    .catalogue-search-void {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex: 1 1 auto;
+                        margin-bottom: $point*2;
+                        box-sizing: border-box;
+                        border: 2px dashed #333;
+                        color: #888;
+                        border-radius: $point*2;
+                        font-size: 20px;
+                        user-select: none;
+
+                        p {
+                            width: 70%;
+                            height: 50%;
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
         }
 
         .add-product-form {
             grid-template-columns: 2fr 1fr 24px 1fr $point*8;
             padding-right: 0!important;
-        }
-    }
-
-    .pin-block {
-        top: 0px;
-        position: sticky;
-
-        input {
-            box-shadow: 0 4px 12px #11111155!important;
-        }
-
-        .add-product-form {
-            display: grid;
-            gap: $point * 2;
-    
-            label {
-                cursor: pointer;
-                input {
-                    display: none;
-                }
-                .x-button {
-                    border-radius: 100%;
-                }
-            }
-    
-            .add-product-separator {
-                display: flex;
-                height: $point*8;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-    
-        .add-product-status {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-            
-            min-height: 32px;
-            border-radius: 32px;
-            user-select: none;
-
-            &.target {
-                border: 2px dashed #222;
-                color: #888;
-            }
-        
-            &.finish {
-                background: #333;
-            }
-        }
-    }
-
-    .sheet {
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 auto;
-
-        .sheet-item {
-            touch-action: none!important;
-            padding: $point*2 $point*2 $point*2 $point*1;
-            margin: 0 $point*2 $point*2;
-            display: flex;
-             
-            .drag-handle {
-                touch-action: none!important;
-                cursor: move;
-                margin: 0;
-                padding: 0;
-                border-radius: 4px;
-                border: none;
-                outline: none;
-                appearance: none;
-                background-color: transparent;
-                -webkit-tap-highlight-color: transparent;
-                margin-right: 8px;
-
-                svg {
-                    touch-action: none!important;
-                    overflow: visible;
-                    fill: #919eab;
-                }
-            }
-
-            .sheet-item-actions {
-                display: flex;
-                height: 32px;
-                margin-left: $point*2;
-
-                .x-button {
-                    &:first-child {
-                        border-top-right-radius: 0;
-                        border-bottom-right-radius: 0;
-                    }
-                    &:last-child {
-                        border-top-left-radius: 0;
-                        border-bottom-left-radius: 0;
-                    }
-                }
-            }
-
-            .sheet-item-data {
-                flex: 1 1 auto;
-
-                .sheet-item-name {
-                    max-width: 100%;
-                    word-break: break-all;
-                    user-select: none;
-                    font-size: 24px;
-                    font-weight: 500;
-                }
-                .sheet-item-calculation {
-                    max-width: 100%;
-                    user-select: none;
-                    font-size: 20px;
-                    nobr {
-                        display: inline-block;
-                    }
-                }
-            }
-
-            form {
-                flex: 1 1 auto;
-            }
-            
-            .sheet-item-form {
-                display: grid;
-                grid-template-columns: 1fr 24px 1fr 1fr;
-                gap: $point*2;
-                .sheet-item-separator {
-                    display: flex;
-                    align-items: center;
-                }
-                .sheet-item-form-cost {
-                    display: flex;
-                    align-items: center;
-                    font-size: 20px;
-                }
-                input {
-                    background: #333;
-                    border-radius: $point;
-                    
-                    &:nth-child(1) {
-                        grid-column: 1 / span 4;
-                    }
-                    
-                    &:nth-child(2) {
-                        grid-column: 1 / span 1;
-                    }
-
-                    &:nth-child(4) {
-                        grid-column: 3 / span 1;
-                    }
-                }
-            }
-        }
-    }
-
-    .catalogue {
-        h6 {
-            padding-left: $point * 3;
-            padding-right: $point * 3;
-        }
-        .x-block {
-            input {
-                background: #333;
-            }
-        }
-
-        &.save {
-            form {
-                display: grid;
-                gap: $point * 2;
-                grid-template-columns: 1fr 32px;
-                label {
-                    .x-button {
-                        display: flex;
-                        justify-content: center;
-                        height: 32px;
-                        border-radius: 32px;
-                    }
-                    input {
-                        display: none;
-                    }
-                }
-            }
-        }
-
-        &.search {
-            .catalogue-search-item {
-                display: flex;
-                margin-bottom: 8px;
-                user-select: none;
-
-                .catalogue-search-item-name {
-                    flex: 1 1 auto;
-                    display: flex;
-                    align-items: center;
-                    padding: 0 8px;
-                    font-size: 20px;
-                    cursor: pointer;
-                    border-radius: 4px;
-
-                    &:hover {
-                        background: #333;
-                    }
-                }
-                .x-button {
-                    width: 32px;
-                }
-            }
-        }
-    }
-
-    .results {
-        display: flex;
-        flex-direction: column;
-        h6 {
-            padding-left: $point * 3;
-            padding-right: $point * 3;
-        }
-        .output {
-            display: flex;
-            flex-direction: column;
-            flex: 1 1 auto;
-            .output-void {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex: 1 1 auto;
-                box-sizing: border-box;
-                border: 2px dashed #222;
-                color: #888;
-                border-radius: $point*2;
-                font-size: 20px;
-                user-select: none;
-
-                p {
-                    width: 70%;
-                    height: 50%;
-                    font-size: 24px;
-                }
-            }
-
-            .x-block {
-                display: grid;
-                margin-bottom: $point*2;
-                padding: $point*2 $point*4 $point*2 $point*4!important;
-                
-                .total-class {
-                    display: flex;
-                    min-height: $point*8;
-                    box-sizing: border-box;
-                    user-select: none;
-                    font-size: 20px;
-        
-                    p { 
-                        padding: $point*1.5 0 $point 0!important;
-                        margin: 0;
-                    }
-        
-                    &:nth-child(2n) {
-                        justify-content: right;
-                        align-items: flex-end;
-                    }
-        
-                    &.change-alert {
-                        p {
-                            color: rgb(221, 19, 46)!important;
-                            font-weight: 500;
-                        }
-                    }
-                }
-            }
         }
     }
 }

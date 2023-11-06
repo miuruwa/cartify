@@ -9,6 +9,7 @@ import {
 } from "./templates"
 
 import "./scss/stylesheet.scss"
+import "./stylesheet.scss"
 
 
 function Calculator () {

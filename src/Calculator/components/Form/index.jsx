@@ -14,6 +14,8 @@ import MultiplyIcon from "@webx/icons/MultiplyIcon"
 import AddIcon from "@webx/icons/AddIcon"
 import AddError from "~/Cards/AddError"
 
+import "./stylesheet.scss"
+
 
 function Multiply () {
     return <div className="add-product-separator">

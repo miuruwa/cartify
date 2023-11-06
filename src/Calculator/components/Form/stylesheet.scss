@@ -1,0 +1,63 @@
+.cart {
+    $point: 4px;
+    
+    .pin-block {
+        top: 0px;
+        position: sticky;
+
+        padding: 0 $point * 3;
+        background: #111;
+        padding-bottom: 12px;
+        border-radius: 0 0 $point*3 $point*3;
+
+        input {
+            box-shadow: 0 4px 12px #11111155!important;
+        }
+
+        .add-product-form {
+            display: grid;
+            gap: $point * 2;
+    
+            label {
+                cursor: pointer;
+                input {
+                    display: none;
+                }
+                .x-button {
+                    border-radius: 100%;
+                }
+            }
+    
+            .add-product-separator {
+                display: flex;
+                height: $point*8;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    
+        .add-product-status {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            
+            min-height: 32px;
+            border-radius: 32px;
+            user-select: none;
+
+            &.target {
+                border: 2px dashed #222;
+                color: #888;
+            }
+        
+            &.finish {
+                background: #333;
+            }
+        }
+        h6 {
+            padding-left: $point * 3;
+            padding-right: $point * 3;
+        }
+    }
+}

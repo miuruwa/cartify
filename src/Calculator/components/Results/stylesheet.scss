@@ -1,0 +1,72 @@
+.results {
+    display: flex;
+    flex-direction: column;
+    $point: 4px;
+    
+    .user-cache {
+        margin-bottom: $point*3;
+    }
+
+    &:last-child {
+        flex: 1 1 auto;
+    }
+
+    h6 {
+        padding-left: $point * 3;
+        padding-right: $point * 3;
+    }
+    .output {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        .output-void {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1 1 auto;
+            box-sizing: border-box;
+            border: 2px dashed #222;
+            color: #888;
+            border-radius: $point*2;
+            font-size: 20px;
+            user-select: none;
+
+            p {
+                width: 70%;
+                height: 50%;
+                font-size: 24px;
+            }
+        }
+
+        .x-block {
+            display: grid;
+            margin-bottom: $point*2;
+            padding: $point*2 $point*4 $point*2 $point*4!important;
+            
+            .total-class {
+                display: flex;
+                min-height: $point*8;
+                box-sizing: border-box;
+                user-select: none;
+                font-size: 20px;
+    
+                p { 
+                    padding: $point*1.5 0 $point 0!important;
+                    margin: 0;
+                }
+    
+                &:nth-child(2n) {
+                    justify-content: right;
+                    align-items: flex-end;
+                }
+    
+                &.change-alert {
+                    p {
+                        color: rgb(221, 19, 46)!important;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
