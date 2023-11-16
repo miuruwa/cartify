@@ -7,6 +7,7 @@ import {
 } from "@webx/components"
 
 import Caching from "./Caching"
+import Currency from "./Currency"
 import Language from "./Language"
 import languages from "./languages"
 
@@ -46,6 +47,14 @@ export default function () {
                 <Grid>
                     <Language />
                     <Caching />
+                </Grid>
+            </Content>
+            <Content>
+                <h6>
+                    {actualLanguage.labels[1]}
+                </h6>
+                <Grid>
+                    <Currency />
                 </Grid>
             </Content>
             <OptionsBlock />

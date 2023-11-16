@@ -5,6 +5,7 @@ import {
 import { useToolKit } from "@webx/toolkit"
 
 import ItemAPIContext from "./Base"
+import EditError from "~/Cards/EditError"
 
 
 export default function ItemContext (props) {
@@ -16,6 +17,16 @@ export default function ItemContext (props) {
     })
 
     function handleChange (newState) {
+        const FAILED_CHECK_FOR_COMPLETE = newState.name === "" || isNaN(parseFloat(newState.quantity)) || isNaN(parseFloat(newState.price));
+
+        if (FAILED_CHECK_FOR_COMPLETE) {
+            toolkit.card.show(<EditError />);
+
+            event.preventDefault();
+
+            return;
+        }
+
         setItem(newState)
 
         toolkit.cartCalc.changeProduct(
@@ -24,6 +35,8 @@ export default function ItemContext (props) {
             newState.quantity,
             newState.price
         )
+        
+        toolkit.cartCalc.targetProduct = null
     }
 
     function handleCancel () {

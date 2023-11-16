@@ -3,6 +3,9 @@
     
     &:not(.active) {
         --active: 0;
+        .webx-dropdown-content {
+            pointer-events: none;
+        }
     }
 
     &.active {
@@ -24,8 +27,9 @@
         -moz-transition: 0.1s ease-in;
         -o-transition: 0.1s ease-in;
         transition: 0.1s ease-in;
+        z-index: 100;
 
-        --dropdown-offset: calc(8px + 8px * var(--active));
+        --dropdown-offset: calc(4px + 4px * var(--active));
         opacity: var(--active);
 
         .card-container, .menu-container {

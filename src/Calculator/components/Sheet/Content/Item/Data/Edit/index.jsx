@@ -25,7 +25,6 @@ export default function (setStateEdit) {
 
     function handleSubmit() {
         item.update(data)
-        toolkit.cartCalc.targetProduct = null
     }
 
     const inputProps = {

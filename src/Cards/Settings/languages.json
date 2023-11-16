@@ -2,7 +2,7 @@
     "ru": {
         "title": "Настройки",
         "labels": [
-            "Базовые"
+            "Базовые", "Cartify"
         ],
         "offline": {
             "tumbler": "Кешировать для офлайн-доступа",
@@ -15,7 +15,7 @@
     "eng": {
         "title": "Settings",
         "labels": [
-            "Basic"
+            "Basic", "Cartify"
         ],
         "offline": {
             "tumbler": "Cache for offline access",
