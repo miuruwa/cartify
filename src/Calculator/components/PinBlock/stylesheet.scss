@@ -6,12 +6,12 @@
         position: sticky;
 
         padding: 0 $point * 3;
-        background: #111;
+        background: rgb(12, 12, 12);
         padding-bottom: 12px;
         border-radius: 0 0 $point*3 $point*3;
 
         input {
-            box-shadow: 0 4px 12px #11111155!important;
+            box-shadow: 0 4px 12px rgb(12, 12, 12)11155!important;
         }
 
         .add-product-form {

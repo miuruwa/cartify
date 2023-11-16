@@ -3,8 +3,8 @@ import {
 } from "@webx/toolkit"
 
 import {
-    CardBlock
-} from "@webx/forms"
+    Card
+} from "@webx/components"
 
 import CartSum from "./CartSum"
 import UserChange from "./UserChange"
@@ -35,10 +35,10 @@ function Calculations () {
         <h6>
             {languages[toolkit.settings.language].calc}
         </h6>
-        <CardBlock>
+        <Card>
             <CartSum />
             <UserChange />
-        </CardBlock>
+        </Card>
     </div>
 }
 

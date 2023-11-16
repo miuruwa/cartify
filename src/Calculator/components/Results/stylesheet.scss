@@ -38,8 +38,9 @@
             }
         }
 
-        .x-block {
+        .card-container {
             display: grid;
+            grid-template-columns: 3fr 2fr;
             margin-bottom: $point*2;
             padding: $point*2 $point*4 $point*2 $point*4!important;
             

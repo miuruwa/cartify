@@ -71,14 +71,14 @@
             overflow-y: auto;
             box-sizing: border-box;
             border-radius: $point*4;
-            background: #111;
+            background: rgb(12, 12, 12);
         }
 
         .content-wrap {
             display: flex;
             flex-direction: column;
             border-radius: $point*4;
-            background: #111;
+            background: rgb(12, 12, 12);
             box-sizing: border-box;
             height: 100%;
             overflow-y: auto;
@@ -90,7 +90,7 @@
             
             .pin-block {
                 padding: 0 $point*2;
-                background: #111;
+                background: rgb(12, 12, 12);
                 padding-bottom: 12px;
                 border-radius: 0 0 $point*3 $point*3;
                 h6 {
@@ -100,7 +100,7 @@
             }
 
             .items-wrap {
-                background: #181818;
+                background: rgb(18, 18, 18);
                 border-radius: $point*4 $point*4 0 0;
                 padding: 0 $point*2;
             }
