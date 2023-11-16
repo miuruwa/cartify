@@ -5,7 +5,8 @@
         "name": "Название",
         "quantity": "Количество",
         "price": "Цена",
-        "done": "Продукт добавлен в список"
+        "done": "Продукт добавлен в список",
+        "target": "Чтобы добавить новый продукт, выйдите из режима редактирования."
     },
     "eng": {
         "headline": "Add Product",
@@ -13,6 +14,7 @@
         "name": "Name",
         "quantity": "Quantity",
         "price": "Price",
-        "done": "Produce has been added to cart"
+        "done": "Produce has been added to cart",
+        "target": "You can't add new product when you edit existing product"
     }
 }
