@@ -8,7 +8,7 @@ import {
 
 import Void from "./Void"
 import Products from "./Products"
-import Item from "./Item"
+import Item from "./NewItem"
 import React from "react"
 
 
@@ -17,8 +17,7 @@ function ItemWrap({content}) {
         return <React.Fragment />
     }
     
-    // return <Item key={nanoid()} item={content} />
-    return <Item key={nanoid()} {...content} />
+    return <Item key={nanoid()} item={content} />
 }
 
 export function Content() {
