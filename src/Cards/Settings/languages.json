@@ -2,31 +2,27 @@
     "ru": {
         "title": "Настройки",
         "labels": [
-            "Базовые",
-            "Cartify"
+            "Базовые"
         ],
         "offline": {
             "tumbler": "Кешировать для офлайн-доступа",
-            "reset": "Обновить"
+            "reset": "Обновить кеш"
         },
         "language": "Выбранный язык",
         "theme": "Цветовая схема",
-        "close": "Закрыть",
-        "currency": "Валюта"
+        "close": "Закрыть"
     },
     "eng": {
         "title": "Settings",
         "labels": [
-            "Basic",
-            "Cartify"
+            "Basic"
         ],
         "offline": {
             "tumbler": "Cache for offline access",
-            "reset": "Update"
+            "reset": "Update cache"
         },
         "language": "Selected language",
         "theme": "Color scheme",
-        "close": "Close",
-        "currency": "Currency"
+        "close": "Close"
     }
 }

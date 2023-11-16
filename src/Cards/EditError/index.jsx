@@ -4,8 +4,8 @@ import {
 
 import {
     Button,
-    CardBlock
-} from "@webx/forms"
+    Card, Content
+} from "@webx/components"
 import React from "react"
 
 import "./stylesheet.scss"
@@ -24,9 +24,9 @@ function OptionsBlock () {
         }
     }
 
-    return <div className="card-options">
+    return <Content className="card-options">
         <Button {...props} />
-    </div>
+    </Content>
 }
 
 export default function () {
@@ -37,13 +37,13 @@ export default function () {
         <h3>
             {actualLanguage.headline}
         </h3>
-        <CardBlock>
-            <div className="error-form-content">
+        <Card>
+            <Content>
                 <p>
                     {actualLanguage.message}
                 </p>
-            </div>
+            </Content>
             <OptionsBlock />
-        </CardBlock>
+        </Card>
     </div>
 }

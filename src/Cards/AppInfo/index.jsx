@@ -1,7 +1,7 @@
 import { useToolKit } from "@webx/toolkit"
 import {
-    CardBlock, Button
-} from "@webx/forms"
+    Card, Content, Grid, Button
+} from "@webx/components"
 
 import languages from "./languages"
 import "./stylesheet.scss"
@@ -19,9 +19,9 @@ function OptionsBlock () {
         }
     }
 
-    return <div className="card-options">
+    return <Card className="card-options">
         <Button {...props} />
-    </div>
+    </Card>
 }
 
 function AppInfo() {
@@ -32,27 +32,25 @@ function AppInfo() {
         <h3>
             {actualLanguage.labels.headline}
         </h3>
-        <CardBlock>
-            <div className="app-info-card-content">
-                <label>
+        <Card>
+            <Content>
+                <Grid>
                     <b>
                         {actualLanguage.labels.appName}:
                     </b>
-                    <p>
+                    <h4>
                         {actualLanguage.appName}
-                    </p>
-                </label>
-                <label>
+                    </h4>
                     <b>
                         {actualLanguage.labels.version}:
                     </b>
-                    <p>
-                        2.6.0
-                    </p>
-                </label>
-            </div>
+                    <h4>
+                        2.7.0
+                    </h4>
+                </Grid>
+            </Content>
             <OptionsBlock />
-        </CardBlock>
+        </Card>
     </div>
 }
 

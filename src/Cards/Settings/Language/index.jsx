@@ -2,10 +2,12 @@ import {
     useToolKit
 } from "@webx/toolkit"
 
+import {Label } from "@webx/components"
+
 import {
     Button,
     Dropdown
-} from "@webx/forms"
+} from "@webx/components"
 
 import languages from "./languages"
 import LanguageButtonList from "./LanguageButtonList"
@@ -19,21 +21,21 @@ export default function () {
     const actualLanguage = languages.data[~actualLanguageID ? actualLanguageID : 0]
 
     const buttonProps = {
-        theme: "white",
         title: actualLanguage.title,
         isDropdown: true
     }
     const dropdownProps = {
-        dropdown: <LanguageButtonList />,
-        contentPosition: "bottom-right",
+        content: <LanguageButtonList />,
+        position: "bottom",
+        orientation: "right",
         listDirection: "row",
         children: <Button {...buttonProps} />
     }
 
-    return <label>
-        <p>
+    return <>
+        <Label>
             {labelTitle}
-        </p>
+        </Label>
         <Dropdown {...dropdownProps} />
-    </label>
+    </>
 }

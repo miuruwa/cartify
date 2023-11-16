@@ -1,5 +1,7 @@
 import { useToolKit } from "@webx/toolkit"
 
+import {Label } from "@webx/components"
+
 import Tumbler from "./Tumbler"
 import Button from "./Button"
 
@@ -10,13 +12,13 @@ export default function () {
     const toolkit = useToolKit()
     const actualLanguage = languages[toolkit.settings.language]
 
-    return <label>
-        <p>
+    return <>
+        <Label>
             {actualLanguage.tumbler}
-        </p>
+        </Label>
         <div className="settings-card-caching">
             <Tumbler />
             <Button />
         </div>
-    </label>
+    </>
 }

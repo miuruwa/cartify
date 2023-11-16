@@ -1,8 +1,8 @@
 import { useToolKit } from "@webx/toolkit"
 
 import {
-    CardBlock
-} from "@webx/forms"
+    Card, Content
+} from "@webx/components"
 
 import CloseIcon from "@webx/icons/CloseIcon"
 import EditIcon from "@webx/icons/EditIcon"
@@ -25,8 +25,8 @@ function Guide () {
         <h3>
             {actualLanguage.headline}
         </h3>
-        <CardBlock>
-            <div className="guide-card-content">
+        <Card>
+            <Content>
                 <p>
                     {actualLanguage.tipLi} {actualLanguage.data[0]} "+"
                 </p>
@@ -39,9 +39,9 @@ function Guide () {
                 <p>
                     {actualLanguage.tipLi} {actualLanguage.data[3]} "{CloseButton}"
                 </p>
-            </div>
+            </Content>
             <Options />
-        </CardBlock>
+        </Card>
     </div>
 }
 

@@ -4,7 +4,7 @@ import {
 
 import {
     Tumbler
-} from "@webx/forms"
+} from "@webx/components"
 
 import {
     register, unregister

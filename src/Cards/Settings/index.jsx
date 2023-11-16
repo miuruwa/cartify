@@ -3,15 +3,14 @@ import {
 } from "@webx/toolkit"
 
 import { 
-    CardBlock, Button
-} from "@webx/forms"
+    Card, Content, Grid, Button
+} from "@webx/components"
 
-import LanguageDropdown from "./Language"
-import Currency from "./Currency"
+import Caching from "./Caching"
+import Language from "./Language"
 import languages from "./languages"
 
 import "./stylesheet.scss"
-import Caching from "./Caching"
 
 
 function OptionsBlock () {
@@ -26,9 +25,9 @@ function OptionsBlock () {
         }
     }
 
-    return <div className="card-options">
+    return <Content className="card-options">
         <Button {...props} />
-    </div>
+    </Content>
 }
 
 export default function () {
@@ -36,27 +35,20 @@ export default function () {
     const actualLanguage = languages[toolkit.settings.language]
 
     return <form className="settings-card">
-        <h3>
+        <h4>
             {actualLanguage.title}
-        </h3>
-        <CardBlock>
-            <div className="settings-card-content">
+        </h4>
+        <Card>
+            <Content>
                 <h6>
                     {actualLanguage.labels[0]}
                 </h6>
-                <LanguageDropdown />
-                <Caching />
-                <label>
-                    <p>
-                        <></>
-                    </p>
-                </label>
-                <h6>
-                    {actualLanguage.labels[1]}
-                </h6>
-                <Currency />
-            </div>
+                <Grid>
+                    <Language />
+                    <Caching />
+                </Grid>
+            </Content>
             <OptionsBlock />
-        </CardBlock>
+        </Card>
     </form>
 }

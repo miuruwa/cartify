@@ -3,8 +3,8 @@ import {
 } from "@webx/toolkit"
 
 import { 
-    Button
-} from "@webx/forms"
+    Button, Content
+} from "@webx/components"
 
 import languages from "./languages"
 
@@ -22,7 +22,7 @@ export default function () {
         }
     }
 
-    return <div className="card-options">
-        <Button {...props} />
-    </div>
+    return <Content className="card-options">
+    <Button {...props} />
+</Content>
 }

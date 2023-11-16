@@ -4,14 +4,14 @@ import {
 
 import {
     Button
-} from "@webx/forms"
+} from "@webx/components"
 
 
 export default function ({ selectedLanguage }) {
     const toolkit = useToolKit()
 
     const props = {
-        theme: "transparent",
+        theme: "menu",
         title: selectedLanguage.title,
         onClick: () => {
             toolkit.settings.language = selectedLanguage.name

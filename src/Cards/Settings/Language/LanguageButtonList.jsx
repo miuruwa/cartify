@@ -3,8 +3,8 @@ import {
 } from "nanoid"
 
 import {
-    ButtonBlock
-} from "@webx/forms"
+    Menu
+} from "@webx/components"
 
 import languages from "./languages"
 
@@ -12,9 +12,9 @@ import LanguageButton from "./LanguageButton"
 
 
 export default function () {
-    return <ButtonBlock>
+    return <Menu>
         {languages.data.map(
             item => <LanguageButton key={nanoid()} selectedLanguage={item} />
         )}
-    </ButtonBlock>
+    </Menu>
 }
