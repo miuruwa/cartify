@@ -1,18 +1,12 @@
-import { 
-    useContext
-} from "react"
-
-import Form from "./Form"
-import Display from "./Display"
-import ItemAPIContext from "../Context"
+import { useState } from "react"
+import { useItem } from "../Item"
+import Edit from "./Edit"
+import Info from "./Info"
 
 
-function Data() {
-    const itemAPI = useContext(ItemAPIContext)
+export default function () {
+    const item = useItem()
+    
 
-    return itemAPI.is_target() ? <Form /> : <Display />
-}
-
-export {
-    Data, ItemAPIContext as ItemContext
+    return item.is_target() ? Edit() : Info()
 }

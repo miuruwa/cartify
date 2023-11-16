@@ -8,7 +8,7 @@ import {
 
 import Void from "./Void"
 import Products from "./Products"
-import Item from "./NewItem"
+import Item from "./Item"
 import React from "react"
 
 
