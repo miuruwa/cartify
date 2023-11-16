@@ -1,7 +1,7 @@
 import {nanoid} from "nanoid"
 
 import { useToolKit } from "@webx/toolkit";
-import { Button, ButtonBlock } from "@webx/forms";
+import { Button, Menu } from "@webx/components";
 
 import data from "./data"
 
@@ -10,12 +10,12 @@ export default function () {
     const toolkit = useToolKit()
     const actualLanguage = data.languages[toolkit.settings.language]
     
-    return <ButtonBlock>
+    return <Menu>
         {data.dropdown.map(
             item => {
                 const props = {
                     icon: item.icon,
-                    theme: "transparent",
+                    theme: "menu",
                     title: actualLanguage[item.title],
                     onClick: () => item.action(toolkit)
                 }
@@ -23,5 +23,5 @@ export default function () {
                 return <Button {...props} key={nanoid()} />
             }
         )}
-    </ButtonBlock>
+    </Menu>
 }

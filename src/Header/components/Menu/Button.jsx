@@ -1,5 +1,5 @@
 import { useToolKit } from "@webx/toolkit"
-import { Dropdown } from "@webx/forms"
+import { Dropdown } from "@webx/components"
 import MenuIcon from "@webx/icons/MenuIcon"
 
 import Navigation from "./Navigation"
@@ -16,9 +16,10 @@ export default function () {
     };
     const dropdownProps = {
         children: <MenuIcon />,
-        dropdown: <Navigation />,
-        contentPosition: "bottom-right",
-        closeOnHover: false
+        content: <Navigation />,
+        position: "bottom",
+        orientation: "right",
+        listDirection: "row"
     };
 
     return <div {...buttonProps}>

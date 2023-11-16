@@ -61,6 +61,10 @@
     &.theme-menu {
         gap: 24px;
         padding: 6px 24px;
+
+        .webx-button-title {
+            white-space: nowrap;
+        }
         
         &:hover {
             background: rgba(255, 255, 255, 0.1);
