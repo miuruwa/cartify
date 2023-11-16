@@ -9,7 +9,7 @@ export default function(props) {
 
     const containerProps = {
         className: classList.join(" "),
-        style: xstyle,
+        xstyle: xstyle,
         xref: xref,
         children,
         onClick

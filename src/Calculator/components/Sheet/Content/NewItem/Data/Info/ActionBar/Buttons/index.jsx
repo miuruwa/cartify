@@ -3,9 +3,8 @@ import Remove from "./Remove"
 
 
 export default function Buttons() {
-
-    return <>
+    return <div className="sheet-buttons">
         <Edit />
         <Remove />
-    </>
+    </div>
 }

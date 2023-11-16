@@ -1,13 +1,9 @@
 .product-handler {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
 
     background: none;
     border: 0;
     border-radius: 8px;
-    width: 40px;
-    padding: 14px 10px;
+    width: 30px;
 
     cursor: move;
 }
@@ -15,12 +11,45 @@
 .sheet-product-block {
     display: flex;
 
-    form {
+    .sheet-buttons {
         display: flex;
-        
         .webx-button {
             height: 40px;
             box-sizing: border-box;
+        }
+    }
+
+    form {
+        width: 100%;
+        .product-name-field {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            
+        }
+
+        label {
+            input {
+                display: none;
+            }
+        }
+        
+        .product-summ-field {
+            margin-top: 8px;
+            display: grid;
+            align-items: center;
+            gap: 8px;
+            grid-template-columns: 1fr 20px 1fr 1fr;
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        h4 {
+            text-align: right;
+            margin: 0;
         }
     }
 }

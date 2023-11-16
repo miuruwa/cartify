@@ -17,6 +17,13 @@ export default function ItemContext (props) {
 
     function handleChange (newState) {
         setItem(newState)
+
+        toolkit.cartCalc.changeProduct(
+            item.id,
+            newState.name,
+            newState.quantity,
+            newState.price
+        )
     }
 
     function handleCancel () {

@@ -5,6 +5,7 @@ import { useToolKit } from "@webx/toolkit";
 import { useItem } from "../../Item"
 import languages from "../../languages"
 import Buttons from "./Buttons";
+import MultiplyIcon from "@webx/icons/MultiplyIcon";
 
 
 export default function (setStateEdit) {
@@ -22,32 +23,57 @@ export default function (setStateEdit) {
         ));
     }
 
+    function handleSubmit() {
+        item.update(data)
+        toolkit.cartCalc.targetProduct = null
+    }
+
+    const inputProps = {
+        type: "text",
+        onChange: handleChange,
+    }
+
+    const valueProps = {
+        ...inputProps,
+        inputMode: "decimal"
+    }
+
     const nameProps = {
-        type: "text", name: "name",
-        value: data.name, onChange: item.update,
+        ...inputProps,
+        name: "name",
+        value: data.name,
         placeholder: actualLanguage.name
     }
 
     const priceProps = {
-        type: "text", name: "price", inputMode: "decimal",
-        value: data.price === 0 ? "" : data.price,
-        onChange: handleChange,
+        ...valueProps,
+        name: "price",
+        value: data.price,
         placeholder: actualLanguage.price
     }
 
     const quantityProps = {
-        type: "text", name: "quantity", inputMode: "decimal",
-        value: data.quantity === 0 ? "" : data.quantity,
-        onChange: handleChange,
+        ...valueProps,
+        name: "quantity",
+        value: data.quantity,
         placeholder: actualLanguage.quantity
     }
 
-    return <form>
-        <div>
+    const summ = data.price * data.quantity
+
+    return <form onSubmit={handleSubmit}>
+        <div className="product-name-field">
             <input {...nameProps} />
-            <input {...priceProps} />
-            <input {...quantityProps} />
+            <Buttons />
         </div>
-        <Buttons />
+        <div className="product-summ-field">
+            <input {...priceProps} />
+            <MultiplyIcon />
+            <input {...quantityProps} />
+            <h4>
+                &nbsp;=&nbsp;
+                {toolkit.cartCalc.wrapMoney(summ)}
+            </h4>
+        </div>
     </form>
 }

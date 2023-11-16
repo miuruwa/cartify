@@ -7,12 +7,5 @@ export default function Summ() {
     const item = useItem()
     const summ = item.product.price * item.product.quantity
 
-    return <>
-        <h6>
-            Summ
-        </h6>
-        <p>
-            {toolkit.cartCalc.wrapMoney(summ)}
-        </p>
-    </>
+    return toolkit.cartCalc.wrapMoney(summ)
 }

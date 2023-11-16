@@ -14,7 +14,7 @@ export default function (props) {
     } = props
 
     const style = {
-        opacity: isDragging ? 0.4 : undefined,
+        opacity: isDragging ? 0.4 : 1,
         transform: CSS.Translate.toString(transform),
         transition
     }

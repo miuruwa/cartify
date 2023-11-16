@@ -4,8 +4,8 @@ import Cancel from "./Cancel"
 
 export default function Buttons() {
 
-    return <>
+    return <div className="sheet-buttons">
         <Save />
         <Cancel />
-    </>
+    </div>
 }
