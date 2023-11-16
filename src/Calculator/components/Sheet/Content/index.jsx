@@ -12,18 +12,19 @@ import Item from "./Item"
 import React from "react"
 
 
-function ItemWrap(props) {
-    if (!props.content) {
+function ItemWrap({content}) {
+    if (!content) {
         return <React.Fragment />
     }
     
-    return <Item key={nanoid()} {...props.content} />
+    // return <Item key={nanoid()} item={content} />
+    return <Item key={nanoid()} {...content} />
 }
 
 export function Content() {
     const toolkit = useToolKit()
     const props = {
-        renderItem: content => <ItemWrap content={content}/>
+        renderItem: content => <ItemWrap key={nanoid()} content={content}/>
     }
 
     if (toolkit.cartCalc.list.length === 0) {

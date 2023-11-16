@@ -15,7 +15,7 @@ function Display() {
 
     function Price() {
         return <nobr>
-            {itemAPI.item.price}{toolkit.cartCalc.currency}
+            {toolkit.cartCalc.wrapMoney(itemAPI.item.price)}
         </nobr>
     }
 
@@ -29,7 +29,7 @@ function Display() {
         const cost = itemAPI.item.quantity * itemAPI.item.price
 
         return <nobr>
-            {cost.toFixed(2)}{toolkit.cartCalc.currency}
+            {toolkit.cartCalc.wrapMoney(cost)}
         </nobr>
     }
 

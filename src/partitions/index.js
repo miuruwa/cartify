@@ -47,9 +47,19 @@ function usePagesAPI () {
     
 }
 
+function LanguageCheck() {
+    const toolkit = useToolKit()
+
+    if (toolkit.settings.language === "unset" & window.location.pathname !== "/language") {
+        window.localStorage.setItem("get-cache", window.location.href)
+        window.location.pathname = "/language"
+    }
+}
+
 function usePartitions () {
     useCalculatorAPI()
     usePagesAPI()
+    LanguageCheck()
 }
 
 export default usePartitions

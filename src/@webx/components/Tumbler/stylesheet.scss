@@ -1,0 +1,40 @@
+.webx-tumbler {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    
+    .component {
+        user-select: none;
+        cursor: pointer;
+        width: 48px;
+        height: 24px;
+        box-sizing: border-box;
+        border-radius: 100px;
+        transition: 0.1s;
+
+        div {
+            width: 16px;
+            height: 16px;
+            transition: 0.1s;
+            border-radius: 100px;
+            margin-top: 3px;
+        }
+
+        &.active {
+            background: var(--cobalt-blue);
+            border: 1px solid var(--cobalt-blue);
+            div {
+                background: var(--white);
+                margin-left: 27px;
+            }
+        }
+
+        &:not(.active) {
+            div {
+                background: var(--white);
+                margin-left: 3px;
+            }
+            border: 1px solid var(--white);
+        }
+    }
+}

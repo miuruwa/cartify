@@ -21,8 +21,7 @@ function SumValue () {
     
     return <div className="total-class">
         <p>
-            {toolkit.cartCalc.totalCost}
-            {toolkit.cartCalc.currency}
+            {toolkit.cartCalc.wrapMoney(toolkit.cartCalc.totalCost)}
         </p>
     </div>
 }

@@ -24,8 +24,7 @@ function UserChange() {
     function ChangeValue () {
         return <div {...props}>
             <p>
-                {Math.abs(toolkit.cartCalc.change)}
-                {toolkit.cartCalc.currency}
+                {toolkit.cartCalc.wrapMoney(Math.abs(toolkit.cartCalc.change))}
             </p>
         </div>
     }

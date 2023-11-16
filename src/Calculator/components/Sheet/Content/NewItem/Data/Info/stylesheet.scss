@@ -1,0 +1,26 @@
+.product-action-bar {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+
+    h4 {
+        flex: 1 1 auto !important;
+        margin: 6px 0!important;
+    }
+
+    .webx-button {
+        height: 40px;
+        box-sizing: border-box;
+    }
+}
+
+.product-calculations-bar {
+    p {
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+}
+
+.product-info {
+    width: 100%;
+}

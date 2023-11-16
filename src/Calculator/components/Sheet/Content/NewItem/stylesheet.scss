@@ -1,0 +1,26 @@
+.product-handler {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    background: none;
+    border: 0;
+    border-radius: 8px;
+    width: 40px;
+    padding: 14px 10px;
+
+    cursor: move;
+}
+
+.sheet-product-block {
+    display: flex;
+
+    form {
+        display: flex;
+        
+        .webx-button {
+            height: 40px;
+            box-sizing: border-box;
+        }
+    }
+}

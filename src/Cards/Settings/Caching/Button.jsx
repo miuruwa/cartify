@@ -6,7 +6,6 @@ import {
     Button
 } from "@webx/forms"
 
-import UpdateCacheIcon from "@webx/icons/UpdateCacheIcon"
 import * as serviceWorkerRegistration from '~/serviceWorkerRegistration'
 import languages from "./languages"
 
@@ -17,7 +16,6 @@ export default function () {
 
     const buttonProps = {
         className: "settings-block",
-        icon: <UpdateCacheIcon />,
         theme: "white",
         title: actualLanguage.reset,
         onClick: () => {

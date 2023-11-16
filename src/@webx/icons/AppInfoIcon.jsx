@@ -1,4 +1,4 @@
-function AppInfoIcon () {
+export default function () {
     return <svg width="20" height="20" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
         <path fillRule="evenodd" clipRule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18ZM10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20Z" />
         <path d="M11.2 5.76316C11.2 6.46078 10.6627 7.02632 10 7.02632C9.33726 7.02632 8.8 6.46078 8.8 5.76316C8.8 5.06554 9.33726 4.5 10 4.5C10.6627 4.5 11.2 5.06554 11.2 5.76316Z" />
@@ -7,5 +7,3 @@ function AppInfoIcon () {
         <path d="M8.8 9.81579H11.2V14.2368H8.8V9.81579Z" />
     </svg>
 }
-
-export default AppInfoIcon

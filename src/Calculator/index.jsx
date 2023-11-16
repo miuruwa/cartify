@@ -1,38 +1,14 @@
-import {
-    useToolKit
-} from "@webx/toolkit"
+import { useToolKit } from "@webx/toolkit"
 
 import usePartitions from "~/partitions"
-
-import {
-    DesktopTemplate, MobileTemplate, TabletTemplate
-} from "./templates"
+import Layout from "./Layout"
 
 import "./scss/stylesheet.scss"
 import "./stylesheet.scss"
 
 
-function Calculator () {
+export default function () {
     usePartitions()
-    const toolkit = useToolKit()
 
-    if (toolkit.settings.language === "unset" & window.location.pathname !== "/language") {
-        window.localStorage.setItem("get-cache", window.location.href)
-        window.location.pathname = "/language"
-    }
-
-    const IS_DESKTOP = toolkit.settings.windowWidth >= 1280
-    const IS_TABLET = toolkit.settings.windowWidth >= 768
-
-    if (IS_DESKTOP) {
-        return <DesktopTemplate />
-    }
-
-    if (IS_TABLET) {
-        return <TabletTemplate />
-    }
-
-    return <MobileTemplate />
+    return <Layout />
 }
-
-export default Calculator

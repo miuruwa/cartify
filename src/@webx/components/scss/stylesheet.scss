@@ -1,0 +1,79 @@
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --space: #41424C;
+    --signal-black: #1D1D1F;
+    --cobalt-blue: #0147C2;
+    --sapphire: #060F5C;
+    --dark-blue: #09002C;
+}
+
+body {
+    font-family: 'TT Commons';
+    font-size: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'TT Travels';
+}
+
+h1, h2, h3, h4 {
+    margin-block-start: 24px;
+    margin-block-end: 12px;
+    color: var(--white);
+}
+
+h5, h6 {
+    color: var(--space);
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 32px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    margin-block-start: 12px;
+    margin-block-end: 12px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+h6 {
+    margin-block-start: 12px;
+    margin-block-end: 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input {
+    padding: 4px 12px;
+    border: 1px solid var(--space);
+    border-radius: 100px;
+    background: var(--signal-black);
+    outline: none;
+    font-family: 'TT Commons';
+    font-size: 20px;
+    color: var(--white);
+
+    &:focus {
+        background: var(--space);
+    }
+
+    &::placeholder {
+        color: var(--space);
+        opacity: 1;
+    }
+}

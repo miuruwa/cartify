@@ -224,4 +224,11 @@ export class Partition {
     getNames () {
         return this.catalogue.map(item => item.name)
     }
+
+    wrapMoney (value) {
+        if (this.currency === "$") {
+            return `${this.currency}${value}`
+        }
+        return `${value}${this.currency}`
+    }
 }

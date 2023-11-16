@@ -1,0 +1,72 @@
+.webx-button {
+    display: flex;
+    align-items: center;
+
+    user-select: none;
+    cursor: pointer;
+
+    .webx-button-icon {
+        width: 20px;
+        height: 20px;
+    }
+    .webx-button-title {
+        flex: 1 1 auto;
+        color: var(--white);
+        font-family: 'TT Commons';
+        font-size: 20px;
+    }
+
+    &.theme-white {
+        gap: 10px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        background: var(--signal-black);
+        box-shadow: 0 0 0 1px var(--space);
+
+        &:hover {
+            background: color-mix(in oklab, var(--signal-black), var(--white) 10%);
+        }
+        &:active {
+            background: color-mix(in oklab, var(--signal-black), var(--black) 10%);
+        }
+    }
+
+    &.theme-usual {
+        gap: 10px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        background: var(--cobalt-blue);
+
+        &:hover {
+            background: color-mix(in oklab, var(--cobalt-blue), var(--white) 10%);
+        }
+        &:active {
+            background: color-mix(in oklab, var(--cobalt-blue), var(--black) 10%);
+        }
+    }
+
+    &.theme-transparent {
+        gap: 10px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        &:active {
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &.theme-menu {
+        gap: 24px;
+        padding: 6px 24px;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        &:active {
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+}

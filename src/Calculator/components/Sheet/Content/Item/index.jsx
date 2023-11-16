@@ -23,7 +23,13 @@ import ItemAPIContext from "./Context"
 import DragHandler from "./DragHandle"
 
 import SortableItemContext from "../SortableItemContext"
+import { Card } from "@webx/components"
   
+function RemovingStatus () {
+    return <div className="x-block">
+        Removing...
+    </div>
+}
 
 function Item(itemRAW) {
     const toolkit = useToolKit()
@@ -92,31 +98,21 @@ function Item(itemRAW) {
     }
 
     const props = {
-        className: "x-block sheet-item",
-        style: style,
-        ref: setNodeRef
+        className: "sheet-item",
+        xstyle: style,
+        xref: setNodeRef
     }
 
     function Content () {
-        return <div {...props}>
+        return <Card {...props}>
             <DragHandler />
             <Data />
             <Actions />
-        </div>
-    }
-
-    function RemovingStatus () {
-        return <div className="x-block">
-            Removing...
-        </div>
+        </Card>
     }
 
     function ToggleContent () {
-        if (item.removingStatus) {
-            return <RemovingStatus />
-        }
-
-        return <Content />
+        return item.removingStatus ? <RemovingStatus /> : <Content />
     }
 
     return <SortableItemContext.Provider value={context}>
